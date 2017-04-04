@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto_2160446_2161729_2160484 {
+namespace Projeto {
     public partial class formLogin : Form {
         public formLogin() {
             InitializeComponent();

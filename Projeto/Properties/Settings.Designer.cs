@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projeto_2160446_2161729_2160484.Properties {
+namespace Projeto.Properties {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

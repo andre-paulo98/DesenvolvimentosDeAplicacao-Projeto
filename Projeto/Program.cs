@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto_2160446_2161729_2160484 {
+namespace Projeto {
     static class Program {
         /// <summary>
         /// The main entry point for the application.
@@ -13,7 +13,7 @@ namespace Projeto_2160446_2161729_2160484 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new formLogin());
         }
     }
 }

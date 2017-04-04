@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projeto_2160446_2161729_2160484.Properties {
+namespace Projeto.Properties {
 
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Projeto_2160446_2161729_2160484.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if((resourceMan == null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Projeto_2160446_2161729_2160484.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Projeto.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
