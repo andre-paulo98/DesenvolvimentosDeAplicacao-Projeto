@@ -16,6 +16,8 @@ namespace Projeto {
         }
 
         private void btLogin_Click(object sender, EventArgs e) {
+            formGestaoUtilizadores gestaousers = new formGestaoUtilizadores();
+            gestaousers.Show();
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
             formPrincipal.Show();
