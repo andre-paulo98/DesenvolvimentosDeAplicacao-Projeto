@@ -13,5 +13,10 @@ namespace Projeto {
         public formLogin() {
             InitializeComponent();
         }
+
+        private void btLogin_Click(object sender, EventArgs e) {
+            string username = tbUtilizador.Text;
+            string password = tbPassword.Text;
+        }
     }
 }
