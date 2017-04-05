@@ -17,14 +17,6 @@ namespace Projeto
             InitializeComponent();
         }
 
-        private void gbUtilizadores_Paint(object sender, PaintEventArgs e)
-        {
-            Image newImage = Image.FromFile("JESUSI.jpg");
-            Point ulCorner = new Point(100, 100);
-            e.Graphics.DrawImage(newImage,ulCorner);
-        
-        }
-
         private void btUtilizadores_Click(object sender, EventArgs e)
         {
             formGestaoUtilizadores gestaousers = new formGestaoUtilizadores();
