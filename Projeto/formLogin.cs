@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Projeto {
     public partial class formLogin : Form {
+        formPrincipal formPrincipal = new formPrincipal();
         public formLogin() {
             InitializeComponent();
         }
@@ -19,6 +20,8 @@ namespace Projeto {
             gestaousers.Show();
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
+            formPrincipal.Show();
+            Hide();
         }
     }
 }
