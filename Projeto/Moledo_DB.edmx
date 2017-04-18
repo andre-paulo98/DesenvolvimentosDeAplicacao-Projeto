@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="User" EntityType="Model1.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game" EntityType="Model1.Store.Game" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Deck" EntityType="Model1.Store.Deck" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Card" EntityType="Model1.Store.Card" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Team" EntityType="Model1.Store.Team" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament" EntityType="Model1.Store.Tournament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Player" EntityType="Model1.Store.Player" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Referee" EntityType="Model1.Store.User_Referee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game_TeamGame" EntityType="Model1.Store.Game_TeamGame" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament_TeamTournament" EntityType="Model1.Store.Tournament_TeamTournament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament_StandardToutnament" EntityType="Model1.Store.Tournament_StandardToutnament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game_StandardGame" EntityType="Model1.Store.Game_StandardGame" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Administrador" EntityType="Model1.Store.User_Administrador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeckCard" EntityType="Model1.Store.DeckCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StandardToutnamentPlayer" EntityType="Model1.Store.StandardToutnamentPlayer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamPlayer" EntityType="Model1.Store.TeamPlayer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamTournamentTeam" EntityType="Model1.Store.TeamTournamentTeam" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RefereeGame" Association="Model1.Store.RefereeGame">
+      <End Role="Referee" EntitySet="User_Referee" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="GameDeck1" Association="Model1.Store.GameDeck1">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Deck" EntitySet="Deck" />
+    </AssociationSet>
+    <AssociationSet Name="GameDeck2" Association="Model1.Store.GameDeck2">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Deck" EntitySet="Deck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeckCard_Deck" Association="Model1.Store.FK_DeckCard_Deck">
+      <End Role="Deck" EntitySet="Deck" />
+      <End Role="DeckCard" EntitySet="DeckCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeckCard_Card" Association="Model1.Store.FK_DeckCard_Card">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="DeckCard" EntitySet="DeckCard" />
+    </AssociationSet>
+    <AssociationSet Name="TeamGameTeam" Association="Model1.Store.TeamGameTeam">
+      <End Role="TeamGame" EntitySet="Game_TeamGame" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="TeamGameTeam1" Association="Model1.Store.TeamGameTeam1">
+      <End Role="TeamGame" EntitySet="Game_TeamGame" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="TeamTournamentTeamGame" Association="Model1.Store.TeamTournamentTeamGame">
+      <End Role="TeamGame" EntitySet="Game_TeamGame" />
+      <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardToutnamentPlayer_StandardToutnament" Association="Model1.Store.FK_StandardToutnamentPlayer_StandardToutnament">
+      <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
+      <End Role="StandardToutnamentPlayer" EntitySet="StandardToutnamentPlayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardToutnamentPlayer_Player" Association="Model1.Store.FK_StandardToutnamentPlayer_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="StandardToutnamentPlayer" EntitySet="StandardToutnamentPlayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamPlayer_Team" Association="Model1.Store.FK_TeamPlayer_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="TeamPlayer" EntitySet="TeamPlayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamPlayer_Player" Association="Model1.Store.FK_TeamPlayer_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="TeamPlayer" EntitySet="TeamPlayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamTournamentTeam_TeamTournament" Association="Model1.Store.FK_TeamTournamentTeam_TeamTournament">
+      <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
+      <End Role="TeamTournamentTeam" EntitySet="TeamTournamentTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamTournamentTeam_Team" Association="Model1.Store.FK_TeamTournamentTeam_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="TeamTournamentTeam" EntitySet="TeamTournamentTeam" />
+    </AssociationSet>
+    <AssociationSet Name="StandardToutnamentStandardGame" Association="Model1.Store.StandardToutnamentStandardGame">
+      <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
+      <End Role="StandardGame" EntitySet="Game_StandardGame" />
+    </AssociationSet>
+    <AssociationSet Name="PlayerStandardGame" Association="Model1.Store.PlayerStandardGame">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="StandardGame" EntitySet="Game_StandardGame" />
+    </AssociationSet>
+    <AssociationSet Name="PlayerStandardGame1" Association="Model1.Store.PlayerStandardGame1">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="StandardGame" EntitySet="Game_StandardGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Referee_inherits_User" Association="Model1.Store.FK_Referee_inherits_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Referee" EntitySet="User_Referee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamGame_inherits_Game" Association="Model1.Store.FK_TeamGame_inherits_Game">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="TeamGame" EntitySet="Game_TeamGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamTournament_inherits_Tournament" Association="Model1.Store.FK_TeamTournament_inherits_Tournament">
+      <End Role="Tournament" EntitySet="Tournament" />
+      <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardToutnament_inherits_Tournament" Association="Model1.Store.FK_StandardToutnament_inherits_Tournament">
+      <End Role="Tournament" EntitySet="Tournament" />
+      <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandardGame_inherits_Game" Association="Model1.Store.FK_StandardGame_inherits_Game">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="StandardGame" EntitySet="Game_StandardGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administrador_inherits_User" Association="Model1.Store.FK_Administrador_inherits_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Administrador" EntitySet="User_Administrador" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Referee_Id" Type="int" Nullable="true" />
+    <Property Name="DeckOne_Id" Type="int" Nullable="true" />
+    <Property Name="DeckTwo_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Deck">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Faction" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cost" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Loyalty" Type="smallint" Nullable="false" />
+    <Property Name="Rules" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Attack" Type="smallint" Nullable="false" />
+    <Property Name="Defense" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tournament">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Descrition" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nickname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Referee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game_TeamGame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TeamOne_Id" Type="int" Nullable="true" />
+    <Property Name="TeamTwo_Id" Type="int" Nullable="true" />
+    <Property Name="Tournament_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tournament_TeamTournament">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tournament_StandardToutnament">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game_StandardGame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Toutnament_Id" Type="int" Nullable="false" />
+    <Property Name="PlayerOne_Id" Type="int" Nullable="true" />
+    <Property Name="PlayerTwo_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="User_Administrador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeckCard">
+    <Key>
+      <PropertyRef Name="Deck_Id" />
+      <PropertyRef Name="Cards_Id" />
+    </Key>
+    <Property Name="Deck_Id" Type="int" Nullable="false" />
+    <Property Name="Cards_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StandardToutnamentPlayer">
+    <Key>
+      <PropertyRef Name="Toutnament_Id" />
+      <PropertyRef Name="Player_Id" />
+    </Key>
+    <Property Name="Toutnament_Id" Type="int" Nullable="false" />
+    <Property Name="Player_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamPlayer">
+    <Key>
+      <PropertyRef Name="Team_Id" />
+      <PropertyRef Name="Player_Id" />
+    </Key>
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+    <Property Name="Player_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamTournamentTeam">
+    <Key>
+      <PropertyRef Name="TeamTournament_Id" />
+      <PropertyRef Name="Team_Id" />
+    </Key>
+    <Property Name="TeamTournament_Id" Type="int" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="RefereeGame">
+    <End Role="Referee" Type="Model1.Store.User_Referee" Multiplicity="0..1" />
+    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Referee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="Referee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameDeck1">
+    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
+    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="DeckOne_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameDeck2">
+    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
+    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="DeckTwo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamGameTeam">
+    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="Team" Type="Model1.Store.Team" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamGame">
+        <PropertyRef Name="TeamOne_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamGameTeam1">
+    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="Team" Type="Model1.Store.Team" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamGame">
+        <PropertyRef Name="TeamTwo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamTournamentTeamGame">
+    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TeamTournament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamGame">
+        <PropertyRef Name="Tournament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StandardToutnamentStandardGame">
+    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="1" />
+    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardToutnament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardGame">
+        <PropertyRef Name="Toutnament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayerStandardGame">
+    <End Role="Player" Type="Model1.Store.Player" Multiplicity="0..1" />
+    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardGame">
+        <PropertyRef Name="PlayerOne_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlayerStandardGame1">
+    <End Role="Player" Type="Model1.Store.Player" Multiplicity="0..1" />
+    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardGame">
+        <PropertyRef Name="PlayerTwo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeckCard_Deck">
+    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="1" />
+    <End Role="DeckCard" Type="Model1.Store.DeckCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeckCard">
+        <PropertyRef Name="Deck_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeckCard_Card">
+    <End Role="DeckCard" Type="Model1.Store.DeckCard" Multiplicity="*" />
+    <End Role="Card" Type="Model1.Store.Card" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeckCard">
+        <PropertyRef Name="Cards_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardToutnamentPlayer_StandardToutnament">
+    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="1" />
+    <End Role="StandardToutnamentPlayer" Type="Model1.Store.StandardToutnamentPlayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StandardToutnament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardToutnamentPlayer">
+        <PropertyRef Name="Toutnament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardToutnamentPlayer_Player">
+    <End Role="StandardToutnamentPlayer" Type="Model1.Store.StandardToutnamentPlayer" Multiplicity="*" />
+    <End Role="Player" Type="Model1.Store.Player" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardToutnamentPlayer">
+        <PropertyRef Name="Player_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamPlayer_Team">
+    <End Role="Team" Type="Model1.Store.Team" Multiplicity="1" />
+    <End Role="TeamPlayer" Type="Model1.Store.TeamPlayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamPlayer">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamPlayer_Player">
+    <End Role="TeamPlayer" Type="Model1.Store.TeamPlayer" Multiplicity="*" />
+    <End Role="Player" Type="Model1.Store.Player" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamPlayer">
+        <PropertyRef Name="Player_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamTournamentTeam_TeamTournament">
+    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="1" />
+    <End Role="TeamTournamentTeam" Type="Model1.Store.TeamTournamentTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeamTournament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamTournamentTeam">
+        <PropertyRef Name="TeamTournament_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamTournamentTeam_Team">
+    <End Role="TeamTournamentTeam" Type="Model1.Store.TeamTournamentTeam" Multiplicity="*" />
+    <End Role="Team" Type="Model1.Store.Team" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamTournamentTeam">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Referee_inherits_User">
+    <End Role="User" Type="Model1.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Referee" Type="Model1.Store.User_Referee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Referee">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamGame_inherits_Game">
+    <End Role="Game" Type="Model1.Store.Game" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamGame">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamTournament_inherits_Tournament">
+    <End Role="Tournament" Type="Model1.Store.Tournament" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tournament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamTournament">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardToutnament_inherits_Tournament">
+    <End Role="Tournament" Type="Model1.Store.Tournament" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tournament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardToutnament">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandardGame_inherits_Game">
+    <End Role="Game" Type="Model1.Store.Game" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandardGame">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administrador_inherits_User">
+    <End Role="User" Type="Model1.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrador" Type="Model1.Store.User_Administrador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Administrador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User" EntityType="Model1.User" />
+          <EntitySet Name="Game" EntityType="Model1.Game" />
+          <AssociationSet Name="RefereeGame" Association="Model1.RefereeGame">
+            <End Role="Referee" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <EntitySet Name="Deck" EntityType="Model1.Deck" />
+          <AssociationSet Name="GameDeck1" Association="Model1.GameDeck1">
+            <End EntitySet="Game" Role="Game" />
+            <End EntitySet="Deck" Role="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="GameDeck2" Association="Model1.GameDeck2">
+            <End EntitySet="Game" Role="Game" />
+            <End EntitySet="Deck" Role="Deck" />
+          </AssociationSet>
+          <EntitySet Name="Card" EntityType="Model1.Card" />
+          <AssociationSet Name="DeckCard" Association="Model1.DeckCard">
+            <End Role="Deck" EntitySet="Deck" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <EntitySet Name="Team" EntityType="Model1.Team" />
+          <EntitySet Name="Tournament" EntityType="Model1.Tournament" />
+          <EntitySet Name="Player" EntityType="Model1.Player" />
+          <AssociationSet Name="TeamGameTeam" Association="Model1.TeamGameTeam">
+            <End Role="TeamGame" EntitySet="Game" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="TeamGameTeam1" Association="Model1.TeamGameTeam1">
+            <End Role="TeamGame" EntitySet="Game" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="TeamTournamentTeamGame" Association="Model1.TeamTournamentTeamGame">
+            <End Role="TeamGame" EntitySet="Game" />
+            <End Role="TeamTournament" EntitySet="Tournament" />
+          </AssociationSet>
+          <AssociationSet Name="StandardToutnamentPlayer" Association="Model1.StandardToutnamentPlayer">
+            <End Role="StandardToutnament" EntitySet="Tournament" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="TeamPlayer" Association="Model1.TeamPlayer">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="TeamTournamentTeam" Association="Model1.TeamTournamentTeam">
+            <End Role="TeamTournament" EntitySet="Tournament" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="StandardToutnamentStandardGame" Association="Model1.StandardToutnamentStandardGame">
+            <End Role="StandardToutnament" EntitySet="Tournament" />
+            <End Role="StandardGame" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="PlayerStandardGame" Association="Model1.PlayerStandardGame">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="StandardGame" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="PlayerStandardGame1" Association="Model1.PlayerStandardGame1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="StandardGame" EntitySet="Game" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Referee" BaseType="Model1.User" >
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="Model1.RefereeGame" FromRole="Referee" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador" BaseType="Model1.User" >
+          <Property Name="email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Referee" Relationship="Model1.RefereeGame" FromRole="Game" ToRole="Referee" />
+          <NavigationProperty Name="DeckOne" Relationship="Model1.GameDeck1" FromRole="Game" ToRole="Deck" />
+          <NavigationProperty Name="DeckTwo" Relationship="Model1.GameDeck2" FromRole="Game" ToRole="Deck" />
+        </EntityType>
+        <Association Name="RefereeGame">
+          <End Type="Model1.Referee" Role="Referee" Multiplicity="0..1" />
+          <End Type="Model1.Game" Role="Game" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="GamesAsOne" Relationship="Model1.GameDeck1" FromRole="Deck" ToRole="Game" />
+          <NavigationProperty Name="GamesAsTwo" Relationship="Model1.GameDeck2" FromRole="Deck" ToRole="Game" />
+          <NavigationProperty Name="Cards" Relationship="Model1.DeckCard" FromRole="Deck" ToRole="Card" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="GameDeck1">
+          <End Type="Model1.Game" Multiplicity="*" Role="Game" />
+          <End Type="Model1.Deck" Multiplicity="0..1" Role="Deck" />
+        </Association>
+        <Association Name="GameDeck2">
+          <End Type="Model1.Game" Multiplicity="*" Role="Game" />
+          <End Type="Model1.Deck" Multiplicity="0..1" Role="Deck" />
+        </Association>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Deck" Relationship="Model1.DeckCard" FromRole="Card" ToRole="Deck" />
+          <Property Name="Faction" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Cost" Type="String" Nullable="false" />
+          <Property Name="Loyalty" Type="Int16" Nullable="false" />
+          <Property Name="Rules" Type="String" Nullable="false" />
+          <Property Name="Attack" Type="Int16" Nullable="false" />
+          <Property Name="Defense" Type="Int16" Nullable="false" />
+        </EntityType>
+        <Association Name="DeckCard">
+          <End Type="Model1.Deck" Role="Deck" Multiplicity="*" />
+          <End Type="Model1.Card" Role="Card" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TeamGame" BaseType="Model1.Game" >
+          <NavigationProperty Name="TeamOne" Relationship="Model1.TeamGameTeam" FromRole="TeamGame" ToRole="Team" />
+          <NavigationProperty Name="TeamTwo" Relationship="Model1.TeamGameTeam1" FromRole="TeamGame" ToRole="Team" />
+          <NavigationProperty Name="Tournament" Relationship="Model1.TeamTournamentTeamGame" FromRole="TeamGame" ToRole="TeamTournament" />
+        </EntityType>
+        <EntityType Name="StandardGame" BaseType="Model1.Game" >
+          <NavigationProperty Name="Toutnament" Relationship="Model1.StandardToutnamentStandardGame" FromRole="StandardGame" ToRole="StandardToutnament" />
+          <NavigationProperty Name="PlayerOne" Relationship="Model1.PlayerStandardGame" FromRole="StandardGame" ToRole="Player" />
+          <NavigationProperty Name="PlayerTwo" Relationship="Model1.PlayerStandardGame1" FromRole="StandardGame" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="false" />
+          <NavigationProperty Name="GameOne" Relationship="Model1.TeamGameTeam" FromRole="Team" ToRole="TeamGame" />
+          <NavigationProperty Name="GameTwo" Relationship="Model1.TeamGameTeam1" FromRole="Team" ToRole="TeamGame" />
+          <NavigationProperty Name="Player" Relationship="Model1.TeamPlayer" FromRole="Team" ToRole="Player" />
+          <NavigationProperty Name="TeamTournament" Relationship="Model1.TeamTournamentTeam" FromRole="Team" ToRole="TeamTournament" />
+        </EntityType>
+        <EntityType Name="TeamTournament" BaseType="Model1.Tournament" >
+          <NavigationProperty Name="Game" Relationship="Model1.TeamTournamentTeamGame" FromRole="TeamTournament" ToRole="TeamGame" />
+          <NavigationProperty Name="Team" Relationship="Model1.TeamTournamentTeam" FromRole="TeamTournament" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="StandardToutnament" BaseType="Model1.Tournament" >
+          <NavigationProperty Name="Player" Relationship="Model1.StandardToutnamentPlayer" FromRole="StandardToutnament" ToRole="Player" />
+          <NavigationProperty Name="Game" Relationship="Model1.StandardToutnamentStandardGame" FromRole="StandardToutnament" ToRole="StandardGame" />
+        </EntityType>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Descrition" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Nickname" Type="String" Nullable="false" />
+          <Property Name="Age" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="false" />
+          <NavigationProperty Name="Toutnament" Relationship="Model1.StandardToutnamentPlayer" FromRole="Player" ToRole="StandardToutnament" />
+          <NavigationProperty Name="Team" Relationship="Model1.TeamPlayer" FromRole="Player" ToRole="Team" />
+          <NavigationProperty Name="StandardGameOne" Relationship="Model1.PlayerStandardGame" FromRole="Player" ToRole="StandardGame" />
+          <NavigationProperty Name="StandardGameTwo" Relationship="Model1.PlayerStandardGame1" FromRole="Player" ToRole="StandardGame" />
+        </EntityType>
+        <Association Name="TeamGameTeam">
+          <End Type="Model1.TeamGame" Role="TeamGame" Multiplicity="*" />
+          <End Type="Model1.Team" Role="Team" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TeamGameTeam1">
+          <End Type="Model1.TeamGame" Role="TeamGame" Multiplicity="*" />
+          <End Type="Model1.Team" Role="Team" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TeamTournamentTeamGame">
+          <End Type="Model1.TeamGame" Role="TeamGame" Multiplicity="*" />
+          <End Type="Model1.TeamTournament" Role="TeamTournament" Multiplicity="1" />
+        </Association>
+        <Association Name="StandardToutnamentPlayer">
+          <End Type="Model1.StandardToutnament" Role="StandardToutnament" Multiplicity="*" />
+          <End Type="Model1.Player" Role="Player" Multiplicity="*" />
+        </Association>
+        <Association Name="TeamPlayer">
+          <End Type="Model1.Team" Role="Team" Multiplicity="*" />
+          <End Type="Model1.Player" Role="Player" Multiplicity="*" />
+        </Association>
+        <Association Name="TeamTournamentTeam">
+          <End Type="Model1.TeamTournament" Role="TeamTournament" Multiplicity="*" />
+          <End Type="Model1.Team" Role="Team" Multiplicity="*" />
+        </Association>
+        <Association Name="StandardToutnamentStandardGame">
+          <End Type="Model1.StandardToutnament" Role="StandardToutnament" Multiplicity="1" />
+          <End Type="Model1.StandardGame" Role="StandardGame" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayerStandardGame">
+          <End Type="Model1.Player" Role="Player" Multiplicity="0..1" />
+          <End Type="Model1.StandardGame" Role="StandardGame" Multiplicity="*" />
+        </Association>
+        <Association Name="PlayerStandardGame1">
+          <End Type="Model1.Player" Role="Player" Multiplicity="0..1" />
+          <End Type="Model1.StandardGame" Role="StandardGame" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Referee)">
+        <MappingFragment StoreEntitySet="User_Referee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Administrador)">
+        <MappingFragment StoreEntitySet="User_Administrador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Game">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Game)">
+        <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TeamGame)">
+        <MappingFragment StoreEntitySet="Game_TeamGame">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StandardGame)">
+        <MappingFragment StoreEntitySet="Game_StandardGame">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deck">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Deck)">
+        <MappingFragment StoreEntitySet="Deck">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Card">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Card)">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Faction" ColumnName="Faction" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Loyalty" ColumnName="Loyalty" />
+          <ScalarProperty Name="Rules" ColumnName="Rules" />
+          <ScalarProperty Name="Attack" ColumnName="Attack" />
+          <ScalarProperty Name="Defense" ColumnName="Defense" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Team)">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournament">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Tournament)">
+        <MappingFragment StoreEntitySet="Tournament">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TeamTournament)">
+        <MappingFragment StoreEntitySet="Tournament_TeamTournament">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StandardToutnament)">
+        <MappingFragment StoreEntitySet="Tournament_StandardToutnament">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Player">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Player)">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RefereeGame" TypeName="Model1.RefereeGame" StoreEntitySet="Game">
+      <EndProperty Name="Referee">
+        <ScalarProperty Name="Id" ColumnName="Referee_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Referee_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameDeck1" TypeName="Model1.GameDeck1" StoreEntitySet="Game">
+      <EndProperty Name="Deck">
+        <ScalarProperty Name="Id" ColumnName="DeckOne_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="DeckOne_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameDeck2" TypeName="Model1.GameDeck2" StoreEntitySet="Game">
+      <EndProperty Name="Deck">
+        <ScalarProperty Name="Id" ColumnName="DeckTwo_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="DeckTwo_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DeckCard" TypeName="Model1.DeckCard" StoreEntitySet="DeckCard">
+      <EndProperty Name="Deck">
+        <ScalarProperty Name="Id" ColumnName="Deck_Id" />
+      </EndProperty>
+      <EndProperty Name="Card">
+        <ScalarProperty Name="Id" ColumnName="Cards_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamGameTeam" TypeName="Model1.TeamGameTeam" StoreEntitySet="Game_TeamGame">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="TeamOne_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TeamOne_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamGameTeam1" TypeName="Model1.TeamGameTeam1" StoreEntitySet="Game_TeamGame">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="TeamTwo_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TeamTwo_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamTournamentTeamGame" TypeName="Model1.TeamTournamentTeamGame" StoreEntitySet="Game_TeamGame">
+      <EndProperty Name="TeamTournament">
+        <ScalarProperty Name="Id" ColumnName="Tournament_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StandardToutnamentPlayer" TypeName="Model1.StandardToutnamentPlayer" StoreEntitySet="StandardToutnamentPlayer">
+      <EndProperty Name="StandardToutnament">
+        <ScalarProperty Name="Id" ColumnName="Toutnament_Id" />
+      </EndProperty>
+      <EndProperty Name="Player">
+        <ScalarProperty Name="Id" ColumnName="Player_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamPlayer" TypeName="Model1.TeamPlayer" StoreEntitySet="TeamPlayer">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="Player">
+        <ScalarProperty Name="Id" ColumnName="Player_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamTournamentTeam" TypeName="Model1.TeamTournamentTeam" StoreEntitySet="TeamTournamentTeam">
+      <EndProperty Name="TeamTournament">
+        <ScalarProperty Name="Id" ColumnName="TeamTournament_Id" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StandardToutnamentStandardGame" TypeName="Model1.StandardToutnamentStandardGame" StoreEntitySet="Game_StandardGame">
+      <EndProperty Name="StandardToutnament">
+        <ScalarProperty Name="Id" ColumnName="Toutnament_Id" />
+      </EndProperty>
+      <EndProperty Name="StandardGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlayerStandardGame" TypeName="Model1.PlayerStandardGame" StoreEntitySet="Game_StandardGame">
+      <EndProperty Name="Player">
+        <ScalarProperty Name="Id" ColumnName="PlayerOne_Id" />
+      </EndProperty>
+      <EndProperty Name="StandardGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PlayerOne_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlayerStandardGame1" TypeName="Model1.PlayerStandardGame1" StoreEntitySet="Game_StandardGame">
+      <EndProperty Name="Player">
+        <ScalarProperty Name="Id" ColumnName="PlayerTwo_Id" />
+      </EndProperty>
+      <EndProperty Name="StandardGame">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PlayerTwo_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
