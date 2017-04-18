@@ -16,9 +16,15 @@ namespace Projeto
             gestaousers.Show();
         }
 
+        private void btBaralhos_Click(object sender, EventArgs e) {
+            formBaralhos gestaoBaralhos = new formBaralhos();
+            gestaoBaralhos.Show();
+		}
+		
         private void formPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+			
         }
     }
 }
