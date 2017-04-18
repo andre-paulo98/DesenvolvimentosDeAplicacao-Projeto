@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto
@@ -26,6 +19,12 @@ namespace Projeto
         private void btBaralhos_Click(object sender, EventArgs e) {
             formBaralhos gestaoBaralhos = new formBaralhos();
             gestaoBaralhos.Show();
+		}
+		
+        private void formPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+			
         }
     }
 }

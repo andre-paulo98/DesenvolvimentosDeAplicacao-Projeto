@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto {
+namespace Projeto
+{
     public partial class formGestaoUtilizadores : Form {
-        public formGestaoUtilizadores() {
+        public formGestaoUtilizadores()
+        {
             InitializeComponent();
         }
     }
