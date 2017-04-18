@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Deck.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="formBaralhos.cs">
       <SubType>Form</SubType>
     </Compile>
