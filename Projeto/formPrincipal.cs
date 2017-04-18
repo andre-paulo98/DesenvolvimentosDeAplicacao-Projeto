@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto
@@ -21,6 +14,11 @@ namespace Projeto
         {
             formGestaoUtilizadores gestaousers = new formGestaoUtilizadores();
             gestaousers.Show();
+        }
+
+        private void formPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
