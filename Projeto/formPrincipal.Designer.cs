@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelUtilizadores = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.btJogadores = new System.Windows.Forms.Button();
             this.btEquipas = new System.Windows.Forms.Button();
             this.btCartas = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelUtilizadores);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btJogadores);
             this.groupBox1.Controls.Add(this.btEquipas);
             this.groupBox1.Controls.Add(this.btCartas);
@@ -55,15 +55,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // labelUtilizadores
+            // button1
             // 
-            this.labelUtilizadores.AutoSize = true;
-            this.labelUtilizadores.Image = ((System.Drawing.Image)(resources.GetObject("labelUtilizadores.Image")));
-            this.labelUtilizadores.Location = new System.Drawing.Point(64, 98);
-            this.labelUtilizadores.Name = "labelUtilizadores";
-            this.labelUtilizadores.Size = new System.Drawing.Size(0, 13);
-            this.labelUtilizadores.TabIndex = 1;
-            this.labelUtilizadores.Paint += new System.Windows.Forms.PaintEventHandler(this.gbUtilizadores_Paint);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(64, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 100);
+            this.button1.TabIndex = 1;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btJogadores
             // 
@@ -112,14 +112,14 @@
             // 
             // btUtilizadores
             // 
-            this.btUtilizadores.Location = new System.Drawing.Point(64, 117);
+            this.btUtilizadores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btUtilizadores.Location = new System.Drawing.Point(64, 118);
             this.btUtilizadores.Name = "btUtilizadores";
-            this.btUtilizadores.Size = new System.Drawing.Size(157, 24);
+            this.btUtilizadores.Size = new System.Drawing.Size(160, 25);
             this.btUtilizadores.TabIndex = 0;
             this.btUtilizadores.Text = "Utilizadores";
             this.btUtilizadores.UseVisualStyleBackColor = true;
             this.btUtilizadores.Click += new System.EventHandler(this.btUtilizadores_Click);
-            this.btUtilizadores.Paint += new System.Windows.Forms.PaintEventHandler(this.gbUtilizadores_Paint);
             // 
             // formPrincipal
             // 
@@ -130,7 +130,6 @@
             this.Name = "formPrincipal";
             this.Text = "formPrincipal";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -144,6 +143,6 @@
         private System.Windows.Forms.Button btTorneios;
         private System.Windows.Forms.Button btBaralhos;
         private System.Windows.Forms.Button btUtilizadores;
-        private System.Windows.Forms.Label labelUtilizadores;
+        private System.Windows.Forms.Button button1;
     }
 }
