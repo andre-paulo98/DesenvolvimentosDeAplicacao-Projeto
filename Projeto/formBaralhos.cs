@@ -13,5 +13,9 @@ namespace Projeto {
         public formBaralhos() {
             InitializeComponent();
         }
+
+        private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
 }

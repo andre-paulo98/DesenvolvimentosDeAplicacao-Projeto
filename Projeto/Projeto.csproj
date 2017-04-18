@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formBaralhos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBaralhos.Designer.cs">
+      <DependentUpon>formBaralhos.cs</DependentUpon>
+    </Compile>
     <Compile Include="formGestaoUtilizadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formBaralhos.resx">
+      <DependentUpon>formBaralhos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </EmbeddedResource>

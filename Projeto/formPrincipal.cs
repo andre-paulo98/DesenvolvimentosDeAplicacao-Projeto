@@ -22,5 +22,10 @@ namespace Projeto
             formGestaoUtilizadores gestaousers = new formGestaoUtilizadores();
             gestaousers.Show();
         }
+
+        private void btBaralhos_Click(object sender, EventArgs e) {
+            formBaralhos gestaoBaralhos = new formBaralhos();
+            gestaoBaralhos.Show();
+        }
     }
 }

@@ -109,6 +109,7 @@
             this.btBaralhos.TabIndex = 0;
             this.btBaralhos.Text = "Baralhos";
             this.btBaralhos.UseVisualStyleBackColor = true;
+            this.btBaralhos.Click += new System.EventHandler(this.btBaralhos_Click);
             // 
             // btUtilizadores
             // 

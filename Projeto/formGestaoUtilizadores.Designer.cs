@@ -23,34 +23,34 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbUtilizadores = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btLimpar = new System.Windows.Forms.Button();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.btGuardar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNome = new System.Windows.Forms.Label();
             this.cbCargo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btGuardar = new System.Windows.Forms.Button();
-            this.btEliminar = new System.Windows.Forms.Button();
-            this.btLimpar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbUtilizadores
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbUtilizadores.FormattingEnabled = true;
+            this.lbUtilizadores.Items.AddRange(new object[] {
             "admin1",
             "admin2",
             "arbitro1",
             "admin3"});
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(123, 186);
-            this.listBox1.TabIndex = 0;
+            this.lbUtilizadores.Location = new System.Drawing.Point(12, 12);
+            this.lbUtilizadores.Name = "lbUtilizadores";
+            this.lbUtilizadores.Size = new System.Drawing.Size(123, 186);
+            this.lbUtilizadores.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -71,6 +71,49 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // btLimpar
+            // 
+            this.btLimpar.Location = new System.Drawing.Point(137, 148);
+            this.btLimpar.Name = "btLimpar";
+            this.btLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btLimpar.TabIndex = 11;
+            this.btLimpar.Text = "Reset";
+            this.btLimpar.UseVisualStyleBackColor = true;
+            // 
+            // btEliminar
+            // 
+            this.btEliminar.Location = new System.Drawing.Point(232, 148);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.TabIndex = 10;
+            this.btEliminar.Text = "Eliminar";
+            this.btEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btGuardar
+            // 
+            this.btGuardar.Location = new System.Drawing.Point(22, 148);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(100, 23);
+            this.btGuardar.TabIndex = 9;
+            this.btGuardar.Text = "Guardar/Novo";
+            this.btGuardar.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(118, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(143, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // tbNome
+            // 
+            this.tbNome.AutoSize = true;
+            this.tbNome.Location = new System.Drawing.Point(19, 112);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(38, 13);
+            this.tbNome.TabIndex = 7;
+            this.tbNome.Text = "Nome:";
             // 
             // cbCargo
             // 
@@ -125,56 +168,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome Utilizador:";
             // 
-            // tbNome
-            // 
-            this.tbNome.AutoSize = true;
-            this.tbNome.Location = new System.Drawing.Point(19, 112);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(38, 13);
-            this.tbNome.TabIndex = 7;
-            this.tbNome.Text = "Nome:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(118, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // btGuardar
-            // 
-            this.btGuardar.Location = new System.Drawing.Point(22, 148);
-            this.btGuardar.Name = "btGuardar";
-            this.btGuardar.Size = new System.Drawing.Size(100, 23);
-            this.btGuardar.TabIndex = 9;
-            this.btGuardar.Text = "Guardar/Novo";
-            this.btGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btEliminar
-            // 
-            this.btEliminar.Location = new System.Drawing.Point(232, 148);
-            this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btEliminar.TabIndex = 10;
-            this.btEliminar.Text = "Eliminar";
-            this.btEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btLimpar
-            // 
-            this.btLimpar.Location = new System.Drawing.Point(137, 148);
-            this.btLimpar.Name = "btLimpar";
-            this.btLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btLimpar.TabIndex = 11;
-            this.btLimpar.Text = "Reset";
-            this.btLimpar.UseVisualStyleBackColor = true;
-            // 
             // formGestaoUtilizadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 213);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbUtilizadores);
             this.Name = "formGestaoUtilizadores";
             this.Text = "Gestão de Utilizadores";
             this.groupBox1.ResumeLayout(false);
@@ -185,7 +185,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbUtilizadores;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbUsername;
