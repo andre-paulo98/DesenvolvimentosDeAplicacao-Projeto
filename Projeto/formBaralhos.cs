@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto
-{
-    public partial class formGestaoUtilizadores : Form {
-        public formGestaoUtilizadores()
-        {
+namespace Projeto {
+    public partial class formBaralhos : Form {
+        public formBaralhos() {
             InitializeComponent();
+        }
+
+        private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
+
         }
     }
 }

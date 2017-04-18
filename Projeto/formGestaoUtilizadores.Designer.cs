@@ -23,73 +23,109 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbUtilizadores = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btLimpar = new System.Windows.Forms.Button();
+            this.btEliminar = new System.Windows.Forms.Button();
+            this.btGuardar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbNome = new System.Windows.Forms.Label();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbUtilizadores
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(123, 420);
-            this.listBox1.TabIndex = 0;
+            this.lbUtilizadores.FormattingEnabled = true;
+            this.lbUtilizadores.Items.AddRange(new object[] {
+            "admin1",
+            "admin2",
+            "arbitro1",
+            "admin3"});
+            this.lbUtilizadores.Location = new System.Drawing.Point(12, 12);
+            this.lbUtilizadores.Name = "lbUtilizadores";
+            this.lbUtilizadores.Size = new System.Drawing.Size(123, 186);
+            this.lbUtilizadores.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.btLimpar);
+            this.groupBox1.Controls.Add(this.btEliminar);
+            this.groupBox1.Controls.Add(this.btGuardar);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbNome);
+            this.groupBox1.Controls.Add(this.cbCargo);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tbPassword);
+            this.groupBox1.Controls.Add(this.tbUsername);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(141, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(718, 420);
+            this.groupBox1.Size = new System.Drawing.Size(326, 186);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label1
+            // btLimpar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome Utilizador:";
+            this.btLimpar.Location = new System.Drawing.Point(137, 148);
+            this.btLimpar.Name = "btLimpar";
+            this.btLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btLimpar.TabIndex = 11;
+            this.btLimpar.Text = "Reset";
+            this.btLimpar.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // btEliminar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password:";
+            this.btEliminar.Location = new System.Drawing.Point(232, 148);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.TabIndex = 10;
+            this.btEliminar.Text = "Eliminar";
+            this.btEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btGuardar
+            // 
+            this.btGuardar.Location = new System.Drawing.Point(22, 148);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(100, 23);
+            this.btGuardar.TabIndex = 9;
+            this.btGuardar.Text = "Guardar/Novo";
+            this.btGuardar.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 31);
+            this.textBox1.Location = new System.Drawing.Point(118, 109);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 8;
             // 
-            // textBox2
+            // tbNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbNome.AutoSize = true;
+            this.tbNome.Location = new System.Drawing.Point(19, 112);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(38, 13);
+            this.tbNome.TabIndex = 7;
+            this.tbNome.Text = "Nome:";
+            // 
+            // cbCargo
+            // 
+            this.cbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Items.AddRange(new object[] {
+            "Administrador",
+            "Árbitro"});
+            this.cbCargo.Location = new System.Drawing.Point(118, 82);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(141, 21);
+            this.cbCargo.TabIndex = 6;
             // 
             // label3
             // 
@@ -100,30 +136,47 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Cargo:";
             // 
-            // textBox3
+            // tbPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(265, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.tbPassword.Location = new System.Drawing.Point(118, 57);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(143, 20);
+            this.tbPassword.TabIndex = 3;
             // 
-            // comboBox1
+            // tbUsername
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(145, 208);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.tbUsername.Location = new System.Drawing.Point(118, 31);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(143, 20);
+            this.tbUsername.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nome Utilizador:";
             // 
             // formGestaoUtilizadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 444);
+            this.ClientSize = new System.Drawing.Size(484, 213);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbUtilizadores);
             this.Name = "formGestaoUtilizadores";
-            this.Text = "formGestaoUtilizadores";
+            this.Text = "Gestão de Utilizadores";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -132,14 +185,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbUtilizadores;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCargo;
+        private System.Windows.Forms.Button btLimpar;
+        private System.Windows.Forms.Button btEliminar;
+        private System.Windows.Forms.Button btGuardar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label tbNome;
     }
 }
