@@ -31,5 +31,10 @@ namespace Projeto
             formTorneios gestaoTorneios = new formTorneios();
             gestaoTorneios.Show();
         }
+
+        private void btJogadores_Click(object sender, EventArgs e) {
+            formJogadores gestaoJogadores = new formJogadores();
+            gestaoJogadores.Show();
+        }
     }
 }
