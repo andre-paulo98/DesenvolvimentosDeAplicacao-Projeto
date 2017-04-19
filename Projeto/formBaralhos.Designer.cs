@@ -44,6 +44,7 @@
             this.lbBaralhos.Size = new System.Drawing.Size(162, 290);
             this.lbBaralhos.TabIndex = 0;
             this.lbBaralhos.SelectedIndexChanged += new System.EventHandler(this.lbBaralhos_SelectedIndexChanged);
+            this.lbBaralhos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbBaralhos_MouseDoubleClick);
             // 
             // label1
             // 
@@ -80,6 +81,7 @@
             this.btNovo.TabIndex = 4;
             this.btNovo.Text = "Novo";
             this.btNovo.UseVisualStyleBackColor = true;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
             // btEliminar
             // 
@@ -92,7 +94,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(213, 49);
+            this.label3.Location = new System.Drawing.Point(214, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 32);
             this.label3.TabIndex = 6;

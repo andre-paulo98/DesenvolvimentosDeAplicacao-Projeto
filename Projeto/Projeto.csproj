@@ -72,6 +72,12 @@
     <Compile Include="formBaralhos.Designer.cs">
       <DependentUpon>formBaralhos.cs</DependentUpon>
     </Compile>
+    <Compile Include="formBaralhosManipula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBaralhosManipula.Designer.cs">
+      <DependentUpon>formBaralhosManipula.cs</DependentUpon>
+    </Compile>
     <Compile Include="formGestaoUtilizadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     <Compile Include="UserRepository.cs" />
     <EmbeddedResource Include="formBaralhos.resx">
       <DependentUpon>formBaralhos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formBaralhosManipula.resx">
+      <DependentUpon>formBaralhosManipula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>

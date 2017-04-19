@@ -15,8 +15,25 @@ namespace Projeto {
         }
 
         private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
-            label3.Visible = false;
-            lbCartas.Visible = true;
+            if (lbBaralhos.SelectedIndex >= 0) {
+                label3.Visible = false;
+                lbCartas.Visible = true;
+            }else {
+                label3.Visible = true;
+                lbCartas.Visible = false;
+            }
+        }
+
+        private void btNovo_Click(object sender, EventArgs e) {
+            new formBaralhosManipula().Show();
+        }
+
+        private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (lbBaralhos.SelectedIndex >= 0) {
+                Deck n = new Deck();
+                n.Name = "Teste";
+                new formBaralhosManipula(n).Show();
+            }
         }
     }
 }
