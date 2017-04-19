@@ -11,35 +11,30 @@ using System.Windows.Forms;
 namespace Projeto {
     public partial class formLogin : Form {
         formPrincipal formPrincipal = new formPrincipal();
+        UserRepository userRepo;
         public formLogin() {
             InitializeComponent();
+            userRepo = new UserRepository();
         }
 
         private void btLogin_Click(object sender, EventArgs e) {
+            btLogin.Enabled = false;
+            btLogin.Text = "Aguarde...";
+            Cursor.Current = Cursors.WaitCursor;
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
-            Modelo_Container dbConteirner = new Modelo_Container();
-            List<User> usersList = dbConteirner.User.ToList<User>();
-            Boolean flag = false;
-            foreach(User utilizador in usersList) {
-                if (utilizador.Username == username && utilizador.Password == password) {
-                    flag = true;
-                }
-            }
-            if (flag) {
+            List<User> userLogado = (
+                from user in userRepo.UserList()
+                where user.Username == username && user.Password == password
+                select user
+                ).ToList();//Pesquisa pelo utilizador na base de dados
+            //Verifica se utilizador existe
+            if (userLogado.Count == 1) {
                 formPrincipal.Show();
                 Hide();
-            }else {
-                MessageBox.Show("Nome de utilizador ou password incorretos!","Login Incorreto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            } else {
+                MessageBox.Show("Nome de utilizador ou password incorretos!", "Login Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void tbUtilizador_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void tbPassword_TextChanged(object sender, EventArgs e) {
-
         }
     }
 }

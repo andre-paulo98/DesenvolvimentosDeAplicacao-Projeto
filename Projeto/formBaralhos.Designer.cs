@@ -112,6 +112,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbBaralhos);
             this.Name = "formBaralhos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formBaralhos";
             this.ResumeLayout(false);
             this.PerformLayout();
