@@ -11,7 +11,6 @@ namespace Projeto {
         /// </summary>
         [STAThread]
         static void Main() {
-            AppDomain.CurrentDomain.SetData("DataDirectory", "%USERPROFILE%/Documents");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new formLogin());

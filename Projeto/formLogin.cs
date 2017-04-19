@@ -19,9 +19,19 @@ namespace Projeto {
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
             Modelo_Container dbConteirner = new Modelo_Container();
-            DBSet users = dbConteirner.User.OfType<User>;
-            formPrincipal.Show();
-            Hide();
+            List<User> usersList = dbConteirner.User.ToList<User>();
+            Boolean flag = false;
+            foreach(User utilizador in usersList) {
+                if (utilizador.Username == username && utilizador.Password == password) {
+                    flag = true;
+                }
+            }
+            if (flag) {
+                formPrincipal.Show();
+                Hide();
+            }else {
+                MessageBox.Show("Nome de utilizador ou password incorretos!","Login Incorreto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
         }
 
         private void tbUtilizador_TextChanged(object sender, EventArgs e) {
