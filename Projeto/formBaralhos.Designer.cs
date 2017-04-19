@@ -35,6 +35,10 @@
             // lbBaralhos
             // 
             this.lbBaralhos.FormattingEnabled = true;
+            this.lbBaralhos.Items.AddRange(new object[] {
+            "Baralho1",
+            "Baralho2",
+            "Baralho3"});
             this.lbBaralhos.Location = new System.Drawing.Point(12, 33);
             this.lbBaralhos.Name = "lbBaralhos";
             this.lbBaralhos.Size = new System.Drawing.Size(162, 290);
@@ -66,6 +70,7 @@
             this.lbCartas.Name = "lbCartas";
             this.lbCartas.Size = new System.Drawing.Size(162, 316);
             this.lbCartas.TabIndex = 3;
+            this.lbCartas.Visible = false;
             // 
             // btNovo
             // 

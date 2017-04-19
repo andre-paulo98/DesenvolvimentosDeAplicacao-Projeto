@@ -15,7 +15,8 @@ namespace Projeto {
         }
 
         private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
-
+            label3.Visible = false;
+            lbCartas.Visible = true;
         }
     }
 }
