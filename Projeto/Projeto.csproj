@@ -78,6 +78,12 @@
     <Compile Include="formGestaoUtilizadores.Designer.cs">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="formJogadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formJogadores.Designer.cs">
+      <DependentUpon>formJogadores.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formJogadores.resx">
+      <DependentUpon>formJogadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>

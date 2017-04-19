@@ -83,6 +83,7 @@
             this.btJogadores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btJogadores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btJogadores.UseVisualStyleBackColor = true;
+            this.btJogadores.Click += new System.EventHandler(this.btJogadores_Click);
             // 
             // btEquipas
             // 
