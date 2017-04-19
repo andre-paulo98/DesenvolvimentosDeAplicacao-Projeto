@@ -90,6 +90,12 @@
     <Compile Include="formPrincipal.Designer.cs">
       <DependentUpon>formPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="formTorneios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTorneios.Designer.cs">
+      <DependentUpon>formTorneios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPrincipal.resx">
       <DependentUpon>formPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTorneios.resx">
+      <DependentUpon>formTorneios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

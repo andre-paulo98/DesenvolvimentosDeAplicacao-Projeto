@@ -125,6 +125,7 @@
             this.btTorneios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btTorneios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btTorneios.UseVisualStyleBackColor = true;
+            this.btTorneios.Click += new System.EventHandler(this.btTorneios_Click);
             // 
             // btBaralhos
             // 

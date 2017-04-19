@@ -26,5 +26,10 @@ namespace Projeto
             Application.Exit();
 			
         }
+
+        private void btTorneios_Click(object sender, EventArgs e) {
+            formTorneios gestaoTorneios = new formTorneios();
+            gestaoTorneios.Show();
+        }
     }
 }
