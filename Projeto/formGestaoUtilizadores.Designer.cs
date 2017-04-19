@@ -23,19 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.lbUtilizadores = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btLimpar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.btGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tbNome = new System.Windows.Forms.Label();
+            this.tbNome = new System.Windows.Forms.TextBox();
+            this.labelNome = new System.Windows.Forms.Label();
             this.cbCargo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             "admin3"});
             this.lbUtilizadores.Location = new System.Drawing.Point(12, 12);
             this.lbUtilizadores.Name = "lbUtilizadores";
-            this.lbUtilizadores.Size = new System.Drawing.Size(123, 186);
+            this.lbUtilizadores.Size = new System.Drawing.Size(123, 212);
             this.lbUtilizadores.TabIndex = 0;
             // 
             // groupBox1
@@ -57,8 +59,8 @@
             this.groupBox1.Controls.Add(this.btLimpar);
             this.groupBox1.Controls.Add(this.btEliminar);
             this.groupBox1.Controls.Add(this.btGuardar);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.tbNome);
+            this.groupBox1.Controls.Add(this.labelNome);
             this.groupBox1.Controls.Add(this.cbCargo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbPassword);
@@ -67,14 +69,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(141, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 186);
+            this.groupBox1.Size = new System.Drawing.Size(326, 210);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do utilizador";
             // 
             // btLimpar
             // 
-            this.btLimpar.Location = new System.Drawing.Point(137, 148);
+            this.btLimpar.Location = new System.Drawing.Point(151, 181);
             this.btLimpar.Name = "btLimpar";
             this.btLimpar.Size = new System.Drawing.Size(75, 23);
             this.btLimpar.TabIndex = 11;
@@ -83,7 +85,7 @@
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(232, 148);
+            this.btEliminar.Location = new System.Drawing.Point(245, 181);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(75, 23);
             this.btEliminar.TabIndex = 10;
@@ -92,28 +94,29 @@
             // 
             // btGuardar
             // 
-            this.btGuardar.Location = new System.Drawing.Point(22, 148);
+            this.btGuardar.Location = new System.Drawing.Point(22, 181);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(100, 23);
             this.btGuardar.TabIndex = 9;
             this.btGuardar.Text = "Guardar/Novo";
             this.btGuardar.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(118, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 8;
+            this.btGuardar.Click += new System.EventHandler(this.inserirUser);
             // 
             // tbNome
             // 
-            this.tbNome.AutoSize = true;
-            this.tbNome.Location = new System.Drawing.Point(19, 112);
+            this.tbNome.Location = new System.Drawing.Point(118, 109);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(38, 13);
-            this.tbNome.TabIndex = 7;
-            this.tbNome.Text = "Nome:";
+            this.tbNome.Size = new System.Drawing.Size(143, 20);
+            this.tbNome.TabIndex = 8;
+            // 
+            // labelNome
+            // 
+            this.labelNome.AutoSize = true;
+            this.labelNome.Location = new System.Drawing.Point(19, 112);
+            this.labelNome.Name = "labelNome";
+            this.labelNome.Size = new System.Drawing.Size(38, 13);
+            this.labelNome.TabIndex = 7;
+            this.labelNome.Text = "Nome:";
             // 
             // cbCargo
             // 
@@ -126,6 +129,7 @@
             this.cbCargo.Name = "cbCargo";
             this.cbCargo.Size = new System.Drawing.Size(141, 21);
             this.cbCargo.TabIndex = 6;
+            this.cbCargo.SelectedIndexChanged += new System.EventHandler(this.cbCargo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -168,11 +172,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome Utilizador:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // formGestaoUtilizadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 213);
+            this.ClientSize = new System.Drawing.Size(484, 234);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbUtilizadores);
             this.Name = "formGestaoUtilizadores";
@@ -197,7 +206,8 @@
         private System.Windows.Forms.Button btLimpar;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button btGuardar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label tbNome;
+        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.Label labelNome;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
