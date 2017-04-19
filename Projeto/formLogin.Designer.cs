@@ -83,7 +83,6 @@
             this.tbPassword.Size = new System.Drawing.Size(218, 26);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.Text = "teste";
-            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // tbUtilizador
             // 
@@ -93,7 +92,6 @@
             this.tbUtilizador.Size = new System.Drawing.Size(218, 26);
             this.tbUtilizador.TabIndex = 2;
             this.tbUtilizador.Text = "teste";
-            this.tbUtilizador.TextChanged += new System.EventHandler(this.tbUtilizador_TextChanged);
             // 
             // label2
             // 

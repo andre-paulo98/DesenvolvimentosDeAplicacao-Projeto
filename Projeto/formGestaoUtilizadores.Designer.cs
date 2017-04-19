@@ -176,6 +176,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbUtilizadores);
             this.Name = "formGestaoUtilizadores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Utilizadores";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -143,6 +143,7 @@
     <Compile Include="User.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserRepository.cs" />
     <EmbeddedResource Include="formBaralhos.resx">
       <DependentUpon>formBaralhos.cs</DependentUpon>
     </EmbeddedResource>
