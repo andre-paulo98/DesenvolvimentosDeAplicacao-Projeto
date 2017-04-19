@@ -5,42 +5,42 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fca0eca0c87c4197848de4662c5d2fb6" Name="Diagram1" ZoomLevel="94" >
-        <EntityTypeShape EntityType="Model1.Referee" Width="1.5" PointX="0.5" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="2.75" PointY="0.5" />
-        <InheritanceConnector EntityType="Model1.Referee" />
-        <EntityTypeShape EntityType="Model1.Administrador" Width="1.5" PointX="4.75" PointY="0.625" />
-        <InheritanceConnector EntityType="Model1.Administrador" />
-        <EntityTypeShape EntityType="Model1.Game" Width="1.5" PointX="0.5" PointY="3" />
-        <AssociationConnector Association="Model1.RefereeGame" />
-        <EntityTypeShape EntityType="Model1.Deck" Width="1.625" PointX="2.875" PointY="3.125" />
-        <AssociationConnector Association="Model1.GameDeck1" />
-        <AssociationConnector Association="Model1.GameDeck2" />
-        <EntityTypeShape EntityType="Model1.Card" Width="1.5" PointX="6.375" PointY="2.375" />
-        <AssociationConnector Association="Model1.DeckCard" />
-        <EntityTypeShape EntityType="Model1.TeamGame" Width="1.5" PointX="6.375" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.StandardGame" Width="1.5" PointX="0.5" PointY="6.25" />
-        <InheritanceConnector EntityType="Model1.StandardGame" />
-        <InheritanceConnector EntityType="Model1.TeamGame" ManuallyRouted="false" >
+        <EntityTypeShape EntityType="Modelo.Referee" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Modelo.User" Width="1.5" PointX="2.75" PointY="0.5" />
+        <InheritanceConnector EntityType="Modelo.Referee" />
+        <EntityTypeShape EntityType="Modelo.Administrador" Width="1.5" PointX="4.75" PointY="0.625" />
+        <InheritanceConnector EntityType="Modelo.Administrador" />
+        <EntityTypeShape EntityType="Modelo.Game" Width="1.5" PointX="0.5" PointY="3" />
+        <AssociationConnector Association="Modelo.RefereeGame" />
+        <EntityTypeShape EntityType="Modelo.Deck" Width="1.625" PointX="2.875" PointY="3.125" />
+        <AssociationConnector Association="Modelo.GameDeck1" />
+        <AssociationConnector Association="Modelo.GameDeck2" />
+        <EntityTypeShape EntityType="Modelo.Card" Width="1.5" PointX="6.375" PointY="2.375" />
+        <AssociationConnector Association="Modelo.DeckCard" />
+        <EntityTypeShape EntityType="Modelo.TeamGame" Width="1.5" PointX="6.375" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.StandardGame" Width="1.5" PointX="0.5" PointY="6.25" />
+        <InheritanceConnector EntityType="Modelo.StandardGame" />
+        <InheritanceConnector EntityType="Modelo.TeamGame" ManuallyRouted="false" >
         </InheritanceConnector>
-        <EntityTypeShape EntityType="Model1.Team" Width="1.5" PointX="8.5" PointY="9.25" />
-        <EntityTypeShape EntityType="Model1.TeamTournament" Width="1.625" PointX="5" PointY="8.875" />
-        <EntityTypeShape EntityType="Model1.StandardToutnament" Width="1.875" PointX="3" PointY="8.875" />
-        <EntityTypeShape EntityType="Model1.Tournament" Width="1.5" PointX="3.875" PointY="6" />
-        <EntityTypeShape EntityType="Model1.Player" Width="1.75" PointX="0.625" PointY="10.375" />
-        <AssociationConnector Association="Model1.TeamGameTeam" />
-        <AssociationConnector Association="Model1.TeamGameTeam1" />
-        <AssociationConnector Association="Model1.TeamTournamentTeamGame" ></AssociationConnector>
-        <InheritanceConnector EntityType="Model1.TeamTournament" />
-        <InheritanceConnector EntityType="Model1.StandardToutnament" />
-        <AssociationConnector Association="Model1.StandardToutnamentPlayer" ManuallyRouted="true" >
+        <EntityTypeShape EntityType="Modelo.Team" Width="1.5" PointX="8.5" PointY="9.25" />
+        <EntityTypeShape EntityType="Modelo.TeamTournament" Width="1.625" PointX="5" PointY="8.875" />
+        <EntityTypeShape EntityType="Modelo.StandardToutnament" Width="1.875" PointX="3" PointY="8.875" />
+        <EntityTypeShape EntityType="Modelo.Tournament" Width="1.5" PointX="3.875" PointY="6" />
+        <EntityTypeShape EntityType="Modelo.Player" Width="1.75" PointX="0.625" PointY="10.375" />
+        <AssociationConnector Association="Modelo.TeamGameTeam" />
+        <AssociationConnector Association="Modelo.TeamGameTeam1" />
+        <AssociationConnector Association="Modelo.TeamTournamentTeamGame" ></AssociationConnector>
+        <InheritanceConnector EntityType="Modelo.TeamTournament" />
+        <InheritanceConnector EntityType="Modelo.StandardToutnament" />
+        <AssociationConnector Association="Modelo.StandardToutnamentPlayer" ManuallyRouted="true" >
           <ConnectorPoint PointX="3" PointY="9.8249531901677827" />
           <ConnectorPoint PointX="1.7989959141504854" PointY="10.375" />
         </AssociationConnector>
-        <AssociationConnector Association="Model1.TeamPlayer" />
-        <AssociationConnector Association="Model1.TeamTournamentTeam" />
-        <AssociationConnector Association="Model1.StandardToutnamentStandardGame" />
-        <AssociationConnector Association="Model1.PlayerStandardGame" />
-        <AssociationConnector Association="Model1.PlayerStandardGame1" />
+        <AssociationConnector Association="Modelo.TeamPlayer" />
+        <AssociationConnector Association="Modelo.TeamTournamentTeam" />
+        <AssociationConnector Association="Modelo.StandardToutnamentStandardGame" />
+        <AssociationConnector Association="Modelo.PlayerStandardGame" />
+        <AssociationConnector Association="Modelo.PlayerStandardGame1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

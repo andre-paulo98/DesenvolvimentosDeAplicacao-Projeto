@@ -18,6 +18,8 @@ namespace Projeto {
         private void btLogin_Click(object sender, EventArgs e) {
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
+            Modelo_Container dbConteirner = new Modelo_Container();
+            DBSet users = dbConteirner.User.OfType<User>;
             formPrincipal.Show();
             Hide();
         }
