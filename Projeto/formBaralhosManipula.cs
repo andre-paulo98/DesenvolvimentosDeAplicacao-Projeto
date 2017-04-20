@@ -13,13 +13,18 @@ namespace Projeto {
 
         private Deck baralho;
         private Boolean FlagEdicao;
+        private DeckRepository deckRepo;
+        private CardRepository cardRepo;
         /// <summary>
         /// Formulario para adicionar um novo baralho
         /// </summary>
         public formBaralhosManipula() {
             FlagEdicao = false;
             InitializeComponent();
+            this.Text = "Novo Baralho";
             tbNome.Visible = true;
+            deckRepo = new DeckRepository();
+            cardRepo = new CardRepository();
         }
         /// <summary>
         /// Formulario para editar um baralho
@@ -28,8 +33,11 @@ namespace Projeto {
         public formBaralhosManipula(Deck baralho) {
             FlagEdicao = true;
             InitializeComponent();
+            this.Text = "Editar Baralho";
             this.baralho = baralho;
             lbNome.Text = "Baralho " + baralho.Name;
+            deckRepo = new DeckRepository();
+            cardRepo = new CardRepository();
         }
 
         private void btAdd_Click(object sender, EventArgs e) {
@@ -49,6 +57,12 @@ namespace Projeto {
         /// Carrega as cartas na listBox DISPONIVEIS
         /// </summary>
         private void carregaCartasDisponiveis() {
+            foreach(Card card in cardRepo.CardList()) {
+                lbDisponiveis.Items.Add(card.Name);
+            }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
 
         }
     }

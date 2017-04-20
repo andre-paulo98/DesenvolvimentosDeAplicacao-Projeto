@@ -63,9 +63,11 @@
     <Compile Include="Card.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CardRepository.cs" />
     <Compile Include="Deck.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DeckRepository.cs" />
     <Compile Include="formBaralhos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +79,12 @@
     </Compile>
     <Compile Include="formBaralhosManipula.Designer.cs">
       <DependentUpon>formBaralhosManipula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formCartas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCartas.Designer.cs">
+      <DependentUpon>formCartas.cs</DependentUpon>
     </Compile>
     <Compile Include="formGestaoUtilizadores.cs">
       <SubType>Form</SubType>
@@ -161,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formBaralhosManipula.resx">
       <DependentUpon>formBaralhosManipula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCartas.resx">
+      <DependentUpon>formCartas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>

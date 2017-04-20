@@ -112,6 +112,7 @@
             this.btCartas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btCartas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btCartas.UseVisualStyleBackColor = true;
+            this.btCartas.Click += new System.EventHandler(this.btCartas_Click);
             // 
             // btTorneios
             // 

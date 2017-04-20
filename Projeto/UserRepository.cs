@@ -16,7 +16,5 @@ namespace Projeto {
             List<User> UsersList = dbConteirner.User.ToList<User>();
             return UsersList;
         }
-
-        
     }
 }

@@ -36,5 +36,10 @@ namespace Projeto
             formJogadores gestaoJogadores = new formJogadores();
             gestaoJogadores.Show();
         }
+
+        private void btCartas_Click(object sender, EventArgs e) {
+            formCartas gestaoCartas = new formCartas();
+            gestaoCartas.Show();
+        }
     }
 }
