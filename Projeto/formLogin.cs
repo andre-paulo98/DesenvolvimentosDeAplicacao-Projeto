@@ -18,8 +18,8 @@ namespace Projeto {
         }
 
         private void btLogin_Click(object sender, EventArgs e) {
-            btLogin.Enabled = false;
             btLogin.Text = "Aguarde...";
+            btLogin.Enabled = false;
             Cursor.Current = Cursors.WaitCursor;
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
