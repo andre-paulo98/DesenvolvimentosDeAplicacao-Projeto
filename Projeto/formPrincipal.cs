@@ -12,8 +12,8 @@ namespace Projeto
 
         private void btUtilizadores_Click(object sender, EventArgs e)
         {
-            formGestaoUtilizadores gestaousers = new formGestaoUtilizadores();
-            gestaousers.Show();
+            formPickUser pickUser = new formPickUser();
+            pickUser.Show();
         }
 
         private void btBaralhos_Click(object sender, EventArgs e) {
