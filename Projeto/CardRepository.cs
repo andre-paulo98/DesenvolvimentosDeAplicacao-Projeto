@@ -8,9 +8,13 @@ using System.Windows.Forms;
 namespace Projeto {
     class CardRepository {
         private Modelo_Container dbConteirner;
-        
+
+        private List<Card> cardList;
+
+
         public CardRepository() {
             dbConteirner = new Modelo_Container();
+            cardList = dbConteirner.Card.ToList();
         }
 
         public void NovaCarta(Card carta) {
@@ -36,9 +40,19 @@ namespace Projeto {
             }
         }
 
+        public void EditCard(Card editedCard) {
+            
+        }
+
+        public Card GetCard(int idCarta) {
+            Card carta = ( from Card in cardList
+                         where Card.Id == idCarta
+                           select Card).ToList().First();
+            return carta;
+        }
+
         public List<Card> CardList() {
-            List<Card> CardList = dbConteirner.Card.ToList();
-            return CardList;
+            return cardList;
         }
 
         private void ErroMensagem(string mensage) {

@@ -29,12 +29,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnBotoes = new System.Windows.Forms.Panel();
             this.btApagar = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pnCarta = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudLealdade = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,16 +54,14 @@
             this.lbCartas = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btNova = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nudLealdade = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnBotoes.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnCarta.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAtaque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCusto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDefesa)).BeginInit();
@@ -68,7 +69,6 @@
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearch
@@ -124,7 +124,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.pnBotoes);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(218, 53);
@@ -132,31 +132,30 @@
             this.panel2.Size = new System.Drawing.Size(294, 439);
             this.panel2.TabIndex = 1;
             // 
-            // panel6
+            // pnBotoes
             // 
-            this.panel6.Controls.Add(this.btApagar);
-            this.panel6.Controls.Add(this.btEditar);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 391);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(294, 48);
-            this.panel6.TabIndex = 0;
+            this.pnBotoes.Controls.Add(this.btApagar);
+            this.pnBotoes.Controls.Add(this.btEditar);
+            this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnBotoes.Location = new System.Drawing.Point(0, 391);
+            this.pnBotoes.Name = "pnBotoes";
+            this.pnBotoes.Size = new System.Drawing.Size(294, 48);
+            this.pnBotoes.TabIndex = 0;
             // 
             // btApagar
             // 
             this.btApagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btApagar.Enabled = false;
             this.btApagar.Location = new System.Drawing.Point(191, 5);
             this.btApagar.Name = "btApagar";
             this.btApagar.Size = new System.Drawing.Size(100, 40);
             this.btApagar.TabIndex = 1;
             this.btApagar.Text = "Eliminar";
             this.btApagar.UseVisualStyleBackColor = true;
+            this.btApagar.Click += new System.EventHandler(this.btApagar_Click);
             // 
             // btEditar
             // 
             this.btEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btEditar.Enabled = false;
             this.btEditar.Location = new System.Drawing.Point(3, 5);
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(100, 40);
@@ -167,25 +166,26 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.pnCarta);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(294, 439);
             this.panel5.TabIndex = 0;
             // 
-            // panel7
+            // pnCarta
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnCarta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.panel9);
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Location = new System.Drawing.Point(27, 56);
-            this.panel7.Margin = new System.Windows.Forms.Padding(30);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(231, 279);
-            this.panel7.TabIndex = 0;
+            this.pnCarta.Controls.Add(this.panel9);
+            this.pnCarta.Controls.Add(this.panel8);
+            this.pnCarta.Enabled = false;
+            this.pnCarta.Location = new System.Drawing.Point(27, 56);
+            this.pnCarta.Margin = new System.Windows.Forms.Padding(30);
+            this.pnCarta.Name = "pnCarta";
+            this.pnCarta.Size = new System.Drawing.Size(231, 279);
+            this.pnCarta.TabIndex = 0;
             // 
             // panel9
             // 
@@ -206,6 +206,34 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(231, 221);
             this.panel9.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 151);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Lealdade:";
+            // 
+            // nudLealdade
+            // 
+            this.nudLealdade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nudLealdade.Location = new System.Drawing.Point(59, 147);
+            this.nudLealdade.Name = "nudLealdade";
+            this.nudLealdade.Size = new System.Drawing.Size(45, 20);
+            this.nudLealdade.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(212, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "€";
             // 
             // label3
             // 
@@ -240,7 +268,6 @@
             // nudAtaque
             // 
             this.nudAtaque.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAtaque.Enabled = false;
             this.nudAtaque.Location = new System.Drawing.Point(4, 196);
             this.nudAtaque.Name = "nudAtaque";
             this.nudAtaque.Size = new System.Drawing.Size(45, 20);
@@ -250,7 +277,6 @@
             // 
             this.nudCusto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nudCusto.DecimalPlaces = 2;
-            this.nudCusto.Enabled = false;
             this.nudCusto.Increment = new decimal(new int[] {
             1,
             0,
@@ -264,7 +290,6 @@
             // nudDefesa
             // 
             this.nudDefesa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudDefesa.Enabled = false;
             this.nudDefesa.Location = new System.Drawing.Point(53, 196);
             this.nudDefesa.Name = "nudDefesa";
             this.nudDefesa.Size = new System.Drawing.Size(45, 20);
@@ -273,7 +298,6 @@
             // cbFacao
             // 
             this.cbFacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFacao.Enabled = false;
             this.cbFacao.FormattingEnabled = true;
             this.cbFacao.Items.AddRange(new object[] {
             "Gaian Love for Life",
@@ -289,7 +313,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbRegras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbRegras.Enabled = false;
             this.rtbRegras.Location = new System.Drawing.Point(2, 32);
             this.rtbRegras.Name = "rtbRegras";
             this.rtbRegras.Size = new System.Drawing.Size(223, 109);
@@ -310,7 +333,6 @@
             // cbTipo
             // 
             this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipo.Enabled = false;
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Items.AddRange(new object[] {
             "Tipo",
@@ -328,7 +350,6 @@
             // 
             // tbNome
             // 
-            this.tbNome.Enabled = false;
             this.tbNome.Location = new System.Drawing.Point(3, 3);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(212, 20);
@@ -385,34 +406,6 @@
             this.btNova.UseVisualStyleBackColor = true;
             this.btNova.Click += new System.EventHandler(this.btNova_Click);
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 200);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "€";
-            // 
-            // nudLealdade
-            // 
-            this.nudLealdade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLealdade.Location = new System.Drawing.Point(59, 147);
-            this.nudLealdade.Name = "nudLealdade";
-            this.nudLealdade.Size = new System.Drawing.Size(45, 20);
-            this.nudLealdade.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 151);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Lealdade:";
-            // 
             // formCartas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,11 +421,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.pnBotoes.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.pnCarta.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAtaque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCusto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDefesa)).EndInit();
@@ -441,7 +435,6 @@
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,11 +445,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnBotoes;
         private System.Windows.Forms.Button btApagar;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pnCarta;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel4;
