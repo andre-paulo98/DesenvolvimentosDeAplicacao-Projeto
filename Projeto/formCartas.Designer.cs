@@ -137,6 +137,7 @@
             this.pnBotoes.Controls.Add(this.btApagar);
             this.pnBotoes.Controls.Add(this.btEditar);
             this.pnBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnBotoes.Enabled = false;
             this.pnBotoes.Location = new System.Drawing.Point(0, 391);
             this.pnBotoes.Name = "pnBotoes";
             this.pnBotoes.Size = new System.Drawing.Size(294, 48);
@@ -335,7 +336,6 @@
             this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Items.AddRange(new object[] {
-            "Tipo",
             "Creature",
             "Event",
             "Equipment",

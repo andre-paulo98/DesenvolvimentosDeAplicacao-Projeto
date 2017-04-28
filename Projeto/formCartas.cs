@@ -13,6 +13,7 @@ namespace Projeto {
 
         private CardRepository cardRepo;
         private Boolean flagEditar;
+
         public formCartas() {
             InitializeComponent();
             RefreshView();
@@ -39,8 +40,9 @@ namespace Projeto {
         }
 
         private void btNova_Click(object sender, EventArgs e) {
-            AtivarFormulario(true);
+            LimpaForm();
             flagEditar = false;
+            AtivarFormulario(true);
         }
 
         private void btEditar_Click(object sender, EventArgs e) {
@@ -54,19 +56,24 @@ namespace Projeto {
             carta.Attack = (short)nudAtaque.Value;
             carta.Defense = (short)nudDefesa.Value;
             if (flagEditar) {
-
+                cardRepo = new CardRepository();
+                cardRepo.EditCard(carta);
             } else {
                 cardRepo = new CardRepository();
-                cardRepo.NovaCarta(carta);
-                AtivarFormulario(false);
-                RefreshView();
+                cardRepo.AddCard(carta);
             }
+            flagEditar = false;
+            AtivarFormulario(false);
+            RefreshView();
         }
 
         private void btApagar_Click(object sender, EventArgs e) {
             if (flagEditar) {
                 //TODO apagar carta
             }
+            LimpaForm();
+            flagEditar = false;
+            AtivarFormulario(false);
         }
 
         private void lbCartas_SelectedIndexChanged(object sender, EventArgs e) {
@@ -75,24 +82,23 @@ namespace Projeto {
                 int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
                 Card carta = cardRepo.GetCard(cartaId);
                 PreencheForm(carta);
-                pnBotoes.Enabled = true;
                 flagEditar = true;
                 AtivarFormulario(true);
             } else {
-                pnBotoes.Enabled = false;
                 flagEditar = false;
+                AtivarFormulario(false);
             }
         }
 
         private void AtivarFormulario(Boolean Enable) {
             pnCarta.Enabled = Enable;
             pnBotoes.Enabled = Enable;
-            if (Enable) {
-                btEditar.Text = "Guardar";
-                btApagar.Text = "Cancelar";
-            } else {
+            if (flagEditar) {
                 btEditar.Text = "Editar";
                 btApagar.Text = "Eliminar";
+            } else {
+                btEditar.Text = "Guardar";
+                btApagar.Text = "Cancelar";
             }
             
         } 
@@ -100,8 +106,8 @@ namespace Projeto {
         private void RefreshView() {
             cardRepo = new CardRepository();
             lbCartas.Items.Clear();
-            foreach (Card carta in cardRepo.CardList()) {
-                lbCartas.Items.Add(carta.Id+" - "+carta.Name + " - " + carta.Cost);
+            foreach (Card carta in cardRepo.GetListCards()) {
+                lbCartas.Items.Add(carta.Id+" - "+carta.Name + "\n\t\t" + carta.Cost);
             }
         }
 
@@ -116,6 +122,16 @@ namespace Projeto {
             nudDefesa.Value = carta.Defense;
         }
 
-       
+        private void LimpaForm() {
+            tbNome.Text = "";
+            cbTipo.SelectedIndex = 0;
+            cbFacao.SelectedIndex = 0;
+            rtbRegras.Text = "";
+            nudAtaque.Value = 0;
+            nudCusto.Value = new Decimal(0.00);
+            nudDefesa.Value = 0;
+            nudLealdade.Value = 0;
+            lbCartas.SelectedIndex = -1;
+        }
     }
 }

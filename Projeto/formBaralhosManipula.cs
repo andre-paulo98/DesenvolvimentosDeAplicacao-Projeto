@@ -57,7 +57,7 @@ namespace Projeto {
         /// Carrega as cartas na listBox DISPONIVEIS
         /// </summary>
         private void carregaCartasDisponiveis() {
-            foreach(Card card in cardRepo.CardList()) {
+            foreach(Card card in cardRepo.GetListCards()) {
                 lbDisponiveis.Items.Add(card.Name);
             }
         }
