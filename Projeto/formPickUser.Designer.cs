@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPickUser));
             this.btArbrito = new System.Windows.Forms.Button();
             this.btAdmin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -72,6 +73,7 @@
             this.ClientSize = new System.Drawing.Size(409, 213);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "formPickUser";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
