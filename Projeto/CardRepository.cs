@@ -15,14 +15,6 @@ namespace Projeto {
             listaCartas = new List<Card>();
         }
 
-        public void DeleteCard(Card carta) {
-            if (CardChecker(carta)) {
-                listaCartas.Remove(carta);
-                dbConteirner.Card.Remove(carta);
-                dbConteirner.SaveChanges();
-            }
-        }
-
         public void AddCard(Card carta) {
             if (CardChecker(carta)) {
                 listaCartas.Add(carta);
@@ -31,7 +23,7 @@ namespace Projeto {
             }
         }
         //TODO Refazer esta função
-        /*Duvida de como se edita um objeto*/
+        /*DUVIDA - Como se edita um objeto*/
         public void EditCard(Card carta) {
             if (CardChecker(carta)) {
                 Card cartaLista = (from Card in listaCartas
@@ -46,9 +38,13 @@ namespace Projeto {
             }
         }
 
-        public List<Card> GetListCards() {
-            listaCartas = dbConteirner.Card.ToList();
-            return listaCartas;
+        public void DeleteCard(int cartaId) {
+            Card tempCart = listaCartas.ElementAt(cartaId);
+            if (CardChecker(tempCart)) {
+                listaCartas.RemoveAt(cartaId);
+                dbConteirner.Card.Remove(tempCart);
+                dbConteirner.SaveChanges();
+            }
         }
 
         public Card GetCard(int id) {
@@ -57,6 +53,17 @@ namespace Projeto {
                           select Card).ToList().First();
             return carta;
         }
+
+        public List<Card> GetCardsList() {
+            listaCartas = dbConteirner.Card.ToList();
+            return listaCartas;
+        }
+        //DUVIDA - Como se procura um objeto numa lista
+        //TODO Função para procurar carta
+        /*public List<Card> SearchCard(string nome) {
+            listaCartas = dbConteirner.Card
+            return listaCartas;
+        }*/
 
         private bool CardChecker(Card carta) {
             bool flag = false;

@@ -7,30 +7,40 @@ using System.Windows.Forms;
 
 namespace Projeto {
     class DeckRepository {
+
         private Modelo_Container dbConteirner;
+        private List<Deck> listaBaralhos;
+
         /*Duvida de como se obtem as cartas do baralho*/
         public DeckRepository() {
             dbConteirner = new Modelo_Container();
-        }
-        public void DeleteDeck(Deck baralho) {
-            if (DeckChecker(baralho)) {
-                dbConteirner.Deck.Remove(baralho);
-                dbConteirner.SaveChanges();
-            }
+            listaBaralhos = new List<Deck>();
         }
 
         public void AddDeck(Deck baralho) {
             if (DeckChecker(baralho)) {
+                listaBaralhos.Add(baralho);
                 dbConteirner.Deck.Add(baralho);
                 dbConteirner.SaveChanges();
             }
         }
 
+        //TODO Refazer esta função
+        /*Duvida de como se edita um objeto*/
         public void EditDeck(Deck baralho) {
             if (DeckChecker(baralho)) {
                 Deck originCarta = (from Deck in dbConteirner.Deck.ToList()
                                     where Deck.Id == baralho.Id
                                     select Deck).ToList().First();
+                dbConteirner.SaveChanges();
+            }
+        }
+
+        public void DeleteDeck(int baralhoId) {
+            Deck tempBaralho = listaBaralhos.ElementAt(baralhoId);
+            if (DeckChecker(tempBaralho)) {
+                listaBaralhos.Remove(tempBaralho);
+                dbConteirner.Deck.Remove(tempBaralho);
                 dbConteirner.SaveChanges();
             }
         }
@@ -41,6 +51,11 @@ namespace Projeto {
                             select Deck).ToList().First();
             return baralho;
         }
+
+        public List<Deck> GetDecksList() {
+            listaBaralhos = dbConteirner.Deck.ToList();
+            return listaBaralhos;
+        }
         //TODO
         /*public List<Card> GetDeckCardList(int id) {
             Deck baralho = (from Deck in dbConteirner.Deck.ToList()
@@ -48,10 +63,6 @@ namespace Projeto {
                                  select Card);
             return baralho.Cards.ToList();
         }*/
-
-        public List<Deck> GetDeckList() {
-            return dbConteirner.Deck.ToList();
-        }
 
         private bool DeckChecker(Deck baralho) {
             bool flag = false;

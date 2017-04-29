@@ -39,31 +39,44 @@ namespace Projeto {
             deckRepo = new DeckRepository();
             cardRepo = new CardRepository();
         }
-
-        private void btAdd_Click(object sender, EventArgs e) {
+        
+        private void btGuardar_Click(object sender, EventArgs e) {
             if (FlagEdicao) {//Se estiver em modo de ediçao
 
             } else {
-
+                /*DUVIDA - Como adicionar as cartas ao baralho*/
+                Deck novoBaralho = new Deck();
+                novoBaralho.Name = tbNome.Text;
+                deckRepo.AddDeck(novoBaralho);
             }
         }
+
+        private void btCancelar_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btAdicionar_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btRemover_Click(object sender, EventArgs e) {
+
+        }
+        //TODO Obter Cartas do Baralho e colocalas na lista
         /// <summary>
         /// Carrega as cartas na listBox BARALHO
         /// </summary>
-        private void carregaCartasBaralho() {
+        /// 
+        private void RefreshCartasBaralho() {
 
         }
         /// <summary>
         /// Carrega as cartas na listBox DISPONIVEIS
         /// </summary>
-        private void carregaCartasDisponiveis() {
-            foreach(Card card in cardRepo.GetListCards()) {
+        private void RefreshCartasDisponiveis() {
+            foreach (Card card in cardRepo.GetCardsList()) {
                 lbDisponiveis.Items.Add(card.Name);
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
-        }
+        }       
     }
 }

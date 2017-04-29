@@ -16,6 +16,7 @@ namespace Projeto {
 
         public formCartas() {
             InitializeComponent();
+            cardRepo = new CardRepository();
             RefreshView();
         }
 
@@ -56,10 +57,9 @@ namespace Projeto {
             carta.Attack = (short)nudAtaque.Value;
             carta.Defense = (short)nudDefesa.Value;
             if (flagEditar) {
-                cardRepo = new CardRepository();
+                //TODO funçao editar
                 cardRepo.EditCard(carta);
             } else {
-                cardRepo = new CardRepository();
                 cardRepo.AddCard(carta);
             }
             flagEditar = false;
@@ -69,16 +69,20 @@ namespace Projeto {
 
         private void btApagar_Click(object sender, EventArgs e) {
             if (flagEditar) {
-                //TODO apagar carta
+                cardRepo.DeleteCard(lbCartas.SelectedIndex);
+                RefreshView();
             }
             LimpaForm();
             flagEditar = false;
             AtivarFormulario(false);
         }
 
+        private void btPesquisa_Click(object sender, EventArgs e) {
+            //TODO Função para procurar carta
+        }
+
         private void lbCartas_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbCartas.SelectedIndex >= 0) {
-                cardRepo = new CardRepository();
                 int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
                 Card carta = cardRepo.GetCard(cartaId);
                 PreencheForm(carta);
@@ -89,7 +93,10 @@ namespace Projeto {
                 AtivarFormulario(false);
             }
         }
-
+        /// <summary>
+        /// Funçao que ativa ou desativa o formulario da carta
+        /// </summary>
+        /// <param name="Enable">TRUE -> Ativae  OU  FALSE -> Desativar</param>
         private void AtivarFormulario(Boolean Enable) {
             pnCarta.Enabled = Enable;
             pnBotoes.Enabled = Enable;
@@ -102,15 +109,20 @@ namespace Projeto {
             }
             
         } 
-
+        /// <summary>
+        /// Funcao que carrega as cartas na lista
+        /// cada vez que esta sofre alteraçoes
+        /// </summary>
         private void RefreshView() {
-            cardRepo = new CardRepository();
             lbCartas.Items.Clear();
-            foreach (Card carta in cardRepo.GetListCards()) {
+            foreach (Card carta in cardRepo.GetCardsList()) {
                 lbCartas.Items.Add(carta.Id+" - "+carta.Name + "\n\t\t" + carta.Cost);
             }
         }
-
+        /// <summary>
+        /// Funcao que preenche o formulario da carta com os dados da carta
+        /// </summary>
+        /// <param name="carta">Carta a sr exposta no formulario</param>
         private void PreencheForm(Card carta) {
             tbNome.Text = carta.Name;
             cbFacao.Text = carta.Faction;
@@ -121,7 +133,9 @@ namespace Projeto {
             nudAtaque.Value = carta.Attack;
             nudDefesa.Value = carta.Defense;
         }
-
+        /// <summary>
+        /// Funcao que limpa os dados do formulario
+        /// </summary>
         private void LimpaForm() {
             tbNome.Text = "";
             cbTipo.SelectedIndex = 0;

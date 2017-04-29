@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Projeto {
     public partial class formBaralhos : Form {
+
+        DeckRepository deckRepo;
         public formBaralhos() {
             InitializeComponent();
+            deckRepo = new DeckRepository();
+            RefreshDeckList();
         }
 
         private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
@@ -34,6 +38,21 @@ namespace Projeto {
                 n.Name = "Teste";
                 new formBaralhosManipula(n).Show();
             }
+        }
+        /// <summary>
+        /// Função reponsavel por recarregar a lista de baralhos
+        /// </summary>
+        private void RefreshDeckList() {
+            lbBaralhos.Items.Clear();
+            foreach (Deck baralho in deckRepo.GetDecksList()) {
+                lbBaralhos.Items.Add(baralho.Id + " - " + baralho.Name);
+            }
+        }
+        /// <summary>
+        /// Função que carrega as cartas de cada baralho na lista
+        /// </summary>
+        private void RefreshCardList() {
+
         }
     }
 }

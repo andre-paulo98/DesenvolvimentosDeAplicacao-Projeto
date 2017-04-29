@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formBaralhosManipula));
-            this.btAdd = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btAdicionar = new System.Windows.Forms.Button();
+            this.btRemover = new System.Windows.Forms.Button();
             this.lbBaralho = new System.Windows.Forms.ListBox();
             this.lbDisponiveis = new System.Windows.Forms.ListBox();
             this.lbNome = new System.Windows.Forms.Label();
@@ -46,29 +46,30 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btAdd
+            // btAdicionar
             // 
-            this.btAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdd.Location = new System.Drawing.Point(6, 132);
-            this.btAdd.Margin = new System.Windows.Forms.Padding(5);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(40, 40);
-            this.btAdd.TabIndex = 0;
-            this.btAdd.Text = "<";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.btAdicionar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdicionar.Location = new System.Drawing.Point(6, 132);
+            this.btAdicionar.Margin = new System.Windows.Forms.Padding(5);
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(40, 40);
+            this.btAdicionar.TabIndex = 0;
+            this.btAdicionar.Text = "<";
+            this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
             // 
-            // button2
+            // btRemover
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btRemover.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemover.Location = new System.Drawing.Point(6, 202);
+            this.btRemover.Name = "btRemover";
+            this.btRemover.Size = new System.Drawing.Size(40, 40);
+            this.btRemover.TabIndex = 1;
+            this.btRemover.Text = ">";
+            this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // lbBaralho
             // 
@@ -116,6 +117,7 @@
             this.btGuardar.TabIndex = 8;
             this.btGuardar.Text = "Guardar";
             this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
             // 
             // btCancelar
             // 
@@ -126,6 +128,7 @@
             this.btCancelar.TabIndex = 9;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -145,7 +148,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(549, 382);
             this.tableLayoutPanel1.TabIndex = 10;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // groupBox1
             // 
@@ -171,8 +173,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.btAdd);
+            this.panel1.Controls.Add(this.btRemover);
+            this.panel1.Controls.Add(this.btAdicionar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(247, 53);
             this.panel1.Name = "panel1";
@@ -223,8 +225,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btAdd;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btAdicionar;
+        private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.ListBox lbBaralho;
         private System.Windows.Forms.ListBox lbDisponiveis;
         private System.Windows.Forms.Label lbNome;

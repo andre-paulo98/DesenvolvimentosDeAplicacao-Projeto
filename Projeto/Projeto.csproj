@@ -64,11 +64,6 @@
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="CardRepository.cs" />
-    <Compile Include="Cards.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cards.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Deck.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
@@ -234,17 +229,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Moledo_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Cards.xsc">
-      <DependentUpon>Cards.xsd</DependentUpon>
-    </None>
-    <None Include="Cards.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Cards.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Cards.xss">
-      <DependentUpon>Cards.xsd</DependentUpon>
-    </None>
     <None Include="Moledo_DB.edmx.diagram">
       <DependentUpon>Moledo_DB.edmx</DependentUpon>
     </None>
@@ -263,8 +247,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\arbrito.png" />
-    <None Include="img\Search.png" />
     <Content Include="Moledo_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Moledo_DB.Context.cs</LastGenOutput>
@@ -279,9 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
