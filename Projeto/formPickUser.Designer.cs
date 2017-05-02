@@ -78,7 +78,7 @@
             this.Name = "formPickUser";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formPickUser";
+            this.Text = "Escolher Grupo";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

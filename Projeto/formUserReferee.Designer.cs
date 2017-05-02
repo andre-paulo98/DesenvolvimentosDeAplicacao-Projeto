@@ -114,7 +114,7 @@
             this.MinimumSize = new System.Drawing.Size(348, 290);
             this.Name = "formUserReferee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formUserReferee";
+            this.Text = "Gestão de Árbitros";
             this.ResumeLayout(false);
             this.PerformLayout();
 

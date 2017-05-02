@@ -115,7 +115,7 @@
             this.Controls.Add(this.lbBaralhos);
             this.Name = "formBaralhos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formBaralhos";
+            this.Text = "Formulário de Baralhos";
             this.ResumeLayout(false);
             this.PerformLayout();
 
