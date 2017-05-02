@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formUserReferee));
             this.label1 = new System.Windows.Forms.Label();
             this.lbArbitros = new System.Windows.Forms.ListBox();
             this.btRemover = new System.Windows.Forms.Button();
@@ -44,7 +45,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(419, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Gestão de Árbritos";
+            this.label1.Text = "Gestão de Árbitros";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbArbitros
@@ -111,10 +112,11 @@
             this.Controls.Add(this.lbArbitros);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(348, 290);
             this.Name = "formUserReferee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formUserReferee";
+            this.Text = "Gestão de Árbitros";
             this.ResumeLayout(false);
             this.PerformLayout();
 
