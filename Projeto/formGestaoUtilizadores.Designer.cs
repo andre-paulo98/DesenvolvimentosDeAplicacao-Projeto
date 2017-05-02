@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formGestaoUtilizadores));
             this.lbUtilizadores = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btLimpar = new System.Windows.Forms.Button();
@@ -184,6 +185,7 @@
             this.ClientSize = new System.Drawing.Size(484, 234);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbUtilizadores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formGestaoUtilizadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Utilizadores";

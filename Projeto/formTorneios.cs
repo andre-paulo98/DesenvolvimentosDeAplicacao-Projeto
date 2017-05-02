@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace Projeto {
     public partial class formTorneios : Form {
+
+        private TournamentRepository tourRepo;
         public formTorneios() {
             InitializeComponent();
+            tourRepo = new TournamentRepository();
+            dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
         }
+        
 
         private void cancelar(object sender, EventArgs e) {
             tbDescricao.Text = "";
@@ -21,7 +26,18 @@ namespace Projeto {
         }
 
         private void guardar(object sender, EventArgs e) {
-            //TODO
+            Tournament torneio = new Tournament();
+            torneio.Name = tbNome.Text;
+            torneio.Date = dpData.Value;
+            torneio.Descrition = tbDescricao.Text;
+            tourRepo.newTournament(torneio);
+        }
+
+        private void listaTorneios() {
+            lbTorneios.Items.Clear();
+            foreach(Tournament torneio in collection) {
+
+            }
         }
     }
 }

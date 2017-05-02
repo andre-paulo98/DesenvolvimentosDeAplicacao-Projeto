@@ -178,6 +178,7 @@
     <Compile Include="Tournament.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="TournamentRepository.cs" />
     <Compile Include="User.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>

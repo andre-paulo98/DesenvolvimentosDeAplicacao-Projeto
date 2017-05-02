@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTorneios));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -32,7 +33,7 @@
             this.btCancelar = new System.Windows.Forms.Button();
             this.dpData = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbTorneios = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,10 +103,10 @@
             // 
             // dpData
             // 
-            this.dpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dpData.Location = new System.Drawing.Point(73, 53);
             this.dpData.Name = "dpData";
-            this.dpData.Size = new System.Drawing.Size(101, 20);
+            this.dpData.Size = new System.Drawing.Size(215, 20);
             this.dpData.TabIndex = 8;
             // 
             // groupBox1
@@ -125,21 +126,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalhes de Torneio";
             // 
-            // listBox1
+            // lbTorneios
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbTorneios.FormattingEnabled = true;
+            this.lbTorneios.Items.AddRange(new object[] {
             "Torneio1 - 20/04/2017",
             "Torneio2 - 10/05/2017",
             "Torneio3 - 26/06/2017"});
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(193, 277);
-            this.listBox1.TabIndex = 10;
+            this.lbTorneios.Location = new System.Drawing.Point(6, 19);
+            this.lbTorneios.Name = "lbTorneios";
+            this.lbTorneios.Size = new System.Drawing.Size(193, 277);
+            this.lbTorneios.TabIndex = 10;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Controls.Add(this.lbTorneios);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(205, 308);
@@ -154,6 +155,7 @@
             this.ClientSize = new System.Drawing.Size(543, 332);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formTorneios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Torneios";
@@ -175,7 +177,7 @@
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.DateTimePicker dpData;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbTorneios;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }
