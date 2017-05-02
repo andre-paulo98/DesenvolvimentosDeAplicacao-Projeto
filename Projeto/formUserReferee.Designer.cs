@@ -44,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(419, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Gestão de Árbritos";
+            this.label1.Text = "Gestão de Árbitros";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listBox1
