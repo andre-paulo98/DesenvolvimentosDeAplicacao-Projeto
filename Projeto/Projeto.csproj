@@ -60,6 +60,7 @@
     <Compile Include="Administrador.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ArbitroRepository.cs" />
     <Compile Include="Card.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
