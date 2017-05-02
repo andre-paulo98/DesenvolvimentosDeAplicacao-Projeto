@@ -35,9 +35,9 @@ namespace Projeto {
 
         private void listaTorneios() {
             lbTorneios.Items.Clear();
-            foreach(Tournament torneio in collection) {
+            /*foreach(Tournament torneio in collection) {
 
-            }
+            }*/
         }
     }
 }
