@@ -252,8 +252,10 @@
     <Content Include="img\arbrito.png" />
     <Content Include="img\arbrito1.png" />
     <Content Include="img\Cards.png" />
+    <None Include="img\Decks.png" />
     <Content Include="img\Joystick.ico" />
     <Content Include="img\Lock.png" />
+    <None Include="img\Search-Clean.png" />
     <Content Include="Moledo_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Moledo_DB.Context.cs</LastGenOutput>

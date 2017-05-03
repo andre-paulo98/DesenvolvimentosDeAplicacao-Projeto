@@ -94,7 +94,7 @@
             // btPesquisaArbrito
             // 
             this.btPesquisaArbrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPesquisaArbrito.Image = global::Projeto.Properties.Resources.Search;
+            this.btPesquisaArbrito.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisaArbrito.Image")));
             this.btPesquisaArbrito.Location = new System.Drawing.Point(370, 57);
             this.btPesquisaArbrito.Name = "btPesquisaArbrito";
             this.btPesquisaArbrito.Size = new System.Drawing.Size(37, 31);
