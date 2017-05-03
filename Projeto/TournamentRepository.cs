@@ -23,6 +23,10 @@ namespace Projeto {
             }
         }
 
+        public List<Tournament> getListaTorneios() {
+            return dbContainer.Tournament.ToList();
+        }
+
         private bool checkTorneio(Tournament torneio) {
             bool check = false;
             if(torneio.Name.Length == 0) {
