@@ -35,13 +35,19 @@ namespace Projeto {
         }
 
         private void btNovo_Click(object sender, EventArgs e) {
-            new formBaralhosManipula(dbContainer).Show();
-            this.Hide();
+            formBaralhosManipula formManipula = new formBaralhosManipula(dbContainer);
+            formManipula.FormClosing += new FormClosingEventHandler(formManipulaClosedEventHandler);
+
+            formManipula.ShowDialog(this);
+        }
+
+        private void formManipulaClosedEventHandler(object sender, FormClosingEventArgs e) {
+            RefreshDeckList();
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
-                new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show();
+                new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show(this);
             }
         }
         /// <summary>

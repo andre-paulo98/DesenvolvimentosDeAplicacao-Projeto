@@ -27,6 +27,7 @@ namespace Projeto {
             deckRepo = new DeckRepository(dbContainer);
             cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
+            this.TopMost = true;
         }
         /// <summary>
         /// Formulario para editar um baralho
@@ -42,6 +43,7 @@ namespace Projeto {
             cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
             RefreshCartasBaralho();
+            this.TopMost = true;
         }
         
         private void btGuardar_Click(object sender, EventArgs e) {
