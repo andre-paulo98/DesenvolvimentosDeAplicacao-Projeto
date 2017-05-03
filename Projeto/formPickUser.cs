@@ -23,7 +23,7 @@ namespace Projeto
         {
             formUserReferee arbritos = new formUserReferee(dbContainer);
             arbritos.Show();
-            Hide();
+            Close();
         }
 
         private void btAdmin_Click(object sender, EventArgs e) {

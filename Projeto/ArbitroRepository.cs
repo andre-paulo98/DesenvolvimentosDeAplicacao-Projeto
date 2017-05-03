@@ -36,5 +36,13 @@ namespace Projeto
             listaArbitro = container.User.OfType<Referee>().ToList(); //buscar uma lista de arbitros
             return listaArbitro;
         }
+        public void DeleteReferee(int arbitroId)//*
+        {
+            Referee arbitroAApagar = container.User.OfType<Referee>().ToList().ElementAt(arbitroId);//vai buscar o arbitro por id*
+            
+            container.User.OfType<Referee>().ToList().RemoveAt(arbitroId);
+            container.User.Remove(arbitroAApagar);
+            container.SaveChanges();
+        }
     }
 }

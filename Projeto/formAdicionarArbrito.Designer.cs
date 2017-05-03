@@ -148,7 +148,6 @@
             this.Name = "formAdicionarArbrito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Árbitro";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formAdicionarArbrito_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

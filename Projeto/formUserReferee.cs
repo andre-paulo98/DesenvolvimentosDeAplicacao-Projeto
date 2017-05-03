@@ -19,22 +19,40 @@ namespace Projeto
             InitializeComponent();
             this.dbContainer = dbContainer;
             arbitroRepos = new ArbitroRepository(dbContainer);
+            //refresh da lista de arbitros
+            RefreshView();
         }
 
         private void clickAddArbrito(object sender, EventArgs e)
         {
             formAdicionarArbrito addArbrito = new formAdicionarArbrito(this, dbContainer);
+            addArbrito.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing);
             addArbrito.Show();
-            Hide();
         }
-        private void RefreshView()
+
+        private void RefreshView() // método para refresh da lista de arbitros
         {
             lbArbitros.Items.Clear();
 
             foreach (Referee arbitro in arbitroRepos.GetRefereeList())
             {
-                lbArbitros.Items.Add(arbitro.Id + " - " + arbitro.Name);//Lista de arbitos
+                lbArbitros.Items.Add(arbitro.Name);//Lista de arbitos
             }
+        }
+
+        private void formUserReferee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RefreshView();
+        }
+
+        private void btRemover_Click(object sender, EventArgs e)
+        {
+            if (lbArbitros.SelectedIndex != -1)
+            {
+                arbitroRepos.DeleteReferee(lbArbitros.SelectedIndex);
+                RefreshView();
+            }
+            
         }
     }
 }
