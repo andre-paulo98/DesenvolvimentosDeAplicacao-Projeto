@@ -12,20 +12,14 @@ namespace Projeto
 {
     public partial class formAdicionarArbrito : Form
     {
-        public formUserReferee formUserRefere; // *1
         private ArbitroRepository arbitroRepos;
 
         public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer)
         {
             InitializeComponent();
-            formUserRefere = form; // *1 Instância anterior aqui
             arbitroRepos = new ArbitroRepository(dbContainer);
         }
 
-        private void formAdicionarArbrito_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formUserRefere.Show();
-        }
 
         private void btGuardar_Click(object sender, EventArgs e)//bt guardar
         {
@@ -47,6 +41,8 @@ namespace Projeto
                 Close();
             } 
         }
+
+        
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
