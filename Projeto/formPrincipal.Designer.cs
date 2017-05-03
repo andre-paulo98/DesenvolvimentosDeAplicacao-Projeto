@@ -98,6 +98,7 @@
             this.btEquipas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btEquipas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btEquipas.UseVisualStyleBackColor = true;
+            this.btEquipas.Click += new System.EventHandler(this.btEquipas_Click);
             // 
             // btCartas
             // 

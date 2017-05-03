@@ -25,5 +25,9 @@ namespace Projeto
             arbritos.Show();
             Hide();
         }
+
+        private void btAdmin_Click(object sender, EventArgs e) {
+
+        }
     }
 }

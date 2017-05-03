@@ -36,6 +36,7 @@ namespace Projeto {
 
         private void btNovo_Click(object sender, EventArgs e) {
             new formBaralhosManipula(dbContainer).Show();
+            this.Hide();
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {

@@ -74,7 +74,7 @@
             // btAddNew
             // 
             this.btAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAddNew.Location = new System.Drawing.Point(217, 227);
+            this.btAddNew.Location = new System.Drawing.Point(218, 227);
             this.btAddNew.Name = "btAddNew";
             this.btAddNew.Size = new System.Drawing.Size(97, 23);
             this.btAddNew.TabIndex = 2;

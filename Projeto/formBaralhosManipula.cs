@@ -45,22 +45,26 @@ namespace Projeto {
         }
         
         private void btGuardar_Click(object sender, EventArgs e) {
-            if (FlagEdicao) {//Se estiver em modo de ediçao
+            if (FlagEdicao) {//MODO DE EDICAO
 
-            } else {
-                if (lbBaralho.Items.Count > 0) {
-                    baralho.Name = tbNome.Text;
-                    deckRepo.AddDeck(baralho);
-                } else {
-                    MessageBox.Show( "Nenhuma carta encontrada no baralho\n"+
-                                    "Por favor adicione cartas ao baralho!",
-                                    "Nenhuma carta no Baralho", MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            } else {//MODO DE INSERÇAO
+                baralho.Name = tbNome.Text;
+                if (deckRepo.AddDeck(baralho)) {
+                    this.Close();
                 }
             }
         }
 
         private void btCancelar_Click(object sender, EventArgs e) {
-
+            if (baralho.Cards.Count > 0 || tbNome.Text.Length > 0) {
+                if(MessageBox.Show("Ao cancelar ira perder todos os dados inseridos!\n"+
+                    "Tem a certeza que pertende fechar o formulario?","Perca de Dados",
+                    MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) {
+                    this.Close();
+                }
+            } else {
+                this.Close();
+            }
         }
 
         private void btAdicionar_Click(object sender, EventArgs e) {

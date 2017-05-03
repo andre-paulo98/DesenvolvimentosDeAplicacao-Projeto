@@ -56,6 +56,7 @@
             this.btAdmin.TabIndex = 0;
             this.btAdmin.Text = "Administrador";
             this.btAdmin.UseVisualStyleBackColor = true;
+            this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
             // 
             // groupBox1
             // 
