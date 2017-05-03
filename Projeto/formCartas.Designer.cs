@@ -429,7 +429,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 450);
             this.Name = "formCartas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Title";
+            this.Text = "Formulário Cartas";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

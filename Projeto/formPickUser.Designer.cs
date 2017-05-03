@@ -42,7 +42,7 @@
             this.btArbrito.Name = "btArbrito";
             this.btArbrito.Size = new System.Drawing.Size(140, 120);
             this.btArbrito.TabIndex = 0;
-            this.btArbrito.Text = "Árbrito";
+            this.btArbrito.Text = "Árbitro";
             this.btArbrito.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btArbrito.UseVisualStyleBackColor = true;
             this.btArbrito.Click += new System.EventHandler(this.clickGestaoArbritos);
@@ -78,7 +78,7 @@
             this.Name = "formPickUser";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formPickUser";
+            this.Text = "Escolher Grupo";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

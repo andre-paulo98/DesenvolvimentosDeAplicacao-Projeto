@@ -12,9 +12,11 @@ namespace Projeto
 {
     public partial class formUserReferee : Form
     {
+        ArbitroRepository arbitroRepos;
         public formUserReferee()
         {
             InitializeComponent();
+            arbitroRepos = new ArbitroRepository();
         }
 
         private void clickAddArbrito(object sender, EventArgs e)
@@ -22,6 +24,15 @@ namespace Projeto
             formAdicionarArbrito addArbrito = new formAdicionarArbrito(this);
             addArbrito.Show();
             Hide();
+        }
+        private void RefreshView()
+        {
+            lbArbitros.Items.Clear();
+
+            foreach (Referee arbitro in arbitroRepos.GetRefereeList())
+            {
+                lbArbitros.Items.Add(arbitro.Id + " - " + arbitro.Name);//Lista de arbitos
+            }
         }
     }
 }

@@ -152,7 +152,7 @@
             this.MaximizeBox = false;
             this.Name = "formPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formPrincipal";
+            this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPrincipal_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
