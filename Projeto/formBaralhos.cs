@@ -29,25 +29,30 @@ namespace Projeto {
                 LoadCardList(GetSelectedDeck());
                 lbCartas.Visible = true;
             } else {
-                label3.Visible = true;
-                lbCartas.Visible = false;
+                DisableCardsList();
             }
         }
 
         private void btNovo_Click(object sender, EventArgs e) {
             formBaralhosManipula formManipula = new formBaralhosManipula(dbContainer);
-            formManipula.FormClosing += new FormClosingEventHandler(formManipulaClosedEventHandler);
-
+            formManipula.FormClosing += (object formSender, FormClosingEventArgs fromE) => { RefreshDeckList(); };
+            /*(object formSender, FormClosingEventArgs fromE) => { RefreshDeckList(); };
+                * É um expresão Lambda para:
+                * new FormClosingEventHandler(delegate (object formSender, FormClosingEventArgs fromE) { RefreshDeckList(); });
+                * **/
             formManipula.ShowDialog(this);
         }
 
-        private void formManipulaClosedEventHandler(object sender, FormClosingEventArgs e) {
+        private void btEliminar_Click(object sender, EventArgs e) {
+            deckRepo.DeleteDeck(lbBaralhos.SelectedIndex);
             RefreshDeckList();
+            DisableCardsList();
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
                 new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show(this);
+                DisableCardsList();
             }
         }
         /// <summary>
@@ -75,5 +80,15 @@ namespace Projeto {
             int baralhoId = int.Parse(lbBaralhos.Items[lbBaralhos.SelectedIndex].ToString().Split('-')[0].Trim());
             return deckRepo.GetDeck(baralhoId);
         }
+        /// <summary>
+        /// Função que desativa a lista das cartas
+        /// </summary>
+        private void DisableCardsList() {
+            label3.Visible = true;
+            lbCartas.Visible = false;
+            lbBaralhos.SelectedIndex = -1;
+        }
+
+        
     }
 }

@@ -106,7 +106,6 @@
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(157, 30);
             this.tbNome.TabIndex = 7;
-            this.tbNome.Visible = false;
             // 
             // btGuardar
             // 
