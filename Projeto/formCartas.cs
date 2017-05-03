@@ -14,9 +14,9 @@ namespace Projeto {
         private CardRepository cardRepo;
         private Boolean flagEditar;
 
-        public formCartas() {
+        public formCartas(Modelo_Container dbContainer) {
             InitializeComponent();
-            cardRepo = new CardRepository();
+            cardRepo = new CardRepository(dbContainer);
             RefreshView();
         }
 
@@ -62,14 +62,18 @@ namespace Projeto {
             carta.Attack = (short)nudAtaque.Value;
             carta.Defense = (short)nudDefesa.Value;
             if (flagEditar) {
-                cardRepo.EditCard(carta);
-                LimpaForm();
+                if (cardRepo.EditCard(carta)) {
+                    LimpaForm();
+                    flagEditar = false;
+                    AtivarFormulario(false);
+                    RefreshView();
+                }
             } else {
                 cardRepo.AddCard(carta);
+                AtivarFormulario(false);
+                RefreshView();
             }
-            flagEditar = false;
-            AtivarFormulario(false);
-            RefreshView();
+            
         }
 
         private void btApagar_Click(object sender, EventArgs e) {

@@ -13,15 +13,17 @@ namespace Projeto
     public partial class formUserReferee : Form
     {
         ArbitroRepository arbitroRepos;
-        public formUserReferee()
+        private Modelo_Container dbContainer;
+        public formUserReferee(Modelo_Container dbContainer)
         {
             InitializeComponent();
-            arbitroRepos = new ArbitroRepository();
+            this.dbContainer = dbContainer;
+            arbitroRepos = new ArbitroRepository(dbContainer);
         }
 
         private void clickAddArbrito(object sender, EventArgs e)
         {
-            formAdicionarArbrito addArbrito = new formAdicionarArbrito(this);
+            formAdicionarArbrito addArbrito = new formAdicionarArbrito(this, dbContainer);
             addArbrito.Show();
             Hide();
         }

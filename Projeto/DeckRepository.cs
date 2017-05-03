@@ -11,9 +11,8 @@ namespace Projeto {
         private Modelo_Container dbConteirner;
         private List<Deck> listaBaralhos;
 
-        /*Duvida de como se obtem as cartas do baralho*/
-        public DeckRepository() {
-            dbConteirner = new Modelo_Container();
+        public DeckRepository(Modelo_Container dbConteirner) {
+            this.dbConteirner = dbConteirner;
             listaBaralhos = new List<Deck>();
         }
 

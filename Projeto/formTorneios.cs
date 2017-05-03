@@ -11,10 +11,13 @@ using System.Windows.Forms;
 namespace Projeto {
     public partial class formTorneios : Form {
 
+        private Modelo_Container dbContainer;
+
         private TournamentRepository tourRepo;
-        public formTorneios() {
+        public formTorneios(Modelo_Container dbContainer) {
             InitializeComponent();
-            tourRepo = new TournamentRepository();
+            this.dbContainer = dbContainer;
+            tourRepo = new TournamentRepository(dbContainer);
             dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
         }
         

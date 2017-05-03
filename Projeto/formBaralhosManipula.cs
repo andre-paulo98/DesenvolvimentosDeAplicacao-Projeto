@@ -18,28 +18,28 @@ namespace Projeto {
         /// <summary>
         /// Formulario para adicionar um novo baralho
         /// </summary>
-        public formBaralhosManipula() {
+        public formBaralhosManipula(Modelo_Container dbContainer) {
             FlagEdicao = false;
             InitializeComponent();
             this.Text = "Novo Baralho";
             baralho = new Deck();
             tbNome.Visible = true;
-            deckRepo = new DeckRepository();
-            cardRepo = new CardRepository();
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
         }
         /// <summary>
         /// Formulario para editar um baralho
         /// </summary>
         /// <param name="baralho">Baralho a editar</param>
-        public formBaralhosManipula(Deck baralho) {
+        public formBaralhosManipula(Deck baralho, Modelo_Container dbContainer) {
             FlagEdicao = true;
             InitializeComponent();
             this.Text = "Editar Baralho";
             this.baralho = baralho;
             lbNome.Text = "Baralho " + baralho.Name;
-            deckRepo = new DeckRepository();
-            cardRepo = new CardRepository();
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
             RefreshCartasBaralho();
         }

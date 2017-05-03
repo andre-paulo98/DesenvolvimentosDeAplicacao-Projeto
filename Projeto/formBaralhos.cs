@@ -13,11 +13,13 @@ namespace Projeto {
 
         DeckRepository deckRepo;
         CardRepository cardRepo;
+        Modelo_Container dbContainer;
 
-        public formBaralhos() {
+        public formBaralhos(Modelo_Container dbContainer) {
             InitializeComponent();
-            deckRepo = new DeckRepository();
-            cardRepo = new CardRepository();
+            this.dbContainer = dbContainer;
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
             RefreshDeckList();
         }
 
@@ -33,12 +35,12 @@ namespace Projeto {
         }
 
         private void btNovo_Click(object sender, EventArgs e) {
-            new formBaralhosManipula().Show();
+            new formBaralhosManipula(dbContainer).Show();
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
-                new formBaralhosManipula(GetSelectedDeck()).Show();
+                new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show();
             }
         }
         /// <summary>

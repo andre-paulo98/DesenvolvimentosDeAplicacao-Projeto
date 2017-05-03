@@ -12,14 +12,16 @@ namespace Projeto
 {
     public partial class formPickUser : Form
     {
-        public formPickUser()
+        Modelo_Container dbContainer;
+        public formPickUser(Modelo_Container dbContainer)
         {
+            this.dbContainer = dbContainer;
             InitializeComponent();
         }
 
         private void clickGestaoArbritos(object sender, EventArgs e)
         {
-            formUserReferee arbritos = new formUserReferee();
+            formUserReferee arbritos = new formUserReferee(dbContainer);
             arbritos.Show();
             Hide();
         }

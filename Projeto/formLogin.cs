@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace Projeto {
     public partial class formLogin : Form {
-        formPrincipal formPrincipal = new formPrincipal();
+
+        Modelo_Container dbContainer = new Modelo_Container();
+        formPrincipal formPrincipal;
         UserRepository userRepo;
         public formLogin() {
             InitializeComponent();
-            userRepo = new UserRepository();
+            formPrincipal = new formPrincipal(dbContainer);
+            userRepo = new UserRepository(dbContainer);
         }
 
         private void btLogin_Click(object sender, EventArgs e) {

@@ -15,11 +15,11 @@ namespace Projeto
         public formUserReferee formUserRefere; // *1
         private ArbitroRepository arbitroRepos;
 
-        public formAdicionarArbrito(formUserReferee form)
+        public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer)
         {
             InitializeComponent();
             formUserRefere = form; // *1 Instância anterior aqui
-            arbitroRepos = new ArbitroRepository();
+            arbitroRepos = new ArbitroRepository(dbContainer);
         }
 
         private void formAdicionarArbrito_FormClosed(object sender, FormClosedEventArgs e)

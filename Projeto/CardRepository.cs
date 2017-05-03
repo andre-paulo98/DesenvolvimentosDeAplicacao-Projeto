@@ -8,17 +8,14 @@ using System.Windows.Forms;
 namespace Projeto {
     class CardRepository {
         private Modelo_Container dbConteirner;
-        private List<Card> listaCartas;
 
-        public CardRepository() {
-            dbConteirner = new Modelo_Container();
-            listaCartas = new List<Card>();
+        public CardRepository(Modelo_Container dbConteirner) {
+            this.dbConteirner = dbConteirner;
         }
 
         public bool AddCard(Card carta) {
             bool flag = CardChecker(carta);
             if (flag) {
-                listaCartas.Add(carta);
                 dbConteirner.Card.Add(carta);
                 dbConteirner.SaveChanges();
             }
@@ -28,8 +25,8 @@ namespace Projeto {
         public bool EditCard(Card carta) {
             bool flag = (CardChecker(carta) && carta.Id != 0);
             if (flag) {
-                Card cartaLista = (from Card in listaCartas
-                 where Card.Id == carta.Id
+                Card cartaLista = (from Card in dbConteirner.Card.ToList()
+                                   where Card.Id == carta.Id
                  select Card).First();
                 cartaLista = carta;
                 Card originCarta = (from Card in dbConteirner.Card.ToList()
@@ -42,10 +39,10 @@ namespace Projeto {
         }
 
         public bool DeleteCard(int cartaId) {
-            Card tempCart = listaCartas.ElementAt(cartaId);
+            Card tempCart = dbConteirner.Card.ToList().ElementAt(cartaId);
             bool flag = CardChecker(tempCart);
             if (flag) {
-                listaCartas.RemoveAt(cartaId);
+                dbConteirner.Card.ToList().RemoveAt(cartaId);
                 dbConteirner.Card.Remove(tempCart);
                 dbConteirner.SaveChanges();
             }
@@ -60,22 +57,19 @@ namespace Projeto {
         }
 
         public List<Card> GetCardsList() {
-            listaCartas = dbConteirner.Card.ToList();
-            return listaCartas;
+            return dbConteirner.Card.ToList();
         }
 
         public List<Card> GetCardsListNotIn(List<Card> cartas) {
-            listaCartas = (from card in dbConteirner.Card.ToList()
+            return (from card in dbConteirner.Card.ToList()
                            where !(cartas.Contains(card))
                            select card).ToList();
-            return listaCartas;
         }
 
         public List<Card> SearchCard(string nome) {
-            listaCartas = (from Card in dbConteirner.Card.ToList()
+            return (from Card in dbConteirner.Card.ToList()
                            where Card.Name.ToUpper().Contains(nome.ToUpper())
                            select Card).ToList();
-            return listaCartas;
         }
 
         private bool CardChecker(Card carta) {

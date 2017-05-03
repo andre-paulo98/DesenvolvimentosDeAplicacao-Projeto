@@ -11,9 +11,9 @@ namespace Projeto
         private Modelo_Container container;
         private List<Referee> listaArbitro;//Lista de arbitros
 
-        public ArbitroRepository()
+        public ArbitroRepository(Modelo_Container container)
         {
-            container = new Modelo_Container(); //cria objeto do container
+            this.container = container; //cria objeto do container
             listaArbitro = new List<Referee>();
         }
 

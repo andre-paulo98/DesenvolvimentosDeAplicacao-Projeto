@@ -174,7 +174,7 @@
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(100, 40);
             this.btEditar.TabIndex = 0;
-            this.btEditar.Text = "Editar";
+            this.btEditar.Text = "Guardar";
             this.btEditar.UseVisualStyleBackColor = true;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 

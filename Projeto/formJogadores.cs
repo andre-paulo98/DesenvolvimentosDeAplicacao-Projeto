@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace Projeto {
     public partial class formJogadores : Form {
-        public formJogadores() {
+
+        private Modelo_Container dbContainer;
+        public formJogadores(Modelo_Container dbContainer) {
+            this.dbContainer = dbContainer;
             InitializeComponent();
         }
     }
