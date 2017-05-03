@@ -26,7 +26,6 @@ namespace Projeto {
         }
 
         //TODO Refazer esta função
-        /*Duvida de como se edita um objeto*/
         public void EditDeck(Deck baralho) {
             if (DeckChecker(baralho)) {
                 Deck originCarta = (from Deck in dbConteirner.Deck.ToList()
@@ -56,13 +55,13 @@ namespace Projeto {
             listaBaralhos = dbConteirner.Deck.ToList();
             return listaBaralhos;
         }
-        //TODO
-        /*public List<Card> GetDeckCardList(int id) {
-            Deck baralho = (from Deck in dbConteirner.Deck.ToList()
-                                 where Deck.Id == id
-                                 select Card);
-            return baralho.Cards.ToList();
-        }*/
+
+        public List<Card> GetDeckCardList(int deckId) {
+            List<Card> cartas = (from deck in dbConteirner.Deck.ToList()
+                                 where deck.Id == deckId
+                                 select deck.Cards).Cast<Card>().ToList();
+            return cartas;
+        }
 
         private bool DeckChecker(Deck baralho) {
             bool flag = false;

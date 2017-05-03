@@ -27,6 +27,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btSearchClear = new System.Windows.Forms.Button();
             this.btPesquisa = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnBotoes = new System.Windows.Forms.Panel();
@@ -104,6 +105,7 @@
             // panel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
+            this.panel1.Controls.Add(this.btSearchClear);
             this.panel1.Controls.Add(this.btPesquisa);
             this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,11 +114,21 @@
             this.panel1.Size = new System.Drawing.Size(509, 44);
             this.panel1.TabIndex = 0;
             // 
+            // btSearchClear
+            // 
+            this.btSearchClear.Image = ((System.Drawing.Image)(resources.GetObject("btSearchClear.Image")));
+            this.btSearchClear.Location = new System.Drawing.Point(337, 8);
+            this.btSearchClear.Name = "btSearchClear";
+            this.btSearchClear.Size = new System.Drawing.Size(37, 31);
+            this.btSearchClear.TabIndex = 2;
+            this.btSearchClear.UseVisualStyleBackColor = true;
+            this.btSearchClear.Click += new System.EventHandler(this.btSearchClear_Click);
+            // 
             // btPesquisa
             // 
             this.btPesquisa.BackColor = System.Drawing.Color.Transparent;
             this.btPesquisa.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisa.Image")));
-            this.btPesquisa.Location = new System.Drawing.Point(294, 6);
+            this.btPesquisa.Location = new System.Drawing.Point(294, 8);
             this.btPesquisa.Name = "btPesquisa";
             this.btPesquisa.Size = new System.Drawing.Size(37, 31);
             this.btPesquisa.TabIndex = 1;
@@ -472,5 +484,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudLealdade;
+        private System.Windows.Forms.Button btSearchClear;
     }
 }

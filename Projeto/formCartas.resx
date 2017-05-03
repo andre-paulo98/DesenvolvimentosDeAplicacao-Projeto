@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btSearchClear.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFvSURBVEhL7ZShUsNAEIZXoxA8AApdwcUSLp5BMiBAARJQDEXEIcEwBQWPgEG3L8A0j9A3oDNJ
+        U8F0lt3rZkqSK5ekEQi+mV+0d/v9SXMN/NMI7IGPT9BvLeQT9QL6cpPyjo8wXDnsIZ+oy0y68Dq5BWwc
+        mhfV79DmqDRcLZEo3GAI6zxQELgS8ZwoqpHcQCfpwtgiK4X38X4ZrQcP2qTFNC7IIMGJTZyF12XrapAs
+        LMoloWxpB/qDYTGy1B5/oiTxVScJvOPprtpBv1PvKGcsK5nL1ZAKMBet7muX2Urk6vPyXFRfxqthLdFe
+        ZJf/iN6+EIWbYsHsbm0u2dOYXp5Zw+uxVgNRuCmWfF1vGMn06hyXISWfonCTK+nBID3cOmBJenqEs+jD
+        GnOn2huJwo3IR/gM++YznRwjcSQOvDcjqAIVhPiSf5XTMX2wibPEgRrzCZTtzeC74QdrKzDRqp2XJ8PH
+        lMvMldMz4J9ocQcA3+dsmep66RjpAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btPesquisa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAn9JREFUSEvd

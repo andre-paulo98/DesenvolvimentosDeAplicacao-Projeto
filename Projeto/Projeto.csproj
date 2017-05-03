@@ -247,6 +247,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\arbrito.png" />
+    <Content Include="img\arbrito1.png" />
+    <Content Include="img\Cards.png" />
+    <Content Include="img\Joystick.ico" />
+    <Content Include="img\Lock.png" />
     <Content Include="Moledo_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Moledo_DB.Context.cs</LastGenOutput>
@@ -258,10 +263,16 @@
       <LastGenOutput>Moledo_DB.cs</LastGenOutput>
       <DependentUpon>Moledo_DB.edmx</DependentUpon>
     </Content>
+    <Content Include="img\Player.png" />
+    <Content Include="img\Search.png" />
+    <Content Include="img\Teams.png" />
+    <Content Include="img\Trophy.png" />
+    <Content Include="img\User.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

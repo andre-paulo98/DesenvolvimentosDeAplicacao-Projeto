@@ -12,17 +12,21 @@ namespace Projeto {
     public partial class formBaralhos : Form {
 
         DeckRepository deckRepo;
+        CardRepository cardRepo;
+
         public formBaralhos() {
             InitializeComponent();
             deckRepo = new DeckRepository();
+            cardRepo = new CardRepository();
             RefreshDeckList();
         }
 
         private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
                 label3.Visible = false;
+                LoadCardList(GetSelectedDeck());
                 lbCartas.Visible = true;
-            }else {
+            } else {
                 label3.Visible = true;
                 lbCartas.Visible = false;
             }
@@ -34,9 +38,7 @@ namespace Projeto {
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
-                Deck n = new Deck();
-                n.Name = "Teste";
-                new formBaralhosManipula(n).Show();
+                new formBaralhosManipula(GetSelectedDeck()).Show();
             }
         }
         /// <summary>
@@ -51,8 +53,18 @@ namespace Projeto {
         /// <summary>
         /// Função que carrega as cartas de cada baralho na lista
         /// </summary>
-        private void RefreshCardList() {
-
+        private void LoadCardList(Deck baralho) {
+            lbCartas.Items.Clear();
+            foreach(Card carta in baralho.Cards) {
+                lbCartas.Items.Add(carta.Id + " - " + carta.Name);
+            }
+        }
+        /// <summary>
+        /// Função que obtem o baralho selecionado na lista
+        /// </summary>
+        private Deck GetSelectedDeck() {
+            int baralhoId = int.Parse(lbBaralhos.Items[lbBaralhos.SelectedIndex].ToString().Split('-')[0].Trim());
+            return deckRepo.GetDeck(baralhoId);
         }
     }
 }

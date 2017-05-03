@@ -15,17 +15,19 @@ namespace Projeto {
             listaCartas = new List<Card>();
         }
 
-        public void AddCard(Card carta) {
-            if (CardChecker(carta)) {
+        public bool AddCard(Card carta) {
+            bool flag = CardChecker(carta);
+            if (flag) {
                 listaCartas.Add(carta);
                 dbConteirner.Card.Add(carta);
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
-        //TODO Refazer esta função
-        /*DUVIDA - Como se edita um objeto*/
-        public void EditCard(Card carta) {
-            if (CardChecker(carta)) {
+
+        public bool EditCard(Card carta) {
+            bool flag = (CardChecker(carta) && carta.Id != 0);
+            if (flag) {
                 Card cartaLista = (from Card in listaCartas
                  where Card.Id == carta.Id
                  select Card).First();
@@ -36,15 +38,18 @@ namespace Projeto {
                 originCarta = carta;
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
 
-        public void DeleteCard(int cartaId) {
+        public bool DeleteCard(int cartaId) {
             Card tempCart = listaCartas.ElementAt(cartaId);
-            if (CardChecker(tempCart)) {
+            bool flag = CardChecker(tempCart);
+            if (flag) {
                 listaCartas.RemoveAt(cartaId);
                 dbConteirner.Card.Remove(tempCart);
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
 
         public Card GetCard(int id) {
@@ -58,12 +63,20 @@ namespace Projeto {
             listaCartas = dbConteirner.Card.ToList();
             return listaCartas;
         }
-        //DUVIDA - Como se procura um objeto numa lista
-        //TODO Função para procurar carta
-        /*public List<Card> SearchCard(string nome) {
-            listaCartas = dbConteirner.Card
+
+        public List<Card> GetCardsListNotIn(List<Card> cartas) {
+            listaCartas = (from card in dbConteirner.Card.ToList()
+                           where !(cartas.Contains(card))
+                           select card).ToList();
             return listaCartas;
-        }*/
+        }
+
+        public List<Card> SearchCard(string nome) {
+            listaCartas = (from Card in dbConteirner.Card.ToList()
+                           where Card.Name.ToUpper().Contains(nome.ToUpper())
+                           select Card).ToList();
+            return listaCartas;
+        }
 
         private bool CardChecker(Card carta) {
             bool flag = false;
