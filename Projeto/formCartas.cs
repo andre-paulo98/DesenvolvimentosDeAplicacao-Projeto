@@ -14,9 +14,9 @@ namespace Projeto {
         private CardRepository cardRepo;
         private Boolean flagEditar;
 
-        public formCartas() {
+        public formCartas(Modelo_Container dbContainer) {
             InitializeComponent();
-            cardRepo = new CardRepository();
+            cardRepo = new CardRepository(dbContainer);
             RefreshView();
         }
 
@@ -36,7 +36,7 @@ namespace Projeto {
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter) {
-                //TODO Search
+                btPesquisa.PerformClick();
             }
         }
 
@@ -47,7 +47,12 @@ namespace Projeto {
         }
 
         private void btEditar_Click(object sender, EventArgs e) {
-            Card carta = new Card();
+            Card carta;
+            if (flagEditar) {
+                carta = cardRepo.GetCardsList().ElementAt(lbCartas.SelectedIndex);
+            } else {
+                carta = new Card();
+            }
             carta.Name = tbNome.Text;
             carta.Faction = cbFacao.Text;
             carta.Type = cbTipo.Text;
@@ -57,14 +62,18 @@ namespace Projeto {
             carta.Attack = (short)nudAtaque.Value;
             carta.Defense = (short)nudDefesa.Value;
             if (flagEditar) {
-                //TODO funçao editar
-                cardRepo.EditCard(carta);
+                if (cardRepo.EditCard(carta)) {
+                    LimpaForm();
+                    flagEditar = false;
+                    AtivarFormulario(false);
+                    RefreshView();
+                }
             } else {
                 cardRepo.AddCard(carta);
+                AtivarFormulario(false);
+                RefreshView();
             }
-            flagEditar = false;
-            AtivarFormulario(false);
-            RefreshView();
+            
         }
 
         private void btApagar_Click(object sender, EventArgs e) {
@@ -78,14 +87,25 @@ namespace Projeto {
         }
 
         private void btPesquisa_Click(object sender, EventArgs e) {
-            //TODO Função para procurar carta
+            if (tbSearch.Text != null) {
+                lbCartas.Items.Clear();
+                foreach (Card carta in cardRepo.SearchCard(tbSearch.Text)) {
+                    lbCartas.Items.Add(carta.Id + " - " + carta.Name + "\n\t\t" + carta.Cost);
+                }
+            }
+        }
+
+        private void btSearchClear_Click(object sender, EventArgs e) {
+            RefreshView();
+            tbSearch.Text = "Procurar ...";
+            tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+
         }
 
         private void lbCartas_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbCartas.SelectedIndex >= 0) {
                 int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
-                Card carta = cardRepo.GetCard(cartaId);
-                PreencheForm(carta);
+                PreencheForm(cartaId);
                 flagEditar = true;
                 AtivarFormulario(true);
             } else {
@@ -101,7 +121,7 @@ namespace Projeto {
             pnCarta.Enabled = Enable;
             pnBotoes.Enabled = Enable;
             if (flagEditar) {
-                btEditar.Text = "Editar";
+                btEditar.Text = "Guardar Edição";
                 btApagar.Text = "Eliminar";
             } else {
                 btEditar.Text = "Guardar";
@@ -123,7 +143,8 @@ namespace Projeto {
         /// Funcao que preenche o formulario da carta com os dados da carta
         /// </summary>
         /// <param name="carta">Carta a sr exposta no formulario</param>
-        private void PreencheForm(Card carta) {
+        private void PreencheForm(int cartaId) {
+            Card carta = cardRepo.GetCard(cartaId);
             tbNome.Text = carta.Name;
             cbFacao.Text = carta.Faction;
             cbTipo.Text = carta.Type;

@@ -10,8 +10,8 @@ namespace Projeto {
         private Modelo_Container dbContainer;
         private List<Tournament> listaTorneios;
 
-        public TournamentRepository() {
-            dbContainer = new Modelo_Container();
+        public TournamentRepository(Modelo_Container dbContainer) {
+            this.dbContainer = dbContainer;
             listaTorneios = new List<Tournament>();
         }
 

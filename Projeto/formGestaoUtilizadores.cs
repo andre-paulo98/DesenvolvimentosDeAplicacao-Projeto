@@ -17,10 +17,12 @@ namespace Projeto
         private string nome;
         private string email;
 
-        public formGestaoUtilizadores()
+        Modelo_Container container;//cria objeto do container
+
+        public formGestaoUtilizadores(Modelo_Container dbContainer)
         {
             InitializeComponent();
-
+            container = dbContainer;
             labelNome.Hide();
             tbNome.Hide();
         }
@@ -36,8 +38,6 @@ namespace Projeto
            password = tbPassword.Text;
            nome = tbNome.Text;
            email = tbNome.Text;
-
-            Modelo_Container container = new Modelo_Container(); //cria objeto do container
             
             Administrador admin = new Administrador();  //cria objeto admin
             Referee arbrito = new Referee();  //cria objeto arbrito

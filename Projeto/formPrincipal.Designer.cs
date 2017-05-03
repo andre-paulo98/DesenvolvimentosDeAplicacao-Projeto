@@ -98,6 +98,7 @@
             this.btEquipas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btEquipas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btEquipas.UseVisualStyleBackColor = true;
+            this.btEquipas.Click += new System.EventHandler(this.btEquipas_Click);
             // 
             // btCartas
             // 
@@ -132,12 +133,15 @@
             // btBaralhos
             // 
             this.btBaralhos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btBaralhos.Image = ((System.Drawing.Image)(resources.GetObject("btBaralhos.Image")));
             this.btBaralhos.Location = new System.Drawing.Point(173, 19);
             this.btBaralhos.Margin = new System.Windows.Forms.Padding(10);
             this.btBaralhos.Name = "btBaralhos";
             this.btBaralhos.Size = new System.Drawing.Size(140, 120);
             this.btBaralhos.TabIndex = 0;
             this.btBaralhos.Text = "Baralhos";
+            this.btBaralhos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btBaralhos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btBaralhos.UseVisualStyleBackColor = true;
             this.btBaralhos.Click += new System.EventHandler(this.btBaralhos_Click);
             // 

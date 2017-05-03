@@ -8,26 +8,25 @@ using System.Windows.Forms;
 namespace Projeto {
     class CardRepository {
         private Modelo_Container dbConteirner;
-        private List<Card> listaCartas;
 
-        public CardRepository() {
-            dbConteirner = new Modelo_Container();
-            listaCartas = new List<Card>();
+        public CardRepository(Modelo_Container dbConteirner) {
+            this.dbConteirner = dbConteirner;
         }
 
-        public void AddCard(Card carta) {
-            if (CardChecker(carta)) {
-                listaCartas.Add(carta);
+        public bool AddCard(Card carta) {
+            bool flag = CardChecker(carta);
+            if (flag) {
                 dbConteirner.Card.Add(carta);
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
-        //TODO Refazer esta função
-        /*DUVIDA - Como se edita um objeto*/
-        public void EditCard(Card carta) {
-            if (CardChecker(carta)) {
-                Card cartaLista = (from Card in listaCartas
-                 where Card.Id == carta.Id
+
+        public bool EditCard(Card carta) {
+            bool flag = (CardChecker(carta) && carta.Id != 0);
+            if (flag) {
+                Card cartaLista = (from Card in dbConteirner.Card.ToList()
+                                   where Card.Id == carta.Id
                  select Card).First();
                 cartaLista = carta;
                 Card originCarta = (from Card in dbConteirner.Card.ToList()
@@ -36,15 +35,18 @@ namespace Projeto {
                 originCarta = carta;
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
 
-        public void DeleteCard(int cartaId) {
-            Card tempCart = listaCartas.ElementAt(cartaId);
-            if (CardChecker(tempCart)) {
-                listaCartas.RemoveAt(cartaId);
+        public bool DeleteCard(int cartaId) {
+            Card tempCart = dbConteirner.Card.ToList().ElementAt(cartaId);
+            bool flag = CardChecker(tempCart);
+            if (flag) {
+                dbConteirner.Card.ToList().RemoveAt(cartaId);
                 dbConteirner.Card.Remove(tempCart);
                 dbConteirner.SaveChanges();
             }
+            return flag;
         }
 
         public Card GetCard(int id) {
@@ -55,15 +57,20 @@ namespace Projeto {
         }
 
         public List<Card> GetCardsList() {
-            listaCartas = dbConteirner.Card.ToList();
-            return listaCartas;
+            return dbConteirner.Card.ToList();
         }
-        //DUVIDA - Como se procura um objeto numa lista
-        //TODO Função para procurar carta
-        /*public List<Card> SearchCard(string nome) {
-            listaCartas = dbConteirner.Card
-            return listaCartas;
-        }*/
+
+        public List<Card> GetCardsListNotIn(List<Card> cartas) {
+            return (from card in dbConteirner.Card.ToList()
+                           where !(cartas.Contains(card))
+                           select card).ToList();
+        }
+
+        public List<Card> SearchCard(string nome) {
+            return (from Card in dbConteirner.Card.ToList()
+                           where Card.Name.ToUpper().Contains(nome.ToUpper())
+                           select Card).ToList();
+        }
 
         private bool CardChecker(Card carta) {
             bool flag = false;

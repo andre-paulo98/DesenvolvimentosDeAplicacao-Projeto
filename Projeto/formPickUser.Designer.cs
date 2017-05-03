@@ -37,13 +37,14 @@
             // 
             // btArbrito
             // 
-            this.btArbrito.Image = global::Projeto.Properties.Resources.arbrito;
+            this.btArbrito.Image = ((System.Drawing.Image)(resources.GetObject("btArbrito.Image")));
             this.btArbrito.Location = new System.Drawing.Point(29, 32);
             this.btArbrito.Name = "btArbrito";
             this.btArbrito.Size = new System.Drawing.Size(140, 120);
             this.btArbrito.TabIndex = 0;
             this.btArbrito.Text = "Árbitro";
             this.btArbrito.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btArbrito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btArbrito.UseVisualStyleBackColor = true;
             this.btArbrito.Click += new System.EventHandler(this.clickGestaoArbritos);
             // 
@@ -55,6 +56,7 @@
             this.btAdmin.TabIndex = 0;
             this.btAdmin.Text = "Administrador";
             this.btAdmin.UseVisualStyleBackColor = true;
+            this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
             // 
             // groupBox1
             // 

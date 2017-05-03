@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formUserReferee));
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbArbitros = new System.Windows.Forms.ListBox();
             this.btRemover = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,18 +48,18 @@
             this.label1.Text = "Gestão de Árbitros";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // listBox1
+            // lbArbitros
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbArbitros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 98);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(395, 104);
-            this.listBox1.TabIndex = 1;
+            this.lbArbitros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbArbitros.FormattingEnabled = true;
+            this.lbArbitros.ItemHeight = 20;
+            this.lbArbitros.Location = new System.Drawing.Point(12, 98);
+            this.lbArbitros.Name = "lbArbitros";
+            this.lbArbitros.Size = new System.Drawing.Size(395, 104);
+            this.lbArbitros.TabIndex = 1;
             // 
             // btRemover
             // 
@@ -74,7 +74,7 @@
             // btAddNew
             // 
             this.btAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAddNew.Location = new System.Drawing.Point(217, 227);
+            this.btAddNew.Location = new System.Drawing.Point(218, 227);
             this.btAddNew.Name = "btAddNew";
             this.btAddNew.Size = new System.Drawing.Size(97, 23);
             this.btAddNew.TabIndex = 2;
@@ -94,7 +94,7 @@
             // btPesquisaArbrito
             // 
             this.btPesquisaArbrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPesquisaArbrito.Image = global::Projeto.Properties.Resources.Search;
+            this.btPesquisaArbrito.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisaArbrito.Image")));
             this.btPesquisaArbrito.Location = new System.Drawing.Point(370, 57);
             this.btPesquisaArbrito.Name = "btPesquisaArbrito";
             this.btPesquisaArbrito.Size = new System.Drawing.Size(37, 31);
@@ -109,7 +109,7 @@
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAddNew);
             this.Controls.Add(this.btPesquisaArbrito);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbArbitros);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -123,7 +123,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbArbitros;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAddNew;
         private System.Windows.Forms.Button btRemover;

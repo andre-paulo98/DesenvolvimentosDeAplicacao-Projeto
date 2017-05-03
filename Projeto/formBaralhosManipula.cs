@@ -18,64 +18,89 @@ namespace Projeto {
         /// <summary>
         /// Formulario para adicionar um novo baralho
         /// </summary>
-        public formBaralhosManipula() {
+        public formBaralhosManipula(Modelo_Container dbContainer) {
             FlagEdicao = false;
             InitializeComponent();
             this.Text = "Novo Baralho";
+            baralho = new Deck();
             tbNome.Visible = true;
-            deckRepo = new DeckRepository();
-            cardRepo = new CardRepository();
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
+            RefreshCartasDisponiveis();
         }
         /// <summary>
         /// Formulario para editar um baralho
         /// </summary>
         /// <param name="baralho">Baralho a editar</param>
-        public formBaralhosManipula(Deck baralho) {
+        public formBaralhosManipula(Deck baralho, Modelo_Container dbContainer) {
             FlagEdicao = true;
             InitializeComponent();
             this.Text = "Editar Baralho";
             this.baralho = baralho;
             lbNome.Text = "Baralho " + baralho.Name;
-            deckRepo = new DeckRepository();
-            cardRepo = new CardRepository();
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
+            RefreshCartasDisponiveis();
+            RefreshCartasBaralho();
         }
         
         private void btGuardar_Click(object sender, EventArgs e) {
-            if (FlagEdicao) {//Se estiver em modo de ediçao
+            if (FlagEdicao) {//MODO DE EDICAO
 
-            } else {
-                /*DUVIDA - Como adicionar as cartas ao baralho*/
-                Deck novoBaralho = new Deck();
-                novoBaralho.Name = tbNome.Text;
-                deckRepo.AddDeck(novoBaralho);
+            } else {//MODO DE INSERÇAO
+                baralho.Name = tbNome.Text;
+                if (deckRepo.AddDeck(baralho)) {
+                    this.Close();
+                }
             }
         }
 
         private void btCancelar_Click(object sender, EventArgs e) {
-
+            if (baralho.Cards.Count > 0 || tbNome.Text.Length > 0) {
+                if(MessageBox.Show("Ao cancelar ira perder todos os dados inseridos!\n"+
+                    "Tem a certeza que pertende fechar o formulario?","Perca de Dados",
+                    MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) {
+                    this.Close();
+                }
+            } else {
+                this.Close();
+            }
         }
 
         private void btAdicionar_Click(object sender, EventArgs e) {
-
+            if (lbDisponiveis.SelectedIndex >= 0) {
+                int cartaId = int.Parse(lbDisponiveis.Items[lbDisponiveis.SelectedIndex].ToString().Split('-')[0].Trim());
+                baralho.Cards.Add(cardRepo.GetCard(cartaId));
+                RefreshCartasBaralho();
+                RefreshCartasDisponiveis();
+            }
         }
 
         private void btRemover_Click(object sender, EventArgs e) {
-
+            if (lbBaralho.SelectedIndex >= 0) {
+                int cartaId = int.Parse(lbBaralho.Items[lbBaralho.SelectedIndex].ToString().Split('-')[0].Trim());
+                baralho.Cards.Remove(cardRepo.GetCard(cartaId));
+                RefreshCartasBaralho();
+                RefreshCartasDisponiveis();
+            }
         }
-        //TODO Obter Cartas do Baralho e colocalas na lista
         /// <summary>
         /// Carrega as cartas na listBox BARALHO
         /// </summary>
         /// 
         private void RefreshCartasBaralho() {
-
+            lbBaralho.Items.Clear();
+            foreach (Card card in baralho.Cards) {
+                lbBaralho.Items.Add(card.Id+" - "+card.Name);
+            }
         }
         /// <summary>
         /// Carrega as cartas na listBox DISPONIVEIS
         /// </summary>
         private void RefreshCartasDisponiveis() {
-            foreach (Card card in cardRepo.GetCardsList()) {
-                lbDisponiveis.Items.Add(card.Name);
+            lbDisponiveis.Items.Clear();
+            foreach (Card card in cardRepo.GetCardsListNotIn(baralho.Cards.Cast<Card>().ToList())) {
+                lbDisponiveis.Items.Add(card.Id+" - "+card.Name);
             }
         }       
     }

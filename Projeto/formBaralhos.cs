@@ -12,31 +12,36 @@ namespace Projeto {
     public partial class formBaralhos : Form {
 
         DeckRepository deckRepo;
-        public formBaralhos() {
+        CardRepository cardRepo;
+        Modelo_Container dbContainer;
+
+        public formBaralhos(Modelo_Container dbContainer) {
             InitializeComponent();
-            deckRepo = new DeckRepository();
+            this.dbContainer = dbContainer;
+            deckRepo = new DeckRepository(dbContainer);
+            cardRepo = new CardRepository(dbContainer);
             RefreshDeckList();
         }
 
         private void lbBaralhos_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
                 label3.Visible = false;
+                LoadCardList(GetSelectedDeck());
                 lbCartas.Visible = true;
-            }else {
+            } else {
                 label3.Visible = true;
                 lbCartas.Visible = false;
             }
         }
 
         private void btNovo_Click(object sender, EventArgs e) {
-            new formBaralhosManipula().Show();
+            new formBaralhosManipula(dbContainer).Show();
+            this.Hide();
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
-                Deck n = new Deck();
-                n.Name = "Teste";
-                new formBaralhosManipula(n).Show();
+                new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show();
             }
         }
         /// <summary>
@@ -51,8 +56,18 @@ namespace Projeto {
         /// <summary>
         /// Função que carrega as cartas de cada baralho na lista
         /// </summary>
-        private void RefreshCardList() {
-
+        private void LoadCardList(Deck baralho) {
+            lbCartas.Items.Clear();
+            foreach(Card carta in baralho.Cards) {
+                lbCartas.Items.Add(carta.Id + " - " + carta.Name);
+            }
+        }
+        /// <summary>
+        /// Função que obtem o baralho selecionado na lista
+        /// </summary>
+        private Deck GetSelectedDeck() {
+            int baralhoId = int.Parse(lbBaralhos.Items[lbBaralhos.SelectedIndex].ToString().Split('-')[0].Trim());
+            return deckRepo.GetDeck(baralhoId);
         }
     }
 }

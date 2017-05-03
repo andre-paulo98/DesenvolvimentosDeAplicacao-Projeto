@@ -8,8 +8,8 @@ namespace Projeto {
     class UserRepository {
         private Modelo_Container dbConteirner;
 
-        public UserRepository() {
-            dbConteirner = new Modelo_Container();
+        public UserRepository(Modelo_Container dbConteirner) {
+            this.dbConteirner = dbConteirner;
         }
 
         public List<User> UserList() {

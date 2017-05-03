@@ -118,6 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btPesquisaArbrito.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAn9JREFUSEvd
+        lU1oE0EcxQOCiJ705MmLIvWgV1EqBRGbpmqS0pASusnOTEgJKi1aQYW0UXsQvy71oGAUlGArUhutHxRE
+        8eDFKkiL+AEWS8WihwY0TYytf99sZmMq2WYJ0kMfPGZ38p/f25ndmTiWvgKBwGpd12PwdcbYKJzB9Qh8
+        CdedaFeo0urEOa8FaAImw5H9xA6fID3cVriHETIWCoXWqyH25fP5lgHQBcAsE2HiF1Ikbn+h8P0Zw2Io
+        Q6L/E7GTV0gvhH2HW9VwewoGg1sQ8JN1xEgk3xfhnY+zdOxJltqHs8U+fvUV6dEOGfRZCLFGIRYWZrEc
+        Aa/lkoj+CQN0HOA77/I0CCfH8vTgwy9KjuaNUPm7SLwwl69PYRYWApxyAO8dLj69hHY/yxWfXvrM85zR
+        b97zUwnzHa1VKGuhKM44p3AqbQyOPpyZtzylNmciLfrGzRCPQlkLhY/YwaPzYLaMj0EuMUJOK5S1EDLF
+        YhfLgypYfigY/1ShrFXtTASWVy6zrZnIIlksUtNlYVYWN96Y76RFoawli2QxPz9YFmZlFr9shtQolLUi
+        kchKFL/UedjY1eWA/1okRsyAIYWpLOz4dRiUZkd6SNz7URZsWgx8IxZtlwFfseM3KIQ94dBrRNCccXad
+        GyBxa/IvXJ5dNz8S77lmzADOIkS2b9FW3oyl0jRtFQb2YuBvA9Z2gNih7tJTOA/Lg7QG7VRLq0Z1e5oy
+        Lq9/o0LYlzz4MLN9AJ0F8C4cx9/ALvn+VInDr2mbal3e2a31btrh8uaqCrKjeq/fvb3BM7cIQT7nogTt
+        9jQ3bHMWgnbubZ5U3f9fckZ1jU1pl9u3WXUtGTkcfwB3BZ/p6jih7AAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAEBAAAAAAIABoBAAAJgAAACAgAAAAACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAAEAE
