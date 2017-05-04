@@ -54,5 +54,17 @@ namespace Projeto
             }
             
         }
+
+        private void btPesquisaArbrito_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text != null)
+            {
+                lbArbitros.Items.Clear();
+                foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))
+                {
+                    lbArbitros.Items.Add(arbitro.Name);
+                }
+            }
+        }
     }
 }

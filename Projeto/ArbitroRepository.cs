@@ -44,5 +44,11 @@ namespace Projeto
             container.User.Remove(arbitroAApagar);
             container.SaveChanges();
         }
+        public List<Referee> SearchArbitro(string nome)
+        {
+            return (from Referee in container.User.OfType<Referee>().ToList()
+                    where Referee.Name.ToUpper().Contains(nome.ToUpper())
+                    select Referee).ToList();
+        }
     }
 }
