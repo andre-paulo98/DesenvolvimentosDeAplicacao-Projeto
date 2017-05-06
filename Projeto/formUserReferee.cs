@@ -14,19 +14,21 @@ namespace Projeto
     {
         ArbitroRepository arbitroRepos;
         private Modelo_Container dbContainer;
+        private bool editar = false;
+        private Referee currentReferee;
         public formUserReferee(Modelo_Container dbContainer)
         {
             InitializeComponent();
             this.dbContainer = dbContainer;
             arbitroRepos = new ArbitroRepository(dbContainer);
-            //refresh da lista de arbitros
-            RefreshView();
+            RefreshView();//refresh da lista de arbitros
+            btEditar.Hide();
         }
 
         private void clickAddArbrito(object sender, EventArgs e)
         {
             formAdicionarArbrito addArbrito = new formAdicionarArbrito(this, dbContainer);
-            addArbrito.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing);
+            addArbrito.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing); // *1*
             addArbrito.Show();
         }
 
@@ -36,20 +38,20 @@ namespace Projeto
 
             foreach (Referee arbitro in arbitroRepos.GetRefereeList())
             {
-                lbArbitros.Items.Add(arbitro.Name);//Lista de arbitos
+                lbArbitros.Items.Add(arbitro.Id + " - " + arbitro.Name);//Lista de arbitos
             }
         }
 
-        private void formUserReferee_FormClosing(object sender, FormClosingEventArgs e)
+        private void formUserReferee_FormClosing(object sender, FormClosingEventArgs e)//atualiza a lb quando o adicionar arbitro fecha. *1*
         {
-            RefreshView();
+            RefreshView(); 
         }
 
         private void btRemover_Click(object sender, EventArgs e)
         {
             if (lbArbitros.SelectedIndex != -1)
             {
-                arbitroRepos.DeleteReferee(lbArbitros.SelectedIndex);
+                arbitroRepos.DeleteReferee(int.Parse(lbArbitros.Items[lbArbitros.SelectedIndex].ToString().Split('-')[0].Trim()));//remover arbitro com o metodo DeleteReferee no arbitro repos
                 RefreshView();
             }
             
@@ -60,11 +62,27 @@ namespace Projeto
             if (tbSearch.Text != null)
             {
                 lbArbitros.Items.Clear();
-                foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))
+                foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))//pesquisar o arbitro com o metodo searchArbitro no arbitro repos
                 {
-                    lbArbitros.Items.Add(arbitro.Name);
+                    lbArbitros.Items.Add(arbitro.Id+ " - " + arbitro.Name);
                 }
             }
+        }
+
+        private void lbArbitros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbArbitros.SelectedIndex != -1)
+            {
+                btEditar.Show(); //Aparecer o botão de editar quando é selecionado algum nome
+            }
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            currentReferee = arbitroRepos.GetReferee(int.Parse(lbArbitros.Items[lbArbitros.SelectedIndex].ToString().Split('-')[0].Trim()));
+            editar = true;
+            formAdicionarArbrito EditArbitro = new formAdicionarArbrito(this, dbContainer, editar,currentReferee);//editar a true muda o form de forma
+            EditArbitro.Show();
         }
     }
 }

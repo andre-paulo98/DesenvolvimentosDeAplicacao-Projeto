@@ -35,6 +35,7 @@
             this.btAddNew = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btPesquisaArbrito = new System.Windows.Forms.Button();
+            this.btEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,6 +61,7 @@
             this.lbArbitros.Name = "lbArbitros";
             this.lbArbitros.Size = new System.Drawing.Size(395, 104);
             this.lbArbitros.TabIndex = 1;
+            this.lbArbitros.SelectedIndexChanged += new System.EventHandler(this.lbArbitros_SelectedIndexChanged);
             // 
             // btRemover
             // 
@@ -103,11 +105,22 @@
             this.btPesquisaArbrito.UseVisualStyleBackColor = true;
             this.btPesquisaArbrito.Click += new System.EventHandler(this.btPesquisaArbrito_Click);
             // 
+            // btEditar
+            // 
+            this.btEditar.Location = new System.Drawing.Point(128, 227);
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(75, 23);
+            this.btEditar.TabIndex = 5;
+            this.btEditar.Text = "Editar";
+            this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
             // formUserReferee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 262);
+            this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAddNew);
             this.Controls.Add(this.btPesquisaArbrito);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btPesquisaArbrito;
+        private System.Windows.Forms.Button btEditar;
     }
 }
