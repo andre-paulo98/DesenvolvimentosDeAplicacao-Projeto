@@ -23,10 +23,10 @@ namespace Projeto {
             InitializeComponent();
             this.Text = "Novo Baralho";
             baralho = new Deck();
-            tbNome.Visible = true;
             deckRepo = new DeckRepository(dbContainer);
             cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
+            this.TopMost = true;
         }
         /// <summary>
         /// Formulario para editar um baralho
@@ -37,18 +37,21 @@ namespace Projeto {
             InitializeComponent();
             this.Text = "Editar Baralho";
             this.baralho = baralho;
-            lbNome.Text = "Baralho " + baralho.Name;
+            tbNome.Text = baralho.Name;
             deckRepo = new DeckRepository(dbContainer);
             cardRepo = new CardRepository(dbContainer);
             RefreshCartasDisponiveis();
             RefreshCartasBaralho();
+            this.TopMost = true;
         }
         
         private void btGuardar_Click(object sender, EventArgs e) {
+            baralho.Name = tbNome.Text;
             if (FlagEdicao) {//MODO DE EDICAO
-
+                if (deckRepo.EditDeck(baralho)) {
+                    this.Close();
+                }
             } else {//MODO DE INSERÇAO
-                baralho.Name = tbNome.Text;
                 if (deckRepo.AddDeck(baralho)) {
                     this.Close();
                 }
