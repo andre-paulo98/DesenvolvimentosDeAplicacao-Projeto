@@ -35,7 +35,9 @@ namespace Projeto {
 
         private void btNovo_Click(object sender, EventArgs e) {
             formBaralhosManipula formManipula = new formBaralhosManipula(dbContainer);
-            formManipula.FormClosing += (object formSender, FormClosingEventArgs fromE) => { RefreshDeckList(); };
+            formManipula.FormClosing += (object formSender, FormClosingEventArgs fromE) => {
+                RefreshDeckList();
+            };
             /*(object formSender, FormClosingEventArgs fromE) => { RefreshDeckList(); };
                 * É um expresão Lambda para:
                 * new FormClosingEventHandler(delegate (object formSender, FormClosingEventArgs fromE) { RefreshDeckList(); });
@@ -51,7 +53,11 @@ namespace Projeto {
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (lbBaralhos.SelectedIndex >= 0) {
-                new formBaralhosManipula(GetSelectedDeck(), dbContainer).Show(this);
+                formBaralhosManipula formManipula = new formBaralhosManipula(GetSelectedDeck(), dbContainer);
+                formManipula.FormClosing += (object formSender, FormClosingEventArgs fromE) => {
+                    RefreshDeckList();
+                };
+                formManipula.ShowDialog(this);
                 DisableCardsList();
             }
         }
@@ -77,8 +83,7 @@ namespace Projeto {
         /// Função que obtem o baralho selecionado na lista
         /// </summary>
         private Deck GetSelectedDeck() {
-            int baralhoId = int.Parse(lbBaralhos.Items[lbBaralhos.SelectedIndex].ToString().Split('-')[0].Trim());
-            return deckRepo.GetDeck(baralhoId);
+            return deckRepo.GetDeck(lbBaralhos.SelectedIndex);
         }
         /// <summary>
         /// Função que desativa a lista das cartas
@@ -88,7 +93,5 @@ namespace Projeto {
             lbCartas.Visible = false;
             lbBaralhos.SelectedIndex = -1;
         }
-
-        
     }
 }

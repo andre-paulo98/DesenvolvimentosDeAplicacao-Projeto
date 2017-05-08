@@ -59,7 +59,7 @@ namespace Projeto {
         }
 
         private void btCancelar_Click(object sender, EventArgs e) {
-            if (baralho.Cards.Count > 0 || tbNome.Text.Length > 0) {
+            if ((baralho.Cards.Count > 0 || tbNome.Text.Length > 0) && !FlagEdicao) {
                 if(MessageBox.Show("Ao cancelar ira perder todos os dados inseridos!\n"+
                     "Tem a certeza que pertende fechar o formulario?","Perca de Dados",
                     MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) {

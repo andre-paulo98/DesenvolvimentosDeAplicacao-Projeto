@@ -156,6 +156,7 @@
     <Compile Include="Player.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PlayerRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Referee.cs">

@@ -9,62 +9,47 @@ namespace Projeto {
     class DeckRepository {
 
         private Modelo_Container dbConteirner;
-        private List<Deck> listaBaralhos;
 
         public DeckRepository(Modelo_Container dbConteirner) {
             this.dbConteirner = dbConteirner;
-            listaBaralhos = new List<Deck>();
         }
 
         public bool AddDeck(Deck baralho) {
             bool flag = DeckChecker(baralho);
             if (flag) {
-                listaBaralhos.Add(baralho);
                 dbConteirner.Deck.Add(baralho);
                 dbConteirner.SaveChanges();
             }
             return flag;
         }
 
-        //TODO Refazer esta função
+        
         public bool EditDeck(Deck baralho) {
             bool flag = DeckChecker(baralho);
-            if (flag) {
-                Deck originCarta = (from Deck in dbConteirner.Deck.ToList()
-                                    where Deck.Id == baralho.Id
-                                    select Deck).ToList().First();
+            if (flag && baralho.Id != 0) {
+                Deck originCarta = dbConteirner.Deck.ToList().Find(deck => deck.Id == baralho.Id);
+                originCarta = baralho;
                 dbConteirner.SaveChanges();
             }
             return flag;
         }
 
-        public bool DeleteDeck(int baralhoId) {
-            Deck tempBaralho = listaBaralhos.ElementAt(baralhoId);
-            bool flag = DeckChecker(tempBaralho);
-            if (flag) {
-                listaBaralhos.Remove(tempBaralho);
-                dbConteirner.Deck.Remove(tempBaralho);
-                dbConteirner.SaveChanges();
-            }
-            return flag;
+        public void DeleteDeck(int pos) {
+            dbConteirner.Deck.Remove(GetDeck(pos));
+            dbConteirner.SaveChanges();
         }
 
-        public Deck GetDeck(int id) {
-            Deck baralho = (from Deck in dbConteirner.Deck.ToList()
-                            where Deck.Id == id
-                            select Deck).ToList().First();
+        public Deck GetDeck(int pos) {
+            Deck baralho = dbConteirner.Deck.ToList().ElementAt(pos);
             return baralho;
         }
 
         public List<Deck> GetDecksList() {
-            listaBaralhos = dbConteirner.Deck.ToList();
-            return listaBaralhos;
+            return dbConteirner.Deck.ToList();
         }
 
-        public List<Card> GetDeckCardList(int deckId) {
-            List<Card> cartas = (from deck in dbConteirner.Deck.ToList()
-                                 where deck.Id == deckId
-                                 select deck.Cards).Cast<Card>().ToList();
+        public List<Card> GetDeckCardList(int pos) {
+            List<Card> cartas = GetDeck(pos).Cards.Cast<Card>().ToList();
             return cartas;
         }
 

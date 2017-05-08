@@ -18,6 +18,8 @@ namespace Projeto {
             InitializeComponent();
             cardRepo = new CardRepository(dbContainer);
             RefreshView();
+            cbFacao.SelectedIndex = 0;
+            cbTipo.SelectedIndex = 0;
         }
 
         private void tbSearch_GotFocus(object sender, EventArgs e) {
@@ -29,8 +31,7 @@ namespace Projeto {
 
         private void tbSearch_LostFocus(object sender, EventArgs e) {
             if (tbSearch.Text == "") {
-                tbSearch.Text = "Procurar ...";
-                tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+                ResetSearch();
             }
         }
 
@@ -49,14 +50,14 @@ namespace Projeto {
         private void btEditar_Click(object sender, EventArgs e) {
             Card carta;
             if (flagEditar) {
-                carta = cardRepo.GetCardsList().ElementAt(lbCartas.SelectedIndex);
+                carta = cardRepo.GetCard(GetCardId());
             } else {
                 carta = new Card();
             }
             carta.Name = tbNome.Text;
             carta.Faction = cbFacao.Text;
             carta.Type = cbTipo.Text;
-            carta.Cost = nudCusto.Value + "€";
+            carta.Cost = nudCusto.Value+"";
             carta.Rules = rtbRegras.Text;
             carta.Loyalty = (short)nudLealdade.Value;
             carta.Attack = (short)nudAtaque.Value;
@@ -65,20 +66,22 @@ namespace Projeto {
                 if (cardRepo.EditCard(carta)) {
                     LimpaForm();
                     flagEditar = false;
+                    ResetSearch();
                     AtivarFormulario(false);
                     RefreshView();
                 }
             } else {
-                cardRepo.AddCard(carta);
-                AtivarFormulario(false);
-                RefreshView();
+                if (cardRepo.AddCard(carta)) {
+                    ResetSearch();
+                    AtivarFormulario(false);
+                    RefreshView();
+                }
             }
-            
         }
 
         private void btApagar_Click(object sender, EventArgs e) {
             if (flagEditar) {
-                cardRepo.DeleteCard(lbCartas.SelectedIndex);
+                cardRepo.DeleteCard(GetCardId());
                 RefreshView();
             }
             LimpaForm();
@@ -88,6 +91,8 @@ namespace Projeto {
 
         private void btPesquisa_Click(object sender, EventArgs e) {
             if (tbSearch.Text != null) {
+                LimpaForm();
+                AtivarFormulario(false);
                 lbCartas.Items.Clear();
                 foreach (Card carta in cardRepo.SearchCard(tbSearch.Text)) {
                     lbCartas.Items.Add(carta.Id + " - " + carta.Name + "\n\t\t" + carta.Cost);
@@ -97,15 +102,15 @@ namespace Projeto {
 
         private void btSearchClear_Click(object sender, EventArgs e) {
             RefreshView();
-            tbSearch.Text = "Procurar ...";
-            tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            ResetSearch();
+            LimpaForm();
+            AtivarFormulario(false);
 
         }
 
         private void lbCartas_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbCartas.SelectedIndex >= 0) {
-                int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
-                PreencheForm(cartaId);
+                PreencheForm(GetCardId());
                 flagEditar = true;
                 AtivarFormulario(true);
             } else {
@@ -116,7 +121,7 @@ namespace Projeto {
         /// <summary>
         /// Funçao que ativa ou desativa o formulario da carta
         /// </summary>
-        /// <param name="Enable">TRUE -> Ativae  OU  FALSE -> Desativar</param>
+        /// <param name="Enable"></param>
         private void AtivarFormulario(Boolean Enable) {
             pnCarta.Enabled = Enable;
             pnBotoes.Enabled = Enable;
@@ -142,7 +147,7 @@ namespace Projeto {
         /// <summary>
         /// Funcao que preenche o formulario da carta com os dados da carta
         /// </summary>
-        /// <param name="carta">Carta a sr exposta no formulario</param>
+        /// <param name="carta"></param>
         private void PreencheForm(int cartaId) {
             Card carta = cardRepo.GetCard(cartaId);
             tbNome.Text = carta.Name;
@@ -167,6 +172,22 @@ namespace Projeto {
             nudDefesa.Value = 0;
             nudLealdade.Value = 0;
             lbCartas.SelectedIndex = -1;
+        }
+        /// <summary>
+        /// Funcao que retira o id da carta que estiver 
+        /// selecionada na lista de cartas
+        /// </summary>
+        /// <returns>Retorna o ID da carta</returns>
+        private int GetCardId() {
+            int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
+            return cartaId;
+        }
+        /// <summary>
+        /// Funcao que limpa a barra de pesquisa
+        /// </summary>
+        private void ResetSearch() {
+            tbSearch.Text = "Procurar ...";
+            tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
         }
     }
 }
