@@ -254,6 +254,7 @@
     <Content Include="img\arbrito1.png" />
     <Content Include="img\Cards.png" />
     <None Include="img\Decks.png" />
+    <None Include="img\Default_user.png" />
     <Content Include="img\Joystick.ico" />
     <Content Include="img\Lock.png" />
     <None Include="img\Search-Clean.png" />

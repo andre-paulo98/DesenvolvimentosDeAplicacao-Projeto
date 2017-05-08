@@ -33,8 +33,9 @@
             this.lbArbitros = new System.Windows.Forms.ListBox();
             this.btRemover = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.btPesquisaArbrito = new System.Windows.Forms.Button();
+            this.btEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,6 +61,7 @@
             this.lbArbitros.Name = "lbArbitros";
             this.lbArbitros.Size = new System.Drawing.Size(395, 104);
             this.lbArbitros.TabIndex = 1;
+            this.lbArbitros.SelectedIndexChanged += new System.EventHandler(this.lbArbitros_SelectedIndexChanged);
             // 
             // btRemover
             // 
@@ -83,14 +85,14 @@
             this.btAddNew.UseVisualStyleBackColor = true;
             this.btAddNew.Click += new System.EventHandler(this.clickAddArbrito);
             // 
-            // textBox1
+            // tbSearch
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(218, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 3;
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Location = new System.Drawing.Point(218, 62);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(146, 26);
+            this.tbSearch.TabIndex = 3;
             // 
             // btPesquisaArbrito
             // 
@@ -101,17 +103,29 @@
             this.btPesquisaArbrito.Size = new System.Drawing.Size(37, 31);
             this.btPesquisaArbrito.TabIndex = 4;
             this.btPesquisaArbrito.UseVisualStyleBackColor = true;
+            this.btPesquisaArbrito.Click += new System.EventHandler(this.btPesquisaArbrito_Click);
+            // 
+            // btEditar
+            // 
+            this.btEditar.Location = new System.Drawing.Point(128, 227);
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(75, 23);
+            this.btEditar.TabIndex = 5;
+            this.btEditar.Text = "Editar";
+            this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // formUserReferee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 262);
+            this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAddNew);
             this.Controls.Add(this.btPesquisaArbrito);
             this.Controls.Add(this.lbArbitros);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(348, 290);
@@ -128,7 +142,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAddNew;
         private System.Windows.Forms.Button btRemover;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btPesquisaArbrito;
+        private System.Windows.Forms.Button btEditar;
     }
 }

@@ -38,10 +38,27 @@ namespace Projeto
         }
         public void DeleteReferee(int arbitroId)//*
         {
-            Referee arbitroAApagar = container.User.OfType<Referee>().ToList().ElementAt(arbitroId);//vai buscar o arbitro por id*
-            
-            container.User.OfType<Referee>().ToList().RemoveAt(arbitroId);
+            User arbitroAApagar = container.User.ToList().ElementAt(arbitroId);//vai buscar o arbitro por id*
+            container.User.ToList().RemoveAt(arbitroId);
             container.User.Remove(arbitroAApagar);
+            container.SaveChanges();
+        }
+        public List<Referee> SearchArbitro(string nome)
+        {
+            return (from Referee in container.User.OfType<Referee>().ToList()
+                    where Referee.Name.ToUpper().Contains(nome.ToUpper())
+                    select Referee).ToList();
+        }
+        public void EditReferee(Referee arbitro)
+        {
+            Referee arbitroLista = (from Referee in container.User.OfType<Referee>().ToList() //perguntar ao andré o que é que isto quer dizer
+                                    where Referee.Id == arbitro.Id
+                                    select Referee).First();
+            arbitroLista = arbitro;
+            Referee originArbitro = (from Referee in container.User.OfType<Referee>().ToList()//perguntar ao andré o que é que isto quer dizer
+                                     where Referee.Id == arbitro.Id
+                                     select Referee).First();
+            originArbitro = arbitro;
             container.SaveChanges();
         }
     }

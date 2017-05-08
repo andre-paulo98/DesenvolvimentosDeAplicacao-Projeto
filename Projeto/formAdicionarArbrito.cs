@@ -13,11 +13,28 @@ namespace Projeto
     public partial class formAdicionarArbrito : Form
     {
         private ArbitroRepository arbitroRepos;
+        private bool edit;
+        private Referee arbitro;
 
         public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer)
         {
             InitializeComponent();
             arbitroRepos = new ArbitroRepository(dbContainer);
+            
+        }
+        public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer, bool edicao, Referee arbitro)
+        {
+            InitializeComponent();
+            arbitroRepos = new ArbitroRepository(dbContainer);
+            this.edit = edicao;
+            this.arbitro = arbitro;
+            if (edit)
+            {
+                btGuardar.Text = "Editar";
+                tbNome.Text = arbitro.Name;
+                tbUsername.Text = arbitro.Username;
+                tbPassword.Text = arbitro.Password;
+            }
         }
 
 
@@ -29,21 +46,23 @@ namespace Projeto
             }
             else
             {
-                Referee arbitro = new Referee();//objeto arbitro
                 
-
-                arbitro.Username = tbUsername.Text;//adicionar os valores ao arbitro
-                arbitro.Password = tbPassword.Text;
-                arbitro.Name = tbNome.Text;
-                arbitro.Avatar = "";
-
-                arbitroRepos.AddReferee(arbitro);
+                if (edit)
+                {
+                    arbitroRepos.EditReferee(arbitro);
+                }
+                else
+                {
+                    Referee NovoArbitro = new Referee();//objeto arbitro
+                    NovoArbitro.Username = tbUsername.Text;//adicionar os valores ao arbitro
+                    NovoArbitro.Password = tbPassword.Text;
+                    NovoArbitro.Name = tbNome.Text;
+                    NovoArbitro.Avatar = "";
+                    arbitroRepos.AddReferee(NovoArbitro);
+                }
                 Close();
-            } 
+            }
         }
-
-        
-
         private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();
