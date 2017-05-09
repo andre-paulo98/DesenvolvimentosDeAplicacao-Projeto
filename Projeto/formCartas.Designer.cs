@@ -36,14 +36,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnCarta = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.tbCusto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudLealdade = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nudAtaque = new System.Windows.Forms.NumericUpDown();
-            this.nudCusto = new System.Windows.Forms.NumericUpDown();
             this.nudDefesa = new System.Windows.Forms.NumericUpDown();
             this.cbFacao = new System.Windows.Forms.ComboBox();
             this.rtbRegras = new System.Windows.Forms.RichTextBox();
@@ -64,7 +63,6 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAtaque)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCusto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDefesa)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -198,34 +196,40 @@
             this.pnCarta.Location = new System.Drawing.Point(27, 56);
             this.pnCarta.Margin = new System.Windows.Forms.Padding(30);
             this.pnCarta.Name = "pnCarta";
-            this.pnCarta.Size = new System.Drawing.Size(231, 279);
+            this.pnCarta.Size = new System.Drawing.Size(231, 302);
             this.pnCarta.TabIndex = 0;
             // 
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.tbCusto);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.nudLealdade);
-            this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Controls.Add(this.label2);
             this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.nudAtaque);
-            this.panel9.Controls.Add(this.nudCusto);
             this.panel9.Controls.Add(this.nudDefesa);
             this.panel9.Controls.Add(this.cbFacao);
             this.panel9.Controls.Add(this.rtbRegras);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 58);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(231, 221);
+            this.panel9.Size = new System.Drawing.Size(231, 244);
             this.panel9.TabIndex = 3;
+            // 
+            // tbCusto
+            // 
+            this.tbCusto.Location = new System.Drawing.Point(4, 219);
+            this.tbCusto.Name = "tbCusto";
+            this.tbCusto.Size = new System.Drawing.Size(221, 20);
+            this.tbCusto.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 151);
+            this.label5.Location = new System.Drawing.Point(3, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 10;
@@ -234,26 +238,17 @@
             // nudLealdade
             // 
             this.nudLealdade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLealdade.Location = new System.Drawing.Point(59, 147);
+            this.nudLealdade.Location = new System.Drawing.Point(3, 168);
             this.nudLealdade.Name = "nudLealdade";
             this.nudLealdade.Size = new System.Drawing.Size(45, 20);
             this.nudLealdade.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 200);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "€";
+            this.nudLealdade.ValueChanged += new System.EventHandler(this.nudLealdade_ValueChanged);
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(141, 180);
+            this.label3.Location = new System.Drawing.Point(3, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 7;
@@ -263,7 +258,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 180);
+            this.label2.Location = new System.Drawing.Point(173, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 6;
@@ -273,7 +268,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 180);
+            this.label1.Location = new System.Drawing.Point(87, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 5;
@@ -282,29 +277,15 @@
             // nudAtaque
             // 
             this.nudAtaque.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudAtaque.Location = new System.Drawing.Point(4, 196);
+            this.nudAtaque.Location = new System.Drawing.Point(86, 168);
             this.nudAtaque.Name = "nudAtaque";
             this.nudAtaque.Size = new System.Drawing.Size(45, 20);
             this.nudAtaque.TabIndex = 4;
             // 
-            // nudCusto
-            // 
-            this.nudCusto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudCusto.DecimalPlaces = 2;
-            this.nudCusto.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nudCusto.Location = new System.Drawing.Point(144, 196);
-            this.nudCusto.Name = "nudCusto";
-            this.nudCusto.Size = new System.Drawing.Size(62, 20);
-            this.nudCusto.TabIndex = 3;
-            // 
             // nudDefesa
             // 
             this.nudDefesa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudDefesa.Location = new System.Drawing.Point(53, 196);
+            this.nudDefesa.Location = new System.Drawing.Point(180, 168);
             this.nudDefesa.Name = "nudDefesa";
             this.nudDefesa.Size = new System.Drawing.Size(45, 20);
             this.nudDefesa.TabIndex = 2;
@@ -329,7 +310,7 @@
             this.rtbRegras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbRegras.Location = new System.Drawing.Point(2, 32);
             this.rtbRegras.Name = "rtbRegras";
-            this.rtbRegras.Size = new System.Drawing.Size(223, 109);
+            this.rtbRegras.Size = new System.Drawing.Size(223, 114);
             this.rtbRegras.TabIndex = 0;
             this.rtbRegras.Text = "";
             // 
@@ -441,7 +422,6 @@
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLealdade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAtaque)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCusto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDefesa)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -475,15 +455,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudAtaque;
-        private System.Windows.Forms.NumericUpDown nudCusto;
         private System.Windows.Forms.NumericUpDown nudDefesa;
         private System.Windows.Forms.ComboBox cbFacao;
         private System.Windows.Forms.RichTextBox rtbRegras;
         private System.Windows.Forms.ListBox lbCartas;
         private System.Windows.Forms.Button btPesquisa;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudLealdade;
         private System.Windows.Forms.Button btSearchClear;
+        private System.Windows.Forms.TextBox tbCusto;
     }
 }

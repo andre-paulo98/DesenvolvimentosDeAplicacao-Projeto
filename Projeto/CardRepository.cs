@@ -8,6 +8,7 @@ using System.Windows.Forms;
 namespace Projeto {
     class CardRepository {
         private Modelo_Container dbConteirner;
+        private List<Card> listaCarta;
 
         public CardRepository(Modelo_Container dbConteirner) {
             this.dbConteirner = dbConteirner;
@@ -21,7 +22,6 @@ namespace Projeto {
         public bool AddCard(Card carta) { 
             bool flag = CardChecker(carta);
             if (flag) {
-                carta.Cost = double.Parse(carta.Cost).ToString("#0.00€");
                 dbConteirner.Card.Add(carta);
                 dbConteirner.SaveChanges();
             }
@@ -35,11 +35,8 @@ namespace Projeto {
         /// <param name="carta">Carta a ser editada</param>
         /// <returns>TRUE - Se for editada | FALSE - se não</returns>
         public bool EditCard(Card carta) {
-            bool flag = (CardChecker(carta) && carta.Id != 0);
+            bool flag = (CardChecker(carta));
             if (flag) {
-                carta.Cost = carta.Cost + "€";
-                Card originCarta = GetCard(carta.Id);
-                originCarta = carta;
                 dbConteirner.SaveChanges();
             }
             return flag;
@@ -49,18 +46,22 @@ namespace Projeto {
         /// </summary>
         /// <param name="Id da Carta"></param>
         /// <returns>TRUE - Se for eliminada | FALSE - se não</returns>
-        public bool DeleteCard(int cartaId) {
-            Card tempCart = GetCard(cartaId);
-            bool flag = CardChecker(tempCart);
-            if (flag) {
-                try {
-                    dbConteirner.Card.Remove(tempCart);
-                    dbConteirner.SaveChanges();
-                } catch (Exception) {
-                    ErroMensagem("Esta carta está associada a um baralho\n"+
-                        "por tanto não pode ser eliminada!");
-                    flag = false;
+        public bool DeleteCard(Card carta) {
+            bool flag = CardChecker(carta);
+            foreach (Deck deck in dbConteirner.Deck){
+                if(deck.Cards.ToList().Find(card => card.Id == carta.Id) != null) {
+                    DialogResult result = MessageBox.Show("Esta carta está associada a um baralho!\n"+
+                        "Ao eliminar esta carta vai removela de todos os baralhos!\n"+
+                        "Pretende mesmo continuar?","Apagar Carta",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if(result == DialogResult.No) {
+                        flag = false;
+                    }
                 }
+            }
+
+            if (flag) {
+                dbConteirner.Card.Remove(carta);
+                dbConteirner.SaveChanges();
             }
             return flag;
         }
@@ -118,9 +119,8 @@ namespace Projeto {
                 ErroMensagem("O selecione uma \"Fação\"!");
             } else if (carta.Type.Length == 0) {
                 ErroMensagem("O selecione um \"Tipo de Carta\"!");
-            } else if (double.Parse(carta.Cost.Replace("€","")) <= 0) {
-                ErroMensagem("O valor do campo \"Custo\" não é valido!\n"+
-                    " O \"Custo\" deve ser superior a \"0\".");
+            } else if (carta.Cost.Length <= 0) {
+                ErroMensagem("O campo \"Custo\" não está preenchido!");
             } else if (carta.Loyalty < 0) {
                 ErroMensagem("O valor do campo \"Lealdade\" não é valido!\n"+
                     "A \"Lealdade\" deve ser superior a \"0\".");

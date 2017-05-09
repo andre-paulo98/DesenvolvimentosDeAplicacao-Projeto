@@ -26,9 +26,7 @@ namespace Projeto {
         
         public bool EditDeck(Deck baralho) {
             bool flag = DeckChecker(baralho);
-            if (flag && baralho.Id != 0) {
-                Deck originCarta = dbConteirner.Deck.ToList().Find(deck => deck.Id == baralho.Id);
-                originCarta = baralho;
+            if (flag) {
                 dbConteirner.SaveChanges();
             }
             return flag;

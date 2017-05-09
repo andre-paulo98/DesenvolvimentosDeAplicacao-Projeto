@@ -160,10 +160,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Moledo_DB.Designer.cs">
+    <Compile Include="Modelo_DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Moledo_DB.edmx</DependentUpon>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Player.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
@@ -246,12 +246,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Moledo_DB.edmx">
+    <EntityDeploy Include="Modelo_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Moledo_DB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Modelo_DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Moledo_DB.edmx.diagram">
-      <DependentUpon>Moledo_DB.edmx</DependentUpon>
+    <None Include="Modelo_DB.edmx.diagram">
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -276,16 +276,16 @@
     <Content Include="img\Joystick.ico" />
     <Content Include="img\Lock.png" />
     <None Include="img\Search-Clean.png" />
+    <Content Include="Modelo_DB.edmx.sql" />
     <Content Include="Moledo_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Moledo_DB.Context.cs</LastGenOutput>
-      <DependentUpon>Moledo_DB.edmx</DependentUpon>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
-    <Content Include="Moledo_DB.edmx.sql" />
     <Content Include="Moledo_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Moledo_DB.cs</LastGenOutput>
-      <DependentUpon>Moledo_DB.edmx</DependentUpon>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
     <Content Include="img\Player.png" />
     <Content Include="img\Search.png" />

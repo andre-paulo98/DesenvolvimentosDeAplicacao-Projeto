@@ -4,114 +4,114 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="User" EntityType="Model1.Store.User" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Game" EntityType="Model1.Store.Game" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Deck" EntityType="Model1.Store.Deck" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Card" EntityType="Model1.Store.Card" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Team" EntityType="Model1.Store.Team" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Tournament" EntityType="Model1.Store.Tournament" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Player" EntityType="Model1.Store.Player" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="User_Referee" EntityType="Model1.Store.User_Referee" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Game_TeamGame" EntityType="Model1.Store.Game_TeamGame" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Tournament_TeamTournament" EntityType="Model1.Store.Tournament_TeamTournament" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Tournament_StandardToutnament" EntityType="Model1.Store.Tournament_StandardToutnament" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Game_StandardGame" EntityType="Model1.Store.Game_StandardGame" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="User_Administrador" EntityType="Model1.Store.User_Administrador" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DeckCard" EntityType="Model1.Store.DeckCard" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="StandardToutnamentPlayer" EntityType="Model1.Store.StandardToutnamentPlayer" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TeamPlayer" EntityType="Model1.Store.TeamPlayer" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TeamTournamentTeam" EntityType="Model1.Store.TeamTournamentTeam" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="RefereeGame" Association="Model1.Store.RefereeGame">
+    <Schema Namespace="Modelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloStoreContainer">
+    <EntitySet Name="User" EntityType="Modelo.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game" EntityType="Modelo.Store.Game" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Deck" EntityType="Modelo.Store.Deck" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Card" EntityType="Modelo.Store.Card" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Team" EntityType="Modelo.Store.Team" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament" EntityType="Modelo.Store.Tournament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Player" EntityType="Modelo.Store.Player" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Referee" EntityType="Modelo.Store.User_Referee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game_TeamGame" EntityType="Modelo.Store.Game_TeamGame" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament_TeamTournament" EntityType="Modelo.Store.Tournament_TeamTournament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tournament_StandardToutnament" EntityType="Modelo.Store.Tournament_StandardToutnament" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Game_StandardGame" EntityType="Modelo.Store.Game_StandardGame" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Administrador" EntityType="Modelo.Store.User_Administrador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeckCard" EntityType="Modelo.Store.DeckCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StandardToutnamentPlayer" EntityType="Modelo.Store.StandardToutnamentPlayer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamPlayer" EntityType="Modelo.Store.TeamPlayer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamTournamentTeam" EntityType="Modelo.Store.TeamTournamentTeam" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RefereeGame" Association="Modelo.Store.RefereeGame">
       <End Role="Referee" EntitySet="User_Referee" />
       <End Role="Game" EntitySet="Game" />
     </AssociationSet>
-    <AssociationSet Name="GameDeck1" Association="Model1.Store.GameDeck1">
+    <AssociationSet Name="GameDeck1" Association="Modelo.Store.GameDeck1">
       <End Role="Game" EntitySet="Game" />
       <End Role="Deck" EntitySet="Deck" />
     </AssociationSet>
-    <AssociationSet Name="GameDeck2" Association="Model1.Store.GameDeck2">
+    <AssociationSet Name="GameDeck2" Association="Modelo.Store.GameDeck2">
       <End Role="Game" EntitySet="Game" />
       <End Role="Deck" EntitySet="Deck" />
     </AssociationSet>
-    <AssociationSet Name="FK_DeckCard_Deck" Association="Model1.Store.FK_DeckCard_Deck">
+    <AssociationSet Name="FK_DeckCard_Deck" Association="Modelo.Store.FK_DeckCard_Deck">
       <End Role="Deck" EntitySet="Deck" />
       <End Role="DeckCard" EntitySet="DeckCard" />
     </AssociationSet>
-    <AssociationSet Name="FK_DeckCard_Card" Association="Model1.Store.FK_DeckCard_Card">
+    <AssociationSet Name="FK_DeckCard_Card" Association="Modelo.Store.FK_DeckCard_Card">
       <End Role="Card" EntitySet="Card" />
       <End Role="DeckCard" EntitySet="DeckCard" />
     </AssociationSet>
-    <AssociationSet Name="TeamGameTeam" Association="Model1.Store.TeamGameTeam">
+    <AssociationSet Name="TeamGameTeam" Association="Modelo.Store.TeamGameTeam">
       <End Role="TeamGame" EntitySet="Game_TeamGame" />
       <End Role="Team" EntitySet="Team" />
     </AssociationSet>
-    <AssociationSet Name="TeamGameTeam1" Association="Model1.Store.TeamGameTeam1">
+    <AssociationSet Name="TeamGameTeam1" Association="Modelo.Store.TeamGameTeam1">
       <End Role="TeamGame" EntitySet="Game_TeamGame" />
       <End Role="Team" EntitySet="Team" />
     </AssociationSet>
-    <AssociationSet Name="TeamTournamentTeamGame" Association="Model1.Store.TeamTournamentTeamGame">
+    <AssociationSet Name="TeamTournamentTeamGame" Association="Modelo.Store.TeamTournamentTeamGame">
       <End Role="TeamGame" EntitySet="Game_TeamGame" />
       <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
     </AssociationSet>
-    <AssociationSet Name="FK_StandardToutnamentPlayer_StandardToutnament" Association="Model1.Store.FK_StandardToutnamentPlayer_StandardToutnament">
+    <AssociationSet Name="FK_StandardToutnamentPlayer_StandardToutnament" Association="Modelo.Store.FK_StandardToutnamentPlayer_StandardToutnament">
       <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
       <End Role="StandardToutnamentPlayer" EntitySet="StandardToutnamentPlayer" />
     </AssociationSet>
-    <AssociationSet Name="FK_StandardToutnamentPlayer_Player" Association="Model1.Store.FK_StandardToutnamentPlayer_Player">
+    <AssociationSet Name="FK_StandardToutnamentPlayer_Player" Association="Modelo.Store.FK_StandardToutnamentPlayer_Player">
       <End Role="Player" EntitySet="Player" />
       <End Role="StandardToutnamentPlayer" EntitySet="StandardToutnamentPlayer" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamPlayer_Team" Association="Model1.Store.FK_TeamPlayer_Team">
+    <AssociationSet Name="FK_TeamPlayer_Team" Association="Modelo.Store.FK_TeamPlayer_Team">
       <End Role="Team" EntitySet="Team" />
       <End Role="TeamPlayer" EntitySet="TeamPlayer" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamPlayer_Player" Association="Model1.Store.FK_TeamPlayer_Player">
+    <AssociationSet Name="FK_TeamPlayer_Player" Association="Modelo.Store.FK_TeamPlayer_Player">
       <End Role="Player" EntitySet="Player" />
       <End Role="TeamPlayer" EntitySet="TeamPlayer" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamTournamentTeam_TeamTournament" Association="Model1.Store.FK_TeamTournamentTeam_TeamTournament">
+    <AssociationSet Name="FK_TeamTournamentTeam_TeamTournament" Association="Modelo.Store.FK_TeamTournamentTeam_TeamTournament">
       <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
       <End Role="TeamTournamentTeam" EntitySet="TeamTournamentTeam" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamTournamentTeam_Team" Association="Model1.Store.FK_TeamTournamentTeam_Team">
+    <AssociationSet Name="FK_TeamTournamentTeam_Team" Association="Modelo.Store.FK_TeamTournamentTeam_Team">
       <End Role="Team" EntitySet="Team" />
       <End Role="TeamTournamentTeam" EntitySet="TeamTournamentTeam" />
     </AssociationSet>
-    <AssociationSet Name="StandardToutnamentStandardGame" Association="Model1.Store.StandardToutnamentStandardGame">
+    <AssociationSet Name="StandardToutnamentStandardGame" Association="Modelo.Store.StandardToutnamentStandardGame">
       <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
       <End Role="StandardGame" EntitySet="Game_StandardGame" />
     </AssociationSet>
-    <AssociationSet Name="PlayerStandardGame" Association="Model1.Store.PlayerStandardGame">
+    <AssociationSet Name="PlayerStandardGame" Association="Modelo.Store.PlayerStandardGame">
       <End Role="Player" EntitySet="Player" />
       <End Role="StandardGame" EntitySet="Game_StandardGame" />
     </AssociationSet>
-    <AssociationSet Name="PlayerStandardGame1" Association="Model1.Store.PlayerStandardGame1">
+    <AssociationSet Name="PlayerStandardGame1" Association="Modelo.Store.PlayerStandardGame1">
       <End Role="Player" EntitySet="Player" />
       <End Role="StandardGame" EntitySet="Game_StandardGame" />
     </AssociationSet>
-    <AssociationSet Name="FK_Referee_inherits_User" Association="Model1.Store.FK_Referee_inherits_User">
+    <AssociationSet Name="FK_Referee_inherits_User" Association="Modelo.Store.FK_Referee_inherits_User">
       <End Role="User" EntitySet="User" />
       <End Role="Referee" EntitySet="User_Referee" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamGame_inherits_Game" Association="Model1.Store.FK_TeamGame_inherits_Game">
+    <AssociationSet Name="FK_TeamGame_inherits_Game" Association="Modelo.Store.FK_TeamGame_inherits_Game">
       <End Role="Game" EntitySet="Game" />
       <End Role="TeamGame" EntitySet="Game_TeamGame" />
     </AssociationSet>
-    <AssociationSet Name="FK_TeamTournament_inherits_Tournament" Association="Model1.Store.FK_TeamTournament_inherits_Tournament">
+    <AssociationSet Name="FK_TeamTournament_inherits_Tournament" Association="Modelo.Store.FK_TeamTournament_inherits_Tournament">
       <End Role="Tournament" EntitySet="Tournament" />
       <End Role="TeamTournament" EntitySet="Tournament_TeamTournament" />
     </AssociationSet>
-    <AssociationSet Name="FK_StandardToutnament_inherits_Tournament" Association="Model1.Store.FK_StandardToutnament_inherits_Tournament">
+    <AssociationSet Name="FK_StandardToutnament_inherits_Tournament" Association="Modelo.Store.FK_StandardToutnament_inherits_Tournament">
       <End Role="Tournament" EntitySet="Tournament" />
       <End Role="StandardToutnament" EntitySet="Tournament_StandardToutnament" />
     </AssociationSet>
-    <AssociationSet Name="FK_StandardGame_inherits_Game" Association="Model1.Store.FK_StandardGame_inherits_Game">
+    <AssociationSet Name="FK_StandardGame_inherits_Game" Association="Modelo.Store.FK_StandardGame_inherits_Game">
       <End Role="Game" EntitySet="Game" />
       <End Role="StandardGame" EntitySet="Game_StandardGame" />
     </AssociationSet>
-    <AssociationSet Name="FK_Administrador_inherits_User" Association="Model1.Store.FK_Administrador_inherits_User">
+    <AssociationSet Name="FK_Administrador_inherits_User" Association="Modelo.Store.FK_Administrador_inherits_User">
       <End Role="User" EntitySet="User" />
       <End Role="Administrador" EntitySet="User_Administrador" />
     </AssociationSet>
@@ -182,7 +182,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Nickname" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Age" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="User_Referee">
@@ -263,8 +263,8 @@
     <Property Name="Team_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="RefereeGame">
-    <End Role="Referee" Type="Model1.Store.User_Referee" Multiplicity="0..1" />
-    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
+    <End Role="Referee" Type="Modelo.Store.User_Referee" Multiplicity="0..1" />
+    <End Role="Game" Type="Modelo.Store.Game" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Referee">
         <PropertyRef Name="Id" />
@@ -275,8 +275,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GameDeck1">
-    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
-    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="0..1" />
+    <End Role="Game" Type="Modelo.Store.Game" Multiplicity="*" />
+    <End Role="Deck" Type="Modelo.Store.Deck" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Deck">
         <PropertyRef Name="Id" />
@@ -287,8 +287,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GameDeck2">
-    <End Role="Game" Type="Model1.Store.Game" Multiplicity="*" />
-    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="0..1" />
+    <End Role="Game" Type="Modelo.Store.Game" Multiplicity="*" />
+    <End Role="Deck" Type="Modelo.Store.Deck" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Deck">
         <PropertyRef Name="Id" />
@@ -299,8 +299,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TeamGameTeam">
-    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
-    <End Role="Team" Type="Model1.Store.Team" Multiplicity="0..1" />
+    <End Role="TeamGame" Type="Modelo.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="Team" Type="Modelo.Store.Team" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Team">
         <PropertyRef Name="Id" />
@@ -311,8 +311,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TeamGameTeam1">
-    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
-    <End Role="Team" Type="Model1.Store.Team" Multiplicity="0..1" />
+    <End Role="TeamGame" Type="Modelo.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="Team" Type="Modelo.Store.Team" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Team">
         <PropertyRef Name="Id" />
@@ -323,8 +323,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TeamTournamentTeamGame">
-    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="*" />
-    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="1" />
+    <End Role="TeamGame" Type="Modelo.Store.Game_TeamGame" Multiplicity="*" />
+    <End Role="TeamTournament" Type="Modelo.Store.Tournament_TeamTournament" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="TeamTournament">
         <PropertyRef Name="Id" />
@@ -335,8 +335,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="StandardToutnamentStandardGame">
-    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="1" />
-    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <End Role="StandardToutnament" Type="Modelo.Store.Tournament_StandardToutnament" Multiplicity="1" />
+    <End Role="StandardGame" Type="Modelo.Store.Game_StandardGame" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="StandardToutnament">
         <PropertyRef Name="Id" />
@@ -347,8 +347,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PlayerStandardGame">
-    <End Role="Player" Type="Model1.Store.Player" Multiplicity="0..1" />
-    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <End Role="Player" Type="Modelo.Store.Player" Multiplicity="0..1" />
+    <End Role="StandardGame" Type="Modelo.Store.Game_StandardGame" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Player">
         <PropertyRef Name="Id" />
@@ -359,8 +359,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PlayerStandardGame1">
-    <End Role="Player" Type="Model1.Store.Player" Multiplicity="0..1" />
-    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="*" />
+    <End Role="Player" Type="Modelo.Store.Player" Multiplicity="0..1" />
+    <End Role="StandardGame" Type="Modelo.Store.Game_StandardGame" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Player">
         <PropertyRef Name="Id" />
@@ -371,8 +371,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DeckCard_Deck">
-    <End Role="Deck" Type="Model1.Store.Deck" Multiplicity="1" />
-    <End Role="DeckCard" Type="Model1.Store.DeckCard" Multiplicity="*" />
+    <End Role="Deck" Type="Modelo.Store.Deck" Multiplicity="1" />
+    <End Role="DeckCard" Type="Modelo.Store.DeckCard" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Deck">
         <PropertyRef Name="Id" />
@@ -383,8 +383,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DeckCard_Card">
-    <End Role="DeckCard" Type="Model1.Store.DeckCard" Multiplicity="*" />
-    <End Role="Card" Type="Model1.Store.Card" Multiplicity="1" />
+    <End Role="DeckCard" Type="Modelo.Store.DeckCard" Multiplicity="*" />
+    <End Role="Card" Type="Modelo.Store.Card" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Card">
         <PropertyRef Name="Id" />
@@ -395,8 +395,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_StandardToutnamentPlayer_StandardToutnament">
-    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="1" />
-    <End Role="StandardToutnamentPlayer" Type="Model1.Store.StandardToutnamentPlayer" Multiplicity="*" />
+    <End Role="StandardToutnament" Type="Modelo.Store.Tournament_StandardToutnament" Multiplicity="1" />
+    <End Role="StandardToutnamentPlayer" Type="Modelo.Store.StandardToutnamentPlayer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="StandardToutnament">
         <PropertyRef Name="Id" />
@@ -407,8 +407,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_StandardToutnamentPlayer_Player">
-    <End Role="StandardToutnamentPlayer" Type="Model1.Store.StandardToutnamentPlayer" Multiplicity="*" />
-    <End Role="Player" Type="Model1.Store.Player" Multiplicity="1" />
+    <End Role="StandardToutnamentPlayer" Type="Modelo.Store.StandardToutnamentPlayer" Multiplicity="*" />
+    <End Role="Player" Type="Modelo.Store.Player" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Player">
         <PropertyRef Name="Id" />
@@ -419,8 +419,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamPlayer_Team">
-    <End Role="Team" Type="Model1.Store.Team" Multiplicity="1" />
-    <End Role="TeamPlayer" Type="Model1.Store.TeamPlayer" Multiplicity="*" />
+    <End Role="Team" Type="Modelo.Store.Team" Multiplicity="1" />
+    <End Role="TeamPlayer" Type="Modelo.Store.TeamPlayer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Team">
         <PropertyRef Name="Id" />
@@ -431,8 +431,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamPlayer_Player">
-    <End Role="TeamPlayer" Type="Model1.Store.TeamPlayer" Multiplicity="*" />
-    <End Role="Player" Type="Model1.Store.Player" Multiplicity="1" />
+    <End Role="TeamPlayer" Type="Modelo.Store.TeamPlayer" Multiplicity="*" />
+    <End Role="Player" Type="Modelo.Store.Player" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Player">
         <PropertyRef Name="Id" />
@@ -443,8 +443,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamTournamentTeam_TeamTournament">
-    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="1" />
-    <End Role="TeamTournamentTeam" Type="Model1.Store.TeamTournamentTeam" Multiplicity="*" />
+    <End Role="TeamTournament" Type="Modelo.Store.Tournament_TeamTournament" Multiplicity="1" />
+    <End Role="TeamTournamentTeam" Type="Modelo.Store.TeamTournamentTeam" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TeamTournament">
         <PropertyRef Name="Id" />
@@ -455,8 +455,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamTournamentTeam_Team">
-    <End Role="TeamTournamentTeam" Type="Model1.Store.TeamTournamentTeam" Multiplicity="*" />
-    <End Role="Team" Type="Model1.Store.Team" Multiplicity="1" />
+    <End Role="TeamTournamentTeam" Type="Modelo.Store.TeamTournamentTeam" Multiplicity="*" />
+    <End Role="Team" Type="Modelo.Store.Team" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Team">
         <PropertyRef Name="Id" />
@@ -467,10 +467,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Referee_inherits_User">
-    <End Role="User" Type="Model1.Store.User" Multiplicity="1">
+    <End Role="User" Type="Modelo.Store.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Referee" Type="Model1.Store.User_Referee" Multiplicity="0..1" />
+    <End Role="Referee" Type="Modelo.Store.User_Referee" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -481,10 +481,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamGame_inherits_Game">
-    <End Role="Game" Type="Model1.Store.Game" Multiplicity="1">
+    <End Role="Game" Type="Modelo.Store.Game" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="TeamGame" Type="Model1.Store.Game_TeamGame" Multiplicity="0..1" />
+    <End Role="TeamGame" Type="Modelo.Store.Game_TeamGame" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Game">
         <PropertyRef Name="Id" />
@@ -495,10 +495,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeamTournament_inherits_Tournament">
-    <End Role="Tournament" Type="Model1.Store.Tournament" Multiplicity="1">
+    <End Role="Tournament" Type="Modelo.Store.Tournament" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="TeamTournament" Type="Model1.Store.Tournament_TeamTournament" Multiplicity="0..1" />
+    <End Role="TeamTournament" Type="Modelo.Store.Tournament_TeamTournament" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tournament">
         <PropertyRef Name="Id" />
@@ -509,10 +509,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_StandardToutnament_inherits_Tournament">
-    <End Role="Tournament" Type="Model1.Store.Tournament" Multiplicity="1">
+    <End Role="Tournament" Type="Modelo.Store.Tournament" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="StandardToutnament" Type="Model1.Store.Tournament_StandardToutnament" Multiplicity="0..1" />
+    <End Role="StandardToutnament" Type="Modelo.Store.Tournament_StandardToutnament" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tournament">
         <PropertyRef Name="Id" />
@@ -523,10 +523,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_StandardGame_inherits_Game">
-    <End Role="Game" Type="Model1.Store.Game" Multiplicity="1">
+    <End Role="Game" Type="Modelo.Store.Game" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="StandardGame" Type="Model1.Store.Game_StandardGame" Multiplicity="0..1" />
+    <End Role="StandardGame" Type="Modelo.Store.Game_StandardGame" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Game">
         <PropertyRef Name="Id" />
@@ -537,10 +537,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Administrador_inherits_User">
-    <End Role="User" Type="Model1.Store.User" Multiplicity="1">
+    <End Role="User" Type="Modelo.Store.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Administrador" Type="Model1.Store.User_Administrador" Multiplicity="0..1" />
+    <End Role="Administrador" Type="Modelo.Store.User_Administrador" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
@@ -731,7 +731,7 @@
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Nickname" Type="String" Nullable="false" />
-          <Property Name="Age" Type="String" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="Avatar" Type="String" Nullable="false" />
           <NavigationProperty Name="Toutnament" Relationship="Modelo.StandardToutnamentPlayer" FromRole="Player" ToRole="StandardToutnament" />
           <NavigationProperty Name="Team" Relationship="Modelo.TeamPlayer" FromRole="Player" ToRole="Team" />
@@ -779,7 +779,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Modelo_Container">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="Modelo_Container">
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="IsTypeOf(Modelo.User)">
         <MappingFragment StoreEntitySet="User">

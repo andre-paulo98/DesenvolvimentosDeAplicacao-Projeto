@@ -13,6 +13,7 @@ namespace Projeto {
 
         private CardRepository cardRepo;
         private Boolean flagEditar;
+        private List<Card> cardList;
 
         public formCartas(Modelo_Container dbContainer) {
             InitializeComponent();
@@ -50,14 +51,14 @@ namespace Projeto {
         private void btEditar_Click(object sender, EventArgs e) {
             Card carta;
             if (flagEditar) {
-                carta = cardRepo.GetCard(GetCardId());
+                carta = cardList.ElementAt(lbCartas.SelectedIndex);
             } else {
                 carta = new Card();
             }
             carta.Name = tbNome.Text;
             carta.Faction = cbFacao.Text;
             carta.Type = cbTipo.Text;
-            carta.Cost = nudCusto.Value+"";
+            carta.Cost = tbCusto.Text;
             carta.Rules = rtbRegras.Text;
             carta.Loyalty = (short)nudLealdade.Value;
             carta.Attack = (short)nudAtaque.Value;
@@ -67,21 +68,23 @@ namespace Projeto {
                     LimpaForm();
                     flagEditar = false;
                     ResetSearch();
-                    AtivarFormulario(false);
                     RefreshView();
+                    LimpaForm();
+                    AtivarFormulario(false);
                 }
             } else {
                 if (cardRepo.AddCard(carta)) {
                     ResetSearch();
-                    AtivarFormulario(false);
                     RefreshView();
+                    LimpaForm();
+                    AtivarFormulario(false);
                 }
             }
         }
 
         private void btApagar_Click(object sender, EventArgs e) {
             if (flagEditar) {
-                cardRepo.DeleteCard(GetCardId());
+                cardRepo.DeleteCard(cardList.ElementAt(lbCartas.SelectedIndex));
                 RefreshView();
             }
             LimpaForm();
@@ -94,8 +97,9 @@ namespace Projeto {
                 LimpaForm();
                 AtivarFormulario(false);
                 lbCartas.Items.Clear();
-                foreach (Card carta in cardRepo.SearchCard(tbSearch.Text)) {
-                    lbCartas.Items.Add(carta.Id + " - " + carta.Name + "\n\t\t" + carta.Cost);
+                cardList = cardRepo.SearchCard(tbSearch.Text);
+                foreach (Card carta in cardList) {
+                    lbCartas.Items.Add(carta.Name + "\t" + carta.Type + "\t" + carta.Faction);
                 }
             }
         }
@@ -110,7 +114,7 @@ namespace Projeto {
 
         private void lbCartas_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbCartas.SelectedIndex >= 0) {
-                PreencheForm(GetCardId());
+                PreencheForm(cardList.ElementAt(lbCartas.SelectedIndex));
                 flagEditar = true;
                 AtivarFormulario(true);
             } else {
@@ -139,21 +143,21 @@ namespace Projeto {
         /// cada vez que esta sofre alteraçoes
         /// </summary>
         private void RefreshView() {
+            cardList = cardRepo.GetCardsList();
             lbCartas.Items.Clear();
-            foreach (Card carta in cardRepo.GetCardsList()) {
-                lbCartas.Items.Add(carta.Id+" - "+carta.Name + "\n\t\t" + carta.Cost);
+            foreach (Card carta in cardList) {
+                lbCartas.Items.Add(carta.Name + "\t" + carta.Type + "\t"+carta.Faction);
             }
         }
         /// <summary>
         /// Funcao que preenche o formulario da carta com os dados da carta
         /// </summary>
         /// <param name="carta"></param>
-        private void PreencheForm(int cartaId) {
-            Card carta = cardRepo.GetCard(cartaId);
+        private void PreencheForm(Card carta) {
             tbNome.Text = carta.Name;
             cbFacao.Text = carta.Faction;
             cbTipo.Text = carta.Type;
-            nudCusto.Value = Decimal.Parse(carta.Cost.Replace("€", "").Trim());
+            tbCusto.Text = carta.Cost;
             rtbRegras.Text = carta.Rules;
             nudLealdade.Value = carta.Loyalty;
             nudAtaque.Value = carta.Attack;
@@ -168,12 +172,12 @@ namespace Projeto {
             cbFacao.SelectedIndex = 0;
             rtbRegras.Text = "";
             nudAtaque.Value = 0;
-            nudCusto.Value = new Decimal(0.00);
+            tbCusto.Text = "";
             nudDefesa.Value = 0;
             nudLealdade.Value = 0;
             lbCartas.SelectedIndex = -1;
         }
-        /// <summary>
+        /*/// <summary>
         /// Funcao que retira o id da carta que estiver 
         /// selecionada na lista de cartas
         /// </summary>
@@ -181,13 +185,17 @@ namespace Projeto {
         private int GetCardId() {
             int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
             return cartaId;
-        }
+        }*/
         /// <summary>
         /// Funcao que limpa a barra de pesquisa
         /// </summary>
         private void ResetSearch() {
             tbSearch.Text = "Procurar ...";
             tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+        }
+
+        private void nudLealdade_ValueChanged(object sender, EventArgs e) {
+
         }
     }
 }
