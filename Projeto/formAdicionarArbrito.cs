@@ -28,8 +28,9 @@ namespace Projeto
             arbitroRepos = new ArbitroRepository(dbContainer);
             this.edit = edicao;
             this.arbitro = arbitro;
-            if (edit)
+            if (edit)  //Mudar labels para modo de edição
             {
+                this.Text = "Editar Arbitro";
                 btGuardar.Text = "Editar";
                 tbNome.Text = arbitro.Name;
                 tbUsername.Text = arbitro.Username;

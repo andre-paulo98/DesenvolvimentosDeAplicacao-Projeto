@@ -26,8 +26,11 @@ namespace Projeto
             Close();
         }
 
-        private void btAdmin_Click(object sender, EventArgs e) {
-
+        private void btAdmin_Click(object sender, EventArgs e)
+        {
+            formUserAdmin admin = new formUserAdmin(dbContainer);
+            admin.Show();
+            Close();
         }
     }
 }

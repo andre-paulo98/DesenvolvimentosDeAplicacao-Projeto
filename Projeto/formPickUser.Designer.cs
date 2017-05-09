@@ -50,11 +50,13 @@
             // 
             // btAdmin
             // 
+            this.btAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btAdmin.Image")));
             this.btAdmin.Location = new System.Drawing.Point(202, 32);
             this.btAdmin.Name = "btAdmin";
             this.btAdmin.Size = new System.Drawing.Size(140, 120);
             this.btAdmin.TabIndex = 0;
             this.btAdmin.Text = "Administrador";
+            this.btAdmin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btAdmin.UseVisualStyleBackColor = true;
             this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
             // 
@@ -80,7 +82,7 @@
             this.Name = "formPickUser";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Escolher Grupo";
+            this.Text = "Escolher Utilizador";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

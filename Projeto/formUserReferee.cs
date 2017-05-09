@@ -29,7 +29,7 @@ namespace Projeto
         {
             formAdicionarArbrito addArbrito = new formAdicionarArbrito(this, dbContainer);
             addArbrito.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing); // *1*
-            addArbrito.Show();
+            addArbrito.ShowDialog(this);
         }
 
         private void RefreshView() // método para refresh da lista de arbitros
@@ -82,7 +82,8 @@ namespace Projeto
             currentReferee = arbitroRepos.GetReferee(int.Parse(lbArbitros.Items[lbArbitros.SelectedIndex].ToString().Split('-')[0].Trim()));
             editar = true;
             formAdicionarArbrito EditArbitro = new formAdicionarArbrito(this, dbContainer, editar,currentReferee);//editar a true muda o form de forma
-            EditArbitro.Show();
+            EditArbitro.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing);
+            EditArbitro.ShowDialog(this);
         }
     }
 }
