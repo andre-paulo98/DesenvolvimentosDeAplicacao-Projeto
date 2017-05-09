@@ -33,6 +33,7 @@
             this.btCancelar = new System.Windows.Forms.Button();
             this.dpData = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btEliminar = new System.Windows.Forms.Button();
             this.lbTorneios = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btEliminar);
             this.groupBox1.Controls.Add(this.btCancelar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbDescricao);
@@ -126,17 +128,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalhes de Torneio";
             // 
+            // btEliminar
+            // 
+            this.btEliminar.Location = new System.Drawing.Point(73, 273);
+            this.btEliminar.Name = "btEliminar";
+            this.btEliminar.Size = new System.Drawing.Size(60, 23);
+            this.btEliminar.TabIndex = 9;
+            this.btEliminar.Text = "Remover";
+            this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Visible = false;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
+            // 
             // lbTorneios
             // 
             this.lbTorneios.FormattingEnabled = true;
-            this.lbTorneios.Items.AddRange(new object[] {
-            "Torneio1 - 20/04/2017",
-            "Torneio2 - 10/05/2017",
-            "Torneio3 - 26/06/2017"});
             this.lbTorneios.Location = new System.Drawing.Point(6, 19);
             this.lbTorneios.Name = "lbTorneios";
             this.lbTorneios.Size = new System.Drawing.Size(193, 277);
             this.lbTorneios.TabIndex = 10;
+            this.lbTorneios.SelectedIndexChanged += new System.EventHandler(this.lbTorneios_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -179,5 +189,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lbTorneios;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btEliminar;
     }
 }

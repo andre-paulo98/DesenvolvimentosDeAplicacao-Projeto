@@ -23,8 +23,29 @@ namespace Projeto {
             }
         }
 
+        public void updateTournament(Tournament torneio) {
+            if(checkTorneio(torneio)) {
+                Tournament torneioNovo = (from Tournament in dbContainer.Tournament.ToList()
+                                          where Tournament.Id == torneio.Id
+                                          select Tournament).First();
+                torneioNovo = torneio;
+                dbContainer.SaveChanges();
+            }
+        }
+
+        public void deleteTournament(Tournament torneio) {
+            if(checkTorneio(torneio)) {
+                dbContainer.Tournament.Remove(torneio);
+                dbContainer.SaveChanges();
+            }
+        }
+
         public List<Tournament> getListaTorneios() {
             return dbContainer.Tournament.ToList();
+        }
+        // 
+        public Tournament getTournamentID(int id) {
+            return (from Tournament in dbContainer.Tournament.ToList() where Tournament.Id == id select Tournament).ToList().First();
         }
 
         private bool checkTorneio(Tournament torneio) {
