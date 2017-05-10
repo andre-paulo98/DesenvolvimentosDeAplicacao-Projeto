@@ -101,6 +101,8 @@
     <Compile Include="formCartas.Designer.cs">
       <DependentUpon>formCartas.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
     <Compile Include="formEquipas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +121,7 @@
     <Compile Include="formGestaoUtilizadores.Designer.cs">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </Compile>
+>>>>>>> db4af888db1e85138a51e026f44c6c5770a2fe99
     <Compile Include="formJogadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +229,8 @@
     <EmbeddedResource Include="formCartas.resx">
       <DependentUpon>formCartas.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
     <EmbeddedResource Include="formEquipas.resx">
       <DependentUpon>formEquipas.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +240,7 @@
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </EmbeddedResource>
+>>>>>>> db4af888db1e85138a51e026f44c6c5770a2fe99
     <EmbeddedResource Include="formJogadores.resx">
       <DependentUpon>formJogadores.cs</DependentUpon>
     </EmbeddedResource>

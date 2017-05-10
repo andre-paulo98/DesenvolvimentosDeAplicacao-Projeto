@@ -56,7 +56,11 @@ namespace Projeto
         }
 
         private void btEquipas_Click(object sender, EventArgs e) {
-            //TODO Equipas
+            if(!formsOpen.OfType<formGestaoEquipas>().Any()) {
+                new formGestaoEquipas(dbContainer).Show();
+            } else {
+                formsOpen.OfType<formGestaoEquipas>().First().Focus();
+            }
         }
 
         private void formPrincipal_FormClosing(object sender, FormClosingEventArgs e) {

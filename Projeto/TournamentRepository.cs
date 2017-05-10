@@ -43,7 +43,7 @@ namespace Projeto {
         public List<Tournament> getListaTorneios() {
             return dbContainer.Tournament.ToList();
         }
-        // 
+
         public Tournament getTournamentID(int id) {
             return (from Tournament in dbContainer.Tournament.ToList() where Tournament.Id == id select Tournament).ToList().First();
         }
@@ -57,7 +57,6 @@ namespace Projeto {
             } else {
                 check = true;
             }
-
             return check;
         }
 
