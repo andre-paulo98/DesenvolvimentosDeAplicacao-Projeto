@@ -74,7 +74,9 @@
             // lbBaralho
             // 
             this.lbBaralho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbBaralho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbBaralho.FormattingEnabled = true;
+            this.lbBaralho.ItemHeight = 20;
             this.lbBaralho.Location = new System.Drawing.Point(3, 16);
             this.lbBaralho.Name = "lbBaralho";
             this.lbBaralho.Size = new System.Drawing.Size(232, 307);
@@ -83,7 +85,9 @@
             // lbDisponiveis
             // 
             this.lbDisponiveis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbDisponiveis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbDisponiveis.FormattingEnabled = true;
+            this.lbDisponiveis.ItemHeight = 20;
             this.lbDisponiveis.Location = new System.Drawing.Point(3, 16);
             this.lbDisponiveis.Name = "lbDisponiveis";
             this.lbDisponiveis.Size = new System.Drawing.Size(233, 307);
@@ -120,6 +124,7 @@
             // 
             // btCancelar
             // 
+            this.btCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancelar.Location = new System.Drawing.Point(424, 5);
             this.btCancelar.Margin = new System.Windows.Forms.Padding(5);
             this.btCancelar.Name = "btCancelar";

@@ -113,12 +113,6 @@
     <Compile Include="formGestaoEquipas.Designer.cs">
       <DependentUpon>formGestaoEquipas.cs</DependentUpon>
     </Compile>
-    <Compile Include="formGestaoUtilizadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formGestaoUtilizadores.Designer.cs">
-      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
-    </Compile>
     <Compile Include="formJogadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,9 +225,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoEquipas.resx">
       <DependentUpon>formGestaoEquipas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formGestaoUtilizadores.resx">
-      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formJogadores.resx">
       <DependentUpon>formJogadores.cs</DependentUpon>

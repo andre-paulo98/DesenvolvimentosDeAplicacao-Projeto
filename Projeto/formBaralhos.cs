@@ -66,17 +66,17 @@ namespace Projeto {
         /// </summary>
         private void RefreshDeckList() {
             lbBaralhos.Items.Clear();
-            foreach (Deck baralho in deckRepo.GetDecksList()) {
-                lbBaralhos.Items.Add(baralho.Id + " - " + baralho.Name);
+            foreach (Deck deck in deckRepo.GetDecksList()) {
+                lbBaralhos.Items.Add(deck.Name + "\t" + deck.Cards.Count + " Carta(s)");
             }
         }
         /// <summary>
         /// Função que carrega as cartas de cada baralho na lista
         /// </summary>
-        private void LoadCardList(Deck baralho) {
+        private void LoadCardList(Deck deck) {
             lbCartas.Items.Clear();
-            foreach(Card carta in baralho.Cards) {
-                lbCartas.Items.Add(carta.Id + " - " + carta.Name);
+            foreach(Card card in deck.Cards) {
+                lbCartas.Items.Add(card.Name + "\t" + card.Type + "\t" + card.Faction);
             }
         }
         /// <summary>

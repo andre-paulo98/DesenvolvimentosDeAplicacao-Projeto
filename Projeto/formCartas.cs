@@ -24,7 +24,7 @@ namespace Projeto {
         }
 
         private void tbSearch_GotFocus(object sender, EventArgs e) {
-            if (tbSearch.Text == "Procurar ...") {
+            if (tbSearch.Text == "Nome da Carta ...") {
                 tbSearch.Text = "";
                 tbSearch.ForeColor = System.Drawing.SystemColors.WindowText;
             }
@@ -117,9 +117,6 @@ namespace Projeto {
                 PreencheForm(cardList.ElementAt(lbCartas.SelectedIndex));
                 flagEditar = true;
                 AtivarFormulario(true);
-            } else {
-                flagEditar = false;
-                AtivarFormulario(false);
             }
         }
         /// <summary>
@@ -177,20 +174,12 @@ namespace Projeto {
             nudLealdade.Value = 0;
             lbCartas.SelectedIndex = -1;
         }
-        /*/// <summary>
-        /// Funcao que retira o id da carta que estiver 
-        /// selecionada na lista de cartas
-        /// </summary>
-        /// <returns>Retorna o ID da carta</returns>
-        private int GetCardId() {
-            int cartaId = int.Parse(lbCartas.Items[lbCartas.SelectedIndex].ToString().Split('-')[0].Trim());
-            return cartaId;
-        }*/
+        
         /// <summary>
         /// Funcao que limpa a barra de pesquisa
         /// </summary>
         private void ResetSearch() {
-            tbSearch.Text = "Procurar ...";
+            tbSearch.Text = "Nome da Carta ...";
             tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
         }
 

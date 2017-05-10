@@ -78,7 +78,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(279, 26);
             this.tbSearch.TabIndex = 0;
-            this.tbSearch.Text = "Procurar ...";
+            this.tbSearch.Text = "Nome da Carta ...";
             this.tbSearch.GotFocus += new System.EventHandler(this.tbSearch_GotFocus);
             this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             this.tbSearch.LostFocus += new System.EventHandler(this.tbSearch_LostFocus);
@@ -373,7 +373,9 @@
             // lbCartas
             // 
             this.lbCartas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbCartas.FormattingEnabled = true;
+            this.lbCartas.ItemHeight = 20;
             this.lbCartas.Location = new System.Drawing.Point(3, 16);
             this.lbCartas.Name = "lbCartas";
             this.lbCartas.Size = new System.Drawing.Size(203, 372);

@@ -15,6 +15,9 @@ namespace Projeto {
         private Boolean FlagEdicao;
         private DeckRepository deckRepo;
         private CardRepository cardRepo;
+        private List<Card> CardList;
+        private List<Card> DeckCardsList;
+
         /// <summary>
         /// Formulario para adicionar um novo baralho
         /// </summary>
@@ -25,7 +28,9 @@ namespace Projeto {
             baralho = new Deck();
             deckRepo = new DeckRepository(dbContainer);
             cardRepo = new CardRepository(dbContainer);
+            DeckCardsList = new List<Card>();
             RefreshCartasDisponiveis();
+            RefreshCartasBaralho();
             this.TopMost = true;
         }
         /// <summary>
@@ -40,6 +45,7 @@ namespace Projeto {
             tbNome.Text = baralho.Name;
             deckRepo = new DeckRepository(dbContainer);
             cardRepo = new CardRepository(dbContainer);
+            DeckCardsList = baralho.Cards.ToList();
             RefreshCartasDisponiveis();
             RefreshCartasBaralho();
             this.TopMost = true;
@@ -47,6 +53,7 @@ namespace Projeto {
         
         private void btGuardar_Click(object sender, EventArgs e) {
             baralho.Name = tbNome.Text;
+            baralho.Cards = DeckCardsList;
             if (FlagEdicao) {//MODO DE EDICAO
                 if (deckRepo.EditDeck(baralho)) {
                     this.Close();
@@ -59,21 +66,20 @@ namespace Projeto {
         }
 
         private void btCancelar_Click(object sender, EventArgs e) {
-            if ((baralho.Cards.Count > 0 || tbNome.Text.Length > 0) && !FlagEdicao) {
-                if(MessageBox.Show("Ao cancelar ira perder todos os dados inseridos!\n"+
+            if ((baralho.Cards.Count > 0 || tbNome.Text.Length > 0) && !FlagEdicao) {//MODO DE INSERÇAO
+                if (MessageBox.Show("Ao cancelar ira perder todos os dados inseridos!\n"+
                     "Tem a certeza que pertende fechar o formulario?","Perca de Dados",
                     MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) {
                     this.Close();
                 }
-            } else {
+            } else {//MODO DE EDITAR
                 this.Close();
             }
         }
 
         private void btAdicionar_Click(object sender, EventArgs e) {
             if (lbDisponiveis.SelectedIndex >= 0) {
-                int cartaId = int.Parse(lbDisponiveis.Items[lbDisponiveis.SelectedIndex].ToString().Split('-')[0].Trim());
-                baralho.Cards.Add(cardRepo.GetCard(cartaId));
+                DeckCardsList.Add(CardList.ElementAt(lbDisponiveis.SelectedIndex));
                 RefreshCartasBaralho();
                 RefreshCartasDisponiveis();
             }
@@ -81,8 +87,7 @@ namespace Projeto {
 
         private void btRemover_Click(object sender, EventArgs e) {
             if (lbBaralho.SelectedIndex >= 0) {
-                int cartaId = int.Parse(lbBaralho.Items[lbBaralho.SelectedIndex].ToString().Split('-')[0].Trim());
-                baralho.Cards.Remove(cardRepo.GetCard(cartaId));
+                DeckCardsList.RemoveAt(lbBaralho.SelectedIndex);
                 RefreshCartasBaralho();
                 RefreshCartasDisponiveis();
             }
@@ -93,18 +98,19 @@ namespace Projeto {
         /// 
         private void RefreshCartasBaralho() {
             lbBaralho.Items.Clear();
-            foreach (Card card in baralho.Cards) {
-                lbBaralho.Items.Add(card.Id+" - "+card.Name);
+            foreach (Card card in DeckCardsList) {
+                lbBaralho.Items.Add(card.Name+"\t"+card.Type+"\t"+card.Faction);
             }
         }
         /// <summary>
         /// Carrega as cartas na listBox DISPONIVEIS
         /// </summary>
         private void RefreshCartasDisponiveis() {
+            CardList = cardRepo.GetCardsListNotIn(DeckCardsList);
             lbDisponiveis.Items.Clear();
-            foreach (Card card in cardRepo.GetCardsListNotIn(baralho.Cards.Cast<Card>().ToList())) {
-                lbDisponiveis.Items.Add(card.Id+" - "+card.Name);
+            foreach (Card card in CardList) {
+                lbDisponiveis.Items.Add(card.Name + "\t" + card.Type + "\t" + card.Faction);
             }
-        }       
+        }
     }
 }

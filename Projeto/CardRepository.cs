@@ -8,7 +8,6 @@ using System.Windows.Forms;
 namespace Projeto {
     class CardRepository {
         private Modelo_Container dbConteirner;
-        private List<Card> listaCarta;
 
         public CardRepository(Modelo_Container dbConteirner) {
             this.dbConteirner = dbConteirner;
@@ -64,16 +63,6 @@ namespace Projeto {
                 dbConteirner.SaveChanges();
             }
             return flag;
-        }
-        /// <summary>
-        /// Metodo responsavel por obter uma carta 
-        /// da base de dados
-        /// </summary>
-        /// <param name="CartaId">Id da carta</param>
-        /// <returns>A carta</returns>
-        public Card GetCard(int cartaId) {
-            Card carta = dbConteirner.Card.ToList().Find(card => card.Id == cartaId);
-            return carta;
         }
         /// <summary>
         /// Metodo responsavel por listar todas

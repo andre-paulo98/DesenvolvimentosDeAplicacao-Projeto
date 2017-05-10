@@ -26,11 +26,28 @@ namespace Projeto {
         public bool EditPlayer(Player player) {
             bool flag = PlayerChecker(player);
             if (flag && player.Id != 0) {
-                //Player originPlayer = dbConteirner.Player.ToList().Find(playerA => playerA.Id == player.Id);
-                //originPlayer = player;
                 dbConteirner.SaveChanges();
             }
             return flag;
+        }
+
+        public bool DeletePlayer(Player player) {
+            bool flag = PlayerChecker(player);
+            if (flag) {
+                dbConteirner.Player.Remove(player);
+                dbConteirner.SaveChanges();
+            }
+            return flag;
+        }
+
+        public List<Player> GetPlayersList() {
+            return dbConteirner.Player.ToList();
+        }
+
+        public List<Player> SearchPlayer(String name) {
+            return (from Player in dbConteirner.Player.ToList()
+                    where Player.Name.ToUpper().Contains(name.ToUpper())
+                    select Player).ToList();
         }
 
         public bool PlayerChecker(Player jogador) {

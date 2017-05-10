@@ -43,7 +43,9 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.lbBaralhos, 2);
             this.lbBaralhos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbBaralhos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbBaralhos.FormattingEnabled = true;
+            this.lbBaralhos.ItemHeight = 20;
             this.lbBaralhos.Items.AddRange(new object[] {
             "Baralho1",
             "Baralho2",
@@ -58,9 +60,12 @@
             // lbCartas
             // 
             this.lbCartas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbCartas.FormattingEnabled = true;
+            this.lbCartas.ItemHeight = 20;
             this.lbCartas.Location = new System.Drawing.Point(3, 16);
             this.lbCartas.Name = "lbCartas";
+            this.lbCartas.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbCartas.Size = new System.Drawing.Size(168, 377);
             this.lbCartas.TabIndex = 3;
             this.lbCartas.Visible = false;
