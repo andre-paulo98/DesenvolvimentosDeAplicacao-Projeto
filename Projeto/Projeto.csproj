@@ -69,6 +69,7 @@
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="DeckRepository.cs" />
+    <Compile Include="EquipasRepository.cs" />
     <Compile Include="formAdicionarAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,18 @@
     </Compile>
     <Compile Include="formCartas.Designer.cs">
       <DependentUpon>formCartas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEquipas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEquipas.Designer.cs">
+      <DependentUpon>formEquipas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formGestaoEquipas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formGestaoEquipas.Designer.cs">
+      <DependentUpon>formGestaoEquipas.cs</DependentUpon>
     </Compile>
     <Compile Include="formGestaoUtilizadores.cs">
       <SubType>Form</SubType>
@@ -211,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formCartas.resx">
       <DependentUpon>formCartas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEquipas.resx">
+      <DependentUpon>formEquipas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formGestaoEquipas.resx">
+      <DependentUpon>formGestaoEquipas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoUtilizadores.resx">
       <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
