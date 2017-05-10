@@ -24,11 +24,9 @@ namespace Projeto
             container.SaveChanges();
         }
 
-        public Referee GetReferee(int id)
+        public Referee GetReferee(int pos)
         {
-            Referee arbitro = (from Referee in container.User.OfType<Referee>().ToList()
-                          where Referee.Id == id
-                          select Referee).First();
+            Referee arbitro = container.User.OfType<Referee>().ToList().ElementAt(pos);
             return arbitro;
         }
         public List<Referee> GetRefereeList()
@@ -36,11 +34,9 @@ namespace Projeto
             listaArbitro = container.User.OfType<Referee>().ToList(); //buscar uma lista de arbitros
             return listaArbitro;
         }
-        public void DeleteReferee(int arbitroId)//*
+        public void DeleteReferee(Referee arbitro)
         {
-            User arbitroAApagar = container.User.ToList().ElementAt(arbitroId);//vai buscar o arbitro por id*
-            container.User.ToList().RemoveAt(arbitroId);
-            container.User.Remove(arbitroAApagar);
+            container.User.Remove(arbitro);
             container.SaveChanges();
         }
         public List<Referee> SearchArbitro(string nome)
@@ -49,17 +45,10 @@ namespace Projeto
                     where Referee.Name.ToUpper().Contains(nome.ToUpper())
                     select Referee).ToList();
         }
-        public void EditReferee(Referee arbitro)
+        public void EditReferee()
         {
-            Referee arbitroLista = (from Referee in container.User.OfType<Referee>().ToList() //perguntar ao andré o que é que isto quer dizer
-                                    where Referee.Id == arbitro.Id
-                                    select Referee).First();
-            arbitroLista = arbitro;
-            Referee originArbitro = (from Referee in container.User.OfType<Referee>().ToList()//perguntar ao andré o que é que isto quer dizer
-                                     where Referee.Id == arbitro.Id
-                                     select Referee).First();
-            originArbitro = arbitro;
             container.SaveChanges();
         }
+
     }
 }

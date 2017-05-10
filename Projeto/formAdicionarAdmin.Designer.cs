@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
@@ -67,26 +67,27 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "E-mail:";
             // 
-            // textBox1
+            // tbPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbPassword.Location = new System.Drawing.Point(92, 115);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(259, 20);
+            this.tbPassword.TabIndex = 3;
             // 
-            // textBox2
+            // tbUsername
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(259, 20);
-            this.textBox2.TabIndex = 3;
+            this.tbUsername.Location = new System.Drawing.Point(92, 78);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(259, 20);
+            this.tbUsername.TabIndex = 3;
             // 
-            // textBox3
+            // tbEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(92, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(259, 20);
-            this.textBox3.TabIndex = 4;
+            this.tbEmail.Location = new System.Drawing.Point(92, 152);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(259, 20);
+            this.tbEmail.TabIndex = 4;
             // 
             // label4
             // 
@@ -127,9 +128,9 @@
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -147,9 +148,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btAdicionar;

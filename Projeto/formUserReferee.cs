@@ -14,7 +14,7 @@ namespace Projeto
     {
         ArbitroRepository arbitroRepos;
         private Modelo_Container dbContainer;
-        private bool editar = false;
+        private List<Referee> arbitroList;
         private Referee currentReferee;
         public formUserReferee(Modelo_Container dbContainer)
         {
@@ -34,9 +34,10 @@ namespace Projeto
 
         private void RefreshView() // método para refresh da lista de arbitros
         {
+            arbitroList = arbitroRepos.GetRefereeList();
             lbArbitros.Items.Clear();
-
-            foreach (Referee arbitro in arbitroRepos.GetRefereeList())
+            btEditar.Hide();
+            foreach (Referee arbitro in arbitroList)
             {
                 lbArbitros.Items.Add(arbitro.Id + " - " + arbitro.Name);//Lista de arbitos
             }
@@ -44,14 +45,14 @@ namespace Projeto
 
         private void formUserReferee_FormClosing(object sender, FormClosingEventArgs e)//atualiza a lb quando o adicionar arbitro fecha. *1*
         {
-            RefreshView(); 
+            RefreshView();
         }
 
         private void btRemover_Click(object sender, EventArgs e)
         {
             if (lbArbitros.SelectedIndex != -1)
             {
-                arbitroRepos.DeleteReferee(int.Parse(lbArbitros.Items[lbArbitros.SelectedIndex].ToString().Split('-')[0].Trim()));//remover arbitro com o metodo DeleteReferee no arbitro repos
+                arbitroRepos.DeleteReferee(arbitroList.ElementAt(lbArbitros.SelectedIndex));//remover arbitro com o metodo DeleteReferee no arbitro repos
                 RefreshView();
             }
             
@@ -61,7 +62,9 @@ namespace Projeto
         {
             if (tbSearch.Text != null)
             {
+                arbitroList = arbitroRepos.SearchArbitro(tbSearch.Text);
                 lbArbitros.Items.Clear();
+                btEditar.Hide();
                 foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))//pesquisar o arbitro com o metodo searchArbitro no arbitro repos
                 {
                     lbArbitros.Items.Add(arbitro.Id+ " - " + arbitro.Name);
@@ -79,9 +82,8 @@ namespace Projeto
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            currentReferee = arbitroRepos.GetReferee(int.Parse(lbArbitros.Items[lbArbitros.SelectedIndex].ToString().Split('-')[0].Trim()));
-            editar = true;
-            formAdicionarArbrito EditArbitro = new formAdicionarArbrito(this, dbContainer, editar,currentReferee);//editar a true muda o form de forma
+            currentReferee = arbitroList.ElementAt(lbArbitros.SelectedIndex);
+            formAdicionarArbrito EditArbitro = new formAdicionarArbrito(this, dbContainer,currentReferee);//editar a true muda o form de forma
             EditArbitro.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing);
             EditArbitro.ShowDialog(this);
         }

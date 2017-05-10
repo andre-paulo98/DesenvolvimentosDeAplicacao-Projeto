@@ -60,6 +60,7 @@
     <Compile Include="Administrador.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="AdminRepository.cs" />
     <Compile Include="ArbitroRepository.cs" />
     <Compile Include="Card.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
@@ -98,12 +99,6 @@
     </Compile>
     <Compile Include="formCartas.Designer.cs">
       <DependentUpon>formCartas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formGestaoUtilizadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formGestaoUtilizadores.Designer.cs">
-      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </Compile>
     <Compile Include="formJogadores.cs">
       <SubType>Form</SubType>
@@ -211,9 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formCartas.resx">
       <DependentUpon>formCartas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formGestaoUtilizadores.resx">
-      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formJogadores.resx">
       <DependentUpon>formJogadores.cs</DependentUpon>
