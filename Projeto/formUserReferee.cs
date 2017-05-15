@@ -12,7 +12,7 @@ namespace Projeto
 {
     public partial class formUserReferee : Form
     {
-        ArbitroRepository arbitroRepos;
+        private ArbitroRepository arbitroRepos;
         private Modelo_Container dbContainer;
         private List<Referee> arbitroList;
         private Referee currentReferee;

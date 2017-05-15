@@ -12,11 +12,28 @@ namespace Projeto
 {
     public partial class formAdicionarAdmin : Form
     {
-
+        AdminRepository adminRepos;
         private bool edit = false;
+        private Administrador adminParaEdicao;
         public formAdicionarAdmin(formUserAdmin form, Modelo_Container dbContainer)
         {
             InitializeComponent();
+            adminRepos = new AdminRepository(dbContainer);
+        }
+        public formAdicionarAdmin(formUserAdmin form, Modelo_Container dbContainer, Administrador admin)
+        {
+            InitializeComponent();
+            edit = true;
+            adminRepos = new AdminRepository(dbContainer);
+            this.adminParaEdicao = admin;
+            if (edit)  //Mudar labels para modo de edição
+            {
+                this.Text = "Editar Administrador";
+                btAdicionar.Text = "Editar";
+                tbUsername.Text = admin.Username;
+                tbPassword.Text = admin.Password;
+                tbEmail.Text = admin.email;
+            }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -35,7 +52,10 @@ namespace Projeto
 
                 if (edit)
                 {
-                    //arbitroRepos.EditReferee(arbitro);
+                    adminParaEdicao.Username = tbUsername.Text;
+                    adminParaEdicao.Password = tbPassword.Text;
+                    adminParaEdicao.email = tbEmail.Text;
+                    adminRepos.EditAdmin(); //Editar.
                 }
                 else
                 {
@@ -43,7 +63,7 @@ namespace Projeto
                     NovoAdmin.Username = tbUsername.Text;//adicionar os valores ao arbitro
                     NovoAdmin.Password = tbPassword.Text;
                     NovoAdmin.email = tbEmail.Text;
-                    //NovoAdmin.AddReferee(NovoArbitro);
+                    adminRepos.AddAdmin(NovoAdmin);
                 }
                 Close();
             }

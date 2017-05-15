@@ -12,7 +12,6 @@ namespace Projeto
         {
             InitializeComponent();
             arbitroRepos = new ArbitroRepository(dbContainer);
-            
         }
         public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer, Referee arbitro)
         {

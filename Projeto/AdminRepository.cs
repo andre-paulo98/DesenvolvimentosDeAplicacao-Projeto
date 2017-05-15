@@ -31,14 +31,15 @@ namespace Projeto
                                select Administrador).First();
             return admin;
         }
-        public List<Administrador> GetAdmin()
+        public List<Administrador> GetAdminList()
         {
             listaAdmin = container.User.OfType<Administrador>().ToList(); //buscar uma lista de admins
             return listaAdmin;
         }
-        public void DeleteAdmi(int adminId)//*
+        public void DeleteAdmin(Administrador admin)//*
         {
-            
+            container.User.Remove(admin);
+            container.SaveChanges();
         }
         public List<Administrador> SearchAdmin(string username)
         {
@@ -46,9 +47,9 @@ namespace Projeto
                     where Administrador.Username.ToUpper().Contains(username.ToUpper())
                     select Administrador).ToList();
         }
-        public void EditReferee(Referee arbitro)
+        public void EditAdmin()
         {
-            
+            container.SaveChanges();
         }
     }
 }
