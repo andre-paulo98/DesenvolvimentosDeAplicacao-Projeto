@@ -30,6 +30,7 @@ namespace Projeto
             {
                 this.Text = "Editar Administrador";
                 btAdicionar.Text = "Editar";
+                labelTitulo.Text = "Editar Administrador";
                 tbUsername.Text = admin.Username;
                 tbPassword.Text = admin.Password;
                 tbEmail.Text = admin.email;
@@ -66,6 +67,14 @@ namespace Projeto
                     adminRepos.AddAdmin(NovoAdmin);
                 }
                 Close();
+            }
+        }
+
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btAdicionar.PerformClick();
             }
         }
     }

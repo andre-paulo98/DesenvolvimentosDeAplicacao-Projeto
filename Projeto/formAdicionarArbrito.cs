@@ -23,6 +23,7 @@ namespace Projeto
             {
                 this.Text = "Editar Arbitro";
                 btGuardar.Text = "Editar";
+                labelTitulo.Text = "Editar Arbitro";
                 tbNome.Text = arbitro.Name;
                 tbUsername.Text = arbitro.Username;
                 tbPassword.Text = arbitro.Password;
@@ -36,10 +37,8 @@ namespace Projeto
             {
                 MessageBox.Show("Introduza todos os campos obrigatórios", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro se na falta de dados
             }
-           
             else
             {
-
                 if (edit)
                 {
                     arbitroParaEdicao.Name = tbNome.Text;
@@ -50,11 +49,18 @@ namespace Projeto
                 else
                 {
                     Referee NovoArbitro = new Referee();//objeto arbitro
-                    NovoArbitro.Username = tbUsername.Text;//adicionar os valores ao arbitro
-                    NovoArbitro.Password = tbPassword.Text;
-                    NovoArbitro.Name = tbNome.Text;
-                    NovoArbitro.Avatar = "";
-                    arbitroRepos.AddReferee(NovoArbitro);
+                    if (arbitroRepos.VerifyUsername(tbUsername.Text))
+                    {
+                        MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro se na falta de dados
+                    }
+                    else
+                    {
+                        NovoArbitro.Username = tbUsername.Text;//adicionar os valores ao arbitro
+                        NovoArbitro.Password = tbPassword.Text;
+                        NovoArbitro.Name = tbNome.Text;
+                        NovoArbitro.Avatar = "";
+                        arbitroRepos.AddReferee(NovoArbitro);
+                    }
                 }
                 Close();
             }
@@ -62,6 +68,14 @@ namespace Projeto
         private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void KeyDown_enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btGuardar.PerformClick();
+            }
         }
     }
 }

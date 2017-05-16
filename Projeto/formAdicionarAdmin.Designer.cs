@@ -35,7 +35,7 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(259, 20);
             this.tbPassword.TabIndex = 3;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsername_KeyDown);
             // 
             // tbUsername
             // 
@@ -81,6 +82,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(259, 20);
             this.tbUsername.TabIndex = 3;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsername_KeyDown);
             // 
             // tbEmail
             // 
@@ -88,17 +90,18 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(259, 20);
             this.tbEmail.TabIndex = 4;
+            this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsername_KeyDown);
             // 
-            // label4
+            // labelTitulo
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(531, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Adicionar Administrador";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.labelTitulo.Location = new System.Drawing.Point(0, 0);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(531, 23);
+            this.labelTitulo.TabIndex = 5;
+            this.labelTitulo.Text = "Adicionar Administrador";
+            this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btCancelar
             // 
@@ -127,7 +130,7 @@
             this.ClientSize = new System.Drawing.Size(531, 262);
             this.Controls.Add(this.btAdicionar);
             this.Controls.Add(this.btCancelar);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.tbPassword);
@@ -151,7 +154,7 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btAdicionar;
     }

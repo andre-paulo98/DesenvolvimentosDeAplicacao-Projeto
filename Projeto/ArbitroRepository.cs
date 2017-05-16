@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projeto
 {
@@ -22,12 +23,6 @@ namespace Projeto
             container.User.Add(arbitro);//Adicionar ao container o objeto arbitro
             listaArbitro.Add(arbitro);
             container.SaveChanges();
-        }
-
-        public Referee GetReferee(int pos)
-        {
-            Referee arbitro = container.User.OfType<Referee>().ToList().ElementAt(pos);
-            return arbitro;
         }
         public List<Referee> GetRefereeList()
         {
@@ -50,5 +45,11 @@ namespace Projeto
             container.SaveChanges();
         }
 
+        public bool VerifyUsername(string Username1)
+        {
+            return ((from user in container.User
+                       where user.Username.ToUpper() == Username1.ToUpper()
+                       select user).ToList<User>().Count != 0);
+        } 
     }
 }

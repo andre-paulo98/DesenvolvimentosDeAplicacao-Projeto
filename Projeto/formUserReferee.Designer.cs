@@ -93,6 +93,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(146, 26);
             this.tbSearch.TabIndex = 3;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // btPesquisaArbrito
             // 

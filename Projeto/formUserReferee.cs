@@ -87,5 +87,13 @@ namespace Projeto
             EditArbitro.FormClosing += new FormClosingEventHandler(formUserReferee_FormClosing);
             EditArbitro.ShowDialog(this);
         }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btPesquisaArbrito.PerformClick();
+            }
+        }
     }
 }
