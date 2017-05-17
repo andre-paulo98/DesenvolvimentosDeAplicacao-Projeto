@@ -50,23 +50,53 @@ namespace Projeto
             }
             else
             {
-
-                if (edit)
-                {
-                    adminParaEdicao.Username = tbUsername.Text;
-                    adminParaEdicao.Password = tbPassword.Text;
-                    adminParaEdicao.email = tbEmail.Text;
-                    adminRepos.EditAdmin(); //Editar.
+                if (edit)//se for o modo de edição
+                {   //Se o Username ou email que vinha da edição for alterado na tb *1*
+                    if (adminParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase) || adminParaEdicao.email.Equals(tbEmail.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (adminRepos.VerifyUsername(tbUsername.Text))//Verifica se existe algum username e igual na db *2*
+                        {
+                            MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                        }
+                        else if (adminRepos.VerifyEmail(tbEmail.Text))//Verifica se existe algum email e igual na db *2*
+                        {
+                            MessageBox.Show("Este E-mail já está associado a uma conta!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                        }
+                        else //se for diferente *2*
+                        {
+                            adminParaEdicao.Username = tbUsername.Text;
+                            adminParaEdicao.Password = tbPassword.Text;
+                            adminParaEdicao.email = tbEmail.Text;
+                            adminRepos.EditAdmin(); //Editar. 
+                        }
+                    }
+                    else //Se a o que vinha para ser editado for igual ao que está na tb *1*
+                    {
+                        adminParaEdicao.Password = tbPassword.Text;
+                        adminRepos.EditAdmin(); //Editar. 
+                    }
+                    Close();
                 }
-                else
+                else//se for o modo de adicionar
                 {
-                    Administrador NovoAdmin = new Administrador();//objeto arbitro
-                    NovoAdmin.Username = tbUsername.Text;//adicionar os valores ao arbitro
-                    NovoAdmin.Password = tbPassword.Text;
-                    NovoAdmin.email = tbEmail.Text;
-                    adminRepos.AddAdmin(NovoAdmin);
+                    Administrador novoAdmin = new Administrador();//Objeto admin
+                    if (adminRepos.VerifyUsername(tbUsername.Text))
+                    {   //Mensagem de duplicação de dados
+                        MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (adminRepos.VerifyEmail(tbEmail.Text))
+                    {   //Mensagem de duplicação de dados
+                        MessageBox.Show("Este E-mail já está associado a uma conta!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                    }
+                    else
+                    {//adicionar os valores ao arbitro
+                        novoAdmin.Username = tbUsername.Text;
+                        novoAdmin.Password = tbPassword.Text;
+                        novoAdmin.email = tbEmail.Text;
+                        adminRepos.AddAdmin(novoAdmin);
+                        Close();
+                    }
                 }
-                Close();
             }
         }
 

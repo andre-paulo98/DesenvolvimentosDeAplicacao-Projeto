@@ -27,10 +27,9 @@ namespace Projeto
                 tbNome.Text = arbitro.Name;
                 tbUsername.Text = arbitro.Username;
                 tbPassword.Text = arbitro.Password;
+                pbAvatar.ImageLocation = arbitro.Avatar;
             }
         }
-
-
         private void btGuardar_Click(object sender, EventArgs e)//bt guardar
         {
             if (tbUsername.Text == "" || tbPassword.Text == "" || tbNome.Text == "") //verificação dos campos se estão validos
@@ -39,42 +38,69 @@ namespace Projeto
             }
             else
             {
-                if (edit)
+                if (edit)//se for o modo de edição
                 {
-                    arbitroParaEdicao.Name = tbNome.Text;
-                    arbitroParaEdicao.Username = tbUsername.Text;
-                    arbitroParaEdicao.Password = tbPassword.Text;
-                    arbitroRepos.EditReferee(); //Editar.
+                    if (arbitroParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase))//Se o Username que vinha da edição for alterado na tb *1*
+                    {
+                        if (arbitroRepos.VerifyUsername(tbUsername.Text))//Verifica se existe algum igual na db *2*
+                        {
+                            MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                        }
+                        else //se for diferente *2*
+                        {
+                            arbitroParaEdicao.Name = tbNome.Text;
+                            arbitroParaEdicao.Username = tbUsername.Text;
+                            arbitroParaEdicao.Password = tbPassword.Text;
+                            arbitroParaEdicao.Avatar = pbAvatar.ImageLocation;
+                            arbitroRepos.EditReferee(); //Editar
+                        }
+                    }
+                    else //Se a o que vinha para ser editado for igual ao que está na tb *1*
+                    {
+                        arbitroParaEdicao.Name = tbNome.Text;
+                        arbitroParaEdicao.Password = tbPassword.Text;
+                        arbitroParaEdicao.Avatar = pbAvatar.ImageLocation;
+                        arbitroRepos.EditReferee(); //Editar.
+                    }
+                    Close();
                 }
-                else
+                else//se for o modo de adicionar
                 {
                     Referee NovoArbitro = new Referee();//objeto arbitro
                     if (arbitroRepos.VerifyUsername(tbUsername.Text))
-                    {
-                        MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro se na falta de dados
+                    {   //Mensagem de duplicação de dados
+                        MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
                     }
                     else
-                    {
-                        NovoArbitro.Username = tbUsername.Text;//adicionar os valores ao arbitro
+                    {//adicionar os valores ao arbitro
+                        NovoArbitro.Username = tbUsername.Text;
                         NovoArbitro.Password = tbPassword.Text;
                         NovoArbitro.Name = tbNome.Text;
-                        NovoArbitro.Avatar = "";
+                        NovoArbitro.Avatar = pbAvatar.ImageLocation;
                         arbitroRepos.AddReferee(NovoArbitro);
+                        Close();
                     }
                 }
-                Close();
             }
         }
         private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void KeyDown_enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
+            {//guardar ao carregar no enter
                 btGuardar.PerformClick();
+            }
+        }
+
+        private void pbAvatar_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            if (openFileDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                pbAvatar.Load(openFileDialog.FileName);
             }
         }
     }

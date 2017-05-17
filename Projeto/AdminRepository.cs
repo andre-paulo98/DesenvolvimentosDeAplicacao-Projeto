@@ -51,5 +51,17 @@ namespace Projeto
         {
             container.SaveChanges();
         }
+        public bool VerifyUsername(string username)
+        {
+            return ((from user in container.User
+                     where user.Username.ToUpper() == username.ToUpper()
+                     select user).ToList<User>().Count != 0);
+        }
+        public bool VerifyEmail(string email)
+        {
+            return ((from user in container.User.OfType<Administrador>()
+                     where user.email.ToUpper() == email.ToUpper()
+                     select user).ToList<Administrador>().Count != 0);
+        }
     }
 }
