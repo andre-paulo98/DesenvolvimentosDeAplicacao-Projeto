@@ -39,7 +39,7 @@ namespace Projeto {
             }
             return flag;
         }
-
+        
         public List<Player> GetPlayersList() {
             return dbConteirner.Player.ToList();
         }
@@ -56,14 +56,13 @@ namespace Projeto {
                 ErroMensagem("O campo \"Nome\" não está preenchido!");
             } else if (jogador.Email.Length == 0) {
                 ErroMensagem("O campo \"Email\" não está preenchido!");
+            } else if (!jogador.Email.Contains('@') || !jogador.Email.Contains('.')) {
+                ErroMensagem("O valor campo \"Email\" não é valido!");
             } else if (jogador.Nickname.Length == 0) {
                 ErroMensagem("O campo \"Nikcname\"não está preenchido!");
             } else if (jogador.Age <= 0) {
-                ErroMensagem("O valor do campo \"Custo\" não é valido!\n" +
-                    " O \"Custo\" deve ser superior a \"0\".");
-            } else if (jogador.Avatar.Length <= 0) {
-                ErroMensagem("O valor do campo \"Lealdade\" não é valido!\n" +
-                    "A \"Lealdade\" deve ser superior a \"0\".");
+                ErroMensagem("O valor do campo \"Idade\" não é valido!\n" +
+                    " A \"Idade\" deve ser superior a \"0\".");
             } else {
                 flag = true;
             }

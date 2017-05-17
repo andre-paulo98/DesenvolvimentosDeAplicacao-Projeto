@@ -15,35 +15,55 @@ namespace Projeto {
         private PlayerRepository playerRepo;
         private List<Player> listaPlayers;
         bool flagEditar = false;
+        bool flagPesquisa = false;
 
         public formJogadores(Modelo_Container dbContainer) {
             this.dbContainer = dbContainer;
             InitializeComponent();
             playerRepo = new PlayerRepository(dbContainer);
-            listaPlayers = playerRepo.GetPlayersList();
+            RefreshList();
         }
 
         private void btNovo_Click(object sender, EventArgs e) {
             flagEditar = false;
             AtivarForm(true);
+            LimpaForm();
         }
 
         private void btGuardar_Click(object sender, EventArgs e) {
-            if (flagEditar) {//MODO EDIÇAO
-
-                flagEditar = false;
-            } else {//MODO DE INSERÇAO
-
+            Player player;
+            if (flagEditar) {
+                player = listaPlayers.ElementAt(lbJogadores.SelectedIndex);
+            } else {
+                player = new Player();
             }
-            AtivarForm(false);
+
+            player.Name = tbNome.Text;
+            player.Nickname = tbNickName.Text;
+            player.Email = tbEmail.Text;
+            player.Age = (int)nudIdade.Value;
+            player.Avatar = pbAvatar.ImageLocation;
+
+            if (flagEditar) {//MODO EDIÇAO
+                if (playerRepo.EditPlayer(player)) {
+                    flagEditar = false;
+                    RefreshList();
+                }
+            } else {//MODO DE INSERÇAO
+                if (playerRepo.AddPlayer(player)) {
+                    RefreshList();
+                }
+            }
+            btNovo.Focus();
         }
 
         private void btEliminar_Click(object sender, EventArgs e) {
             if(flagEditar) {//MODO EDIÇAO
-
+                playerRepo.DeletePlayer(listaPlayers.ElementAt(lbJogadores.SelectedIndex));
                 flagEditar = false;
             }
-            AtivarForm(false);
+            RefreshList();
+            btNovo.Focus();
         }
 
         private void pbAvatar_Click(object sender, EventArgs e) {
@@ -55,7 +75,8 @@ namespace Projeto {
         }
 
         private void btLimpaImage_Click(object sender, EventArgs e) {
-            pbAvatar.Image = pbAvatar.ErrorImage;
+            pbAvatar.Image = null;
+            pbAvatar.ImageLocation = "";
             btLimpaImage.Visible = false;
         }
 
@@ -63,49 +84,97 @@ namespace Projeto {
             if (lbJogadores.SelectedIndex >=0) {
                 flagEditar = true;
                 AtivarForm(true);
-                //LoadJogador();
+                LoadPlayer(listaPlayers.ElementAt(lbJogadores.SelectedIndex));
+            }
+        }
+
+        private void tbSearch_GotFocus(object sender, EventArgs e) {
+            if (tbSearch.Text == "Nome do Jogador ...") {
+                tbSearch.Text = "";
+                tbSearch.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void tbSearch_LostFocus(object sender, EventArgs e) {
+            if (tbSearch.Text == "") {
+                tbSearch.Text = "Nome do Jogador ...";
+                tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             }
         }
 
         private void btSearch_Click(object sender, EventArgs e) {
-
+            flagPesquisa = true;
+            RefreshList();
         }
 
         private void btSearchClear_Click(object sender, EventArgs e) {
-
+            flagPesquisa = false;
+            tbSearch.Text = "Nome do Jogador ...";
+            tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            RefreshList();
         }
 
         private void AtivarForm(bool flag) {
             gbFormJogador.Enabled = flag;
             pBotoes.Enabled = flag;
-            if (!flag) {
-                LimpaForm();
-            }
-
             if (flagEditar) {
-                btGuardar.Text = "Guardar Edição";
                 btEliminar.Text = "Eliminar";
             } else {
-                btGuardar.Text = "Guardar";
                 btEliminar.Text = "Cancelar";
             }
         }
 
         private void LimpaForm() {
-            lbJogadores.SelectedIndex = -1;
             tbEmail.Text = "";
             tbNickName.Text = "";
             tbNome.Text = "";
             nudIdade.Value = 0;
             pbAvatar.Image = null;
+            pbAvatar.ImageLocation = "";
+            btLimpaImage.Visible = false;
         }
 
-        private void RefreshView() {
-
+        private void RefreshList() {
+            if (flagPesquisa) {
+                listaPlayers = playerRepo.SearchPlayer(tbSearch.Text);
+                if (listaPlayers.Count <=0) {
+                    tbSearch.Text = "Nome do Jogador ...";
+                    tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+                    listaPlayers = playerRepo.GetPlayersList();
+                    flagPesquisa = false;
+                }
+            } else {
+                listaPlayers = playerRepo.GetPlayersList();
+            }
+            AtivarForm(false);
+            LimpaForm();
+            lbJogadores.Items.Clear();
+            foreach (Player player in listaPlayers) {
+                lbJogadores.Items.Add(player.Name + "\t" + player.Nickname+ "\t" + player.Age);
+            }
         }
 
-        private void pbAvatar_Paint(object sender, PaintEventArgs e) {
-            
+        public void LoadPlayer(Player player) {
+            LimpaForm();
+            tbNome.Text = player.Name;
+            tbEmail.Text = player.Email;
+            tbNickName.Text = player.Nickname;
+            nudIdade.Value = player.Age;
+            if (player.Avatar != "") {
+                btLimpaImage.Visible = true;
+                pbAvatar.Load(player.Avatar);
+            }else {
+                btLimpaImage.Visible = false;
+                pbAvatar.Image = null;
+                pbAvatar.ImageLocation = "";
+            }
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                btSearch.PerformClick();
+            }
+           
         }
     }
 }

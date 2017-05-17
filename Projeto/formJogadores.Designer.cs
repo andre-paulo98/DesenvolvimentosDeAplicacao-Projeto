@@ -77,12 +77,10 @@
             this.lbJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbJogadores.FormattingEnabled = true;
             this.lbJogadores.ItemHeight = 20;
-            this.lbJogadores.Items.AddRange(new object[] {
-            "Teste"});
             this.lbJogadores.Location = new System.Drawing.Point(3, 16);
             this.lbJogadores.Name = "lbJogadores";
             this.lbJogadores.Size = new System.Drawing.Size(183, 312);
-            this.lbJogadores.TabIndex = 0;
+            this.lbJogadores.TabIndex = 8;
             this.lbJogadores.SelectedIndexChanged += new System.EventHandler(this.lbJogadores_SelectedIndexChanged);
             // 
             // gbFormJogador
@@ -111,7 +109,7 @@
             this.btLimpaImage.Location = new System.Drawing.Point(9, 140);
             this.btLimpaImage.Name = "btLimpaImage";
             this.btLimpaImage.Size = new System.Drawing.Size(110, 23);
-            this.btLimpaImage.TabIndex = 12;
+            this.btLimpaImage.TabIndex = 8;
             this.btLimpaImage.Text = "Limpar Imagem";
             this.btLimpaImage.UseVisualStyleBackColor = true;
             this.btLimpaImage.Visible = false;
@@ -119,11 +117,12 @@
             // 
             // pbAvatar
             // 
+            this.pbAvatar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbAvatar.BackgroundImage")));
+            this.pbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAvatar.ErrorImage = null;
-            this.pbAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbAvatar.Image")));
-            this.pbAvatar.ImageLocation = "0,0";
-            this.pbAvatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbAvatar.InitialImage")));
+            this.pbAvatar.ImageLocation = "";
+            this.pbAvatar.InitialImage = null;
             this.pbAvatar.Location = new System.Drawing.Point(9, 19);
             this.pbAvatar.Name = "pbAvatar";
             this.pbAvatar.Size = new System.Drawing.Size(110, 114);
@@ -137,14 +136,14 @@
             this.nudIdade.Location = new System.Drawing.Point(168, 118);
             this.nudIdade.Name = "nudIdade";
             this.nudIdade.Size = new System.Drawing.Size(54, 20);
-            this.nudIdade.TabIndex = 10;
+            this.nudIdade.TabIndex = 7;
             // 
             // tbNickName
             // 
             this.tbNickName.Location = new System.Drawing.Point(189, 24);
             this.tbNickName.Name = "tbNickName";
             this.tbNickName.Size = new System.Drawing.Size(142, 20);
-            this.tbNickName.TabIndex = 7;
+            this.tbNickName.TabIndex = 4;
             // 
             // tbNome
             // 
@@ -153,7 +152,7 @@
             this.tbNome.Location = new System.Drawing.Point(168, 58);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(249, 20);
-            this.tbNome.TabIndex = 6;
+            this.tbNome.TabIndex = 5;
             // 
             // tbEmail
             // 
@@ -162,7 +161,7 @@
             this.tbEmail.Location = new System.Drawing.Point(168, 87);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(249, 20);
-            this.tbEmail.TabIndex = 5;
+            this.tbEmail.TabIndex = 6;
             // 
             // label4
             // 
@@ -248,7 +247,7 @@
             this.btEliminar.Location = new System.Drawing.Point(274, 0);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(150, 34);
-            this.btEliminar.TabIndex = 1;
+            this.btEliminar.TabIndex = 3;
             this.btEliminar.Text = "Eliminar";
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
@@ -281,7 +280,7 @@
             this.btSearchClear.Location = new System.Drawing.Point(572, 6);
             this.btSearchClear.Name = "btSearchClear";
             this.btSearchClear.Size = new System.Drawing.Size(37, 31);
-            this.btSearchClear.TabIndex = 5;
+            this.btSearchClear.TabIndex = 11;
             this.btSearchClear.UseVisualStyleBackColor = true;
             this.btSearchClear.Click += new System.EventHandler(this.btSearchClear_Click);
             // 
@@ -293,7 +292,7 @@
             this.btSearch.Location = new System.Drawing.Point(529, 6);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(37, 31);
-            this.btSearch.TabIndex = 4;
+            this.btSearch.TabIndex = 10;
             this.btSearch.UseVisualStyleBackColor = false;
             this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
@@ -306,8 +305,11 @@
             this.tbSearch.Location = new System.Drawing.Point(9, 9);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(480, 26);
-            this.tbSearch.TabIndex = 3;
+            this.tbSearch.TabIndex = 9;
             this.tbSearch.Text = "Nome do Jogador ...";
+            this.tbSearch.GotFocus += new System.EventHandler(this.tbSearch_GotFocus);
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
+            this.tbSearch.LostFocus += new System.EventHandler(this.tbSearch_LostFocus);
             // 
             // panel4
             // 
@@ -323,7 +325,7 @@
             this.btNovo.Location = new System.Drawing.Point(0, 0);
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(189, 34);
-            this.btNovo.TabIndex = 0;
+            this.btNovo.TabIndex = 1;
             this.btNovo.Text = "Novo";
             this.btNovo.UseVisualStyleBackColor = true;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);

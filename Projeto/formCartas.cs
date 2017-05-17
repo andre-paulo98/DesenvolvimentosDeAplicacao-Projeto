@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -185,6 +186,55 @@ namespace Projeto {
 
         private void nudLealdade_ValueChanged(object sender, EventArgs e) {
 
+        }
+
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK) {
+                string ficheiro = saveFileDialog.FileName;
+                using (StreamWriter sw = new StreamWriter(new FileStream(ficheiro, FileMode.Create))) {
+                    sw.WriteLine("# " + cardList.Count);
+                    sw.WriteLine();
+                    foreach (Card carta in cardList) {
+                        sw.WriteLine(carta.Name);
+                        sw.WriteLine(carta.Faction);
+                        sw.WriteLine(carta.Type);
+                        sw.WriteLine(carta.Cost);
+                        sw.WriteLine(carta.Loyalty);
+                        sw.WriteLine(carta.Rules.Replace("\n", " "));
+                        sw.WriteLine(carta.Attack);
+                        sw.WriteLine(carta.Defense);
+                        sw.WriteLine();
+                    }
+                }
+            }
+        }
+
+        private void importarToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK) {
+                string ficheiro = openFileDialog.FileName;
+                string[] texto = File.ReadLines(ficheiro).ToArray();
+                try {
+                    int n_registos = int.Parse(texto[0].Replace("#", "").Trim());
+
+                    for (int i = 0; i < n_registos; i++) {
+                        int pos = i * 9 + 2;
+                        Card carta = new Card();
+                        carta.Name = texto[pos];
+                        carta.Faction = texto[pos + 1];
+                        carta.Type = texto[pos + 2];
+                        carta.Cost = texto[pos + 3];
+                        carta.Loyalty = short.Parse(texto[pos + 4]);
+                        carta.Rules = texto[pos + 5];
+                        carta.Attack = short.Parse(texto[pos + 6]);
+                        carta.Defense = short.Parse(texto[pos + 7]);
+                        cardRepo.AddCard(carta);
+
+                    }
+                    RefreshView();
+                } catch (Exception) {
+                    MessageBox.Show(this, "Erro ao ler o ficheiro\n Formato do ficheiro invalido!", "Leitura do Ficheiro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
