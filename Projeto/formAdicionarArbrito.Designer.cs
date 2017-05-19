@@ -41,6 +41,7 @@
             this.labelTitulo = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.btErase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(476, 110);
+            this.label4.Location = new System.Drawing.Point(477, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 3;
@@ -142,9 +143,9 @@
             this.pbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbAvatar.ErrorImage = null;
             this.pbAvatar.InitialImage = null;
-            this.pbAvatar.Location = new System.Drawing.Point(443, 28);
+            this.pbAvatar.Location = new System.Drawing.Point(445, 12);
             this.pbAvatar.Name = "pbAvatar";
-            this.pbAvatar.Size = new System.Drawing.Size(100, 78);
+            this.pbAvatar.Size = new System.Drawing.Size(98, 98);
             this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAvatar.TabIndex = 7;
             this.pbAvatar.TabStop = false;
@@ -155,11 +156,22 @@
             this.openFileDialog.Filter = "\"Image Files|*.jpg;*.jpeg;*.png;\"";
             this.openFileDialog.Title = "Avatar do Arbitro";
             // 
+            // btErase
+            // 
+            this.btErase.Image = ((System.Drawing.Image)(resources.GetObject("btErase.Image")));
+            this.btErase.Location = new System.Drawing.Point(483, 133);
+            this.btErase.Name = "btErase";
+            this.btErase.Size = new System.Drawing.Size(25, 25);
+            this.btErase.TabIndex = 8;
+            this.btErase.UseVisualStyleBackColor = true;
+            this.btErase.Click += new System.EventHandler(this.btErase_Click);
+            // 
             // formAdicionarArbrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 261);
+            this.Controls.Add(this.btErase);
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.btGuardar);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button btErase;
     }
 }

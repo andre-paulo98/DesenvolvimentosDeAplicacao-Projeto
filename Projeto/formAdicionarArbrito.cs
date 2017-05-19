@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Projeto
@@ -8,10 +9,12 @@ namespace Projeto
         private ArbitroRepository arbitroRepos;
         private Referee arbitroParaEdicao;
         bool edit = false;
+        Image image;
         public formAdicionarArbrito(formUserReferee form,Modelo_Container dbContainer)
         {
             InitializeComponent();
             arbitroRepos = new ArbitroRepository(dbContainer);
+            image = (Image)pbAvatar.BackgroundImage.Clone();
         }
         public formAdicionarArbrito(formUserReferee form, Modelo_Container dbContainer, Referee arbitro)
         {
@@ -28,6 +31,11 @@ namespace Projeto
                 tbUsername.Text = arbitro.Username;
                 tbPassword.Text = arbitro.Password;
                 pbAvatar.ImageLocation = arbitro.Avatar;
+                image = (Image)pbAvatar.BackgroundImage.Clone();
+                if (arbitro.Avatar != "")
+                {
+                    pbAvatar.BackgroundImage = null;
+                }
             }
         }
         private void btGuardar_Click(object sender, EventArgs e)//bt guardar
@@ -40,7 +48,7 @@ namespace Projeto
             {
                 if (edit)//se for o modo de edição
                 {
-                    if (arbitroParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase))//Se o Username que vinha da edição for alterado na tb *1*
+                    if (!arbitroParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase))//Se o Username que vinha da edição for alterado na tb *1*
                     {
                         if (arbitroRepos.VerifyUsername(tbUsername.Text))//Verifica se existe algum igual na db *2*
                         {
@@ -76,7 +84,15 @@ namespace Projeto
                         NovoArbitro.Username = tbUsername.Text;
                         NovoArbitro.Password = tbPassword.Text;
                         NovoArbitro.Name = tbNome.Text;
-                        NovoArbitro.Avatar = pbAvatar.ImageLocation;
+                        if (pbAvatar.ImageLocation != null)
+                        {
+                            NovoArbitro.Avatar = pbAvatar.ImageLocation;
+                        }
+                        
+                        else
+                        {
+                            NovoArbitro.Avatar = "";
+                        }
                         arbitroRepos.AddReferee(NovoArbitro);
                         Close();
                     }
@@ -101,7 +117,15 @@ namespace Projeto
             if (openFileDialog.ShowDialog() != DialogResult.Cancel)
             {
                 pbAvatar.Load(openFileDialog.FileName);
+                pbAvatar.BackgroundImage = null;
             }
+        }
+
+        private void btErase_Click(object sender, EventArgs e)
+        {
+            pbAvatar.Image = null;
+            pbAvatar.BackgroundImage = image;
+            pbAvatar.ImageLocation = "";
         }
     }
 }

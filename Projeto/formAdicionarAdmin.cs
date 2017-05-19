@@ -44,25 +44,39 @@ namespace Projeto
 
         private void btAdicionar_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "" || tbPassword.Text == "" || tbEmail.Text == "") //verificação dos campos se estão validos
+            if (tbUsername.Text == "" || tbPassword.Text == "" || tbEmail.Text =="") //verificação dos campos se estão validos
             {
-                MessageBox.Show("Introduza todos os campos obrigatórios", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro se na falta de dados
+                MessageBox.Show("Introduza todos os campos obrigatórios!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro se na falta de dados
+            }
+            else if (!tbEmail.Text.Contains('@') || !tbEmail.Text.Contains('.'))
+            {
+                MessageBox.Show("Email inválido, insira um E-mail válido.", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 if (edit)//se for o modo de edição
-                {   //Se o Username ou email que vinha da edição for alterado na tb *1*
-                    if (adminParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase) || adminParaEdicao.email.Equals(tbEmail.Text, StringComparison.OrdinalIgnoreCase))
+                {   
+                    if (!adminParaEdicao.Username.Equals(tbUsername.Text, StringComparison.OrdinalIgnoreCase))//Se o Username que vinha da edição for alterado na tb 
                     {
-                        if (adminRepos.VerifyUsername(tbUsername.Text))//Verifica se existe algum username e igual na db *2*
+                        if (adminRepos.VerifyUsername(tbUsername.Text))//Verifica se existe algum username e igual na db *1*
                         {
-                            MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                            MessageBox.Show("Username já existente!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else if (adminRepos.VerifyEmail(tbEmail.Text))//Verifica se existe algum email e igual na db *2*
+                        else if (!adminParaEdicao.email.Equals(tbEmail.Text, StringComparison.OrdinalIgnoreCase))//Se o user nao foi alterado na tb, verifica se o email foi alterado 
                         {
-                            MessageBox.Show("Este E-mail já está associado a uma conta!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de duplicação
+                            if (adminRepos.VerifyEmail(tbEmail.Text))//Se foi alterado, Verifica se existe algum email e igual na db 
+                            {
+                                MessageBox.Show("Este E-mail já está associado a uma conta!", "Dados inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else //se nao existir nenhum email na db 
+                            {
+                                adminParaEdicao.Username = tbUsername.Text;
+                                adminParaEdicao.Password = tbPassword.Text;
+                                adminParaEdicao.email = tbEmail.Text;
+                                adminRepos.EditAdmin(); //Editar. 
+                            }
                         }
-                        else //se for diferente *2*
+                        else //se nao existir nenhum username igual na db *1*
                         {
                             adminParaEdicao.Username = tbUsername.Text;
                             adminParaEdicao.Password = tbPassword.Text;
@@ -70,9 +84,11 @@ namespace Projeto
                             adminRepos.EditAdmin(); //Editar. 
                         }
                     }
-                    else //Se a o que vinha para ser editado for igual ao que está na tb *1*
+                    else //Se a o que vinha para ser editado for igual ao que está na tb
                     {
+                        adminParaEdicao.Username = tbUsername.Text;
                         adminParaEdicao.Password = tbPassword.Text;
+                        adminParaEdicao.email = tbEmail.Text;
                         adminRepos.EditAdmin(); //Editar. 
                     }
                     Close();
