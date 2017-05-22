@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/08/2017 20:19:53
+-- Date Created: 05/22/2017 14:52:36
 -- Generated from EDMX file: D:\OneDrive - Instituto Politécnico de Leiria\2_Semestre\Desevolvimento de Aplicações\Projeto\Projeto\Modelo_DB.edmx
 -- --------------------------------------------------
 
@@ -155,14 +155,12 @@ CREATE TABLE [dbo].[User] (
 );
 GO
 
-INSERT INTO [dbo].[User] (Username,Password) VALUES("teste","teste");
-
 -- Creating table 'Game'
 CREATE TABLE [dbo].[Game] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Description] nvarchar(max)  NOT NULL,
-    [Date] datetime  NOT NULL,
-    [Number] int  NOT NULL,
+    [RefereeId] nvarchar(max)  NOT NULL,
+    [DeckOneId] datetime  NOT NULL,
+    [DeckTwoId] int  NOT NULL,
     [Referee_Id] int  NULL,
     [DeckOne_Id] int  NULL,
     [DeckTwo_Id] int  NULL

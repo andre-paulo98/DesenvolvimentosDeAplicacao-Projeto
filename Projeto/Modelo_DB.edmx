@@ -129,9 +129,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="RefereeId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DeckOneId" Type="datetime" Nullable="false" />
+    <Property Name="DeckTwoId" Type="int" Nullable="false" />
     <Property Name="Referee_Id" Type="int" Nullable="true" />
     <Property Name="DeckOne_Id" Type="int" Nullable="true" />
     <Property Name="DeckTwo_Id" Type="int" Nullable="true" />
@@ -636,9 +636,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
-          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="RefereeId" Type="String" Nullable="false" />
+          <Property Name="DeckOneId" Type="DateTime" Nullable="false" />
+          <Property Name="DeckTwoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Referee" Relationship="Modelo.RefereeGame" FromRole="Game" ToRole="Referee" />
           <NavigationProperty Name="DeckOne" Relationship="Modelo.GameDeck1" FromRole="Game" ToRole="Deck" />
           <NavigationProperty Name="DeckTwo" Relationship="Modelo.GameDeck2" FromRole="Game" ToRole="Deck" />
@@ -806,9 +806,9 @@
       <EntityTypeMapping TypeName="IsTypeOf(Modelo.Game)">
         <MappingFragment StoreEntitySet="Game">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="RefereeId" ColumnName="RefereeId" />
+          <ScalarProperty Name="DeckOneId" ColumnName="DeckOneId" />
+          <ScalarProperty Name="DeckTwoId" ColumnName="DeckTwoId" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Modelo.TeamGame)">
