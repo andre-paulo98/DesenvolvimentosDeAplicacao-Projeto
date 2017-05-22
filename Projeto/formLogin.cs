@@ -37,6 +37,8 @@ namespace Projeto {
                 Hide();
             } else {
                 MessageBox.Show("Nome de utilizador ou password incorretos!", "Login Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btLogin.Text = "Login";
+                btLogin.Enabled = true;
             }
         }
     }
