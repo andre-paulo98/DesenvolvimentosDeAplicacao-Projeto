@@ -38,11 +38,7 @@ namespace Projeto {
                 throw new Exception("Baralho1 do jogo não definido!");
             } else if (jogo.DeckTwo == null) {
                 throw new Exception("Baralho2 do jogo não definido!");
-            } else if (jogo.Number < 0) {
-                throw new Exception("Numero inferiro a 0!");
-            } else if (jogo.Date == null) {
-                throw new Exception("Data do jogo não definido!");
-            }
+            } 
             return flag;
         }
         private bool StandardGameChecker(Game jogo) {
