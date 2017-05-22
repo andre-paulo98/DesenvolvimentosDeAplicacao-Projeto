@@ -12,105 +12,67 @@ namespace Projeto {
     public partial class formTorneios : Form {
 
         private Modelo_Container dbContainer;
+        private bool btGuardarEstado = false;
 
         private TournamentRepository tourRepo;
-
-        private bool flagEditarTorneio = false;
-        private bool flagEditarJogo = false;
-
-        private List<Tournament> listaTorneios;
         public formTorneios(Modelo_Container dbContainer) {
             InitializeComponent();
             this.dbContainer = dbContainer;
             tourRepo = new TournamentRepository(dbContainer);
-            RefreshList();
             dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            listaTorneios();
+        }
+        
+
+        private void cancelar(object sender, EventArgs e) {
+            tbDescricao.Text = "";
+            tbNome.Text = "";
+            dpData.Text = DateTime.Today.ToString("d");
+            btGuardarEstado = false;
+            btEliminar.Visible = false;
         }
 
-        private void btNovoTorn_Click(object sender, EventArgs e) {
-            if (!flagEditarTorneio) {//MODO INSERÇAO
-                AtivarFormTorneio(true);
-                AtivarFormJogo(true);
-            }else {//MODO EDIÇAO
-
+        private void guardar(object sender, EventArgs e) {
+            Tournament torneio;
+            if(!btGuardarEstado) {
+                torneio = new Tournament();
+                torneio.Name = tbNome.Text;
+                torneio.Date = dpData.Value;
+                torneio.Descrition = tbDescricao.Text;
+                tourRepo.newTournament(torneio);
+            } else {
+                torneio = tourRepo.getListaTorneios().ElementAt(lbTorneios.SelectedIndex);
+                torneio.Name = tbNome.Text;
+                torneio.Date = dpData.Value;
+                torneio.Descrition = tbDescricao.Text;
+                tourRepo.updateTournament(torneio);
             }
+            listaTorneios();
         }
 
-        private void btRemoverTorn_Click(object sender, EventArgs e) {
-            if (!flagEditarTorneio) {//MODO INSERÇAO
-
-            } else {//MODO EDIÇAO
-
+        private void listaTorneios() {
+            lbTorneios.Items.Clear();
+            foreach(Tournament torneio in tourRepo.getListaTorneios()) {
+                lbTorneios.Items.Add(torneio.Id + " - " + torneio.Name + " - " + torneio.Date);
             }
         }
 
         private void lbTorneios_SelectedIndexChanged(object sender, EventArgs e) {
-            if (lbTorneios.SelectedIndex >= 0) {
-                tbNome.Text = listaTorneios.ElementAt(lbTorneios.SelectedIndex).Name;
-            }
+            int idT = Int32.Parse(lbTorneios.Items[lbTorneios.SelectedIndex].ToString().Split('-')[0].Trim());
+            Tournament torneio = tourRepo.getTournamentID(idT);
+            tbNome.Text = torneio.Name;
+            dpData.Value = torneio.Date;
+            tbDescricao.Text = torneio.Descrition;
+            btGuardarEstado = true;
+            btEliminar.Visible = true;
         }
 
-        private void btNovoJog_Click(object sender, EventArgs e) {
-            if (!flagEditarJogo) {//MODO INSERÇAO
-                
-            } else {//MODO EDIÇAO
-
-            }
-        }
-
-        private void btRemoverJog_Click(object sender, EventArgs e) {
-            if (!flagEditarJogo) {//MODO INSERÇAO
-
-            } else {//MODO EDIÇAO
-
-            }
-        }
-
-        private void lbJogos_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        private void AtivarFormTorneio(bool flag) {
-            gbTorneio.Enabled = flag;
-            if (flagEditarJogo) {
-                btNovoTorn.Text = "Guardar";
-                btRemoverTorn.Text = "Remover";
-            } else {
-                btNovoTorn.Text = "Novo";
-                btRemoverTorn.Text = "Cancelar";
-            }
-        }
-
-        private void AtivarFormJogo(bool flag) {
-            gbJogos.Enabled = flag;
-            if (flagEditarJogo) {
-                btNovoJog.Text = "Guardar";
-                btRemoverJog.Text = "Remover";
-            }else {
-                btNovoJog.Text = "Novo";
-                btRemoverJog.Text = "Cancelar";
-            }
-        }
-
-        private void LimpaForm() {
-            
-        }
-
-        private void RefreshList() {
-            LimpaForm();
-            listaTorneios = tourRepo.getToutnamentList();
-            lbTorneios.Items.Clear();
-            foreach(Tournament torn in listaTorneios) {
-                lbTorneios.Items.Add(torn.Name + "\t" + torn.Date);
-            }
-        }
-
-        public void LoadPlayer(Player player) {
-            LimpaForm();
-        }
-
-        private void gbTorneio_Enter(object sender, EventArgs e) {
-
+        private void btEliminar_Click(object sender, EventArgs e) {
+            Tournament torneio;
+            torneio = tourRepo.getListaTorneios().ElementAt(lbTorneios.SelectedIndex);
+            tourRepo.deleteTournament(torneio);
+            listaTorneios();
+            btCancelar.PerformClick();
         }
     }
 }

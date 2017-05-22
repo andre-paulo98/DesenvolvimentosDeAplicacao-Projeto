@@ -22,11 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< Updated upstream
     <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Debug\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsEE89.tmp\Debug\</IntermediateOutputPath>
->>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,11 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< Updated upstream
     <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Release\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsEE89.tmp\Release\</IntermediateOutputPath>
->>>>>>> Stashed changes
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -68,16 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="AdminRepository.cs" />
     <Compile Include="ArbitroRepository.cs" />
     <Compile Include="Card.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="CardRepository.cs" />
     <Compile Include="Deck.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="DeckRepository.cs" />
     <Compile Include="EquipasRepository.cs" />
@@ -166,18 +158,22 @@
       <DependentUpon>formUserReferee.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="GameRepository.cs" />
+    <Compile Include="Modelo_DB.Context.cs">
+=======
     <Compile Include="Moledo_DB.Context.cs">
+>>>>>>> 51682c1a882f497008972710d177e8177fb74622
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Moledo_DB.Context.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Moledo_DB.cs">
+    <Compile Include="Modelo_DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo_DB.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -185,35 +181,35 @@
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Player.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="PlayerRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Referee.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="StandardGame.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="StandardToutnament.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Team.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="TeamGame.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="TeamTournament.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Tournament.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="TournamentRepository.cs" />
     <Compile Include="User.cs">
-      <DependentUpon>Moledo_DB.tt</DependentUpon>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserRepository.cs" />
     <EmbeddedResource Include="formAdicionarAdmin.resx">
@@ -292,15 +288,15 @@
     <Content Include="img\Joystick.ico" />
     <Content Include="img\Lock.png" />
     <None Include="img\Search-Clean.png" />
-    <Content Include="Modelo_DB.edmx.sql" />
-    <Content Include="Moledo_DB.Context.tt">
+    <Content Include="Modelo_DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Moledo_DB.Context.cs</LastGenOutput>
+      <LastGenOutput>Modelo_DB.Context.cs</LastGenOutput>
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
-    <Content Include="Moledo_DB.tt">
+    <Content Include="Modelo_DB.edmx.sql" />
+    <Content Include="Modelo_DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Moledo_DB.cs</LastGenOutput>
+      <LastGenOutput>Modelo_DB.cs</LastGenOutput>
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
     <Content Include="img\Player.png" />
