@@ -22,11 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< Updated upstream
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Debug\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsEE89.tmp\Debug\</IntermediateOutputPath>
->>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,11 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<<<<<<< Updated upstream
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Release\</IntermediateOutputPath>
-=======
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsEE89.tmp\Release\</IntermediateOutputPath>
->>>>>>> Stashed changes
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -111,6 +101,8 @@
     <Compile Include="formCartas.Designer.cs">
       <DependentUpon>formCartas.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
     <Compile Include="formEquipas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +115,13 @@
     <Compile Include="formGestaoEquipas.Designer.cs">
       <DependentUpon>formGestaoEquipas.cs</DependentUpon>
     </Compile>
+    <Compile Include="formGestaoUtilizadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formGestaoUtilizadores.Designer.cs">
+      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
+    </Compile>
+>>>>>>> db4af888db1e85138a51e026f44c6c5770a2fe99
     <Compile Include="formJogadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,7 +167,6 @@
     <Compile Include="Game.cs">
       <DependentUpon>Moledo_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="GameRepository.cs" />
     <Compile Include="Moledo_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,12 +229,18 @@
     <EmbeddedResource Include="formCartas.resx">
       <DependentUpon>formCartas.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
     <EmbeddedResource Include="formEquipas.resx">
       <DependentUpon>formEquipas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formGestaoEquipas.resx">
       <DependentUpon>formGestaoEquipas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formGestaoUtilizadores.resx">
+      <DependentUpon>formGestaoUtilizadores.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> db4af888db1e85138a51e026f44c6c5770a2fe99
     <EmbeddedResource Include="formJogadores.resx">
       <DependentUpon>formJogadores.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,8 +264,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EntityDeploy Include="Modelo_DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Modelo_DB.Designer.cs</LastGenOutput>
