@@ -39,7 +39,13 @@ namespace Projeto {
             }
             return flag;
         }
-        
+
+        public List<Player> GetPlayersListNotIn(List<Player> players) {
+            return (from player in dbConteirner.Player.ToList()
+                    where !(players.Contains(player))
+                    select player).ToList();
+        }
+
         public List<Player> GetPlayersList() {
             return dbConteirner.Player.ToList();
         }
