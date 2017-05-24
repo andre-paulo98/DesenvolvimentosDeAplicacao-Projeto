@@ -17,16 +17,18 @@ namespace Projeto {
 
         private bool flagEditarTorneio = false;
         private bool flagEditarJogo = false;
+        private bool flagLoginArbitro;
 
         private List<Tournament> listaTorneios;
-        public formTorneios(Modelo_Container dbContainer) {
+        public formTorneios(Modelo_Container dbContainer, bool flag)
+        {
             InitializeComponent();
             this.dbContainer = dbContainer;
             tourRepo = new TournamentRepository(dbContainer);
             RefreshList();
             dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.flagLoginArbitro = flag;
         }
-
         private void btNovoTorn_Click(object sender, EventArgs e) {
             if (!flagEditarTorneio) {//MODO INSERÇAO
                 AtivarFormTorneio(true);
@@ -109,8 +111,17 @@ namespace Projeto {
             LimpaForm();
         }
 
-        private void gbTorneio_Enter(object sender, EventArgs e) {
+        private void gbTorneio_Enter(object sender, EventArgs e)
+        {
 
+        }
+
+        private void formTorneios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (flagLoginArbitro)
+            {
+                Application.Exit();
+            }
         }
     }
 }

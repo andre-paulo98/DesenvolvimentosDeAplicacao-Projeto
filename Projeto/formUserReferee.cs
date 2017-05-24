@@ -58,20 +58,6 @@ namespace Projeto
             
         }
 
-        private void btPesquisaArbrito_Click(object sender, EventArgs e)
-        {
-            if (tbSearch.Text != null)
-            {
-                arbitroList = arbitroRepos.SearchArbitro(tbSearch.Text);
-                lbArbitros.Items.Clear();
-                btEditar.Hide();
-                foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))//pesquisar o arbitro com o metodo searchArbitro no arbitro repos
-                {
-                    lbArbitros.Items.Add(arbitro.Id+ " - " + arbitro.Name);
-                }
-            }
-        }
-
         private void lbArbitros_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbArbitros.SelectedIndex != -1)
@@ -88,11 +74,14 @@ namespace Projeto
             EditArbitro.ShowDialog(this);
         }
 
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            arbitroList = arbitroRepos.SearchArbitro(tbSearch.Text);
+            lbArbitros.Items.Clear();
+            btEditar.Hide();
+            foreach (Referee arbitro in arbitroRepos.SearchArbitro(tbSearch.Text))//pesquisar o arbitro com o metodo searchArbitro no arbitro repos
             {
-                btPesquisaArbrito.PerformClick();
+                lbArbitros.Items.Add(arbitro.Id + " - " + arbitro.Name);
             }
         }
     }

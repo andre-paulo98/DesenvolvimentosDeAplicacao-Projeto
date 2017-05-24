@@ -13,11 +13,20 @@ namespace Projeto {
 
         Modelo_Container dbContainer = new Modelo_Container();
         formPrincipal formPrincipal;
-        UserRepository userRepo;
-        public formLogin() {
+        ArbitroRepository arbitroRepos;
+        AdminRepository adminRepos;
+        List<Referee> arbitroLogin;
+        List<Administrador> adminLogin;
+        formTorneios formTorneios;
+        public formLogin()
+        {
             InitializeComponent();
             formPrincipal = new formPrincipal(dbContainer);
-            userRepo = new UserRepository(dbContainer);
+            arbitroRepos = new ArbitroRepository(dbContainer);
+            adminRepos = new AdminRepository(dbContainer);
+            arbitroLogin = new List<Referee>();
+            adminLogin = new List<Administrador>();
+            
         }
 
         private void btLogin_Click(object sender, EventArgs e) {
@@ -26,16 +35,32 @@ namespace Projeto {
             Cursor.Current = Cursors.WaitCursor;
             string username = tbUtilizador.Text;
             string password = tbPassword.Text;
-            List<User> userLogado = (
-                from user in userRepo.UserList()
-                where user.Username == username && user.Password == password
-                select user
-                ).ToList();//Pesquisa pelo utilizador na base de dados
-            //Verifica se utilizador existe
-            if (userLogado.Count == 1) {
+
+            arbitroLogin = (
+                from arbitro in arbitroRepos.GetRefereeList()
+                where arbitro.Username == username && arbitro.Password == password
+                select arbitro
+                ).OfType<Referee>().ToList();//Pesquisa por arbitro na base de dados
+
+            adminLogin = (
+                from admin in adminRepos.GetAdminList()
+                where admin.Username == username && admin.Password == password
+                select admin
+                ).OfType<Administrador>().ToList();//Pesquisa por administrador na base de dados
+
+            if (arbitroLogin.Count == 1)//Verifica se é arbitro
+            {
+                formTorneios = new formTorneios(dbContainer, true);
+                formTorneios.Show();
+                Hide();
+            }
+            else if (adminLogin.Count == 1)
+            {
                 formPrincipal.Show();
                 Hide();
-            } else {
+            }
+            else
+            {
                 MessageBox.Show("Nome de utilizador ou password incorretos!", "Login Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 btLogin.Text = "Login";
                 btLogin.Enabled = true;

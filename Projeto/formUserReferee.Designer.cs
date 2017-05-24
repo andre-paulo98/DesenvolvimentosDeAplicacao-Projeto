@@ -34,7 +34,6 @@
             this.btRemover = new System.Windows.Forms.Button();
             this.btAddNew = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btPesquisaArbrito = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -91,20 +90,9 @@
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearch.Location = new System.Drawing.Point(218, 62);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(146, 26);
+            this.tbSearch.Size = new System.Drawing.Size(189, 26);
             this.tbSearch.TabIndex = 3;
-            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
-            // 
-            // btPesquisaArbrito
-            // 
-            this.btPesquisaArbrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPesquisaArbrito.Image = ((System.Drawing.Image)(resources.GetObject("btPesquisaArbrito.Image")));
-            this.btPesquisaArbrito.Location = new System.Drawing.Point(370, 57);
-            this.btPesquisaArbrito.Name = "btPesquisaArbrito";
-            this.btPesquisaArbrito.Size = new System.Drawing.Size(37, 31);
-            this.btPesquisaArbrito.TabIndex = 4;
-            this.btPesquisaArbrito.UseVisualStyleBackColor = true;
-            this.btPesquisaArbrito.Click += new System.EventHandler(this.btPesquisaArbrito_Click);
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // btEditar
             // 
@@ -124,7 +112,6 @@
             this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAddNew);
-            this.Controls.Add(this.btPesquisaArbrito);
             this.Controls.Add(this.lbArbitros);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.label1);
@@ -144,7 +131,6 @@
         private System.Windows.Forms.Button btAddNew;
         private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button btPesquisaArbrito;
         private System.Windows.Forms.Button btEditar;
     }
 }

@@ -49,7 +49,7 @@ namespace Projeto
         {
             return ((from user in container.User
                        where user.Username.ToUpper() == Username1.ToUpper()
-                       select user).ToList<User>().Count != 0);
+                       select user).ToList<User>().Count != 0); //se existir return true
         } 
     }
 }

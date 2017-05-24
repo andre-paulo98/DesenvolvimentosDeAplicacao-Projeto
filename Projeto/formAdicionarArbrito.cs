@@ -9,7 +9,7 @@ namespace Projeto
         private ArbitroRepository arbitroRepos;
         private Referee arbitroParaEdicao;
         bool edit = false;
-        Image image;
+        private Image image;
         public formAdicionarArbrito(formUserReferee form,Modelo_Container dbContainer)
         {
             InitializeComponent();
