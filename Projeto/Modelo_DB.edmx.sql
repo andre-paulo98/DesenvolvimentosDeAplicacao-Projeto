@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/23/2017 17:11:16
--- Generated from EDMX file: D:\OneDrive - Instituto Politécnico de Leiria\2_Semestre\Desevolvimento de Aplicações\Projeto\Projeto\Modelo_DB.edmx
+-- Date Created: 05/24/2017 17:09:43
+-- Generated from EDMX file: C:\Users\Utilizador\Documents\GitHub\DesenvolvimentosDeAplicacao-Projeto\Projeto\Modelo_DB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -192,7 +192,7 @@ GO
 CREATE TABLE [dbo].[Team] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Avatar] nvarchar(max)  NOT NULL
+    [Avatar] nvarchar(max)  NULL
 );
 GO
 

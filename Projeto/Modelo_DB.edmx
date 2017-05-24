@@ -163,7 +163,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Tournament">
     <Key>
@@ -700,7 +700,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Avatar" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="true" />
           <NavigationProperty Name="GameOne" Relationship="Modelo.TeamGameTeam" FromRole="Team" ToRole="TeamGame" />
           <NavigationProperty Name="GameTwo" Relationship="Modelo.TeamGameTeam1" FromRole="Team" ToRole="TeamGame" />
           <NavigationProperty Name="Player" Relationship="Modelo.TeamPlayer" FromRole="Team" ToRole="Player" />

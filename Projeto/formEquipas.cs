@@ -14,6 +14,8 @@ namespace Projeto {
         private EquipasRepository repoEquipas;
         private PlayerRepository repoPlayers;
         private List<Player> listPlayers;
+        private List<Player> listSearchPlayers = new List<Player>();
+        private List<Player> listPlayersInTeam = new List<Player>();
         public formEquipas(Modelo_Container dbContainer) {
             InitializeComponent();
             repoEquipas = new EquipasRepository(dbContainer);
@@ -22,6 +24,7 @@ namespace Projeto {
             foreach(Player player in listPlayers) {
                 lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
             }
+            textBox1.Text = "1";textBox1.Text = "";
         }
 
         private void pbAvatar_Click(object sender, EventArgs e) {
@@ -35,18 +38,21 @@ namespace Projeto {
             Team equipa = new Team();
             equipa.Name = tbNomeEquipa.Text.Trim();
             equipa.Avatar = pbAvatar.ImageLocation;
+            equipa.Player = listPlayersInTeam;
             repoEquipas.novaEquipa(equipa);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
             bool found = false;
-            if(listPlayers.Count > 0) {
-                clearListaJogadores();
-                foreach(Player player in listPlayers) {
-                    if(player.Name.ToUpper().Contains(textBox1.Text.ToUpper()) || player.Nickname.ToUpper().Contains(textBox1.Text.ToUpper())) {
-                        lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
-                        found = true;
-                    }
+            if(listSearchPlayers.Count>0) {
+                listSearchPlayers.Clear();
+            }
+            clearListaJogadores();
+            foreach(Player player in listPlayers) {
+                if(player.Name.ToUpper().Contains(textBox1.Text.ToUpper()) || player.Nickname.ToUpper().Contains(textBox1.Text.ToUpper())) {
+                    listSearchPlayers.Add(player);
+                    lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
+                    found = true;
                 }
             }
             if(!found) {
@@ -55,6 +61,7 @@ namespace Projeto {
             } else {
                 lbSemEquipa.SelectionMode = SelectionMode.One;
             }
+
         }
 
         private void clearListaJogadores() {
@@ -62,11 +69,57 @@ namespace Projeto {
         }
 
         private void btAdicionarEquipa_Click(object sender, EventArgs e) {
+            if(lbSemEquipa.SelectedIndex >= 0) {
+                if(listSearchPlayers.Count() < 0) {
+                    listSearchPlayers = listPlayers;
+                }
+
+                listPlayersInTeam.Add(listSearchPlayers.ElementAt(lbSemEquipa.SelectedIndex));
+                listPlayers.Remove(listSearchPlayers.ElementAt(lbSemEquipa.SelectedIndex));
+                listSearchPlayers.RemoveAt(lbSemEquipa.SelectedIndex);
+                lbSemEquipa.Items.RemoveAt(lbSemEquipa.SelectedIndex);
+
+                updateListbox(lbJogadoresNaEquipa, listPlayersInTeam);
+
+                ativarBotaoGerir();
+            }
 
         }
 
         private void btRemoverEquipa_Click(object sender, EventArgs e) {
+            if(lbJogadoresNaEquipa.SelectedIndex >= 0) {
+                Player selected = new Player();
+                int selectedIndex = lbJogadoresNaEquipa.SelectedIndex;
+                selected = listPlayersInTeam.ElementAt(selectedIndex);
+                listSearchPlayers.Add(selected);
+                listPlayers.Add(selected);
+                listPlayersInTeam.RemoveAt(selectedIndex);
+                lbJogadoresNaEquipa.Items.RemoveAt(selectedIndex);
 
+                updateListbox(lbSemEquipa, listPlayers);
+                ativarBotaoGerir();
+
+            }
+        }
+
+        private void updateListbox(ListBox lb, List<Player> lPlayer) {
+            lb.Items.Clear();
+            foreach(Player p in lPlayer) {
+                lb.Items.Add(p.Name + "\t" + p.Nickname);
+            }
+        }
+        
+        private void ativarBotaoGerir() {
+            if(listPlayersInTeam.Count() == 2) {
+                btAdicionarEquipa.Enabled = false;
+            } else {
+                btAdicionarEquipa.Enabled = true;
+            }
+            if(listPlayersInTeam.Count() == 0) {
+                btRemoverEquipa.Enabled = false;
+            } else {
+                btRemoverEquipa.Enabled = true;
+            }
         }
     }
 }
