@@ -46,12 +46,6 @@ namespace Projeto {
                     select player).ToList();
         }
 
-        /*public List<Player> GetPlayersListNotInTeam(Team team) {
-            return (from player in dbConteirner.Player.ToList()
-                    where !(team.Contains(player))
-                    select player).ToList();
-        }*/
-
         public List<Player> GetPlayersList() {
             return dbConteirner.Player.ToList();
         }

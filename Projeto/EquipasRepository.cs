@@ -21,6 +21,11 @@ namespace Projeto {
                 dbContainer.SaveChanges();
             }
         }
+        public void saveEquipa(Team equipa) {
+            if(checkEquipa(equipa)) {
+                dbContainer.SaveChanges();
+            }
+        }
 
         public List<Team> GetTeamsList() {
             return dbContainer.Team.ToList();

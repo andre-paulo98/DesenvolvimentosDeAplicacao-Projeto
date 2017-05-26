@@ -16,6 +16,8 @@ namespace Projeto {
         private List<Player> listPlayers;
         private List<Player> listSearchPlayers = new List<Player>();
         private List<Player> listPlayersInTeam = new List<Player>();
+        private bool novo = true;
+        private Team teamEditar;
         public formEquipas(Modelo_Container dbContainer) {
             InitializeComponent();
             repoEquipas = new EquipasRepository(dbContainer);
@@ -25,19 +27,32 @@ namespace Projeto {
                 lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
             }
             textBox1.Text = "1";textBox1.Text = "";
+            novo = true;
         }
+
 
         public formEquipas(Team team, Modelo_Container dbContainer) {
             InitializeComponent();
+            teamEditar = team;
             repoEquipas = new EquipasRepository(dbContainer);
             repoPlayers = new PlayerRepository(dbContainer);
-            listPlayers = repoPlayers.GetPlayersListNotIn((List<Player>)team.Player);
+            listPlayers = repoPlayers.GetPlayersListNotIn(team.Player.ToList());
             foreach(Player player in listPlayers) {
                 lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
             }
+            listPlayersInTeam = team.Player.ToList();
+            foreach(Player player in team.Player) {
+                lbJogadoresNaEquipa.Items.Add(player.Name + "\t" + player.Nickname);
+            }
+            tbNomeEquipa.Text = team.Name;
+            if(team.Avatar != null)
+                pbAvatar.Load(team.Avatar);
+
             textBox1.Text = "1";
             textBox1.Text = "";
             this.Text = "Editar equipa";
+            ativarBotaoGerir();
+            novo = false;
         }
 
         private void pbAvatar_Click(object sender, EventArgs e) {
@@ -48,11 +63,29 @@ namespace Projeto {
         }
 
         private void btGuardar_Click(object sender, EventArgs e) {
-            Team equipa = new Team();
-            equipa.Name = tbNomeEquipa.Text.Trim();
-            equipa.Avatar = pbAvatar.ImageLocation;
-            equipa.Player = listPlayersInTeam;
-            repoEquipas.novaEquipa(equipa);
+            if(listPlayersInTeam.Count == 2) {
+                string mensagem = "";
+                if(novo) {
+                    Team equipa = new Team();
+                    equipa.Name = tbNomeEquipa.Text.Trim();
+                    equipa.Avatar = pbAvatar.ImageLocation;
+                    equipa.Player = listPlayersInTeam;
+                    repoEquipas.novaEquipa(equipa);
+                    mensagem = "Equipa adicionada com sucesso";
+                } else {
+                    teamEditar.Name = tbNomeEquipa.Text.Trim();
+                    teamEditar.Avatar = pbAvatar.ImageLocation;
+                    teamEditar.Player = listPlayersInTeam;
+                    repoEquipas.saveEquipa(teamEditar);
+                    mensagem = "Equipa guardada com sucesso";
+                }
+                MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            } else {
+                MessageBox.Show("As equipas têm de ter obrigatoriamente 2 jogadores", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
@@ -133,6 +166,10 @@ namespace Projeto {
             } else {
                 btRemoverEquipa.Enabled = true;
             }
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

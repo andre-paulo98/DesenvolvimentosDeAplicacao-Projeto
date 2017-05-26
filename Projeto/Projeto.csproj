@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
     <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vs64F1.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>img\Joystick.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
