@@ -2,8 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
+<<<<<<< HEAD
+-- Date Created: 05/24/2017 17:09:43
+-- Generated from EDMX file: C:\Users\Utilizador\Documents\GitHub\DesenvolvimentosDeAplicacao-Projeto\Projeto\Modelo_DB.edmx
+=======
 -- Date Created: 05/25/2017 21:10:10
 -- Generated from EDMX file: D:\OneDrive - Instituto Politécnico de Leiria\2_Semestre\Desevolvimento de Aplicações\Projeto\Projeto\Modelo_DB.edmx
+>>>>>>> Atualização formulario torneios
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;

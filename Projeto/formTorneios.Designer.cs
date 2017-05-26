@@ -27,46 +27,60 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.TextBox();
-            this.tbDescricao = new System.Windows.Forms.TextBox();
+            this.tbNomeTorneio = new System.Windows.Forms.TextBox();
+            this.tbDescricaoTorneio = new System.Windows.Forms.TextBox();
             this.btNovoTorn = new System.Windows.Forms.Button();
-            this.dpData = new System.Windows.Forms.DateTimePicker();
+            this.dpDataTorneio = new System.Windows.Forms.DateTimePicker();
             this.gbTorneio = new System.Windows.Forms.GroupBox();
+            this.rbEquipas = new System.Windows.Forms.RadioButton();
+            this.rbNormal = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.btRemoverTorn = new System.Windows.Forms.Button();
-            this.lbTorneios = new System.Windows.Forms.ListBox();
+            this.lbTorneiosNormais = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbTorneiosEquipas = new System.Windows.Forms.ListBox();
             this.gbJogos = new System.Windows.Forms.GroupBox();
+            this.lbJogos = new System.Windows.Forms.ListBox();
             this.plJogo = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cdBaralho1 = new System.Windows.Forms.ComboBox();
+            this.cbBaralho1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbArbitro = new System.Windows.Forms.ComboBox();
-            this.lbJogEqu2 = new System.Windows.Forms.Label();
+            this.laJogEqu2 = new System.Windows.Forms.Label();
             this.cbJogEqu2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbJogEqu1 = new System.Windows.Forms.ComboBox();
             this.cbBaralho2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbJogEqu1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.rbNormal = new System.Windows.Forms.RadioButton();
-            this.rbEquipas = new System.Windows.Forms.RadioButton();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.laJogEqu1 = new System.Windows.Forms.Label();
+            this.plJogoBotoes = new System.Windows.Forms.Panel();
+            this.btGuadarJog = new System.Windows.Forms.Button();
             this.btNovoJog = new System.Windows.Forms.Button();
             this.btRemoverJog = new System.Windows.Forms.Button();
-            this.lbJogos = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dpDataJog = new System.Windows.Forms.DateTimePicker();
+            this.nudNumeroJog = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbDescricaoJog = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btGuardarTorn = new System.Windows.Forms.Button();
             this.gbTorneio.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.gbJogos.SuspendLayout();
             this.plJogo.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.plJogoBotoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumeroJog)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -97,125 +111,222 @@
             this.label3.Text = "Descrição:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbNome
+            // tbNomeTorneio
             // 
-            this.tbNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbNomeTorneio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNome.Location = new System.Drawing.Point(67, 19);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(541, 20);
-            this.tbNome.TabIndex = 3;
+            this.tbNomeTorneio.Location = new System.Drawing.Point(67, 19);
+            this.tbNomeTorneio.Name = "tbNomeTorneio";
+            this.tbNomeTorneio.Size = new System.Drawing.Size(541, 20);
+            this.tbNomeTorneio.TabIndex = 3;
             // 
-            // tbDescricao
+            // tbDescricaoTorneio
             // 
-            this.tbDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbDescricaoTorneio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescricao.Location = new System.Drawing.Point(67, 92);
-            this.tbDescricao.Multiline = true;
-            this.tbDescricao.Name = "tbDescricao";
-            this.tbDescricao.Size = new System.Drawing.Size(541, 48);
-            this.tbDescricao.TabIndex = 5;
+            this.tbDescricaoTorneio.Location = new System.Drawing.Point(67, 92);
+            this.tbDescricaoTorneio.Multiline = true;
+            this.tbDescricaoTorneio.Name = "tbDescricaoTorneio";
+            this.tbDescricaoTorneio.Size = new System.Drawing.Size(541, 42);
+            this.tbDescricaoTorneio.TabIndex = 5;
             // 
             // btNovoTorn
             // 
-            this.btNovoTorn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btNovoTorn.Location = new System.Drawing.Point(153, 0);
+            this.btNovoTorn.Location = new System.Drawing.Point(3, 3);
             this.btNovoTorn.Name = "btNovoTorn";
-            this.btNovoTorn.Size = new System.Drawing.Size(85, 29);
+            this.btNovoTorn.Size = new System.Drawing.Size(85, 30);
             this.btNovoTorn.TabIndex = 6;
             this.btNovoTorn.Text = "Novo";
             this.btNovoTorn.UseVisualStyleBackColor = true;
             this.btNovoTorn.Click += new System.EventHandler(this.btNovoTorn_Click);
             // 
-            // dpData
+            // dpDataTorneio
             // 
-            this.dpData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dpDataTorneio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dpData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpData.Location = new System.Drawing.Point(67, 51);
-            this.dpData.Name = "dpData";
-            this.dpData.Size = new System.Drawing.Size(274, 20);
-            this.dpData.TabIndex = 8;
+            this.dpDataTorneio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDataTorneio.Location = new System.Drawing.Point(67, 51);
+            this.dpDataTorneio.Name = "dpDataTorneio";
+            this.dpDataTorneio.Size = new System.Drawing.Size(274, 20);
+            this.dpDataTorneio.TabIndex = 8;
             // 
             // gbTorneio
             // 
+            this.gbTorneio.Controls.Add(this.rbEquipas);
+            this.gbTorneio.Controls.Add(this.rbNormal);
+            this.gbTorneio.Controls.Add(this.label7);
             this.gbTorneio.Controls.Add(this.label3);
-            this.gbTorneio.Controls.Add(this.tbDescricao);
+            this.gbTorneio.Controls.Add(this.tbDescricaoTorneio);
             this.gbTorneio.Controls.Add(this.label2);
-            this.gbTorneio.Controls.Add(this.dpData);
+            this.gbTorneio.Controls.Add(this.dpDataTorneio);
             this.gbTorneio.Controls.Add(this.label1);
-            this.gbTorneio.Controls.Add(this.tbNome);
+            this.gbTorneio.Controls.Add(this.tbNomeTorneio);
             this.gbTorneio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbTorneio.Enabled = false;
             this.gbTorneio.Location = new System.Drawing.Point(253, 3);
             this.gbTorneio.Name = "gbTorneio";
-            this.gbTorneio.Size = new System.Drawing.Size(620, 144);
+            this.gbTorneio.Size = new System.Drawing.Size(620, 177);
             this.gbTorneio.TabIndex = 9;
             this.gbTorneio.TabStop = false;
             this.gbTorneio.Text = "Detalhes de Torneio";
-            this.gbTorneio.Enter += new System.EventHandler(this.gbTorneio_Enter);
+            // 
+            // rbEquipas
+            // 
+            this.rbEquipas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbEquipas.AutoSize = true;
+            this.rbEquipas.Location = new System.Drawing.Point(169, 142);
+            this.rbEquipas.Name = "rbEquipas";
+            this.rbEquipas.Size = new System.Drawing.Size(63, 17);
+            this.rbEquipas.TabIndex = 7;
+            this.rbEquipas.Text = "Equipas";
+            this.rbEquipas.UseVisualStyleBackColor = true;
+            this.rbEquipas.CheckedChanged += new System.EventHandler(this.rbEquipas_CheckedChanged);
+            // 
+            // rbNormal
+            // 
+            this.rbNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbNormal.AutoSize = true;
+            this.rbNormal.Checked = true;
+            this.rbNormal.Location = new System.Drawing.Point(67, 142);
+            this.rbNormal.Name = "rbNormal";
+            this.rbNormal.Size = new System.Drawing.Size(58, 17);
+            this.rbNormal.TabIndex = 8;
+            this.rbNormal.TabStop = true;
+            this.rbNormal.Text = "Normal";
+            this.rbNormal.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 142);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Tipo:";
             // 
             // btRemoverTorn
             // 
-            this.btRemoverTorn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btRemoverTorn.Location = new System.Drawing.Point(0, 0);
+            this.btRemoverTorn.Enabled = false;
+            this.btRemoverTorn.Location = new System.Drawing.Point(532, 2);
             this.btRemoverTorn.Name = "btRemoverTorn";
-            this.btRemoverTorn.Size = new System.Drawing.Size(85, 29);
+            this.btRemoverTorn.Size = new System.Drawing.Size(85, 30);
             this.btRemoverTorn.TabIndex = 9;
             this.btRemoverTorn.Text = "Remover";
             this.btRemoverTorn.UseVisualStyleBackColor = true;
             this.btRemoverTorn.Click += new System.EventHandler(this.btRemoverTorn_Click);
             // 
-            // lbTorneios
+            // lbTorneiosNormais
             // 
-            this.lbTorneios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbTorneios.FormattingEnabled = true;
-            this.lbTorneios.Location = new System.Drawing.Point(3, 16);
-            this.lbTorneios.Name = "lbTorneios";
-            this.lbTorneios.Size = new System.Drawing.Size(238, 472);
-            this.lbTorneios.TabIndex = 10;
-            this.lbTorneios.SelectedIndexChanged += new System.EventHandler(this.lbTorneios_SelectedIndexChanged);
+            this.lbTorneiosNormais.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTorneiosNormais.FormattingEnabled = true;
+            this.lbTorneiosNormais.Location = new System.Drawing.Point(3, 16);
+            this.lbTorneiosNormais.Name = "lbTorneiosNormais";
+            this.lbTorneiosNormais.Size = new System.Drawing.Size(232, 219);
+            this.lbTorneiosNormais.TabIndex = 10;
+            this.lbTorneiosNormais.SelectedIndexChanged += new System.EventHandler(this.lbTorneiosNormais_SelectedIndexChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Controls.Add(this.lbTorneios);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Controls.Add(this.lbTorneiosNormais);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(244, 528);
+            this.groupBox2.Size = new System.Drawing.Size(238, 238);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lista de Torneios planeados";
+            this.groupBox2.Text = "Lista de Torneios Normais";
             // 
-            // panel1
+            // tableLayoutPanel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btRemoverTorn);
-            this.panel1.Controls.Add(this.btNovoTorn);
-            this.panel1.Location = new System.Drawing.Point(3, 496);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 29);
-            this.panel1.TabIndex = 11;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.gbJogos, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.gbTorneio, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 534);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.tableLayoutPanel1.SetRowSpan(this.panel2, 3);
+            this.panel2.Size = new System.Drawing.Size(244, 528);
+            this.panel2.TabIndex = 17;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 528);
+            this.tableLayoutPanel3.TabIndex = 11;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbTorneiosEquipas);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 267);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(238, 258);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lista de Torneios de Equipas";
+            // 
+            // lbTorneiosEquipas
+            // 
+            this.lbTorneiosEquipas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTorneiosEquipas.FormattingEnabled = true;
+            this.lbTorneiosEquipas.Location = new System.Drawing.Point(3, 16);
+            this.lbTorneiosEquipas.Name = "lbTorneiosEquipas";
+            this.lbTorneiosEquipas.Size = new System.Drawing.Size(232, 239);
+            this.lbTorneiosEquipas.TabIndex = 10;
+            this.lbTorneiosEquipas.SelectedIndexChanged += new System.EventHandler(this.lbTorneiosEquipas_SelectedIndexChanged);
             // 
             // gbJogos
             // 
-            this.gbJogos.Controls.Add(this.plJogo);
             this.gbJogos.Controls.Add(this.lbJogos);
+            this.gbJogos.Controls.Add(this.plJogo);
             this.gbJogos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbJogos.Enabled = false;
-            this.gbJogos.Location = new System.Drawing.Point(253, 153);
+            this.gbJogos.Location = new System.Drawing.Point(253, 186);
             this.gbJogos.Name = "gbJogos";
-            this.gbJogos.Size = new System.Drawing.Size(620, 378);
-            this.gbJogos.TabIndex = 12;
+            this.gbJogos.Size = new System.Drawing.Size(620, 305);
+            this.gbJogos.TabIndex = 14;
             this.gbJogos.TabStop = false;
             this.gbJogos.Text = "Jogos do Torneio";
+            // 
+            // lbJogos
+            // 
+            this.lbJogos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbJogos.FormattingEnabled = true;
+            this.lbJogos.Location = new System.Drawing.Point(3, 16);
+            this.lbJogos.Name = "lbJogos";
+            this.lbJogos.Size = new System.Drawing.Size(229, 286);
+            this.lbJogos.TabIndex = 0;
+            this.lbJogos.SelectedIndexChanged += new System.EventHandler(this.lbJogos_SelectedIndexChanged);
             // 
             // plJogo
             // 
@@ -223,7 +334,7 @@
             this.plJogo.Dock = System.Windows.Forms.DockStyle.Right;
             this.plJogo.Location = new System.Drawing.Point(232, 16);
             this.plJogo.Name = "plJogo";
-            this.plJogo.Size = new System.Drawing.Size(385, 359);
+            this.plJogo.Size = new System.Drawing.Size(385, 286);
             this.plJogo.TabIndex = 16;
             // 
             // tableLayoutPanel2
@@ -232,49 +343,57 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel2.Controls.Add(this.cdBaralho1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cbArbitro, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbJogEqu2, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.cbJogEqu2, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.cbJogEqu1, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.cbBaralho2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.lbJogEqu1, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.cbBaralho1, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.cbArbitro, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.laJogEqu2, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.cbJogEqu2, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.cbJogEqu1, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.cbBaralho2, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.laJogEqu1, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.plJogoBotoes, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dpDataJog, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.nudNumeroJog, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tbDescricaoJog, 1, 2);
             this.tableLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(385, 359);
+            this.tableLayoutPanel2.RowCount = 9;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(385, 286);
             this.tableLayoutPanel2.TabIndex = 17;
             // 
-            // cdBaralho1
+            // cbBaralho1
             // 
-            this.cdBaralho1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cdBaralho1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdBaralho1.FormattingEnabled = true;
-            this.cdBaralho1.Location = new System.Drawing.Point(80, 66);
-            this.cdBaralho1.Name = "cdBaralho1";
-            this.cdBaralho1.Size = new System.Drawing.Size(302, 21);
-            this.cdBaralho1.TabIndex = 2;
+            this.cbBaralho1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbBaralho1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBaralho1.Enabled = false;
+            this.cbBaralho1.FormattingEnabled = true;
+            this.cbBaralho1.Location = new System.Drawing.Point(80, 124);
+            this.cbBaralho1.Name = "cbBaralho1";
+            this.cbBaralho1.Size = new System.Drawing.Size(302, 21);
+            this.cbBaralho1.TabIndex = 2;
+            this.cbBaralho1.SelectedIndexChanged += new System.EventHandler(this.cbBaralho1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 19);
+            this.label4.Location = new System.Drawing.Point(34, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 3;
@@ -284,28 +403,30 @@
             // 
             this.cbArbitro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbArbitro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbArbitro.Enabled = false;
             this.cbArbitro.FormattingEnabled = true;
-            this.cbArbitro.Location = new System.Drawing.Point(80, 15);
+            this.cbArbitro.Location = new System.Drawing.Point(80, 94);
             this.cbArbitro.Name = "cbArbitro";
             this.cbArbitro.Size = new System.Drawing.Size(302, 21);
             this.cbArbitro.TabIndex = 1;
             // 
-            // lbJogEqu2
+            // laJogEqu2
             // 
-            this.lbJogEqu2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbJogEqu2.AutoSize = true;
-            this.lbJogEqu2.Location = new System.Drawing.Point(39, 274);
-            this.lbJogEqu2.Name = "lbJogEqu2";
-            this.lbJogEqu2.Size = new System.Drawing.Size(35, 13);
-            this.lbJogEqu2.TabIndex = 11;
-            this.lbJogEqu2.Text = "label9";
+            this.laJogEqu2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.laJogEqu2.AutoSize = true;
+            this.laJogEqu2.Location = new System.Drawing.Point(20, 218);
+            this.laJogEqu2.Name = "laJogEqu2";
+            this.laJogEqu2.Size = new System.Drawing.Size(54, 13);
+            this.laJogEqu2.TabIndex = 11;
+            this.laJogEqu2.Text = "Jogador 2";
             // 
             // cbJogEqu2
             // 
             this.cbJogEqu2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbJogEqu2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJogEqu2.Enabled = false;
             this.cbJogEqu2.FormattingEnabled = true;
-            this.cbJogEqu2.Location = new System.Drawing.Point(80, 270);
+            this.cbJogEqu2.Location = new System.Drawing.Point(80, 214);
             this.cbJogEqu2.Name = "cbJogEqu2";
             this.cbJogEqu2.Size = new System.Drawing.Size(302, 21);
             this.cbJogEqu2.TabIndex = 13;
@@ -314,7 +435,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 70);
+            this.label5.Location = new System.Drawing.Point(19, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 4;
@@ -324,18 +445,21 @@
             // 
             this.cbJogEqu1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbJogEqu1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJogEqu1.Enabled = false;
             this.cbJogEqu1.FormattingEnabled = true;
-            this.cbJogEqu1.Location = new System.Drawing.Point(80, 219);
+            this.cbJogEqu1.Location = new System.Drawing.Point(80, 184);
             this.cbJogEqu1.Name = "cbJogEqu1";
             this.cbJogEqu1.Size = new System.Drawing.Size(302, 21);
             this.cbJogEqu1.TabIndex = 12;
+            this.cbJogEqu1.SelectedIndexChanged += new System.EventHandler(this.cbJogEqu1_SelectedIndexChanged);
             // 
             // cbBaralho2
             // 
             this.cbBaralho2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbBaralho2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBaralho2.Enabled = false;
             this.cbBaralho2.FormattingEnabled = true;
-            this.cbBaralho2.Location = new System.Drawing.Point(80, 117);
+            this.cbBaralho2.Location = new System.Drawing.Point(80, 154);
             this.cbBaralho2.Name = "cbBaralho2";
             this.cbBaralho2.Size = new System.Drawing.Size(302, 21);
             this.cbBaralho2.TabIndex = 5;
@@ -344,82 +468,51 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 121);
+            this.label6.Location = new System.Drawing.Point(19, 158);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Baralho 2:";
             // 
-            // lbJogEqu1
+            // laJogEqu1
             // 
-            this.lbJogEqu1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbJogEqu1.AutoSize = true;
-            this.lbJogEqu1.Location = new System.Drawing.Point(39, 223);
-            this.lbJogEqu1.Name = "lbJogEqu1";
-            this.lbJogEqu1.Size = new System.Drawing.Size(35, 13);
-            this.lbJogEqu1.TabIndex = 10;
-            this.lbJogEqu1.Text = "label8";
+            this.laJogEqu1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.laJogEqu1.AutoSize = true;
+            this.laJogEqu1.Location = new System.Drawing.Point(20, 188);
+            this.laJogEqu1.Name = "laJogEqu1";
+            this.laJogEqu1.Size = new System.Drawing.Size(54, 13);
+            this.laJogEqu1.TabIndex = 10;
+            this.laJogEqu1.Text = "Jogador 1";
             // 
-            // label7
+            // plJogoBotoes
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 165);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 26);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Tipo de Jogo:";
+            this.tableLayoutPanel2.SetColumnSpan(this.plJogoBotoes, 2);
+            this.plJogoBotoes.Controls.Add(this.btGuadarJog);
+            this.plJogoBotoes.Controls.Add(this.btNovoJog);
+            this.plJogoBotoes.Controls.Add(this.btRemoverJog);
+            this.plJogoBotoes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plJogoBotoes.Location = new System.Drawing.Point(3, 243);
+            this.plJogoBotoes.Name = "plJogoBotoes";
+            this.plJogoBotoes.Size = new System.Drawing.Size(379, 40);
+            this.plJogoBotoes.TabIndex = 17;
             // 
-            // panel3
+            // btGuadarJog
             // 
-            this.panel3.Controls.Add(this.rbNormal);
-            this.panel3.Controls.Add(this.rbEquipas);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(80, 156);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(302, 45);
-            this.panel3.TabIndex = 9;
-            // 
-            // rbNormal
-            // 
-            this.rbNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbNormal.AutoSize = true;
-            this.rbNormal.Location = new System.Drawing.Point(81, 14);
-            this.rbNormal.Name = "rbNormal";
-            this.rbNormal.Size = new System.Drawing.Size(58, 17);
-            this.rbNormal.TabIndex = 8;
-            this.rbNormal.TabStop = true;
-            this.rbNormal.Text = "Normal";
-            this.rbNormal.UseVisualStyleBackColor = true;
-            // 
-            // rbEquipas
-            // 
-            this.rbEquipas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbEquipas.AutoSize = true;
-            this.rbEquipas.Location = new System.Drawing.Point(195, 14);
-            this.rbEquipas.Name = "rbEquipas";
-            this.rbEquipas.Size = new System.Drawing.Size(63, 17);
-            this.rbEquipas.TabIndex = 7;
-            this.rbEquipas.TabStop = true;
-            this.rbEquipas.Text = "Equipas";
-            this.rbEquipas.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.panel4, 2);
-            this.panel4.Controls.Add(this.btNovoJog);
-            this.panel4.Controls.Add(this.btRemoverJog);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 309);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(379, 47);
-            this.panel4.TabIndex = 17;
+            this.btGuadarJog.Enabled = false;
+            this.btGuadarJog.Location = new System.Drawing.Point(190, 3);
+            this.btGuadarJog.Name = "btGuadarJog";
+            this.btGuadarJog.Size = new System.Drawing.Size(90, 35);
+            this.btGuadarJog.TabIndex = 16;
+            this.btGuadarJog.Text = "Guardar";
+            this.btGuadarJog.UseVisualStyleBackColor = true;
+            this.btGuadarJog.Click += new System.EventHandler(this.btGuadarJog_Click);
             // 
             // btNovoJog
             // 
-            this.btNovoJog.Location = new System.Drawing.Point(8, 5);
+            this.btNovoJog.Enabled = false;
+            this.btNovoJog.Location = new System.Drawing.Point(0, 3);
             this.btNovoJog.Name = "btNovoJog";
-            this.btNovoJog.Size = new System.Drawing.Size(120, 35);
+            this.btNovoJog.Size = new System.Drawing.Size(83, 35);
             this.btNovoJog.TabIndex = 14;
             this.btNovoJog.Text = "Novo";
             this.btNovoJog.UseVisualStyleBackColor = true;
@@ -427,42 +520,97 @@
             // 
             // btRemoverJog
             // 
-            this.btRemoverJog.Location = new System.Drawing.Point(208, 6);
+            this.btRemoverJog.Enabled = false;
+            this.btRemoverJog.Location = new System.Drawing.Point(286, 3);
             this.btRemoverJog.Name = "btRemoverJog";
-            this.btRemoverJog.Size = new System.Drawing.Size(120, 35);
+            this.btRemoverJog.Size = new System.Drawing.Size(90, 35);
             this.btRemoverJog.TabIndex = 15;
             this.btRemoverJog.Text = "Remover";
             this.btRemoverJog.UseVisualStyleBackColor = true;
             this.btRemoverJog.Click += new System.EventHandler(this.btRemoverJog_Click);
             // 
-            // lbJogos
+            // label8
             // 
-            this.lbJogos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(44, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Data";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(30, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Numero";
+            // 
+            // dpDataJog
+            // 
+            this.dpDataJog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dpDataJog.Enabled = false;
+            this.dpDataJog.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpDataJog.Location = new System.Drawing.Point(80, 35);
+            this.dpDataJog.Name = "dpDataJog";
+            this.dpDataJog.Size = new System.Drawing.Size(302, 20);
+            this.dpDataJog.TabIndex = 20;
+            // 
+            // nudNumeroJog
+            // 
+            this.nudNumeroJog.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nudNumeroJog.Enabled = false;
+            this.nudNumeroJog.Location = new System.Drawing.Point(80, 5);
+            this.nudNumeroJog.Name = "nudNumeroJog";
+            this.nudNumeroJog.Size = new System.Drawing.Size(120, 20);
+            this.nudNumeroJog.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Descrição";
+            // 
+            // tbDescricaoJog
+            // 
+            this.tbDescricaoJog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbJogos.FormattingEnabled = true;
-            this.lbJogos.Location = new System.Drawing.Point(7, 20);
-            this.lbJogos.Name = "lbJogos";
-            this.lbJogos.Size = new System.Drawing.Size(219, 355);
-            this.lbJogos.TabIndex = 0;
-            this.lbJogos.SelectedIndexChanged += new System.EventHandler(this.lbJogos_SelectedIndexChanged);
+            this.tbDescricaoJog.Enabled = false;
+            this.tbDescricaoJog.Location = new System.Drawing.Point(80, 63);
+            this.tbDescricaoJog.Multiline = true;
+            this.tbDescricaoJog.Name = "tbDescricaoJog";
+            this.tbDescricaoJog.Size = new System.Drawing.Size(302, 24);
+            this.tbDescricaoJog.TabIndex = 23;
             // 
-            // tableLayoutPanel1
+            // panel3
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.gbJogos, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.gbTorneio, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 534);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.panel3.Controls.Add(this.btRemoverTorn);
+            this.panel3.Controls.Add(this.btGuardarTorn);
+            this.panel3.Controls.Add(this.btNovoTorn);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(253, 497);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(620, 34);
+            this.panel3.TabIndex = 18;
+            // 
+            // btGuardarTorn
+            // 
+            this.btGuardarTorn.Enabled = false;
+            this.btGuardarTorn.Location = new System.Drawing.Point(441, 2);
+            this.btGuardarTorn.Name = "btGuardarTorn";
+            this.btGuardarTorn.Size = new System.Drawing.Size(85, 30);
+            this.btGuardarTorn.TabIndex = 0;
+            this.btGuardarTorn.Text = "Guardar";
+            this.btGuardarTorn.UseVisualStyleBackColor = true;
+            this.btGuardarTorn.Click += new System.EventHandler(this.btGuardarTorneio_Click);
             // 
             // formTorneios
             // 
@@ -475,19 +623,20 @@
             this.Name = "formTorneios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Torneios";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formTorneios_FormClosing);
             this.gbTorneio.ResumeLayout(false);
             this.gbTorneio.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.gbJogos.ResumeLayout(false);
             this.plJogo.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.plJogoBotoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumeroJog)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -497,36 +646,47 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbNome;
-        private System.Windows.Forms.TextBox tbDescricao;
+        private System.Windows.Forms.TextBox tbNomeTorneio;
+        private System.Windows.Forms.TextBox tbDescricaoTorneio;
         private System.Windows.Forms.Button btNovoTorn;
-        private System.Windows.Forms.DateTimePicker dpData;
+        private System.Windows.Forms.DateTimePicker dpDataTorneio;
         private System.Windows.Forms.GroupBox gbTorneio;
-        private System.Windows.Forms.ListBox lbTorneios;
+        private System.Windows.Forms.ListBox lbTorneiosNormais;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btRemoverTorn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox gbJogos;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cdBaralho1;
-        private System.Windows.Forms.ComboBox cbArbitro;
         private System.Windows.Forms.ListBox lbJogos;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbBaralho2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton rbNormal;
-        private System.Windows.Forms.RadioButton rbEquipas;
-        private System.Windows.Forms.ComboBox cbJogEqu2;
-        private System.Windows.Forms.ComboBox cbJogEqu1;
-        private System.Windows.Forms.Label lbJogEqu2;
-        private System.Windows.Forms.Label lbJogEqu1;
-        private System.Windows.Forms.Button btRemoverJog;
-        private System.Windows.Forms.Button btNovoJog;
         private System.Windows.Forms.Panel plJogo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ComboBox cbBaralho1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbArbitro;
+        private System.Windows.Forms.Label laJogEqu2;
+        private System.Windows.Forms.ComboBox cbJogEqu2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbJogEqu1;
+        private System.Windows.Forms.ComboBox cbBaralho2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label laJogEqu1;
+        private System.Windows.Forms.RadioButton rbNormal;
+        private System.Windows.Forms.RadioButton rbEquipas;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dpDataJog;
+        private System.Windows.Forms.NumericUpDown nudNumeroJog;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbDescricaoJog;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel plJogoBotoes;
+        private System.Windows.Forms.Button btNovoJog;
+        private System.Windows.Forms.Button btRemoverJog;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox lbTorneiosEquipas;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btGuardarTorn;
+        private System.Windows.Forms.Button btGuadarJog;
     }
 }

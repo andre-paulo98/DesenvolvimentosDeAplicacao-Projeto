@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vs1B95.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs3209.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vs1B95.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs3209.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -160,27 +160,10 @@
     <Compile Include="Game.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo_DB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_DB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo_DB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo_DB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo_DB.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="GameRepository.cs" />
     <Compile Include="Player.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="PlayerRepository.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Referee.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
@@ -196,6 +179,24 @@
     <Compile Include="TeamGame.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo_DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerRepository.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamTournament.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
@@ -277,6 +278,11 @@
     <Content Include="img\arbrito.png" />
     <Content Include="img\arbrito1.png" />
     <Content Include="img\Cards.png" />
+    <Content Include="Modelo_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Modelo_DB.cs</LastGenOutput>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
+    </Content>
     <None Include="img\Decks.png" />
     <None Include="img\Default_user.png" />
     <Content Include="img\Joystick.ico" />
@@ -288,11 +294,6 @@
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
     <Content Include="Modelo_DB.edmx.sql" />
-    <Content Include="Modelo_DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Modelo_DB.cs</LastGenOutput>
-      <DependentUpon>Modelo_DB.edmx</DependentUpon>
-    </Content>
     <Content Include="img\Player.png" />
     <Content Include="img\Search.png" />
     <Content Include="img\Teams.png" />

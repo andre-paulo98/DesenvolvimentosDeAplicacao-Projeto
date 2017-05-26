@@ -38,12 +38,22 @@ namespace Projeto {
         private bool flagEditarJogo = false;
         private bool flagLoginArbitro;
 
+<<<<<<< HEAD
+        private List<Tournament> listaTorneios;
         public formTorneios(Modelo_Container dbContainer, bool flag)
         {
+=======
+        public formTorneios(Modelo_Container dbContainer) {
+>>>>>>> Atualização formulario torneios
             InitializeComponent();
             this.dbContainer = dbContainer;
             this.dbContainer = dbContainer;
             tourRepo = new TournamentRepository(dbContainer);
+<<<<<<< HEAD
+            RefreshList();
+            dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.flagLoginArbitro = flag;
+=======
             gameRepo = new GameRepository(dbContainer);
             arbitroRepo = new ArbitroRepository(dbContainer);
             deckRepo = new DeckRepository(dbContainer);
@@ -51,6 +61,7 @@ namespace Projeto {
             equipaRepo = new EquipasRepository(dbContainer);
             RefreshListTorneiosNormais();
             RefreshListTorneiosEquipas();
+>>>>>>> Atualização formulario torneios
         }
         private void btNovoTorn_Click(object sender, EventArgs e) {
             flagEditarTorneio = false;
@@ -258,7 +269,7 @@ namespace Projeto {
         private void lbJogos_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbJogos.SelectedIndex >= 0) {
                 flagEditarJogo = true;
-                //PreencherJogo(lbJogos.SelectedIndex);
+                PreencherJogo(lbJogos.SelectedIndex);
                 RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
                 rbNormal.Enabled = false;
             }
@@ -419,10 +430,23 @@ namespace Projeto {
             }
         }
 
-        /*private void PreencherJogo(Game jogo) {
+<<<<<<< HEAD
+        private void gbTorneio_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formTorneios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (flagLoginArbitro)
+            {
+                Application.Exit();
+            }
+=======
+        private void PreencherJogo(Game jogo) {
             fillBaralhos();
             fill
-        }*/
+        }
 
         /// <summary>
         /// Preenche a comboBox cbBaralho1 com os arbitros
@@ -517,6 +541,7 @@ namespace Projeto {
                     "Equipas - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             return flag;
+>>>>>>> Atualização formulario torneios
         }
     }
 }

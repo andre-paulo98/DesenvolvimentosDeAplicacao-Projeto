@@ -15,9 +15,12 @@ namespace Projeto
     public partial class Game
     {
         public int Id { get; set; }
-        public string RefereeId { get; set; }
-        public System.DateTime DeckOneId { get; set; }
-        public int DeckTwoId { get; set; }
+        public Nullable<int> RefereeId { get; set; }
+        public Nullable<int> DeckOneId { get; set; }
+        public Nullable<int> DeckTwoId { get; set; }
+        public string Description { get; set; }
+        public System.DateTime Date { get; set; }
+        public int Number { get; set; }
     
         public virtual Referee Referee { get; set; }
         public virtual Deck DeckOne { get; set; }

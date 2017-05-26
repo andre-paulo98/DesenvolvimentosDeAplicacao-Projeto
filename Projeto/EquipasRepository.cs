@@ -34,5 +34,9 @@ namespace Projeto {
         private void ErroMensagem(string mensage) {
             MessageBox.Show(mensage, "Equipas - Dados Inválidos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        public List<Team> getTeamsList() {
+            return dbContainer.Team.ToList();
+        }
     }
 }

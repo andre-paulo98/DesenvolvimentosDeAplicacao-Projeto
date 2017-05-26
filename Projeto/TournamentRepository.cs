@@ -14,7 +14,7 @@ namespace Projeto {
         }
 
         public bool AddTournament(StandardToutnament torneio) {
-            bool flag = checkStandardTournament(torneio);
+            bool flag = checkTournament(torneio);
             if(flag) {
                 dbContainer.Tournament.Add(torneio);
                 dbContainer.SaveChanges();
@@ -24,7 +24,7 @@ namespace Projeto {
         }
 
         public bool AddTournament(TeamTournament torneio) {
-            bool flag = checkTeamTournament(torneio);
+            bool flag = checkTournament(torneio);
             if (flag) {
                 dbContainer.Tournament.Add(torneio);
                 dbContainer.SaveChanges();
@@ -34,7 +34,7 @@ namespace Projeto {
         }
 
         public bool EditTournament(StandardToutnament torneio) {
-            bool flag = checkStandardTournament(torneio);
+            bool flag = checkTournament(torneio);
             if (flag) {
                 dbContainer.SaveChanges();
             }
@@ -42,31 +42,28 @@ namespace Projeto {
         }
 
         public bool EditTournament(TeamTournament torneio) {
-            bool flag = checkTeamTournament(torneio);
+            bool flag = checkTournament(torneio);
             if (flag) {
                 dbContainer.SaveChanges();
             }
             return flag;
         }
 
-        public bool DeleteTournament(StandardToutnament torneio) {
-            bool flag = checkStandardTournament(torneio);
+        public bool DeleteTournament(Tournament torneio) {
+            bool flag = checkTournament(torneio);
             if (flag) {
+                dbContainer.Tournament.Remove(torneio);
                 dbContainer.SaveChanges();
             }
             return flag;
         }
 
-        public bool DeleteTournament(TeamTournament torneio) {
-            bool flag = checkTeamTournament(torneio);
-            if (flag) {
-                dbContainer.SaveChanges();
-            }
-            return flag;
+        public List<StandardToutnament> getStandardTournamentList() {
+            return dbContainer.Tournament.OfType<StandardToutnament>().ToList();
         }
 
-        public List<Tournament> getToutnamentList() {
-            return dbContainer.Tournament.ToList();
+        public List<TeamTournament> getTeamTournamentList() {
+            return dbContainer.Tournament.OfType<TeamTournament>().ToList();
         }
 
         private bool checkTournament(Tournament torneio) {
@@ -77,30 +74,6 @@ namespace Projeto {
                 ErroMensagem("Não foi preenchida a Data");
             } else {
                 check = true;
-            }
-            return check;
-        }
-
-        private bool checkTeamTournament(TeamTournament torneio) {
-            bool check = checkTournament(torneio);
-            if (check) {
-                if (torneio.Game.Count <= 0) {
-                    throw new Exception("A Lista de Jogos não está preenchida!");
-                } else if (torneio.Team.Count <= 0) {
-                    throw new Exception("A Lista de Equipas não está preenchida!");
-                }
-            }
-            return check;
-        }
-
-        private bool checkStandardTournament(StandardToutnament torneio) {
-            bool check = checkTournament(torneio);
-            if (check) {
-                if (torneio.Game.Count <= 0) {
-                    throw new Exception("A Lista de Jogos não está preenchida!");
-                } else if (torneio.Player.Count <= 0) {
-                    throw new Exception("A Lista de Jogadores não está preenchida!");
-                }
             }
             return check;
         }

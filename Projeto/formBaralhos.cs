@@ -46,9 +46,11 @@ namespace Projeto {
         }
 
         private void btEliminar_Click(object sender, EventArgs e) {
-            deckRepo.DeleteDeck(lbBaralhos.SelectedIndex);
-            RefreshDeckList();
-            DisableCardsList();
+            if (lbBaralhos.SelectedIndex > 0) {
+                deckRepo.DeleteDeck(lbBaralhos.SelectedIndex);
+                RefreshDeckList();
+                DisableCardsList();
+            }
         }
 
         private void lbBaralhos_MouseDoubleClick(object sender, MouseEventArgs e) {
