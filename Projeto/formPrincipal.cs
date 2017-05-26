@@ -33,7 +33,7 @@ namespace Projeto
 
         private void btTorneios_Click(object sender, EventArgs e) {
             if (!formsOpen.OfType<formTorneios>().Any()) {
-                new formTorneios(dbContainer,false).Show();
+                new formTorneios(dbContainer).Show();
             } else {
                 formsOpen.OfType<formTorneios>().First().Focus();
             }

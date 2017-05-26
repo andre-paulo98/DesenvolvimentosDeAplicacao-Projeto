@@ -66,6 +66,18 @@ namespace Projeto {
             return dbContainer.Tournament.OfType<TeamTournament>().ToList();
         }
 
+        public List<StandardToutnament> getStandardTournamentOfRefereeList(Referee arbitro) {
+            return (from tourn in dbContainer.Tournament.OfType<StandardToutnament>()
+                    where tourn.Game.Any(jogo => jogo.Referee == arbitro)
+                    select tourn).ToList();
+        }
+
+        public List<TeamTournament> getTeamTournamentOfRefereeList(Referee arbitro) {
+            return (from tourn in dbContainer.Tournament.OfType<TeamTournament>()
+                    where tourn.Game.Any(jogo => jogo.Referee == arbitro)
+                    select tourn).ToList();
+        }
+
         private bool checkTournament(Tournament torneio) {
             bool check = false;
             if(torneio.Name.Length == 0) {

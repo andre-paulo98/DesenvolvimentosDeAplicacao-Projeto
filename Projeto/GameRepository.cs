@@ -73,6 +73,22 @@ namespace Projeto {
             return dbConteirner.Tournament.OfType<TeamTournament>().ToList().Find(tour => tour == tourn).Game.ToList();
         }
 
+        public List<StandardGame> getStandardGamesOfRefereeList(StandardToutnament tourn, Referee arbitro) {
+            return (from jogo in dbConteirner.Tournament.
+                    OfType<StandardToutnament>().ToList().
+                    Find(t => t == tourn).Game
+                    where jogo.Referee.Id == arbitro.Id
+                    select jogo).ToList();
+        }
+
+        public List<TeamGame> getTeamGamesOfRefereeList(TeamTournament tourn, Referee arbitro) {
+            return (from jogo in dbConteirner.Tournament.
+                    OfType<TeamTournament>().ToList().
+                    Find(t => t == tourn).Game
+                    where jogo.Referee.Id == arbitro.Id
+                    select jogo).ToList();
+        }
+
         private bool GameChecker(Game jogo) {
             bool flag = false;
             if (jogo.Referee == null) {
@@ -81,8 +97,6 @@ namespace Projeto {
                 ErroMensagem("Baralho1 do jogo não definido!");
             } else if (jogo.DeckTwo == null) {
                 ErroMensagem("Baralho2 do jogo não definido!");
-            } else if (!NumeroGameCheck(jogo.Number)) {
-                ErroMensagem("Numero já existente!\n Escolha um novo numero.");
             } else if (jogo.Date == null) {
                 ErroMensagem("Data do jogo não definido!");
             }else {
@@ -92,35 +106,27 @@ namespace Projeto {
         }
 
         private bool StandardGameChecker(StandardGame jogo) {
-            bool flag = false;
-            if (!GameChecker(jogo)) {
-
-            }else if (jogo.PlayerOne == null) {
+            bool flag = GameChecker(jogo);
+            if (jogo.PlayerOne == null) {
                 ErroMensagem("O jogador 1 não está definido!");
-            }else if(jogo.PlayerTwo == null) {
+                flag = false;
+            } else if(jogo.PlayerTwo == null) {
                 ErroMensagem("O Jogador 2 não está definida!");
+                flag = false;
             }else {
                 flag = true;
             }
             return flag;
         }
         private bool TeamGameChecker(TeamGame jogo) {
-            bool flag = false;
-            if (!GameChecker(jogo)) {
-
-            } else if (jogo.TeamOne == null) {
+            bool flag = GameChecker(jogo);
+            if (jogo.TeamOne == null) {
                 ErroMensagem("A equipa 1 não está definido!");
+                flag = false;
             } else if (jogo.TeamTwo == null) {
                 ErroMensagem("A equipa 2 não está definida!");
+                flag = false;
             } else {
-                flag = true;
-            }
-            return flag;
-        }
-
-        private bool NumeroGameCheck(int numero) {
-            bool flag = false;
-            if (dbConteirner.Game.ToList().Find(game => game.Id == numero) == null) {
                 flag = true;
             }
             return flag;

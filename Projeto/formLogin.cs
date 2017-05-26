@@ -50,7 +50,7 @@ namespace Projeto {
 
             if (arbitroLogin.Count == 1)//Verifica se é arbitro
             {
-                formTorneios = new formTorneios(dbContainer, true);
+                formTorneios = new formTorneios(dbContainer, arbitroLogin.First());
                 formTorneios.Show();
                 Hide();
             }
