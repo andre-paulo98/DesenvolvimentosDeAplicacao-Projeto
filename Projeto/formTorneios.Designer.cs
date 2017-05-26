@@ -623,6 +623,7 @@
             this.Name = "formTorneios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Torneios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formTorneios_FormClosing);
             this.gbTorneio.ResumeLayout(false);
             this.gbTorneio.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -42,7 +42,7 @@ namespace Projeto {
         {
             InitializeComponent();
             this.dbContainer = dbContainer;
-            this.dbContainer = dbContainer;
+            this.flagLoginArbitro = flag;
             tourRepo = new TournamentRepository(dbContainer);
             gameRepo = new GameRepository(dbContainer);
             arbitroRepo = new ArbitroRepository(dbContainer);
@@ -52,9 +52,17 @@ namespace Projeto {
             RefreshListTorneiosNormais();
             RefreshListTorneiosEquipas();
         }
+
+        private void formTorneios_FormClosing(object sender, FormClosingEventArgs e) {
+            if (flagLoginArbitro)
+                Application.Exit();
+        }
+
         private void btNovoTorn_Click(object sender, EventArgs e) {
             flagEditarTorneio = false;
             AtivarFormTorneio(true);
+            AtivarFormJogo(false);
+            LimpaFormJogos();
             btNovoTorn.Enabled = false;
             btNovoJog.Enabled = false;
             LimpaFormTorneio();
@@ -182,7 +190,7 @@ namespace Projeto {
                     RefreshListJogos(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
                 } else {
                     gameRepo.DeleteGame(listaTeamGames.ElementAt(lbJogos.SelectedIndex));
-                    RefreshListJogos(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
+                    RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
                 }
             }
             LimpaFormJogos();
@@ -258,8 +266,7 @@ namespace Projeto {
         private void lbJogos_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbJogos.SelectedIndex >= 0) {
                 flagEditarJogo = true;
-                //PreencherJogo(lbJogos.SelectedIndex);
-                RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
+                PreencherJogo(lbJogos.SelectedIndex);              
                 rbNormal.Enabled = false;
             }
         }
@@ -419,10 +426,34 @@ namespace Projeto {
             }
         }
 
-        /*private void PreencherJogo(Game jogo) {
+        private void PreencherJogo(int index) {
+            AtivarFormJogo(true);
             fillBaralhos();
-            fill
-        }*/
+            fillReferee();
+            Game jogo;
+            if (rbNormal.Checked) {
+                jogo = listaStandGames.ElementAt(index);
+                fillJogadores();
+                StandardGame Standjogo;
+                Standjogo = listaStandGames.ElementAt(index);
+                cbJogEqu1.SelectedItem = Standjogo.PlayerOne.Name;
+                cbJogEqu2.SelectedItem = Standjogo.PlayerTwo.Name;
+
+            } else {
+                jogo = listaTeamGames.ElementAt(index);
+                fillEquipas();
+                TeamGame Teamjogo;
+                Teamjogo = listaTeamGames.ElementAt(index);
+                cbJogEqu1.SelectedItem = Teamjogo.TeamOne.Name;
+                cbJogEqu2.SelectedItem = Teamjogo.TeamTwo.Name;
+            }
+            nudNumeroJog.Value = jogo.Number;
+            dpDataJog.Value = jogo.Date;
+            tbDescricaoJog.Text = jogo.Description;
+            cbArbitro.SelectedItem = jogo.Referee.Name;
+            cbBaralho1.SelectedItem = jogo.DeckOne.Name;
+            cbBaralho2.SelectedItem = jogo.DeckTwo.Name;
+        }
 
         /// <summary>
         /// Preenche a comboBox cbBaralho1 com os arbitros
@@ -518,5 +549,6 @@ namespace Projeto {
             }
             return flag;
         }
+
     }
 }
