@@ -50,6 +50,12 @@ namespace Projeto
             return ((from user in container.User
                        where user.Username.ToUpper() == Username1.ToUpper()
                        select user).ToList<User>().Count != 0); //se existir return true
-        } 
+        }
+        public bool VerifyTorneio(Referee arbitro)
+        {
+            return ((from game in container.Game
+                     where game.RefereeId == arbitro.Id
+                     select game).ToList().Count != 0); //se existir return true
+        }
     }
 }

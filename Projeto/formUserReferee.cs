@@ -52,10 +52,16 @@ namespace Projeto
         {
             if (lbArbitros.SelectedIndex != -1)
             {
-                arbitroRepos.DeleteReferee(arbitroList.ElementAt(lbArbitros.SelectedIndex));//remover arbitro com o metodo DeleteReferee no arbitro repos
-                RefreshView();
+                if (arbitroRepos.VerifyTorneio(arbitroList.ElementAt(lbArbitros.SelectedIndex)))
+                {
+                    MessageBox.Show("Este arbitro está associado a um torneio!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Mensagem de erro
+                }
+                else
+                {
+                    arbitroRepos.DeleteReferee(arbitroList.ElementAt(lbArbitros.SelectedIndex));//remover arbitro com o metodo DeleteReferee no arbitro repos
+                    RefreshView();
+                }
             }
-            
         }
 
         private void lbArbitros_SelectedIndexChanged(object sender, EventArgs e)
