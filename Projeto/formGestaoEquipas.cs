@@ -53,5 +53,35 @@ namespace Projeto {
         private Team getSelectedTeam() {
             return eqRepo.GetTeam(lbListaEquipas.SelectedIndex);
         }
+
+        private void btRemover_Click(object sender, EventArgs e) {
+            if(lbListaEquipas.SelectedIndex > 0) {
+                eqRepo.deleteTeam(eqRepo.GetTeam(lbListaEquipas.SelectedIndex));
+                refreshList();
+                disablePlayers();
+            }
+        }
+
+        private void lbListaEquipas_DoubleClick(object sender, EventArgs e) {
+            if(lbListaEquipas.SelectedIndex >= 0) {
+                formEquipas formEquipa = new formEquipas(getSelectedTeam(), dbContainer);
+                formEquipa.FormClosing += (object formSender, FormClosingEventArgs fromE) => {
+                    refreshList();
+                };
+                formEquipa.ShowDialog(this);
+                disablePlayers();
+            }
+            /*
+            formEquipas formEquipa = new formEquipas(dbContainer);
+            formEquipa.FormClosing += (object formSender, FormClosingEventArgs fromE) => {
+                refreshList();
+            };
+            formEquipa.ShowDialog(this);*/
+        }
+
+        private void disablePlayers() {
+            lbListaJogadores.Visible = false;
+            lbListaEquipas.SelectedIndex = -1;
+        }
     }
 }

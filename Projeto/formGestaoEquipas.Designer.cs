@@ -129,6 +129,7 @@
             this.btRemover.TabIndex = 1;
             this.btRemover.Text = "Remover";
             this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // lbListaEquipas
             // 
@@ -141,6 +142,7 @@
             this.lbListaEquipas.Size = new System.Drawing.Size(275, 537);
             this.lbListaEquipas.TabIndex = 1;
             this.lbListaEquipas.SelectedIndexChanged += new System.EventHandler(this.lbListaEquipas_SelectedIndexChanged);
+            this.lbListaEquipas.DoubleClick += new System.EventHandler(this.lbListaEquipas_DoubleClick);
             // 
             // groupBox2
             // 

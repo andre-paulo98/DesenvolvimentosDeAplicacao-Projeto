@@ -47,5 +47,10 @@ namespace Projeto {
         public List<Team> getTeamsList() {
             return dbContainer.Team.ToList();
         }
+
+        public void deleteTeam(Team equipa) {
+            dbContainer.Team.Remove(equipa);
+            dbContainer.SaveChanges();
+        }
     }
 }

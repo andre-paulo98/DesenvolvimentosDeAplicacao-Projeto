@@ -241,7 +241,7 @@
             this.groupBox2.Size = new System.Drawing.Size(340, 361);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Jogadores na equipa {{NOME EQUIPA}}";
+            this.groupBox2.Text = "Jogadores na equipa";
             // 
             // lbJogadoresNaEquipa
             // 

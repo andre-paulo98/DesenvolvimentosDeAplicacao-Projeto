@@ -27,6 +27,19 @@ namespace Projeto {
             textBox1.Text = "1";textBox1.Text = "";
         }
 
+        public formEquipas(Team team, Modelo_Container dbContainer) {
+            InitializeComponent();
+            repoEquipas = new EquipasRepository(dbContainer);
+            repoPlayers = new PlayerRepository(dbContainer);
+            listPlayers = repoPlayers.GetPlayersListNotIn((List<Player>)team.Player);
+            foreach(Player player in listPlayers) {
+                lbSemEquipa.Items.Add(player.Name + "\t" + player.Nickname);
+            }
+            textBox1.Text = "1";
+            textBox1.Text = "";
+            this.Text = "Editar equipa";
+        }
+
         private void pbAvatar_Click(object sender, EventArgs e) {
             ofdAvatar.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             if(ofdAvatar.ShowDialog() != DialogResult.Cancel) {
