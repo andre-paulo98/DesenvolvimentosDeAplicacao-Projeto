@@ -26,19 +26,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formGestaoEquipas));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btNovo = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
             this.lbListaEquipas = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbListaJogadores = new System.Windows.Forms.ListBox();
-            this.lbSelecione = new System.Windows.Forms.Label();
+            this.labelSelecione = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,20 +70,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Equipas";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.lbListaJogadores);
-            this.groupBox2.Controls.Add(this.lbSelecione);
-            this.groupBox2.Location = new System.Drawing.Point(302, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 608);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lista de jogadores por equipa";
             // 
             // tableLayoutPanel2
             // 
@@ -154,6 +140,21 @@
             this.lbListaEquipas.Name = "lbListaEquipas";
             this.lbListaEquipas.Size = new System.Drawing.Size(275, 537);
             this.lbListaEquipas.TabIndex = 1;
+            this.lbListaEquipas.SelectedIndexChanged += new System.EventHandler(this.lbListaEquipas_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lbListaJogadores);
+            this.groupBox2.Controls.Add(this.labelSelecione);
+            this.groupBox2.Location = new System.Drawing.Point(302, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(301, 608);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lista de jogadores por equipa";
             // 
             // lbListaJogadores
             // 
@@ -163,21 +164,22 @@
             this.lbListaJogadores.FormattingEnabled = true;
             this.lbListaJogadores.Location = new System.Drawing.Point(6, 19);
             this.lbListaJogadores.Name = "lbListaJogadores";
+            this.lbListaJogadores.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbListaJogadores.Size = new System.Drawing.Size(289, 576);
             this.lbListaJogadores.TabIndex = 0;
             this.lbListaJogadores.Visible = false;
             // 
-            // lbSelecione
+            // labelSelecione
             // 
-            this.lbSelecione.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelSelecione.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSelecione.Location = new System.Drawing.Point(6, 19);
-            this.lbSelecione.Name = "lbSelecione";
-            this.lbSelecione.Size = new System.Drawing.Size(289, 576);
-            this.lbSelecione.TabIndex = 1;
-            this.lbSelecione.Text = "Selecione uma equipa para ver os detalhes";
-            this.lbSelecione.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSelecione.Location = new System.Drawing.Point(6, 19);
+            this.labelSelecione.Name = "labelSelecione";
+            this.labelSelecione.Size = new System.Drawing.Size(289, 576);
+            this.labelSelecione.TabIndex = 1;
+            this.labelSelecione.Text = "Selecione uma equipa para ver os detalhes";
+            this.labelSelecione.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formGestaoEquipas
             // 
@@ -192,9 +194,9 @@
             this.Text = "Gestão de Equipas";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -210,6 +212,6 @@
         private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.ListBox lbListaEquipas;
         private System.Windows.Forms.ListBox lbListaJogadores;
-        private System.Windows.Forms.Label lbSelecione;
+        private System.Windows.Forms.Label labelSelecione;
     }
 }

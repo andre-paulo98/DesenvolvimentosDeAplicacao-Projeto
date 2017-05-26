@@ -22,6 +22,15 @@ namespace Projeto {
             }
         }
 
+        public List<Team> GetTeamsList() {
+            return dbContainer.Team.ToList();
+        }
+
+        public Team GetTeam(int pos) {
+            Team team = dbContainer.Team.ToList().ElementAt(pos);
+            return team;
+        }
+
         public bool checkEquipa(Team equipa) {
             bool flag = false;
             if(equipa.Name.Length > 0) {
