@@ -70,16 +70,19 @@ namespace Projeto {
                     equipa.Name = tbNomeEquipa.Text.Trim();
                     equipa.Avatar = pbAvatar.ImageLocation;
                     equipa.Player = listPlayersInTeam;
-                    repoEquipas.novaEquipa(equipa);
-                    mensagem = "Equipa adicionada com sucesso";
+                    if(repoEquipas.novaEquipa(equipa))
+                        mensagem = "Equipa adicionada com sucesso";
                 } else {
                     teamEditar.Name = tbNomeEquipa.Text.Trim();
                     teamEditar.Avatar = pbAvatar.ImageLocation;
                     teamEditar.Player = listPlayersInTeam;
-                    repoEquipas.saveEquipa(teamEditar);
-                    mensagem = "Equipa guardada com sucesso";
+                    if(repoEquipas.saveEquipa(teamEditar))
+                        mensagem = "Equipa guardada com sucesso";
                 }
-                MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                if(mensagem != "") {
+                    MessageBox.Show(mensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.Close();
+                }
             } else {
                 MessageBox.Show("As equipas têm de ter obrigatoriamente 2 jogadores", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }

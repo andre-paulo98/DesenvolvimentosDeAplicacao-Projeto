@@ -15,16 +15,20 @@ namespace Projeto {
             listaEquipas = new List<Team>();
         }
 
-        public void novaEquipa(Team equipa) {
+        public bool novaEquipa(Team equipa) {
             if(checkEquipa(equipa)) {
                 dbContainer.Team.Add(equipa);
                 dbContainer.SaveChanges();
-            }
+                return true;
+            } else
+                return false;
         }
-        public void saveEquipa(Team equipa) {
+        public bool saveEquipa(Team equipa) {
             if(checkEquipa(equipa)) {
                 dbContainer.SaveChanges();
-            }
+                return true;
+            } else
+                return false;
         }
 
         public List<Team> GetTeamsList() {

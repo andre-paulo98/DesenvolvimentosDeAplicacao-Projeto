@@ -55,7 +55,7 @@ namespace Projeto {
         }
 
         private void btRemover_Click(object sender, EventArgs e) {
-            if(lbListaEquipas.SelectedIndex > 0) {
+            if(lbListaEquipas.SelectedIndex >= 0) {
                 eqRepo.deleteTeam(eqRepo.GetTeam(lbListaEquipas.SelectedIndex));
                 refreshList();
                 disablePlayers();
