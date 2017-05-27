@@ -324,7 +324,9 @@
   </Association>
   <Association Name="TeamTournamentTeamGame">
     <End Role="TeamGame" Type="Modelo.Store.Game_TeamGame" Multiplicity="*" />
-    <End Role="TeamTournament" Type="Modelo.Store.Tournament_TeamTournament" Multiplicity="1" />
+    <End Role="TeamTournament" Type="Modelo.Store.Tournament_TeamTournament" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <ReferentialConstraint>
       <Principal Role="TeamTournament">
         <PropertyRef Name="Id" />
@@ -589,8 +591,8 @@
             <End Role="Team" EntitySet="Team" />
           </AssociationSet>
           <AssociationSet Name="TeamTournamentTeamGame" Association="Modelo.TeamTournamentTeamGame">
-            <End Role="TeamGame" EntitySet="Game" />
-            <End Role="TeamTournament" EntitySet="Tournament" />
+            <End EntitySet="Game" Role="TeamGame" />
+            <End EntitySet="Tournament" Role="TeamTournament" />
           </AssociationSet>
           <AssociationSet Name="StandardToutnamentPlayer" Association="Modelo.StandardToutnamentPlayer">
             <End Role="StandardToutnament" EntitySet="Tournament" />
@@ -776,8 +778,10 @@
           <End Type="Modelo.Team" Role="Team" Multiplicity="0..1" />
         </Association>
         <Association Name="TeamTournamentTeamGame">
-          <End Type="Modelo.TeamGame" Role="TeamGame" Multiplicity="*" />
-          <End Type="Modelo.TeamTournament" Role="TeamTournament" Multiplicity="1" />
+          <End Type="Modelo.TeamGame" Multiplicity="*" Role="TeamGame"></End>
+          <End Type="Modelo.TeamTournament" Multiplicity="1" Role="TeamTournament" >
+            <OnDelete Action="Cascade" />
+          </End>
         </Association>
         <Association Name="StandardToutnamentPlayer">
           <End Type="Modelo.StandardToutnament" Role="StandardToutnament" Multiplicity="*" />

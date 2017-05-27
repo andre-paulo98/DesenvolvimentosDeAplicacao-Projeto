@@ -134,6 +134,8 @@
             // 
             // btNovoTorn
             // 
+            this.btNovoTorn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btNovoTorn.Location = new System.Drawing.Point(3, 3);
             this.btNovoTorn.Name = "btNovoTorn";
             this.btNovoTorn.Size = new System.Drawing.Size(85, 30);
@@ -199,7 +201,7 @@
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 142);
             this.label7.Name = "label7";
@@ -209,6 +211,8 @@
             // 
             // btRemoverTorn
             // 
+            this.btRemoverTorn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btRemoverTorn.Enabled = false;
             this.btRemoverTorn.Location = new System.Drawing.Point(532, 2);
             this.btRemoverTorn.Name = "btRemoverTorn";
@@ -224,17 +228,17 @@
             this.lbTorneiosNormais.FormattingEnabled = true;
             this.lbTorneiosNormais.Location = new System.Drawing.Point(3, 16);
             this.lbTorneiosNormais.Name = "lbTorneiosNormais";
-            this.lbTorneiosNormais.Size = new System.Drawing.Size(232, 219);
+            this.lbTorneiosNormais.Size = new System.Drawing.Size(232, 239);
             this.lbTorneiosNormais.TabIndex = 10;
             this.lbTorneiosNormais.SelectedIndexChanged += new System.EventHandler(this.lbTorneiosNormais_SelectedIndexChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbTorneiosNormais);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 238);
+            this.groupBox2.Size = new System.Drawing.Size(238, 258);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Torneios Normais";
@@ -280,8 +284,6 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 528);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
@@ -603,6 +605,8 @@
             // 
             // btGuardarTorn
             // 
+            this.btGuardarTorn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btGuardarTorn.Enabled = false;
             this.btGuardarTorn.Location = new System.Drawing.Point(441, 2);
             this.btGuardarTorn.Name = "btGuardarTorn";
@@ -619,7 +623,7 @@
             this.ClientSize = new System.Drawing.Size(876, 534);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(575, 319);
+            this.MinimumSize = new System.Drawing.Size(892, 573);
             this.Name = "formTorneios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Torneios";

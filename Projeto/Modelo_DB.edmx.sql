@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/25/2017 21:10:10
+-- Date Created: 05/27/2017 12:58:19
 -- Generated from EDMX file: D:\OneDrive - Instituto Politécnico de Leiria\2_Semestre\Desevolvimento de Aplicações\Projeto\Projeto\Modelo_DB.edmx
 -- --------------------------------------------------
 
@@ -504,7 +504,7 @@ ADD CONSTRAINT [FK_TeamTournamentTeamGame]
     FOREIGN KEY ([Tournament_Id])
     REFERENCES [dbo].[Tournament_TeamTournament]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TeamTournamentTeamGame'

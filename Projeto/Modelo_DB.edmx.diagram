@@ -17,8 +17,8 @@
         <AssociationConnector Association="Modelo.GameDeck2" />
         <EntityTypeShape EntityType="Modelo.Card" Width="1.5" PointX="6.375" PointY="2.375" />
         <AssociationConnector Association="Modelo.DeckCard" />
-        <EntityTypeShape EntityType="Modelo.TeamGame" Width="1.5" PointX="6.375" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.StandardGame" Width="1.5" PointX="0.5" PointY="6.25" />
+        <EntityTypeShape EntityType="Modelo.TeamGame" Width="1.5" PointX="6.875" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.StandardGame" Width="1.5" PointX="1" PointY="6.625" />
         <InheritanceConnector EntityType="Modelo.StandardGame" />
         <InheritanceConnector EntityType="Modelo.TeamGame" ManuallyRouted="false" >
         </InheritanceConnector>
@@ -29,11 +29,13 @@
         <EntityTypeShape EntityType="Modelo.Player" Width="1.75" PointX="0.625" PointY="10.375" />
         <AssociationConnector Association="Modelo.TeamGameTeam" />
         <AssociationConnector Association="Modelo.TeamGameTeam1" />
-        <AssociationConnector Association="Modelo.TeamTournamentTeamGame" ></AssociationConnector>
+        <AssociationConnector Association="Modelo.TeamTournamentTeamGame"></AssociationConnector>
         <InheritanceConnector EntityType="Modelo.TeamTournament" />
         <InheritanceConnector EntityType="Modelo.StandardToutnament" />
         <AssociationConnector Association="Modelo.StandardToutnamentPlayer" ManuallyRouted="true" >
-          <ConnectorPoint PointX="3" PointY="9.8249531901677827" />
+          <ConnectorPoint PointX="3" PointY="9.6995409829456314" />
+          <ConnectorPoint PointX="2.1908844852850486" PointY="10.154597195236718" />
+          <ConnectorPoint PointX="2.0456164288654364" PointY="10.236297682149871" />
           <ConnectorPoint PointX="1.7989959141504854" PointY="10.375" />
         </AssociationConnector>
         <AssociationConnector Association="Modelo.TeamPlayer" />

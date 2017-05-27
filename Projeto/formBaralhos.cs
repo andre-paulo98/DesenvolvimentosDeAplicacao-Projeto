@@ -46,7 +46,7 @@ namespace Projeto {
         }
 
         private void btEliminar_Click(object sender, EventArgs e) {
-            if (lbBaralhos.SelectedIndex > 0) {
+            if (lbBaralhos.SelectedIndex >= 0) {
                 deckRepo.DeleteDeck(lbBaralhos.SelectedIndex);
                 RefreshDeckList();
                 DisableCardsList();

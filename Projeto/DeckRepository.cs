@@ -33,8 +33,13 @@ namespace Projeto {
         }
 
         public void DeleteDeck(int pos) {
-            dbConteirner.Deck.Remove(GetDeck(pos));
-            dbConteirner.SaveChanges();
+            if (CheckDelete(GetDeck(pos))) {
+                dbConteirner.Deck.Remove(GetDeck(pos));
+                dbConteirner.SaveChanges();
+            }else {
+                MessageBox.Show("Este Baralho está associoado a um jogo!\n" +
+                    "Apenas poderá se eliminado caso não existam associações a nenhumo jogo!", "Baralho", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         public Deck GetDeck(int pos) {
@@ -49,6 +54,19 @@ namespace Projeto {
         public List<Card> GetDeckCardList(int pos) {
             List<Card> cartas = GetDeck(pos).Cards.Cast<Card>().ToList();
             return cartas;
+        }
+
+        public bool CheckDelete(Deck baralho) {
+            bool flag = true;
+            List<Game> listaJogos = (from game in dbConteirner.Game
+                                     where game.DeckOne.Id == baralho.Id ||
+                                     game.DeckTwo.Id == baralho.Id
+                                     select game).ToList();
+            if (listaJogos.Count > 0) {
+                flag = false;
+            }
+
+            return flag;
         }
 
         private bool DeckChecker(Deck baralho) {

@@ -47,22 +47,14 @@ namespace Projeto {
             return flag;
         }
 
-        public bool DeleteGame(StandardGame jogo) {
-            bool flag = StandardGameChecker(jogo);
-            if (flag) {
-                dbConteirner.Game.Remove(jogo);
-                dbConteirner.SaveChanges();
-            }
-            return flag;
+        public void DeleteGame(StandardGame jogo) {
+            dbConteirner.Game.Remove(jogo);
+            dbConteirner.SaveChanges();
         }
 
-        public bool DeleteGame(TeamGame jogo) {
-            bool flag = TeamGameChecker(jogo);
-            if (flag) {
-                dbConteirner.Game.Remove(jogo);
-                dbConteirner.SaveChanges();
-            }
-            return flag;
+        public void DeleteGame(TeamGame jogo) {
+            dbConteirner.Game.Remove(jogo);
+            dbConteirner.SaveChanges();
         }
 
         public List<StandardGame> getStandardGamesList(StandardToutnament tourn) {

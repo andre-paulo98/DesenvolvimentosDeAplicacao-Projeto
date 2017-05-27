@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>img\Joystick.ico</ApplicationIcon>
@@ -164,24 +164,6 @@
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="GameRepository.cs" />
-    <Compile Include="Player.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Referee.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StandardGame.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="StandardToutnament.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Team.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TeamGame.cs">
-      <DependentUpon>Modelo_DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,9 +179,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="PlayerRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Referee.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardGame.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardToutnament.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamGame.cs">
+      <DependentUpon>Modelo_DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="TeamTournament.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>

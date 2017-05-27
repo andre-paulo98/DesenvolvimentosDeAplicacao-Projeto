@@ -49,13 +49,9 @@ namespace Projeto {
             return flag;
         }
 
-        public bool DeleteTournament(Tournament torneio) {
-            bool flag = checkTournament(torneio);
-            if (flag) {
-                dbContainer.Tournament.Remove(torneio);
-                dbContainer.SaveChanges();
-            }
-            return flag;
+        public void DeleteTournament(Tournament torneio) {
+            dbContainer.Tournament.Remove(torneio);
+            dbContainer.SaveChanges();
         }
 
         public List<StandardToutnament> getStandardTournamentList() {

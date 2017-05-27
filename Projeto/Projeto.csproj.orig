@@ -22,7 +22,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Debug\</IntermediateOutputPath>
+<<<<<<< Updated upstream
+    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Debug\</IntermediateOutputPath>
+>>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +36,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs9653.tmp\Release\</IntermediateOutputPath>
+<<<<<<< Updated upstream
+    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Release\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Release\</IntermediateOutputPath>
+>>>>>>> Stashed changes
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>img\Joystick.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -160,12 +171,8 @@
     <Compile Include="Game.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="GameRepository.cs" />
     <Compile Include="Modelo_DB.Context.cs">
-=======
-    <Compile Include="Moledo_DB.Context.cs">
->>>>>>> 51682c1a882f497008972710d177e8177fb74622
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo_DB.Context.tt</DependentUpon>
@@ -211,7 +218,6 @@
     <Compile Include="User.cs">
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserRepository.cs" />
     <EmbeddedResource Include="formAdicionarAdmin.resx">
       <DependentUpon>formAdicionarAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +289,11 @@
     <Content Include="img\arbrito.png" />
     <Content Include="img\arbrito1.png" />
     <Content Include="img\Cards.png" />
+    <Content Include="Modelo_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Modelo_DB.cs</LastGenOutput>
+      <DependentUpon>Modelo_DB.edmx</DependentUpon>
+    </Content>
     <None Include="img\Decks.png" />
     <None Include="img\Default_user.png" />
     <Content Include="img\Joystick.ico" />
@@ -294,11 +305,6 @@
       <DependentUpon>Modelo_DB.edmx</DependentUpon>
     </Content>
     <Content Include="Modelo_DB.edmx.sql" />
-    <Content Include="Modelo_DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Modelo_DB.cs</LastGenOutput>
-      <DependentUpon>Modelo_DB.edmx</DependentUpon>
-    </Content>
     <Content Include="img\Player.png" />
     <Content Include="img\Search.png" />
     <Content Include="img\Teams.png" />

@@ -31,13 +31,15 @@ namespace Projeto {
             return flag;
         }
 
-        public bool DeletePlayer(Player player) {
-            bool flag = PlayerChecker(player);
-            if (flag) {
+        public void DeletePlayer(Player player) {
+            if (CheckDelete(player)) {
                 dbConteirner.Player.Remove(player);
                 dbConteirner.SaveChanges();
+            }else {
+                MessageBox.Show("Este Jogador está associoado a uma equipa!\n" +
+                    "Apenas poderá se eliminado caso não existam associações a nenhuma equipa!", "Jogador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            return flag;
+            
         }
 
         public List<Player> GetPlayersListNotIn(List<Player> players) {
@@ -74,6 +76,19 @@ namespace Projeto {
             }
             return flag;
         }
+
+        private bool CheckDelete(Player player) {
+            bool flag = true;
+            List<Team> listaEquipas = (from team in dbConteirner.Team
+                                       where team.Player.Any(pl => pl.Id == player.Id)
+                                       select team).ToList();
+            if(listaEquipas.Count > 0) {
+                flag = false;
+            }
+
+            return flag;
+        }
+
         private void ErroMensagem(string mensage) {
             MessageBox.Show(mensage, "Jogador - Dados Invalidos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }

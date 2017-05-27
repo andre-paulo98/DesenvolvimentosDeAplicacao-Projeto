@@ -95,6 +95,8 @@ namespace Projeto {
             }
             LimpaFormTorneio();
             AtivarFormTorneio(false);
+            LimpaFormJogos();
+            AtivarFormJogo(false);
             btNovoTorn.Enabled = true;
         }
 
@@ -113,6 +115,8 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
+                        LimpaFormJogos();
+                        AtivarFormJogo(false);
                         RefreshListTorneiosNormais();
                         lbTorneiosNormais.SelectedIndex = lbTorneiosNormais.Items.Count - 1;
                     }
@@ -120,7 +124,9 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        RefreshListTorneiosEquipas();
+                        RefreshListTorneiosNormais();
+                        LimpaFormJogos();
+                        AtivarFormJogo(false);
                         flagEditarTorneio = false;
                     }
                 }
@@ -138,6 +144,8 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
+                        LimpaFormJogos();
+                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         lbTorneiosEquipas.SelectedIndex = lbTorneiosEquipas.Items.Count - 1;
                     }
@@ -145,6 +153,8 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
+                        LimpaFormJogos();
+                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         flagEditarTorneio = false;
                     }
@@ -521,7 +531,7 @@ namespace Projeto {
             }else {
                 flag = false;
                 MessageBox.Show(this,"Nenhum Arbitro disponivel!\nTem de cria novos arbitros para poder criat um jogo",
-                    "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             return flag;
         }
@@ -540,7 +550,7 @@ namespace Projeto {
             if (listaDecks1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Baralhos insuficientes!\nTem de ter no minimo 2 baralhos para poder criar um jogo",
-                     "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                     "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }else if(listaDecks1.Count > 0){
                     cbBaralho1.SelectedIndex = 0;
             } else {
@@ -565,13 +575,13 @@ namespace Projeto {
             if (listaPlayers1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Jogadores insuficientes!\nTem de ter no minimo 2 jogadores para poder criar um jogo",
-                     "Jogos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                     "Jogos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }else if (listaPlayers1.Count > 0) {
                 cbJogEqu1.SelectedIndex = 0;
             } else {
                 flag = false;
                 MessageBox.Show(this, "Nenhum Jogador disponivel!\nTem de cria novos jogadores para poder criar um jogo",
-                    "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return flag;
         }
@@ -582,7 +592,7 @@ namespace Projeto {
         /// </summary>
         private bool fillEquipas() {
             bool flag = true;
-            listaTeams1 = equipaRepo.getTeamsList();
+            listaTeams1 = equipaRepo.GetTeamsList();
             cbJogEqu1.Items.Clear();
             foreach (Team team in listaTeams1) {
                 cbJogEqu1.Items.Add(team.Name);

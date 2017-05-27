@@ -44,25 +44,14 @@ namespace Projeto {
         /// Metodo responsavel por apagar uma carta.
         /// </summary>
         /// <param name="Id da Carta"></param>
-        /// <returns>TRUE - Se for eliminada | FALSE - se não</returns>
-        public bool DeleteCard(Card carta) {
-            bool flag = CardChecker(carta);
-            foreach (Deck deck in dbConteirner.Deck){
-                if(deck.Cards.ToList().Find(card => card.Id == carta.Id) != null) {
-                    DialogResult result = MessageBox.Show("Esta carta está associada a um baralho!\n"+
-                        "Ao eliminar esta carta vai removela de todos os baralhos!\n"+
-                        "Pretende mesmo continuar?","Apagar Carta",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                    if(result == DialogResult.No) {
-                        flag = false;
-                    }
-                }
-            }
-
-            if (flag) {
+        public void DeleteCard(Card carta) {
+            if (CheckDelete(carta)) {
                 dbConteirner.Card.Remove(carta);
                 dbConteirner.SaveChanges();
+            }else {
+                MessageBox.Show("Esta carta está associoado a um baralho!\n" +
+                   "Apenas poderá se eliminado caso não existam associações a nenhum baralho!", "Cartas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            return flag;
         }
         /// <summary>
         /// Metodo responsavel por listar todas
@@ -131,6 +120,17 @@ namespace Projeto {
         /// <param name="mensage">Mensagem a ser mostrada</param>
         private void ErroMensagem(string mensage) {
             MessageBox.Show(mensage, "Cartas - Dados Invalidos",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+        }
+
+        private bool CheckDelete(Card carta) {
+            bool flag = true;
+            List<Deck> listaBaralho = (from deck in dbConteirner.Deck
+                                       where deck.Cards.Any(cart => cart.Id == carta.Id)
+                                       select deck).ToList();
+            if (listaBaralho.Count > 0) {
+                flag = false;
+            }
+            return flag;
         }
     }
 }
