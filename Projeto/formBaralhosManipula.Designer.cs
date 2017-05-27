@@ -50,7 +50,7 @@
             // 
             this.btAdicionar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdicionar.Location = new System.Drawing.Point(6, 132);
+            this.btAdicionar.Location = new System.Drawing.Point(6, 181);
             this.btAdicionar.Margin = new System.Windows.Forms.Padding(5);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(40, 40);
@@ -63,7 +63,7 @@
             // 
             this.btRemover.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRemover.Location = new System.Drawing.Point(6, 202);
+            this.btRemover.Location = new System.Drawing.Point(6, 251);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(40, 40);
             this.btRemover.TabIndex = 1;
@@ -79,7 +79,7 @@
             this.lbBaralho.ItemHeight = 20;
             this.lbBaralho.Location = new System.Drawing.Point(3, 16);
             this.lbBaralho.Name = "lbBaralho";
-            this.lbBaralho.Size = new System.Drawing.Size(232, 307);
+            this.lbBaralho.Size = new System.Drawing.Size(211, 405);
             this.lbBaralho.TabIndex = 2;
             // 
             // lbDisponiveis
@@ -90,7 +90,7 @@
             this.lbDisponiveis.ItemHeight = 20;
             this.lbDisponiveis.Location = new System.Drawing.Point(3, 16);
             this.lbDisponiveis.Name = "lbDisponiveis";
-            this.lbDisponiveis.Size = new System.Drawing.Size(233, 307);
+            this.lbDisponiveis.Size = new System.Drawing.Size(211, 405);
             this.lbDisponiveis.TabIndex = 3;
             // 
             // lbNome
@@ -125,7 +125,7 @@
             // btCancelar
             // 
             this.btCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCancelar.Location = new System.Drawing.Point(424, 5);
+            this.btCancelar.Location = new System.Drawing.Point(386, 5);
             this.btCancelar.Margin = new System.Windows.Forms.Padding(5);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(120, 31);
@@ -136,6 +136,9 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
@@ -144,13 +147,12 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(549, 382);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(506, 480);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // groupBox1
@@ -159,7 +161,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 326);
+            this.groupBox1.Size = new System.Drawing.Size(217, 424);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cartas no Baralho:";
@@ -168,9 +170,9 @@
             // 
             this.groupBox2.Controls.Add(this.lbDisponiveis);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(307, 53);
+            this.groupBox2.Location = new System.Drawing.Point(286, 53);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 326);
+            this.groupBox2.Size = new System.Drawing.Size(217, 424);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cartas Disponiveis:";
@@ -180,9 +182,9 @@
             this.panel1.Controls.Add(this.btRemover);
             this.panel1.Controls.Add(this.btAdicionar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(247, 53);
+            this.panel1.Location = new System.Drawing.Point(226, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(54, 326);
+            this.panel1.Size = new System.Drawing.Size(54, 424);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -193,7 +195,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(543, 44);
+            this.panel2.Size = new System.Drawing.Size(500, 44);
             this.panel2.TabIndex = 3;
             // 
             // panel3
@@ -201,19 +203,20 @@
             this.panel3.Controls.Add(this.btGuardar);
             this.panel3.Controls.Add(this.btCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 385);
+            this.panel3.Location = new System.Drawing.Point(0, 486);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(549, 41);
+            this.panel3.Size = new System.Drawing.Size(511, 41);
             this.panel3.TabIndex = 11;
             // 
             // formBaralhosManipula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 426);
+            this.ClientSize = new System.Drawing.Size(511, 527);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(392, 371);
             this.Name = "formBaralhosManipula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Title";

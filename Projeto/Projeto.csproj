@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\liobi\AppData\Local\Temp\vs4ACB.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\liobi\AppData\Local\Temp\vs4ACB.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\UTILIZ~1\AppData\Local\Temp\vsE2DD.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>img\Joystick.ico</ApplicationIcon>

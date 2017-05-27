@@ -66,7 +66,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(189, 331);
+            this.groupBox1.Size = new System.Drawing.Size(190, 305);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jogadores:";
@@ -79,7 +79,7 @@
             this.lbJogadores.ItemHeight = 20;
             this.lbJogadores.Location = new System.Drawing.Point(3, 16);
             this.lbJogadores.Name = "lbJogadores";
-            this.lbJogadores.Size = new System.Drawing.Size(183, 312);
+            this.lbJogadores.Size = new System.Drawing.Size(184, 286);
             this.lbJogadores.TabIndex = 8;
             this.lbJogadores.SelectedIndexChanged += new System.EventHandler(this.lbJogadores_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@
             this.gbFormJogador.Enabled = false;
             this.gbFormJogador.Location = new System.Drawing.Point(0, 0);
             this.gbFormJogador.Name = "gbFormJogador";
-            this.gbFormJogador.Size = new System.Drawing.Size(424, 331);
+            this.gbFormJogador.Size = new System.Drawing.Size(424, 305);
             this.gbFormJogador.TabIndex = 1;
             this.gbFormJogador.TabStop = false;
             this.gbFormJogador.Text = "Dados do Jogador:";
@@ -216,7 +216,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(625, 427);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(626, 401);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // pBotoes
@@ -225,7 +225,7 @@
             this.pBotoes.Controls.Add(this.btEliminar);
             this.pBotoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pBotoes.Enabled = false;
-            this.pBotoes.Location = new System.Drawing.Point(198, 390);
+            this.pBotoes.Location = new System.Drawing.Point(199, 364);
             this.pBotoes.Name = "pBotoes";
             this.pBotoes.Size = new System.Drawing.Size(424, 34);
             this.pBotoes.TabIndex = 2;
@@ -256,9 +256,9 @@
             // 
             this.panel1.Controls.Add(this.gbFormJogador);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(198, 53);
+            this.panel1.Location = new System.Drawing.Point(199, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 331);
+            this.panel1.Size = new System.Drawing.Size(424, 305);
             this.panel1.TabIndex = 11;
             // 
             // panel3
@@ -270,14 +270,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(619, 44);
+            this.panel3.Size = new System.Drawing.Size(620, 44);
             this.panel3.TabIndex = 12;
             // 
             // btSearchClear
             // 
             this.btSearchClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btSearchClear.Image = ((System.Drawing.Image)(resources.GetObject("btSearchClear.Image")));
-            this.btSearchClear.Location = new System.Drawing.Point(572, 6);
+            this.btSearchClear.Location = new System.Drawing.Point(573, 6);
             this.btSearchClear.Name = "btSearchClear";
             this.btSearchClear.Size = new System.Drawing.Size(37, 31);
             this.btSearchClear.TabIndex = 11;
@@ -289,7 +289,7 @@
             this.btSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btSearch.BackColor = System.Drawing.Color.Transparent;
             this.btSearch.Image = ((System.Drawing.Image)(resources.GetObject("btSearch.Image")));
-            this.btSearch.Location = new System.Drawing.Point(529, 6);
+            this.btSearch.Location = new System.Drawing.Point(530, 6);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(37, 31);
             this.btSearch.TabIndex = 10;
@@ -304,7 +304,7 @@
             this.tbSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.tbSearch.Location = new System.Drawing.Point(9, 9);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(480, 26);
+            this.tbSearch.Size = new System.Drawing.Size(481, 26);
             this.tbSearch.TabIndex = 9;
             this.tbSearch.Text = "Nome do Jogador ...";
             this.tbSearch.GotFocus += new System.EventHandler(this.tbSearch_GotFocus);
@@ -314,7 +314,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btNovo);
-            this.panel4.Location = new System.Drawing.Point(3, 390);
+            this.panel4.Location = new System.Drawing.Point(3, 364);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(189, 34);
             this.panel4.TabIndex = 13;
@@ -334,10 +334,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 427);
+            this.ClientSize = new System.Drawing.Size(626, 401);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(634, 305);
             this.Name = "formJogadores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulário Jogadores";
             this.groupBox1.ResumeLayout(false);
             this.gbFormJogador.ResumeLayout(false);

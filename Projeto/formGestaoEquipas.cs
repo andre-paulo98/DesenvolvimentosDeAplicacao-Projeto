@@ -71,12 +71,6 @@ namespace Projeto {
                 formEquipa.ShowDialog(this);
                 disablePlayers();
             }
-            /*
-            formEquipas formEquipa = new formEquipas(dbContainer);
-            formEquipa.FormClosing += (object formSender, FormClosingEventArgs fromE) => {
-                refreshList();
-            };
-            formEquipa.ShowDialog(this);*/
         }
 
         private void disablePlayers() {
