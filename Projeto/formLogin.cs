@@ -21,11 +21,12 @@ namespace Projeto {
         public formLogin()
         {
             InitializeComponent();
-            formPrincipal = new formPrincipal(dbContainer);
+           
             arbitroRepos = new ArbitroRepository(dbContainer);
             adminRepos = new AdminRepository(dbContainer);
             arbitroLogin = new List<Referee>();
             adminLogin = new List<Administrador>();
+            
             
         }
 
@@ -45,17 +46,17 @@ namespace Projeto {
             adminLogin = (
                 from admin in adminRepos.GetAdminList()
                 where admin.Username == username && admin.Password == password
-                select admin
-                ).OfType<Administrador>().ToList();//Pesquisa por administrador na base de dados
+                select admin).OfType<Administrador>().ToList();//Pesquisa por administrador na base de dados
 
             if (arbitroLogin.Count == 1)//Verifica se é arbitro
             {
-                formTorneios = new formTorneios(dbContainer, arbitroLogin.First());
+                formTorneios = new formTorneios(dbContainer, arbitroLogin.First(), this);
                 formTorneios.Show();
                 Hide();
             }
             else if (adminLogin.Count == 1)
             {
+                formPrincipal = new formPrincipal(dbContainer, this);
                 formPrincipal.Show();
                 Hide();
             }
@@ -65,6 +66,11 @@ namespace Projeto {
                 btLogin.Text = "Login";
                 btLogin.Enabled = true;
             }
+        }
+
+        public void ativaCampos() {
+            btLogin.Text = "Login";
+            btLogin.Enabled = true;
         }
     }
 }

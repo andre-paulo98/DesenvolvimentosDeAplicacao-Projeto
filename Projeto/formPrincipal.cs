@@ -8,10 +8,13 @@ namespace Projeto
     {
         Modelo_Container dbContainer;
         FormCollection formsOpen = Application.OpenForms;
-        public formPrincipal(Modelo_Container dbContainer)
+        formLogin formlogin; 
+        bool loggingout = false;
+        public formPrincipal(Modelo_Container dbContainer, formLogin formlogin)
         {
             InitializeComponent();
             this.dbContainer = dbContainer;
+            this.formlogin = formlogin;
         }
 
         private void btUtilizadores_Click(object sender, EventArgs e)
@@ -64,8 +67,16 @@ namespace Projeto
         }
 
         private void formPrincipal_FormClosing(object sender, FormClosingEventArgs e) {
-            Application.Exit();
+            if(!loggingout)
+                Application.Exit();
+        }
 
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            loggingout = true;
+            formlogin.ativaCampos();
+            formlogin.Show();
+            this.Close();
+            
         }
     }
 }

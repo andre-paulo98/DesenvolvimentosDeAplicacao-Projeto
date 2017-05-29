@@ -35,22 +35,27 @@ namespace Projeto {
         private bool flagEditarTorneio = false;
         private bool flagEditarJogo = false;
         private bool flagLoginArbitro = false;
+        private bool flagLoggingOut = false;
 
         private Referee arbitro;
+        private formLogin formlogin;
 
         public formTorneios(Modelo_Container dbContainer)
         {
             InitializeComponent();
             this.dbContainer = dbContainer;
             Init();
+            menuStrip1.Visible = false;
         }
-        public formTorneios(Modelo_Container dbContainer,Referee arbitro ) {
+        public formTorneios(Modelo_Container dbContainer, Referee arbitro, formLogin formLogin) {
             InitializeComponent();
             this.dbContainer = dbContainer;
             Init();
             this.arbitro = arbitro;
+            this.formlogin = formLogin;
             flagLoginArbitro = true;
             btNovoTorn.Enabled = false;
+            menuStrip1.Visible = true;
         }
 
         private void Init() {
@@ -69,7 +74,7 @@ namespace Projeto {
 
         /********************************* EVENTOS ******************************************/
         private void formTorneios_FormClosing(object sender, FormClosingEventArgs e) {
-            if (flagLoginArbitro)
+            if (flagLoginArbitro && !flagLoggingOut)
                 Application.Exit();
         }
 
@@ -95,8 +100,6 @@ namespace Projeto {
             }
             LimpaFormTorneio();
             AtivarFormTorneio(false);
-            LimpaFormJogos();
-            AtivarFormJogo(false);
             btNovoTorn.Enabled = true;
         }
 
@@ -115,8 +118,6 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosNormais();
                         lbTorneiosNormais.SelectedIndex = lbTorneiosNormais.Items.Count - 1;
                     }
@@ -124,9 +125,7 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        RefreshListTorneiosNormais();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
+                        RefreshListTorneiosEquipas();
                         flagEditarTorneio = false;
                     }
                 }
@@ -144,8 +143,6 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         lbTorneiosEquipas.SelectedIndex = lbTorneiosEquipas.Items.Count - 1;
                     }
@@ -153,8 +150,6 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         flagEditarTorneio = false;
                     }
@@ -531,7 +526,7 @@ namespace Projeto {
             }else {
                 flag = false;
                 MessageBox.Show(this,"Nenhum Arbitro disponivel!\nTem de cria novos arbitros para poder criat um jogo",
-                    "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Stop);
             }
             return flag;
         }
@@ -550,7 +545,7 @@ namespace Projeto {
             if (listaDecks1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Baralhos insuficientes!\nTem de ter no minimo 2 baralhos para poder criar um jogo",
-                     "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }else if(listaDecks1.Count > 0){
                     cbBaralho1.SelectedIndex = 0;
             } else {
@@ -575,13 +570,13 @@ namespace Projeto {
             if (listaPlayers1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Jogadores insuficientes!\nTem de ter no minimo 2 jogadores para poder criar um jogo",
-                     "Jogos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     "Jogos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }else if (listaPlayers1.Count > 0) {
                 cbJogEqu1.SelectedIndex = 0;
             } else {
                 flag = false;
                 MessageBox.Show(this, "Nenhum Jogador disponivel!\nTem de cria novos jogadores para poder criar um jogo",
-                    "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             return flag;
         }
@@ -611,5 +606,11 @@ namespace Projeto {
             return flag;
         }
 
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            flagLoggingOut = true;
+            formlogin.ativaCampos();
+            formlogin.Show();
+            this.Close();
+        }
     }
 }
