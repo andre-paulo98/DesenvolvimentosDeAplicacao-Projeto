@@ -164,6 +164,7 @@
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="GameRepository.cs" />
+    <Compile Include="LogRepository.cs" />
     <Compile Include="Modelo_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

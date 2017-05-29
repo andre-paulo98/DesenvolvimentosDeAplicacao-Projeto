@@ -18,6 +18,7 @@ namespace Projeto {
         List<Referee> arbitroLogin;
         List<Administrador> adminLogin;
         formTorneios formTorneios;
+        //LogRepository logRepo = new LogRepository();
         public formLogin()
         {
             InitializeComponent();
@@ -50,12 +51,14 @@ namespace Projeto {
 
             if (arbitroLogin.Count == 1)//Verifica se é arbitro
             {
+                //logRepo.addToLog(username);
                 formTorneios = new formTorneios(dbContainer, arbitroLogin.First(), this);
                 formTorneios.Show();
                 Hide();
             }
             else if (adminLogin.Count == 1)
             {
+                //logRepo.addToLog(username);
                 formPrincipal = new formPrincipal(dbContainer, this);
                 formPrincipal.Show();
                 Hide();
