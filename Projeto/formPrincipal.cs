@@ -20,7 +20,7 @@ namespace Projeto
         private void btUtilizadores_Click(object sender, EventArgs e)
         {
             if (!formsOpen.OfType<formPickUser>().Any()) {
-                new formPickUser(dbContainer).Show();
+                new formPickUser(dbContainer).Show(this);
             }else {
                 formsOpen.OfType<formPickUser>().First().Focus();
             }
@@ -28,7 +28,7 @@ namespace Projeto
 
         private void btBaralhos_Click(object sender, EventArgs e) {
             if (!formsOpen.OfType<formBaralhos>().Any()) {
-                new formBaralhos(dbContainer).Show();
+                new formBaralhos(dbContainer).Show(this);
             } else {
                 formsOpen.OfType<formBaralhos>().First().Focus();
             }
@@ -36,7 +36,7 @@ namespace Projeto
 
         private void btTorneios_Click(object sender, EventArgs e) {
             if (!formsOpen.OfType<formTorneios>().Any()) {
-                new formTorneios(dbContainer).Show();
+                new formTorneios(dbContainer).Show(this);
             } else {
                 formsOpen.OfType<formTorneios>().First().Focus();
             }
@@ -44,7 +44,7 @@ namespace Projeto
 
         private void btJogadores_Click(object sender, EventArgs e) {
             if (!formsOpen.OfType<formJogadores>().Any()) {
-                new formJogadores(dbContainer).Show();
+                new formJogadores(dbContainer).Show(this);
             } else {
                 formsOpen.OfType<formJogadores>().First().Focus();
             }
@@ -52,7 +52,7 @@ namespace Projeto
 
         private void btCartas_Click(object sender, EventArgs e) {
             if (!formsOpen.OfType<formCartas>().Any()) {
-                new formCartas(dbContainer).Show();
+                new formCartas(dbContainer).Show(this);
             } else {
                 formsOpen.OfType<formCartas>().First().Focus();
             }
@@ -60,7 +60,7 @@ namespace Projeto
 
         private void btEquipas_Click(object sender, EventArgs e) {
             if(!formsOpen.OfType<formGestaoEquipas>().Any()) {
-                new formGestaoEquipas(dbContainer).Show();
+                new formGestaoEquipas(dbContainer).Show(this);
             } else {
                 formsOpen.OfType<formGestaoEquipas>().First().Focus();
             }
@@ -77,6 +77,14 @@ namespace Projeto
             formlogin.Show();
             this.Close();
             
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e) {
+            if(!formsOpen.OfType<formLog>().Any()) {
+                new formLog().Show(this);
+            } else {
+                formsOpen.OfType<formLog>().First().Focus();
+            }
         }
     }
 }
