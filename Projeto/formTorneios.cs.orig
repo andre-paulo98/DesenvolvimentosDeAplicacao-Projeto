@@ -13,8 +13,6 @@ namespace Projeto {
 
         private Modelo_Container dbContainer;
 
-        private Tournament tournament;
-
         private TournamentRepository tourRepo;
         private GameRepository gameRepo;
         private ArbitroRepository arbitroRepo;
@@ -36,24 +34,32 @@ namespace Projeto {
 
         private bool flagEditarTorneio = false;
         private bool flagEditarJogo = false;
-        private bool flagLoginArbitro;
+        private bool flagLoginArbitro = false;
+        private bool flagLoggingOut = false;
 
-<<<<<<< HEAD
-        private List<Tournament> listaTorneios;
-        public formTorneios(Modelo_Container dbContainer, bool flag)
+        private Referee arbitro;
+        private formLogin formlogin;
+
+        public formTorneios(Modelo_Container dbContainer)
         {
-=======
-        public formTorneios(Modelo_Container dbContainer) {
->>>>>>> Atualização formulario torneios
             InitializeComponent();
             this.dbContainer = dbContainer;
+            Init();
+            menuStrip1.Visible = false;
+        }
+        public formTorneios(Modelo_Container dbContainer, Referee arbitro, formLogin formLogin) {
+            InitializeComponent();
             this.dbContainer = dbContainer;
+            Init();
+            this.arbitro = arbitro;
+            this.formlogin = formLogin;
+            flagLoginArbitro = true;
+            btNovoTorn.Enabled = false;
+            menuStrip1.Visible = true;
+        }
+
+        private void Init() {
             tourRepo = new TournamentRepository(dbContainer);
-<<<<<<< HEAD
-            RefreshList();
-            dpData.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.flagLoginArbitro = flag;
-=======
             gameRepo = new GameRepository(dbContainer);
             arbitroRepo = new ArbitroRepository(dbContainer);
             deckRepo = new DeckRepository(dbContainer);
@@ -61,11 +67,22 @@ namespace Projeto {
             equipaRepo = new EquipasRepository(dbContainer);
             RefreshListTorneiosNormais();
             RefreshListTorneiosEquipas();
->>>>>>> Atualização formulario torneios
         }
+        /************************************************************************************/
+        /*                               TORNEIOS                                           */
+        /************************************************************************************/
+
+        /********************************* EVENTOS ******************************************/
+        private void formTorneios_FormClosing(object sender, FormClosingEventArgs e) {
+            if (flagLoginArbitro && !flagLoggingOut)
+                Application.Exit();
+        }
+
         private void btNovoTorn_Click(object sender, EventArgs e) {
             flagEditarTorneio = false;
             AtivarFormTorneio(true);
+            AtivarFormJogo(false);
+            LimpaFormJogos();
             btNovoTorn.Enabled = false;
             btNovoJog.Enabled = false;
             LimpaFormTorneio();
@@ -147,6 +164,8 @@ namespace Projeto {
                 flagEditarTorneio = true;
                 PreencherTorneio(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
                 RefreshListJogos(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
+                LimpaFormJogos();
+                AtivarFormJogo(false);
                 rbNormal.Checked = true;
                 rbEquipas.Enabled = false;
                 rbNormal.Enabled = true;
@@ -159,30 +178,108 @@ namespace Projeto {
                 flagEditarTorneio = true;
                 PreencherTorneio(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
                 RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
+                LimpaFormJogos();
+                AtivarFormJogo(false);
                 rbEquipas.Checked = true;
                 rbEquipas.Enabled = true;
                 rbNormal.Enabled = false;
             }
         }
 
+        /// <summary>
+        /// Altera o texto das lables e preenche a comboBox 
+        /// mediante a escolha do radioButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbEquipas_CheckedChanged(object sender, EventArgs e) {
+            if (rbEquipas.Checked == true) {
+                laJogEqu1.Text = "Equipa 1";
+                laJogEqu2.Text = "Equipa 2";
+            } else {
+                laJogEqu1.Text = "Jogador 1";
+                laJogEqu2.Text = "Jogador 2";
+            }
+        }
+
+        /************************* FUNÇOES AUXILIARES **************************************/
+
+        private void AtivarFormTorneio(bool flag) {
+            if (!flagLoginArbitro) {
+                gbTorneio.Enabled = flag;
+                btGuardarTorn.Enabled = flag;
+                btRemoverTorn.Enabled = flag;
+                rbEquipas.Enabled = flag;
+                rbNormal.Enabled = flag;
+                if (flagEditarTorneio) {
+                    btNovoJog.Enabled = true;
+                    btRemoverTorn.Text = "Remover";
+                } else {
+                    btRemoverTorn.Text = "Cancelar";
+                }
+            }
+        }
+
+        private void LimpaFormTorneio() {
+            tbDescricaoTorneio.Text = "";
+            tbNomeTorneio.Text = "";
+            dpDataTorneio.Value = DateTime.Now;
+            lbTorneiosNormais.SelectedIndex = -1;
+            lbTorneiosEquipas.SelectedIndex = -1;
+            lbJogos.Items.Clear();
+        }
+
+        private void RefreshListTorneiosNormais() {
+            LimpaFormTorneio();
+            if (flagLoginArbitro) {
+                listaStandardTourn = tourRepo.getStandardTournamentOfRefereeList(arbitro);
+            } else {
+                listaStandardTourn = tourRepo.getStandardTournamentList();
+            }
+            lbTorneiosNormais.Items.Clear();
+            foreach (StandardToutnament torn in listaStandardTourn) {
+                lbTorneiosNormais.Items.Add(torn.Name + "\t" + torn.Date.ToShortDateString());
+            }
+        }
+
+        private void RefreshListTorneiosEquipas() {
+            LimpaFormTorneio();
+            if (flagLoginArbitro) {
+                listaTeamTourn = tourRepo.getTeamTournamentOfRefereeList(arbitro);
+            } else {
+                listaTeamTourn = tourRepo.getTeamTournamentList();
+            }
+            lbTorneiosEquipas.Items.Clear();
+            foreach (TeamTournament torn in listaTeamTourn) {
+                lbTorneiosEquipas.Items.Add(torn.Name + "\t" + torn.Date.ToShortDateString());
+            }
+        }
+
+        private void PreencherTorneio(Tournament tourn) {
+            tbNomeTorneio.Text = tourn.Name;
+            tbDescricaoTorneio.Text = tourn.Descrition;
+            dpDataTorneio.Value = tourn.Date;
+            AtivarFormTorneio(true);
+        }
+
+
+        /************************************************************************************/
+        /*                                  JOGOS                                           */
+        /************************************************************************************/
+        
+        /********************************* EVENTOS ******************************************/
+
         private void btNovoJog_Click(object sender, EventArgs e) {
             flagEditarJogo = false;
             AtivarFormJogo(true);
             btNovoJog.Enabled = false;
             LimpaFormJogos();
-
-            if (!fillReferee()) {
-                this.Close();
-            } else if (!fillBaralhos()) {
-                this.Close();
+            fillReferee();
+            fillBaralhos();
+            if (rbNormal.Checked) {
+                fillJogadores();
             } else {
-                if (rbNormal.Checked) {
-                    if (!fillJogadores())
-                        this.Close();
-                } else {
-                    if (!fillEquipas())
-                        this.Close();
-                }
+                fillEquipas();
             }
         }
 
@@ -193,7 +290,7 @@ namespace Projeto {
                     RefreshListJogos(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
                 } else {
                     gameRepo.DeleteGame(listaTeamGames.ElementAt(lbJogos.SelectedIndex));
-                    RefreshListJogos(listaStandardTourn.ElementAt(lbTorneiosNormais.SelectedIndex));
+                    RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
                 }
             }
             LimpaFormJogos();
@@ -269,8 +366,7 @@ namespace Projeto {
         private void lbJogos_SelectedIndexChanged(object sender, EventArgs e) {
             if (lbJogos.SelectedIndex >= 0) {
                 flagEditarJogo = true;
-                PreencherJogo(lbJogos.SelectedIndex);
-                RefreshListJogos(listaTeamTourn.ElementAt(lbTorneiosEquipas.SelectedIndex));
+                PreencherJogo(lbJogos.SelectedIndex);              
                 rbNormal.Enabled = false;
             }
         }
@@ -291,22 +387,6 @@ namespace Projeto {
                 cbBaralho2.SelectedIndex = 0;
             }
         }
-        /// <summary>
-        /// Altera o texto das lables e preenche a comboBox 
-        /// mediante a escolha do radioButton
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void rbEquipas_CheckedChanged(object sender, EventArgs e) {
-            if (rbEquipas.Checked == true) {
-                laJogEqu1.Text = "Equipa 1";
-                laJogEqu2.Text = "Equipa 2";
-            } else {
-                laJogEqu1.Text = "Jogador 1";
-                laJogEqu2.Text = "Jogador 2";
-            }
-        }
-
 
         /// <summary>
         /// Preenche a comboBox cbJogEqu2 mediante o radioButton
@@ -318,12 +398,30 @@ namespace Projeto {
             if (rbEquipas.Checked == true) {
                 listaTeams2 = new List<Team>(listaTeams1);
                 listaTeams2.RemoveAt(cbJogEqu1.SelectedIndex);
+                //Eliminar as equipas com o mesmo player
+                List<Team> tempList = new List<Team>();
+                foreach(Player player in listaTeams1.ElementAt(cbJogEqu1.SelectedIndex).Player) {
+                    foreach (Team equipe in listaTeams2) {
+                        foreach (Player pla in equipe.Player) {
+                            if (pla.Id == player.Id) {
+                                tempList.Add(equipe);
+                            }
+                        }
+                    }
+                }
+                foreach(Team equipa in tempList) {
+                    listaTeams2.Remove(equipa);
+                }
+
                 cbJogEqu2.Items.Clear();
                 foreach (Team team in listaTeams2) {
                     cbJogEqu2.Items.Add(team.Name);
                 }
                 if (listaTeams2.Count > 0) {
                     cbJogEqu2.SelectedIndex = 0;
+                }else {
+                    DadosIncuficientes("Equipas", "Equipas insuficientes para criar um jogo!\n"+
+                        "Exitem jogadores que estam na mesma equipa!");
                 }
             } else {
                 listaPlayers2 = new List<Player>(listaPlayers1);
@@ -338,52 +436,7 @@ namespace Projeto {
             }
         }
 
-        private void AtivarFormTorneio(bool flag) {
-            gbTorneio.Enabled = flag;
-            btGuardarTorn.Enabled = flag;
-            btRemoverTorn.Enabled = flag;
-            rbEquipas.Enabled = flag;
-            rbNormal.Enabled = flag;
-            if (flagEditarTorneio) {
-                btNovoJog.Enabled = true;
-                btRemoverTorn.Text = "Remover";
-            } else {
-                btRemoverTorn.Text = "Cancelar";
-            }
-        }
-
-        private void LimpaFormTorneio() {
-            tbDescricaoTorneio.Text = "";
-            tbNomeTorneio.Text = "";
-            dpDataTorneio.Value = DateTime.Now;
-            lbTorneiosNormais.SelectedIndex = -1;
-            lbTorneiosEquipas.SelectedIndex = -1;
-            lbJogos.Items.Clear();
-        }
-
-        private void RefreshListTorneiosNormais() {
-            LimpaFormTorneio();
-            listaStandardTourn = tourRepo.getStandardTournamentList();
-            lbTorneiosNormais.Items.Clear();
-            foreach(StandardToutnament torn in listaStandardTourn) {
-                lbTorneiosNormais.Items.Add(torn.Name + "\t" + torn.Date.ToShortDateString());
-            }
-        }
-        private void RefreshListTorneiosEquipas() {
-            LimpaFormTorneio();
-            listaTeamTourn = tourRepo.getTeamTournamentList();
-            lbTorneiosEquipas.Items.Clear();
-            foreach (TeamTournament torn in listaTeamTourn) {
-                lbTorneiosEquipas.Items.Add(torn.Name + "\t" + torn.Date.ToShortDateString());
-            }
-        }
-
-        private void PreencherTorneio(Tournament tourn) {
-            tbNomeTorneio.Text = tourn.Name;
-            tbDescricaoTorneio.Text = tourn.Descrition;
-            dpDataTorneio.Value = tourn.Date;
-            AtivarFormTorneio(true);
-        }
+        /************************* FUNÇOES AUXILIARES **************************************/
 
         private void AtivarFormJogo(bool flag) {
             nudNumeroJog.Enabled = flag;
@@ -416,7 +469,11 @@ namespace Projeto {
 
         public void RefreshListJogos(StandardToutnament tourn) {
             lbJogos.Items.Clear();
-            listaStandGames = gameRepo.getStandardGamesList(tourn);
+            if (flagLoginArbitro) {
+                listaStandGames = gameRepo.getStandardGamesOfRefereeList(tourn,arbitro);
+            }else {
+                listaStandGames = gameRepo.getStandardGamesList(tourn);
+            }
             foreach (StandardGame game in listaStandGames) {
                 lbJogos.Items.Add(game.Number + "\t" + game.Date.ToShortDateString());
             }
@@ -424,36 +481,55 @@ namespace Projeto {
 
         private void RefreshListJogos(TeamTournament tourn) {
             lbJogos.Items.Clear();
+            if (flagLoginArbitro) {
+                listaTeamGames = gameRepo.getTeamGamesOfRefereeList(tourn,arbitro);
+            } else {
+                listaTeamGames = gameRepo.getTeamGamesList(tourn);
+            }
             listaTeamGames = gameRepo.getTeamGamesList(tourn);
             foreach (TeamGame game in listaTeamGames) {
                 lbJogos.Items.Add(game.Number + "\t" + game.Date.ToShortDateString());
             }
         }
 
-<<<<<<< HEAD
-        private void gbTorneio_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formTorneios_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (flagLoginArbitro)
-            {
-                Application.Exit();
-            }
-=======
-        private void PreencherJogo(Game jogo) {
+        private void PreencherJogo(int index) {
+            AtivarFormJogo(true);
             fillBaralhos();
-            fill
+            fillReferee();
+            Game jogo;
+            if (rbNormal.Checked) {
+                jogo = listaStandGames.ElementAt(index);
+                fillJogadores();
+                StandardGame Standjogo;
+                Standjogo = listaStandGames.ElementAt(index);
+                if (listaPlayers1.Count > 1 && listaDecks1.Count > 1) {
+                    cbJogEqu1.SelectedItem = Standjogo.PlayerOne.Name;
+                    cbJogEqu2.SelectedItem = Standjogo.PlayerTwo.Name;
+                }
+
+            } else {
+                jogo = listaTeamGames.ElementAt(index);
+                fillEquipas();
+                TeamGame Teamjogo;
+                Teamjogo = listaTeamGames.ElementAt(index);
+                if (listaTeams1.Count > 1 && listaDecks1.Count > 1) {
+                    cbJogEqu1.SelectedItem = Teamjogo.TeamOne.Name;
+                    cbJogEqu2.SelectedItem = Teamjogo.TeamTwo.Name;
+                }
+            }
+            nudNumeroJog.Value = jogo.Number;
+            dpDataJog.Value = jogo.Date;
+            tbDescricaoJog.Text = jogo.Description;
+            cbArbitro.SelectedItem = jogo.Referee.Name;
+            cbBaralho1.SelectedItem = jogo.DeckOne.Name;
+            cbBaralho2.SelectedItem = jogo.DeckTwo.Name;
         }
 
         /// <summary>
         /// Preenche a comboBox cbBaralho1 com os arbitros
         /// existentes e seleciona o primeiro item
         /// </summary>
-        public bool fillReferee() {
-            bool flag = true;
+        public void fillReferee() {
             listaArbitros = arbitroRepo.GetRefereeList();
             cbArbitro.Items.Clear();
             foreach (Referee refer in listaArbitros) {
@@ -462,48 +538,58 @@ namespace Projeto {
             if (listaArbitros.Count > 0) {
                 cbArbitro.SelectedIndex = 0;
             }else {
+<<<<<<< HEAD
+                DadosIncuficientes("Arbitros", "Arbitros insuficientes para criar um jogo!");
+=======
                 flag = false;
                 MessageBox.Show(this,"Nenhum Arbitro disponivel!\nTem de cria novos arbitros para poder criat um jogo",
                     "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+>>>>>>> 8f032f91bf569c4ca30c2e2def552795cd321344
             }
-            return flag;
         }
+        
         /// <summary>
         /// Preenche a comboBox cbBaralho1 com os baralhos
         /// existentes e seleciona o primeiro item
         /// </summary>
-        public bool fillBaralhos() {
-            bool flag = true;
+        public void fillBaralhos() {
             listaDecks1 = deckRepo.GetDecksList();
             cbBaralho1.Items.Clear();
             foreach (Deck deck in listaDecks1) {
                 cbBaralho1.Items.Add(deck.Name);
             }
+<<<<<<< HEAD
+            if(listaDecks1.Count >= 2){
+                cbBaralho1.SelectedIndex = 0;
+=======
             if (listaDecks1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Baralhos insuficientes!\nTem de ter no minimo 2 baralhos para poder criar um jogo",
                      "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }else if(listaDecks1.Count > 0){
                     cbBaralho1.SelectedIndex = 0;
+>>>>>>> 8f032f91bf569c4ca30c2e2def552795cd321344
             } else {
-                flag = false;
-                MessageBox.Show(this, "Nenhum Baralho disponivel!\nTem de cria novos baralho para poder criar um jogo",
-                    "Baralhos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DadosIncuficientes("Baralhos", "Baralhos insuficientes para criar um jogo!");
             }
-            return flag;
         }
 
         /// <summary>
         /// Preenche a comboBox cbJogEqu1 com Jogadores e se existir alguma coisa
         /// na lista seleciona o primeiro item se não limpa a comboBox
         /// </summary>
-        private bool fillJogadores() {
-            bool flag = true;
+        private void fillJogadores() {
             listaPlayers1 = playerRepo.GetPlayersList();
             cbJogEqu1.Items.Clear();
             foreach (Player player in listaPlayers1) {
                 cbJogEqu1.Items.Add(player.Name);
             }
+<<<<<<< HEAD
+            if (listaPlayers1.Count >= 2) {
+                cbJogEqu1.SelectedIndex = 0;
+            } else {
+                DadosIncuficientes("Jogadores", "Jogadores insuficientes para criar um jogo!");
+=======
             if (listaPlayers1.Count == 1) {
                 flag = false;
                 MessageBox.Show(this, "Jogadores insuficientes!\nTem de ter no minimo 2 jogadores para poder criar um jogo",
@@ -514,34 +600,46 @@ namespace Projeto {
                 flag = false;
                 MessageBox.Show(this, "Nenhum Jogador disponivel!\nTem de cria novos jogadores para poder criar um jogo",
                     "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+>>>>>>> 8f032f91bf569c4ca30c2e2def552795cd321344
             }
-            return flag;
         }
 
         /// <summary>
         /// Preenche a comboBox cbJogEqu1 com Equipas e se existir alguma coisa
         /// na lista seleciona o primeiro item se não limpa a comboBox
         /// </summary>
-        private bool fillEquipas() {
-            bool flag = true;
-            listaTeams1 = equipaRepo.getTeamsList();
+        private void fillEquipas() {
+            listaTeams1 = equipaRepo.GetTeamsList();
             cbJogEqu1.Items.Clear();
             foreach (Team team in listaTeams1) {
                 cbJogEqu1.Items.Add(team.Name);
             }
-            if (listaTeams1.Count == 1) {
-                flag = false;
-                MessageBox.Show(this, "Equipas insuficientes!\nTem de ter no minimo 2 equipas para poder criar um jogo",
-                "Equipas - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }else if (listaTeams1.Count > 0) {
+
+            if (listaTeams1.Count >= 2) {
                 cbJogEqu1.SelectedIndex = 0;
             } else {
-                flag = false;
-                MessageBox.Show(this, "Nenhuma Equipa disponivel!\nTem de cria novas equipas para poder criar um jogo",
-                    "Equipas - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DadosIncuficientes("Equipa", "Equipas insuficientes para criar um jogo!");
             }
-            return flag;
->>>>>>> Atualização formulario torneios
+        }
+<<<<<<< HEAD
+        /// <summary>
+        /// Mostra mensagem de erro de dados incuficientes
+        /// </summary>
+        /// <param name="text">Texto da mensagem</param>
+        /// <param name="title">Titulo da mensagem</param>
+        private void DadosIncuficientes(string title,string text) {
+            MessageBox.Show(this, text,
+                title, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            AtivarFormJogo(false);
+            LimpaFormJogos();
+=======
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            flagLoggingOut = true;
+            formlogin.ativaCampos();
+            formlogin.Show();
+            this.Close();
+>>>>>>> 8f032f91bf569c4ca30c2e2def552795cd321344
         }
     }
 }

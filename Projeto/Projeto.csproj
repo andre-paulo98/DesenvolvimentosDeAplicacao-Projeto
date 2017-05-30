@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs920B.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vsC257.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\HP8570PB\AppData\Local\Temp\vs920B.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>img\Joystick.ico</ApplicationIcon>
@@ -124,6 +124,12 @@
     <Compile Include="formJogadores.Designer.cs">
       <DependentUpon>formJogadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="formLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLog.Designer.cs">
+      <DependentUpon>formLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,7 @@
       <DependentUpon>Modelo_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="GameRepository.cs" />
+    <Compile Include="LogRepository.cs" />
     <Compile Include="Modelo_DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formJogadores.resx">
       <DependentUpon>formJogadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLog.resx">
+      <DependentUpon>formLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>

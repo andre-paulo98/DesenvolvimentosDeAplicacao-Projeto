@@ -36,7 +36,13 @@
             this.btCartas = new System.Windows.Forms.Button();
             this.btTorneios = new System.Windows.Forms.Button();
             this.btBaralhos = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -50,9 +56,9 @@
             this.groupBox1.Controls.Add(this.btCartas);
             this.groupBox1.Controls.Add(this.btTorneios);
             this.groupBox1.Controls.Add(this.btBaralhos);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 289);
+            this.groupBox1.Size = new System.Drawing.Size(484, 285);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -74,7 +80,7 @@
             // 
             this.btJogadores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btJogadores.Image = ((System.Drawing.Image)(resources.GetObject("btJogadores.Image")));
-            this.btJogadores.Location = new System.Drawing.Point(333, 159);
+            this.btJogadores.Location = new System.Drawing.Point(333, 155);
             this.btJogadores.Margin = new System.Windows.Forms.Padding(10);
             this.btJogadores.Name = "btJogadores";
             this.btJogadores.Size = new System.Drawing.Size(140, 120);
@@ -89,7 +95,7 @@
             // 
             this.btEquipas.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btEquipas.Image = ((System.Drawing.Image)(resources.GetObject("btEquipas.Image")));
-            this.btEquipas.Location = new System.Drawing.Point(173, 159);
+            this.btEquipas.Location = new System.Drawing.Point(173, 155);
             this.btEquipas.Margin = new System.Windows.Forms.Padding(10);
             this.btEquipas.Name = "btEquipas";
             this.btEquipas.Size = new System.Drawing.Size(140, 120);
@@ -119,7 +125,7 @@
             // 
             this.btTorneios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btTorneios.Image = ((System.Drawing.Image)(resources.GetObject("btTorneios.Image")));
-            this.btTorneios.Location = new System.Drawing.Point(13, 159);
+            this.btTorneios.Location = new System.Drawing.Point(13, 155);
             this.btTorneios.Margin = new System.Windows.Forms.Padding(10);
             this.btTorneios.Name = "btTorneios";
             this.btTorneios.Size = new System.Drawing.Size(140, 120);
@@ -145,21 +151,65 @@
             this.btBaralhos.UseVisualStyleBackColor = true;
             this.btBaralhos.Click += new System.EventHandler(this.btBaralhos_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opçõesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(508, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // opçõesToolStripMenuItem
+            // 
+            this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.sairToolStripMenuItem});
+            this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.opçõesToolStripMenuItem.Text = "Opções";
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logToolStripMenuItem.Text = "Log";
+            this.logToolStripMenuItem.Click += new System.EventHandler(this.logToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 313);
+            this.ClientSize = new System.Drawing.Size(508, 324);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "formPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPrincipal_FormClosing);
             this.groupBox1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -172,5 +222,10 @@
         private System.Windows.Forms.Button btTorneios;
         private System.Windows.Forms.Button btBaralhos;
         private System.Windows.Forms.Button btUtilizadores;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

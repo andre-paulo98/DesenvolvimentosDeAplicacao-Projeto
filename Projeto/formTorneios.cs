@@ -35,22 +35,27 @@ namespace Projeto {
         private bool flagEditarTorneio = false;
         private bool flagEditarJogo = false;
         private bool flagLoginArbitro = false;
+        private bool flagLoggingOut = false;
 
         private Referee arbitro;
+        private formLogin formlogin;
 
         public formTorneios(Modelo_Container dbContainer)
         {
             InitializeComponent();
             this.dbContainer = dbContainer;
             Init();
+            menuStrip1.Visible = false;
         }
-        public formTorneios(Modelo_Container dbContainer,Referee arbitro ) {
+        public formTorneios(Modelo_Container dbContainer, Referee arbitro, formLogin formLogin) {
             InitializeComponent();
             this.dbContainer = dbContainer;
             Init();
             this.arbitro = arbitro;
+            this.formlogin = formLogin;
             flagLoginArbitro = true;
             btNovoTorn.Enabled = false;
+            menuStrip1.Visible = true;
         }
 
         private void Init() {
@@ -69,7 +74,7 @@ namespace Projeto {
 
         /********************************* EVENTOS ******************************************/
         private void formTorneios_FormClosing(object sender, FormClosingEventArgs e) {
-            if (flagLoginArbitro)
+            if (flagLoginArbitro && !flagLoggingOut)
                 Application.Exit();
         }
 
@@ -95,8 +100,6 @@ namespace Projeto {
             }
             LimpaFormTorneio();
             AtivarFormTorneio(false);
-            LimpaFormJogos();
-            AtivarFormJogo(false);
             btNovoTorn.Enabled = true;
         }
 
@@ -115,8 +118,6 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosNormais();
                         lbTorneiosNormais.SelectedIndex = lbTorneiosNormais.Items.Count - 1;
                     }
@@ -124,9 +125,7 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        RefreshListTorneiosNormais();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
+                        RefreshListTorneiosEquipas();
                         flagEditarTorneio = false;
                     }
                 }
@@ -144,8 +143,6 @@ namespace Projeto {
                     if (tourRepo.AddTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         lbTorneiosEquipas.SelectedIndex = lbTorneiosEquipas.Items.Count - 1;
                     }
@@ -153,8 +150,6 @@ namespace Projeto {
                     if (tourRepo.EditTournament(tourn)) {
                         AtivarFormTorneio(false);
                         LimpaFormTorneio();
-                        LimpaFormJogos();
-                        AtivarFormJogo(false);
                         RefreshListTorneiosEquipas();
                         flagEditarTorneio = false;
                     }
@@ -598,7 +593,14 @@ namespace Projeto {
                 DadosIncuficientes("Equipa", "Equipas insuficientes para criar um jogo!");
             }
         }
-        /// <summary>
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            flagLoggingOut = true;
+            formlogin.ativaCampos();
+            formlogin.Show();
+            this.Close();
+        }
+		/// <summary>
         /// Mostra mensagem de erro de dados incuficientes
         /// </summary>
         /// <param name="text">Texto da mensagem</param>
