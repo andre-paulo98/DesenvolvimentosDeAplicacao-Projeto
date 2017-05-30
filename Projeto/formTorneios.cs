@@ -279,19 +279,12 @@ namespace Projeto {
             AtivarFormJogo(true);
             btNovoJog.Enabled = false;
             LimpaFormJogos();
-
-            if (!fillReferee()) {
-                this.Close();
-            } else if (!fillBaralhos()) {
-                this.Close();
+            fillReferee();
+            fillBaralhos();
+            if (rbNormal.Checked) {
+                fillJogadores();
             } else {
-                if (rbNormal.Checked) {
-                    if (!fillJogadores())
-                        this.Close();
-                } else {
-                    if (!fillEquipas())
-                        this.Close();
-                }
+                fillEquipas();
             }
         }
 
@@ -410,12 +403,30 @@ namespace Projeto {
             if (rbEquipas.Checked == true) {
                 listaTeams2 = new List<Team>(listaTeams1);
                 listaTeams2.RemoveAt(cbJogEqu1.SelectedIndex);
+                //Eliminar as equipas com o mesmo player
+                List<Team> tempList = new List<Team>();
+                foreach(Player player in listaTeams1.ElementAt(cbJogEqu1.SelectedIndex).Player) {
+                    foreach (Team equipe in listaTeams2) {
+                        foreach (Player pla in equipe.Player) {
+                            if (pla.Id == player.Id) {
+                                tempList.Add(equipe);
+                            }
+                        }
+                    }
+                }
+                foreach(Team equipa in tempList) {
+                    listaTeams2.Remove(equipa);
+                }
+
                 cbJogEqu2.Items.Clear();
                 foreach (Team team in listaTeams2) {
                     cbJogEqu2.Items.Add(team.Name);
                 }
                 if (listaTeams2.Count > 0) {
                     cbJogEqu2.SelectedIndex = 0;
+                }else {
+                    DadosIncuficientes("Equipas", "Equipas insuficientes para criar um jogo!\n"+
+                        "Exitem jogadores que estam na mesma equipa!");
                 }
             } else {
                 listaPlayers2 = new List<Player>(listaPlayers1);
@@ -496,16 +507,20 @@ namespace Projeto {
                 fillJogadores();
                 StandardGame Standjogo;
                 Standjogo = listaStandGames.ElementAt(index);
-                cbJogEqu1.SelectedItem = Standjogo.PlayerOne.Name;
-                cbJogEqu2.SelectedItem = Standjogo.PlayerTwo.Name;
+                if (listaPlayers1.Count > 1 && listaDecks1.Count > 1) {
+                    cbJogEqu1.SelectedItem = Standjogo.PlayerOne.Name;
+                    cbJogEqu2.SelectedItem = Standjogo.PlayerTwo.Name;
+                }
 
             } else {
                 jogo = listaTeamGames.ElementAt(index);
                 fillEquipas();
                 TeamGame Teamjogo;
                 Teamjogo = listaTeamGames.ElementAt(index);
-                cbJogEqu1.SelectedItem = Teamjogo.TeamOne.Name;
-                cbJogEqu2.SelectedItem = Teamjogo.TeamTwo.Name;
+                if (listaTeams1.Count > 1 && listaDecks1.Count > 1) {
+                    cbJogEqu1.SelectedItem = Teamjogo.TeamOne.Name;
+                    cbJogEqu2.SelectedItem = Teamjogo.TeamTwo.Name;
+                }
             }
             nudNumeroJog.Value = jogo.Number;
             dpDataJog.Value = jogo.Date;
@@ -519,8 +534,7 @@ namespace Projeto {
         /// Preenche a comboBox cbBaralho1 com os arbitros
         /// existentes e seleciona o primeiro item
         /// </summary>
-        public bool fillReferee() {
-            bool flag = true;
+        public void fillReferee() {
             listaArbitros = arbitroRepo.GetRefereeList();
             cbArbitro.Items.Clear();
             foreach (Referee refer in listaArbitros) {
@@ -529,87 +543,71 @@ namespace Projeto {
             if (listaArbitros.Count > 0) {
                 cbArbitro.SelectedIndex = 0;
             }else {
-                flag = false;
-                MessageBox.Show(this,"Nenhum Arbitro disponivel!\nTem de cria novos arbitros para poder criat um jogo",
-                    "Arbitros - Sem dados",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                DadosIncuficientes("Arbitros", "Arbitros insuficientes para criar um jogo!");
             }
-            return flag;
         }
         
         /// <summary>
         /// Preenche a comboBox cbBaralho1 com os baralhos
         /// existentes e seleciona o primeiro item
         /// </summary>
-        public bool fillBaralhos() {
-            bool flag = true;
+        public void fillBaralhos() {
             listaDecks1 = deckRepo.GetDecksList();
             cbBaralho1.Items.Clear();
             foreach (Deck deck in listaDecks1) {
                 cbBaralho1.Items.Add(deck.Name);
             }
-            if (listaDecks1.Count == 1) {
-                flag = false;
-                MessageBox.Show(this, "Baralhos insuficientes!\nTem de ter no minimo 2 baralhos para poder criar um jogo",
-                     "Baralhos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if(listaDecks1.Count > 0){
-                    cbBaralho1.SelectedIndex = 0;
+            if(listaDecks1.Count >= 2){
+                cbBaralho1.SelectedIndex = 0;
             } else {
-                flag = false;
-                MessageBox.Show(this, "Nenhum Baralho disponivel!\nTem de cria novos baralho para poder criar um jogo",
-                    "Baralhos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DadosIncuficientes("Baralhos", "Baralhos insuficientes para criar um jogo!");
             }
-            return flag;
         }
 
         /// <summary>
         /// Preenche a comboBox cbJogEqu1 com Jogadores e se existir alguma coisa
         /// na lista seleciona o primeiro item se não limpa a comboBox
         /// </summary>
-        private bool fillJogadores() {
-            bool flag = true;
+        private void fillJogadores() {
             listaPlayers1 = playerRepo.GetPlayersList();
             cbJogEqu1.Items.Clear();
             foreach (Player player in listaPlayers1) {
                 cbJogEqu1.Items.Add(player.Name);
             }
-            if (listaPlayers1.Count == 1) {
-                flag = false;
-                MessageBox.Show(this, "Jogadores insuficientes!\nTem de ter no minimo 2 jogadores para poder criar um jogo",
-                     "Jogos - Dados insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if (listaPlayers1.Count > 0) {
+            if (listaPlayers1.Count >= 2) {
                 cbJogEqu1.SelectedIndex = 0;
             } else {
-                flag = false;
-                MessageBox.Show(this, "Nenhum Jogador disponivel!\nTem de cria novos jogadores para poder criar um jogo",
-                    "Jogos - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DadosIncuficientes("Jogadores", "Jogadores insuficientes para criar um jogo!");
             }
-            return flag;
         }
 
         /// <summary>
         /// Preenche a comboBox cbJogEqu1 com Equipas e se existir alguma coisa
         /// na lista seleciona o primeiro item se não limpa a comboBox
         /// </summary>
-        private bool fillEquipas() {
-            bool flag = true;
+        private void fillEquipas() {
             listaTeams1 = equipaRepo.GetTeamsList();
             cbJogEqu1.Items.Clear();
             foreach (Team team in listaTeams1) {
                 cbJogEqu1.Items.Add(team.Name);
             }
-            if (listaTeams1.Count == 1) {
-                flag = false;
-                MessageBox.Show(this, "Equipas insuficientes!\nTem de ter no minimo 2 equipas para poder criar um jogo",
-                "Equipas - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }else if (listaTeams1.Count > 0) {
+
+            if (listaTeams1.Count >= 2) {
                 cbJogEqu1.SelectedIndex = 0;
             } else {
-                flag = false;
-                MessageBox.Show(this, "Nenhuma Equipa disponivel!\nTem de cria novas equipas para poder criar um jogo",
-                    "Equipas - Sem dados", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DadosIncuficientes("Equipa", "Equipas insuficientes para criar um jogo!");
             }
-            return flag;
         }
-
+        /// <summary>
+        /// Mostra mensagem de erro de dados incuficientes
+        /// </summary>
+        /// <param name="text">Texto da mensagem</param>
+        /// <param name="title">Titulo da mensagem</param>
+        private void DadosIncuficientes(string title,string text) {
+            MessageBox.Show(this, text,
+                title, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            AtivarFormJogo(false);
+            LimpaFormJogos();
+        }
     }
 }
